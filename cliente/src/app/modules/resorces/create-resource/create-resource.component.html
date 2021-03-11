@@ -1,0 +1,146 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Carga de Recursos</h4>
+            <p class="card-category" *ngIf="this.element !== false">
+              {{ this.element.nombre }}
+            </p>
+          </div>
+          <div class="card-body">
+            <form class="form" method="" action="">
+              <div class="select-element">
+                <div class="dropdown">
+                  <button
+                    href="#"
+                    class="btn dropdown-toggle btn-primary btn-round"
+                    data-toggle="dropdown"
+                    aria-expanded="true"
+                  >
+                    Seleccione una competencia
+                    <b class="caret"></b>
+                  </button>
+                  <p class="card-category" *ngIf="this.element !== false">
+                    {{ this.element.nombre }}
+                  </p>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let item of competencias">
+                      <a (click)="selectedCompetencia(item)">{{
+                        item["nombre"]
+                      }}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div *ngIf="this.element !== false" class="upload-files">
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.recurso.nombre"
+                      name="nombre"
+                      class="form-control"
+                      placeholder="Nombre el recurso"
+                    />
+                  </div>
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.recurso.contenido"
+                      name="contenido"
+                      class="form-control"
+                      placeholder="Digite una descripcion sobre el contenido del recurso..."
+                    />
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button
+                    href="#"
+                    class="btn dropdown-toggle btn-primary btn-round"
+                    data-toggle="dropdown"
+                    aria-expanded="true"
+                  >
+                    Seleccione una leccion
+                    <b class="caret"></b>
+                  </button>
+                  <p class="card-category" *ngIf="this.element !== false">
+                    {{ this.recurso?.leccion }}
+                  </p>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let item of lecciones">
+                      <a (click)="selectedLeccion(item)">{{
+                        item["nombre"]
+                      }}</a>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="container"
+                  appDnd
+                  (fileDropped)="onFileDropped($event)"
+                >
+                  <input
+                    type="file"
+                    #fileDropRef
+                    id="fileDropRef"
+                    multiple
+                    (change)="fileBrowseHandler($event.target.files)"
+                  />
+                  <img src="assets/img/dnd/ic-upload-file.svg" alt="" />
+                  <h3>Arrastra y suelta tus archivos aqui</h3>
+                  <h3>o</h3>
+                  <label for="fileDropRef">Buscar archivos</label>
+                </div>
+                <br>
+                <div class="files-list">
+                  <div
+                    class="single-file"
+                    *ngFor="let file of files; let i = index"
+                  >
+                    <img
+                      src="assets/img/dnd/ic-file.svg"
+                      width="45px"
+                      alt="file"
+                    />
+                    <div class="info">
+                      <h4 class="name">
+                        {{ file?.name }}
+                      </h4>
+                      <p class="size">
+                        {{ formatBytes(file?.size) }}
+                      </p>
+                      <app-progress [progress]="file?.progress"></app-progress>
+                    </div>
+                    <img
+                      src="assets/img/dnd/ic-delete-file.svg"
+                      class="delete"
+                      width="20px"
+                      alt="file"
+                      (click)="deleteFile(i)"
+                    />
+                  </div>
+                  <button (click)="uploadFile()" mat-raised-button class="btn btn-success">Guardar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <br /><br /><br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Lecciòn</h4>
+              <p class="card-category">{{ this.lessonTitle }}</p>
+            </div>
+            <div class="card-body">
+              <mat-tab-group color="primary" backgroundColor="basic">
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">book</mat-icon>
+                    Aprender
+                  </ng-template>
+
+                  <mat-tab-group>
+                    <mat-tab *ngFor="let item of this.leccion.aprender">
+                      <ng-template mat-tab-label>{{ item.titulo }}</ng-template>
+                      <span [innerHTML]="item.contenido"></span>
+                    </mat-tab>
+                  </mat-tab-group>
+                </mat-tab>
+
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">fact_check</mat-icon>
+                    Practicar
+                  </ng-template>
+                  <mat-tab-group>
+                    <mat-tab>
+                      <ng-template mat-tab-label>Practica 1</ng-template>
+                      <div>
+                        <p>
+                          1. El proceso que consiste en todas las actividades del ciclo de vida, tanto estáticas como dinámicas relacionadas con la planificación, preparación y evaluación de productos de software y productos relacionados con el trabajo para determinar que cumplen los requisitos especificados, para demostrar que son aptos para el propósito y para detectar defectos.
+                        </p>
+                        <mat-radio-group aria-label="Select an option">
+                          <mat-radio-button value="1">a.	Fallo</mat-radio-button><br>
+                          <mat-radio-button value="2">b.	Prueba</mat-radio-button><br>
+                          <mat-radio-button value="2">c.	Defecto</mat-radio-button><br>
+                        </mat-radio-group>
+                      </div>
+                      <div>
+                        <p>
+                          2. Provocado por un error de implementación, por ejemplo el defecto lo provocará el haber utilizado el operador “x + y > z” en vez de “x + y => z”
+                        </p>
+                        <mat-radio-group aria-label="Select an option">
+                          <mat-radio-button value="1">a.	Defecto</mat-radio-button><br>
+                          <mat-radio-button value="2">b.	Error</mat-radio-button><br>
+                          <mat-radio-button value="2">c.	Fallo</mat-radio-button><br>
+                        </mat-radio-group>
+                      </div>
+                      <div>
+                        <p>
+                          3. Al ejecutar el programa con un defecto obtendremos resultados no deseados, por ejemplo, cuando el resultado de la suma de los dos componentes fuese igual, no obtendríamos los mismos resultados al compararlos con las sentencias indicadas anteriormente.
+                        </p>
+                        <mat-radio-group aria-label="Select an option">
+                          <mat-radio-button value="1">a.	Error</mat-radio-button><br>
+                          <mat-radio-button value="2">b.	Prueba</mat-radio-button><br>
+                          <mat-radio-button value="2">c.	Fallo</mat-radio-button><br>
+                        </mat-radio-group>
+                      </div>
+                      <div>
+                        <p>
+                          4. Está provocado por la acción humana, por ejemplo, el error lo provocará el desarrollador que realizará una incorrecta interpretación de un método del programa que producirá un resultado no esperado.
+                        </p>
+                        <mat-radio-group aria-label="Select an option">
+                          <mat-radio-button value="1">a.	Fallo</mat-radio-button><br>
+                          <mat-radio-button value="2">b.	Error</mat-radio-button><br>
+                          <mat-radio-button value="2">c.	Prueba</mat-radio-button><br>
+                        </mat-radio-group>
+                      </div>
+                      <button (click)="guardar()" mat-raised-button color="primary">Guardar</button>
+                    </mat-tab>
+                    
+                  </mat-tab-group>
+                </mat-tab>
+
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">grade</mat-icon>
+                    Aplicar
+                  </ng-template>
+
+                  <mat-tab-group>
+                    <mat-tab>
+                      <ng-template mat-tab-label>Aplicar 1</ng-template>
+                      <div>
+                        <p>
+                          ¿Cuál es la importancia de las pruebas de software en un proyecto informático?
+                        </p>
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Respuesta</mat-label>
+                          <input matInput #message maxlength="256" placeholder="...">
+                        </mat-form-field>
+                      </div>
+                      <button (click)="guardar()" mat-raised-button color="primary">Guardar</button>
+                    </mat-tab>
+                  </mat-tab-group>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <h2>Job Application for Heroes</h2>
+  <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+</div> -->

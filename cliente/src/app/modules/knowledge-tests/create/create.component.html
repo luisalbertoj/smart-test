@@ -1,0 +1,291 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Crear prueba de conocimiento</h4>
+            </div>
+            <div class="card-body">
+              <div class="preguntas">
+                <form class="form" method="" action="">
+                  <div class="form-group has-default">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">face</i>
+                        </span>
+                      </div>
+                      <input
+                        type="text"
+                        [(ngModel)]="this.prueba.nombre"
+                        name="nombre"
+                        class="form-control"
+                        placeholder="Nombre de la prueba"
+                      />
+                    </div>
+                  </div>
+                  <ng-template mat-tab-label>Practica 1</ng-template>
+                  <div>
+                    <h3>Primera pregunta</h3>
+                    <div>
+                      <div class="form-group has-default">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">face</i>
+                            </span>
+                          </div>
+                          <input
+                            type="text-area"
+                            [(ngModel)]="this.aux[0].pregunta"
+                            name="pregunta1"
+                            class="form-control"
+                            placeholder="Pregunta numero 1"
+                          />
+                        </div>
+                      </div>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[0].respuestas[0]"
+                            name="respuesta1"
+                            class="form-control"
+                            placeholder="Respuesta numero 1"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[0].respuestas[1]"
+                            name="respuesta2"
+                            class="form-control"
+                            placeholder="Respuesta numero 2"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[0].respuestas[2]"
+                            name="respuesta3"
+                            class="form-control"
+                            placeholder="Respuesta numero 3"
+                          /> </mat-radio-button
+                        ><br />
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Segunda pregunta</h3>
+                    <div>
+                      <div class="form-group has-default">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">face</i>
+                            </span>
+                          </div>
+                          <input
+                            type="text-area"
+                            [(ngModel)]="this.aux[1].pregunta"
+                            name="pregunta2"
+                            class="form-control"
+                            placeholder="Pregunta numero 2"
+                          />
+                        </div>
+                      </div>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[1].respuestas[0]"
+                            name="respuesta4"
+                            class="form-control"
+                            placeholder="Respuesta numero 1"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[1].respuestas[1]"
+                            name="respuesta5"
+                            class="form-control"
+                            placeholder="Respuesta numero 2"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[1].respuestas[2]"
+                            name="respuesta6"
+                            class="form-control"
+                            placeholder="Respuesta numero 3"
+                          /> </mat-radio-button
+                        ><br />
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Tercera pregunta</h3>
+                    <div>
+                      <div class="form-group has-default">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">face</i>
+                            </span>
+                          </div>
+                          <input
+                            type="text-area"
+                            [(ngModel)]="this.aux[2].pregunta"
+                            name="pregunta3"
+                            class="form-control"
+                            placeholder="Pregunta numero 3"
+                          />
+                        </div>
+                      </div>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[2].respuestas[0]"
+                            name="respuesta7"
+                            class="form-control"
+                            placeholder="Respuesta numero 1"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[2].respuestas[1]"
+                            name="respuesta7"
+                            class="form-control"
+                            placeholder="Respuesta numero 2"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[2].respuestas[2]"
+                            name="respuesta8"
+                            class="form-control"
+                            placeholder="Respuesta numero 3"
+                          /> </mat-radio-button
+                        ><br />
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Cuarta pregunta</h3>
+                    <div>
+                      <div class="form-group has-default">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">face</i>
+                            </span>
+                          </div>
+                          <input
+                            type="text-area"
+                            [(ngModel)]="this.aux[3].pregunta"
+                            name="pregunta4"
+                            class="form-control"
+                            placeholder="Pregunta numero 4"
+                          />
+                        </div>
+                      </div>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[3].respuestas[0]"
+                            name="respuesta9"
+                            class="form-control"
+                            placeholder="Respuesta numero 1"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[3].respuestas[1]"
+                            name="respuesta10"
+                            class="form-control"
+                            placeholder="Respuesta numero 2"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[3].respuestas[2]"
+                            name="respuesta11"
+                            class="form-control"
+                            placeholder="Respuesta numero 3"
+                          /> </mat-radio-button
+                        ><br />
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Quinta pregunta</h3>
+                    <div>
+                      <div class="form-group has-default">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">face</i>
+                            </span>
+                          </div>
+                          <input
+                            type="text-area"
+                            [(ngModel)]="this.aux[4].pregunta"
+                            name="pregunta4"
+                            class="form-control"
+                            placeholder="Pregunta numero 5"
+                          />
+                        </div>
+                      </div>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[4].respuestas[0]"
+                            name="respuesta12"
+                            class="form-control"
+                            placeholder="Respuesta numero 1"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[4].respuestas[1]"
+                            name="respuesta13"
+                            class="form-control"
+                            placeholder="Respuesta numero 2"
+                          /> </mat-radio-button
+                        ><br />
+                        <mat-radio-button value="1">
+                          <input
+                            type="text"
+                            [(ngModel)]="this.aux[4].respuestas[2]"
+                            name="respuesta14"
+                            class="form-control"
+                            placeholder="Respuesta numero 3"
+                          /> </mat-radio-button
+                        ><br />
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <button (click)="guardar()" mat-raised-button color="primary">
+                    Guardar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
