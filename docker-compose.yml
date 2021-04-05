@@ -8,3 +8,11 @@ services:
     working_dir: /api
     volumes:
       - ./:/api
+  cliente:
+    image: node
+    command: sh -c "cd ./cliente && npm install && npm start"
+    ports:
+      - 4200:4200
+    working_dir: /cliente/src
+    volumes:
+      - ./:/cliente/src
