@@ -1,4 +1,4 @@
-# servidor-3
+# servidor
 
 a [Sails v1](https://sailsjs.com) application
 
