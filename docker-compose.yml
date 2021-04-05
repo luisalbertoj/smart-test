@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  app:
+    image: node
+    command: sh -c "npm install && npm start"
+    ports:
+      - 1337:1337
+    working_dir: /api
+    volumes:
+      - ./:/api
