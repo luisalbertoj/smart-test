@@ -13,6 +13,6 @@ services:
     command: sh -c "cd ./cliente && npm install && npm start"
     ports:
       - 4200:4200
-    working_dir: /cliente/src
+    working_dir: /cliente
     volumes:
-      - ./:/cliente/src
+      - ./:/cliente
