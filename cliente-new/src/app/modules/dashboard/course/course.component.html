@@ -1,0 +1,549 @@
+<!-- Body Start -->
+<div class="wrapper">
+  <div class="sa4d25">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="st_title">
+            <i class="uil uil-analysis"></i> {{ this.leccion.titulo }}
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="course_tabs_1">
+            <div id="add-course-tab" class="step-app">
+              <ul class="step-steps">
+                <li class="active">
+                  <a href="#tab_step1">
+                    <span class="number"></span>
+                    <span class="step-name">Aprende</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#tab_step2">
+                    <span class="number"></span>
+                    <span class="step-name">Practica</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#tab_step3">
+                    <span class="number"></span>
+                    <span class="step-name">Realimentación</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#tab_step4">
+                    <span class="number"></span>
+                    <span class="step-name">Aplica</span>
+                  </a>
+                </li>
+              </ul>
+              <div class="step-content">
+                <div class="step-tab-panel step-tab-info active" id="tab_step1">
+                  <div class="tab-from-content">
+                    <div class="title-icon">
+                      <h3 class="title">
+                        <i class="uil uil-info-circle"></i
+                        >{{ this.leccion.titulo }}
+                      </h3>
+                    </div>
+                    <div class="course__form">
+                      <span
+                        [innerHTML]="this.leccion.contenido.aprende[0].cuerpo"
+                      ></span>
+                      <div class="step-footer step-tab-pager">
+                        <button
+                          style="visibility: hidden"
+                          data-direction="prev"
+                          class="btn btn-default steps_btn"
+                        >
+                          Volver
+                        </button>
+                        <a
+                          id="pills-contact-tab"
+                          data-toggle="pill"
+                          href="#pills-contact"
+                          role="tab"
+                          aria-controls="pills-contact"
+                          aria-selected="false"
+                        >
+                          <button
+                            data-direction="next"
+                            class="btn btn-default steps_btn"
+                          >
+                            Siguiente
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="step-tab-panel step-tab-gallery"
+                  id="pills-contact"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
+                  <div class="tab-from-content">
+                    <div class="title-icon">
+                      <h3 class="title">
+                        <i class="uil uil-image-upload">Practicar</i>
+                      </h3>
+                    </div>
+                    <div class="course__form">
+                      <!-- Body Start -->
+                      <div class="wrapper _bg4586 _new89">
+                        <div class="_215b15">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <div class="title126">
+                                  <h2>{{ this.leccion.titulo }}</h2>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="faq1256">
+                          <div class="container">
+                            <div class="row">
+                              <h2>
+                                Seleccionar la opción correcta (Verdadero –
+                                falso)
+                              </h2>
+                              <div class="col-lg-7 col-md-6">
+                                <div class="certi_form">
+                                  <div class="all_ques_lest">
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 1 :-</span>
+                                        El caso de uso lo podemos describir como
+                                        aquella representación de las
+                                        actividades que se deben realizar para
+                                        llevar a cabo un proceso
+                                      </div>
+                                      <div class="ui form">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example1"
+                                                tabindex="0"
+                                              />
+                                              <label>Verdadero</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example1"
+                                                tabindex="0"
+                                              />
+                                              <label>Falso</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 2 :-</span>
+                                        Un caso de prueba no específica que
+                                        probar en el sistema
+                                      </div>
+                                      <div class="ui search focus mt-15">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example2"
+                                                tabindex="0"
+                                              />
+                                              <label>Verdadero</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example2"
+                                                tabindex="0"
+                                              />
+                                              <label>Falso</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 3 :-</span>
+                                        Los casos de uso nacen para detallar
+                                        funcionalidades del sistema
+                                      </div>
+                                      <div class="ui form">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example3"
+                                                tabindex="0"
+                                              />
+                                              <label>Verdadero</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example3"
+                                                tabindex="0"
+                                              />
+                                              <label>Falso</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 4 :-</span>
+                                        Un caso de uso es un conjunto de
+                                        escenarios que tienen una meta de
+                                        usuario en común
+                                      </div>
+                                      <div class="ui form">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example4"
+                                                tabindex="0"
+                                              />
+                                              <label>Verdadero</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example4"
+                                                tabindex="0"
+                                              />
+                                              <label>Falso</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <h2>
+                                      Seleccionar la palabra que falta en la
+                                      oración
+                                    </h2>
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 5 :-</span>
+                                        En el paso 3 se definen las
+                                        combinaciones posibles de las reglas en
+                                        la ______
+                                      </div>
+                                      <div class="ui form">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example4"
+                                                tabindex="0"
+                                              />
+                                              <label>a. Columna</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example4"
+                                                tabindex="0"
+                                              />
+                                              <label>b. Línea </label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example4"
+                                                tabindex="0"
+                                              />
+                                              <label>c. Tabla</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 6 :-</span>
+                                        En el paso 5 se Identifican e incluyen
+                                        las posibles acciones, así como
+                                        determinar las acciones de ______ por
+                                        cada regla.
+                                      </div>
+                                      <div class="ui form">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example5"
+                                                tabindex="0"
+                                              />
+                                              <label>a. Salida</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example5"
+                                                tabindex="0"
+                                              />
+                                              <label>b. Entrada</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example5"
+                                                tabindex="0"
+                                              />
+                                              <label>c. Pruebas</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="ques_item">
+                                      <div class="ques_title">
+                                        <span>Pregunta 7 :-</span>
+                                        En el paso 2 se _______ el número de
+                                        reglas
+                                      </div>
+                                      <div class="ui form">
+                                        <div class="grouped fields">
+                                          <div class="field fltr-radio">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example6"
+                                                tabindex="0"
+                                              />
+                                              <label>a. Programan</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example6"
+                                                tabindex="0"
+                                              />
+                                              <label>b. Relacionan</label>
+                                            </div>
+                                          </div>
+                                          <div class="field">
+                                            <div class="ui radio checkbox">
+                                              <input
+                                                type="radio"
+                                                name="example6"
+                                                tabindex="0"
+                                              />
+                                              <label>c. Identifican</label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="step-footer step-tab-pager">
+                                    <button
+                                      data-direction="prev"
+                                      class="btn btn-default steps_btn"
+                                    >
+                                      Volver
+                                    </button>
+                                    <a
+                                      id="#tab_step3-tab"
+                                      data-toggle="pill"
+                                      href="#tab_step3"
+                                      role="tab"
+                                      aria-controls="#tab_step3"
+                                      aria-selected="false"
+                                    >
+                                      <button
+                                        data-direction="next"
+                                        class="btn btn-default steps_btn"
+                                      >
+                                        Siguiente
+                                      </button>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Body End -->
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="step-tab-panel step-tab-location"
+                  id="tab_step3"
+                  role="tabpanel"
+                  aria-labelledby="tab_step3-contact-tab"
+                >
+                  <div class="tab-from-content">
+                    <div class="wrapper _bg4586 _new89">
+                      <div class="_215b15">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="title126">
+                                <h2>Resultados</h2>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="faq1256">
+                        <div class="container">
+                          <div class="row justify-content-md-center">
+                            <div class="col-md-6">
+                              <div class="certi_form rght1528">
+                                <div class="test_result_bg">
+                                  <ul class="test_result_left">
+                                    <li>
+                                      <div class="result_dt">
+                                        <i class="uil uil-check right_ans"></i>
+                                        <p>Correctas<span>(4)</span></p>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="result_dt">
+                                        <i class="uil uil-times wrong_ans"></i>
+                                        <p>Errores<span>(3)</span></p>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="result_dt">
+                                        <h4>4</h4>
+                                        <p>4 de 7</p>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                  <div class="result_content">
+                                    <h2>Buen trabajo</h2>
+                                    <p>
+                                      Con esfuerzo y perseverancia podrás
+                                      alcanzar tus metas
+                                    </p>
+                                    <a
+                                      id="#tab_step4-tab"
+                                      data-toggle="pill"
+                                      href="#tab_step4"
+                                      role="tab"
+                                      aria-controls="#tab_step4"
+                                      aria-selected="false"
+                                    >
+                                      <button
+                                        data-direction="next"
+                                        class="btn btn-default steps_btn"
+                                      >
+                                        Siguiente
+                                      </button>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Body End -->
+                  </div>
+                </div>
+
+                <div class="step-tab-panel step-tab-amenities" 
+                id="tab_step4"
+                  role="tabpanel"
+                  aria-labelledby="tab_step4-contact-tab">
+                  <div class="tab-from-content">
+                    <div class="title-icon">
+                      <h3 class="title">
+                        <i class="uil uil-file-copy-alt"></i> Aplicar
+                      </h3>
+                    </div>
+                    <div class="course__form">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="extra_info">
+                            <h4 class="part__title">Caso de Estudio</h4>
+                          </div>
+                          <div class="col-lg-12 col-md-12">
+                            <div class="course_des_textarea mt-30 lbel25">
+                                <label>Eres el líder de un proyecto estás desarrollando una tienda virtual y quieres probar la funcionalidad de carrito de compras. Intenta formular el caso de uso, detallando los pasos que debe llevar a cabo el usuario para realizar la acción posteriormente define el caso de prueba como los ejemplificados durante la lección detallando contexto, acción y resultado esperado.  </label>
+                                <div class="course_des_bg">
+                                    <ul class="course_des_ttle">
+                                        <li><a href="#"><i class="uil uil-bold"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-italic"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-list-ul"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-left-to-right-text-direction"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-right-to-left-text-direction"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-list-ui-alt"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-link"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-text-size"></i></a></li>
+                                        <li><a href="#"><i class="uil uil-text"></i></a></li>
+                                    </ul>
+                                    <div class="textarea_dt">															
+                                        <div class="ui form swdh339">
+                                            <div class="field">
+                                                <textarea rows="5" name="description" id="id_course_description" placeholder="Inserta tu respuesta"></textarea>
+                                            </div>
+                                        </div>										
+                                    </div>
+                                    <button
+                                        data-direction="next"
+                                        class="btn btn-default steps_btn"
+                                      >
+                                        Finalizar
+                                      </button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Body End -->
