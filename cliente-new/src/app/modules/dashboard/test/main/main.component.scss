@@ -1,0 +1,19 @@
+.tarjeta {
+    overflow: hidden;
+}
+
+.tarjetaimagen {
+    overflow: hidden;
+    object-fit: cover;
+    height: 160px;
+}
+
+
+.tarjetatest:hover {
+    box-shadow: 1px 1px 5px 1px gray; 
+}
+
+.imagencirculo {
+    width: 90px;
+
+}
