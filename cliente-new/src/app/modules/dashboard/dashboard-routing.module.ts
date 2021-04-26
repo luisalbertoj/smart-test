@@ -17,7 +17,14 @@ const routes: Routes = [
      },
      {
        path: 'course/:slug', component: CourseComponent
-     }
+     },
+     {
+      path: 'test',
+      loadChildren: () =>
+        import('./test/test.module').then(
+          (m) => m.TestModule 
+        ),
+    },
    ]
   }
 ];
