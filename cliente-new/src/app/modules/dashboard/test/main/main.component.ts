@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FactoryService } from 'src/app/services/factory.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public plantilla = {
+    bannerImg: 'assets/images/test/main.jpg',
+    bannerAlt: 'banner pruebas de conocimiento',
+    bannerTitulo: 'Pruebas de conocimiento',
+    bannerBoton: 'Nueva',
+    bannerBotonIcono: 'fas fa-plus',
+    botonTarjeta: 'Comenzar',
+    botonTarjetaIcono: 'fas fa-arrow-right'
   }
 
+  public tests = [];
+
+
+  constructor(public factory: FactoryService) { }
+
+  ngOnInit(): void {
+    this.loadTest();
+  }
+
+  loadTest() {
+    this.factory.getAll('pruebaconocimiento').subscribe(
+      (response: any) => { this.tests = (response) }
+
+    )
+  }
 }
