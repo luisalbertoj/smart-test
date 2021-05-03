@@ -1,5 +1,5 @@
 /**
- * Respuesta.js
+ * Tags.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,23 +12,21 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    contenido: {
-      type: 'string',
-      required: true
-    },
-    etiquetas: {
-      collection: 'tags',
-      via: 'respuestas'
+    nombre: {
+      type: 'string'
     },
     preguntas: {
       collection: 'pregunta',
-      via: 'respuestas'
+      via: 'etiquetas'
+    },
+    respuestas: {
+      collection: 'respuesta',
+      via: 'etiquetas'
     },
     estado: {
       type: 'string',
       defaultsTo: '1'
     }
-
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

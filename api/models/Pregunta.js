@@ -13,6 +13,25 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
+    contenido: {
+      type: 'string',
+      required: true
+    },
+    etiquetas: {
+      collection: 'tags',
+      via: 'preguntas'
+    },
+    respuestas: {
+      collection: 'respuesta',
+      via: 'preguntas'
+    },
+    respuesta_correcta: {
+      model: 'respuesta'
+    },
+    estado: {
+      type: 'string',
+      defaultsTo: '1'
+    }
     
 
 
