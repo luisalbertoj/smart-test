@@ -17,6 +17,10 @@ module.exports = {
       type: 'string',
       required: true
     },
+    tipo: {
+      type: 'string',
+      defaultsTo: 'multiple'
+    },
     etiquetas: {
       collection: 'tags',
       via: 'preguntas'
