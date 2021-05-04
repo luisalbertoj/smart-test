@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FactoryService } from 'src/app/services/factory.service';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -24,10 +25,10 @@ export class MainComponent implements OnInit {
   constructor(public factory: FactoryService) { }
 
   ngOnInit(): void {
-    this.loadTest();
+    this.loadTests();
   }
 
-  loadTest() {
+  loadTests() {
     this.factory.getAll('pruebaconocimiento').subscribe(
       (response: any) => { this.tests = (response) }
 
