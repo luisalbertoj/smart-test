@@ -9,7 +9,11 @@ import { FactoryService } from 'src/app/services/factory.service';
 })
 export class ViewTestComponent implements OnInit {
 
-  public test = false;
+  public test = null;
+
+  public pregunta = null;
+
+  public respuesta = null;
 
   constructor(public factory: FactoryService, private rutaActiva: ActivatedRoute) { 
 
@@ -22,8 +26,10 @@ export class ViewTestComponent implements OnInit {
 
   loadTest (){
     this.factory.get('pruebaconocimiento', this.rutaActiva.snapshot.params.id).subscribe(
-      (response: any) => { this.test = response}
+      (response: any) => { this.test = response; console.log(response);}
+
       )
   }
+ 
 
 }

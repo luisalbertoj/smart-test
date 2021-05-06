@@ -29,11 +29,15 @@ module.exports = {
       collection: 'respuesta',
       via: 'preguntas'
     },
+    pruebas: {
+      collection: 'pruebaconocimiento',
+      via: 'preguntas'
+    },
     respuesta_correcta: {
       model: 'respuesta'
     },
     estado: {
-      type: 'string',
+      type: 'string', 
       defaultsTo: '1'
     }
     
@@ -52,3 +56,4 @@ module.exports = {
 
 };
 
+'´´´´´´´´´´´´´´´´´´'

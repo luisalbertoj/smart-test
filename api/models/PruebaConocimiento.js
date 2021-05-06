@@ -34,7 +34,12 @@ module.exports = {
     cierre: {
       type: 'string',
       required: true
+    },
+    preguntas: {
+      collection: 'pregunta',
+      via: 'pruebas'
     }
+
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
