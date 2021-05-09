@@ -37,7 +37,8 @@ module.exports = {
     },
     preguntas: {
       collection: 'pregunta',
-      via: 'pruebas'
+      via: 'prueba',
+      through: 'pruebapregunta'
     }
 
 
