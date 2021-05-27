@@ -19,7 +19,9 @@ describe('MainComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Componente creado', () => {
+    const fixture = TestBed.createComponent(MainComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 });
