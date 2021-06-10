@@ -14,22 +14,22 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('la aplicacion fue creada', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'smart-test-cliente'`, () => {
+  it(`el titulo de la apliacion es 'smart-test-cliente'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('smart-test-cliente');
   });
 
-  it('should render title', () => {
+ /*  it('Titulo renderizado', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('smart-test-cliente app is running!');
-  });
+  }); */
 });

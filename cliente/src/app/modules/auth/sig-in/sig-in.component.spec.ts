@@ -19,7 +19,7 @@ describe('SigInComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Creacion del componente', () => {
     expect(component).toBeTruthy();
   });
 });
