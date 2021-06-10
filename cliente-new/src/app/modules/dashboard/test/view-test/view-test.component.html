@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="ui form">
                                     <div class="grouped fields">
-                                        <div class="field fltr-radio">
+                                        <div class="field fltr-radio" *ngFor="let item of list">
                                             <div class="ui radio checkbox">
                                                 <input type="radio" name="example1" tabindex="0" class="hidden">
                                                 <label>{{respuesta.contenido}}</label>
