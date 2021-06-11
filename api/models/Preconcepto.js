@@ -1,5 +1,5 @@
 /**
- * Competencia.js
+ * Preconcepto.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -8,33 +8,29 @@
 module.exports = {
 
   attributes: {
-    nombre: {
-      type: 'string',
-      required: true
-    },
-    observaciones: {
-      type: 'string',
-      required: true
-    },
-    creador: {
-      model: 'persona'
-    },
-    lecciones: {
-      collection: 'leccion',
-      via: 'competencia'
-    },
-    slug: {
-      type: 'slug',
-      from: 'nombre',
-      blacklist: ['search']
-    }
-
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
+    titulo: {
+      type: 'string',
+      required: true
+    },
+    concepto: {
+      type: 'string',
+      required: true
+    },
+    fuente: {
+      type: 'string',
+      required: true
+    },
 
+    slug: {
+      type: 'slug',
+      from: 'titulo',
+      blacklist: ['search']
+    },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -44,6 +40,10 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
+    lecciones: {
+      collection: 'leccion',
+      via: 'preconceptos'
+    }
   }
-
 };
+

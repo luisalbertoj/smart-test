@@ -5,11 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

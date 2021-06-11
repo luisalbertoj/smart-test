@@ -8,13 +8,15 @@
 module.exports = {
 
   attributes: {
-    nombre: {
+    titulo: {
       type: 'string',
       required: true
     },
+    
     slug: {
-      type: 'string',
-      required: true
+      type: 'slug',
+      from: 'titulo',
+      blacklist: ['search']
     },
     observaciones: {
       type: 'string',
@@ -29,7 +31,7 @@ module.exports = {
     },
     competencia: {
       model: 'competencia'
-    }
+    },
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
@@ -43,6 +45,14 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    preconceptos: {
+      collection: 'preconcepto',
+      via: 'lecciones'
+    },
+    objetivos: {
+      collection: 'objetivo',
+      via: 'lecciones'
+    }
 
   },
 
