@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FactoryService } from 'src/app/services/factory.service';
 
 @Component({
@@ -10,12 +10,9 @@ import { FactoryService } from 'src/app/services/factory.service';
 export class ViewTestComponent implements OnInit {
 
   public test = null;
+  public respuestas = [];
 
-  public pregunta = null;
-
-  public respuesta = null;
-
-  constructor(public factory: FactoryService, private rutaActiva: ActivatedRoute) { 
+  constructor(public factory: FactoryService, private rutaActiva: ActivatedRoute, private router: Router) { 
 
   }
 
@@ -25,11 +22,31 @@ export class ViewTestComponent implements OnInit {
 
 
   loadTest (){
-    this.factory.get('pruebaconocimiento', this.rutaActiva.snapshot.params.id).subscribe(
-      (response: any) => { this.test = response; console.log(response);}
+    this.factory.get('getprueba', this.rutaActiva.snapshot.params.id).subscribe(
+      (response: any) => { this.test = response.data; console.log(response);}
 
       )
   }
  
+  respuestaSeleccionada (index, respuesta) {
+    this.respuestas[index]=respuesta;
+  }
 
+  validarRespuestas(){
+
+    let response = {
+      correctas:[],
+      totales:this.test.preguntas.length,
+      resUser:this.respuestas,
+      test:this.test
+    };
+    for (let i = 0; i < this.respuestas.length; i++) {
+      const element = this.respuestas[i];
+      if (this.respuestas[i]==this.test.preguntas[i].respuestacorrecta) {
+        response.correctas.push(this.test.preguntas[i]);
+      }  
+    }
+    localStorage.setItem('result',JSON.stringify(r0esponse));
+    this.router.navigate(['dashboard/test/result']);
+  }
 }
