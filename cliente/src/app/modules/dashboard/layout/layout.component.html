@@ -5,8 +5,24 @@
       <ul>
         <li class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
+            <i class="uil uil-book-alt menu--icon"></i>
+            <span class="menu--label">Lecciones</span>
+          </label>
+          <ul class="sub_menu">
+            <li class="sub_menu--item">
+              <a
+                [routerLink]="['/dashboard/lesson/new']"
+                routerLinkActive="router-link-active"
+                class="sub_menu--link"
+                >Crear Lecciones</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
             <i class="uil uil-clipboard-alt menu--icon"></i>
-            <span class="menu--label">Pruebas</span>
+            <span class="menu--label">Test de conocimiento</span>
           </label>
           <ul class="sub_menu">
             <li class="sub_menu--item">
@@ -17,6 +33,15 @@
                 >Mis Pruebas</a
               >
             </li>
+          </ul>
+        </li>
+        <li class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
+            <i class="uil uil-layers menu--icon"></i>
+            <span class="menu--label">Recursos educativos</span>
+          </label>
+          <ul class="sub_menu">
+            
           </ul>
         </li>
       </ul>
