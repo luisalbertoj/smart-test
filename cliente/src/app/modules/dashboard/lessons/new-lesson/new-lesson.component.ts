@@ -49,7 +49,12 @@ export class NewLessonComponent implements OnInit {
     );
   }
   cargarCompetencias() {
-    this.factory.getAll('competencia').subscribe((response: any) => this.competencias = response);
+    this.factory.getAll('competencia').subscribe(
+      (response: any) => {
+        this.competencias = response
+        console.log(this.competencias);
+      }
+    );
   }
 
 }
