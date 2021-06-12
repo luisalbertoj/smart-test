@@ -91,7 +91,7 @@
 	right: 15px;
 	height: 45px;
 	line-height: 45px;
-	font-family: FontAwesome;
+	font-family: 'Font Awesome 5 Free';
 	content: "\f0d7";
 }
 
@@ -159,7 +159,7 @@
 
 .sub_menu--link:hover {
 	color: #43bd41 !important;
-	background: #ffecec;
+	background: #e1f5e0;
 }
 
 .sub_menu--link.active {
@@ -196,7 +196,7 @@
 	width: 150px;
 	padding-left: 16px;
 	padding-right: 16px;
-	background: #e9e9e9;
+	background: #e1f5e0;
 	font-weight: 500;
 }
 
@@ -213,7 +213,7 @@
 	top: 40px;
 	left: 50px;
 	width: 150px;
-	background: #e9e9e9
+	background: #e1f5e0
 }
 
 .vertical_nav__minify .sub_menu--link {
