@@ -22,6 +22,7 @@
     "@kolkov/angular-editor": "^1.1.7",
     "angular-froala-wysiwyg": "^4.0.1",
     "jquery-steps": "^1.1.0",
+    "ngx-chips": "^2.2.2",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.15.6",
     "tslib": "^2.0.0",

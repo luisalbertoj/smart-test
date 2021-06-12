@@ -8,34 +8,45 @@
 module.exports = {
 
   attributes: {
+
     titulo: {
       type: 'string',
       required: true
     },
+
+    introduccion: {
+      type: 'string',
+      required: true
+    },
+
+    observaciones: {
+      type: 'string',
+    },
+
+    conclusiones: {
+      type: 'string'
+    },
+
+    aprender: {
+      type: 'string'
+    },
     
+    practicar: {
+      type: 'string'
+    },
+
+    aplicar: {
+      type: 'string'
+    },
+
+    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
+    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
+    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     slug: {
       type: 'slug',
       from: 'titulo',
       blacklist: ['search']
     },
-    observaciones: {
-      type: 'string',
-      required: true
-    },
-    contenido: {
-      type: 'string',
-      required: true
-    },
-    creador: {
-      model: 'persona'
-    },
-    competencia: {
-      model: 'competencia'
-    },
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -45,6 +56,15 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+    creador: {
+      model: 'persona'
+    },
+
+    competencia: {
+      model: 'competencia'
+    },
+
     preconceptos: {
       collection: 'preconcepto',
       via: 'lecciones'
@@ -52,8 +72,11 @@ module.exports = {
     objetivos: {
       collection: 'objetivo',
       via: 'lecciones'
+    },
+    items: {
+      collection: 'item',
+      via: 'leccion'
     }
-
   },
 
 };

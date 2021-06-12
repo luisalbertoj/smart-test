@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LessonsRoutingModule } from './lessons-routing.module';
-import { NewLessonComponent } from './new-lesson/new-lesson.component';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { HttpClientModule } from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TagInputModule } from 'ngx-chips';
+
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+
+
 
 
 @NgModule({
   declarations: [NewLessonComponent],
   imports: [
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    LessonsRoutingModule,
     AngularEditorModule,
-    CommonModule,
-    LessonsRoutingModule
+    TagInputModule
   ]
 })
 export class LessonsModule { }
