@@ -25,25 +25,26 @@ export class NewLessonComponent implements OnInit {
     creador: '',
 
   };
-  public competencias: any = []; 
+  public competencias: any = [];
   public preconceptos: any = [];
   public preconSelec: any = [];
   public items: any = [];
-  
+
   constructor(public factory: FactoryService) { }
 
   ngOnInit(): void {
     this.cargarCompetencias();
     this.cargarPreconceptos();
+
   }
   cargarPreconceptos() {
     this.factory.getAll('preconcepto').subscribe(
       (response: any) => {
-      this.preconceptos = response
-      for (const it of this.preconceptos) {
-        this.items.push(it.slug);
-        console.log(this.items);
-      }
+        this.preconceptos = response
+        for (const it of this.preconceptos) {
+          this.items.push(it.slug);
+        }
+        console.log(this.preconceptos);
       }
     );
   }
