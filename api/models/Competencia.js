@@ -19,17 +19,7 @@ module.exports = {
     creador: {
       model: 'persona'
     },
-    lecciones: {
-      collection: 'leccion',
-      via: 'competencia'
-    },
-    slug: {
-      type: 'slug',
-      from: 'nombre',
-      blacklist: ['search']
-    }
-
-
+    
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
@@ -39,10 +29,21 @@ module.exports = {
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
 
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      blacklist: ['search']
+    },
+
 
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+    lecciones: {
+      collection: 'leccion',
+      via: 'competencia'
+    },
 
   }
 

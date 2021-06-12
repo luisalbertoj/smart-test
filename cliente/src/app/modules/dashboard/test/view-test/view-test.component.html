@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title126">
-                        <div class="alert alert-danger " role="alert">
+                        <!-- <div class="alert alert-danger " role="alert">
                             <h2 class="alert-heading">{{test.nombre|uppercase}}</h2>
                             <p>{{test.observaciones}}</p>
                             <hr>
@@ -27,7 +27,7 @@
                             <span>Fecha inicio: {{test.inicio}}</span>
                             <span> - </span>
                             <span>Fecha cierre: {{test.cierre}}</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -37,19 +37,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
+                    <h2>Pruebas de conocimiento</h2>
                     <div class="certi_form rght1528">
                         <div class="test_timer_bg">
+                           
                             <ul class="test_timer_left">
                                 <li>
                                     <div class="timer_time">
-                                        <h4>20</h4>
-                                        <p>Questions</p>
+                                        <h4>{{test.preguntas.length}}</h4>
+                                        <p>Preguntas</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="timer_time">
                                         <h4 id="timer">60</h4>
-                                        <p>Minutes</p>
+                                        <p>Minutos</p>
                                     </div>
                                 </li>
                             </ul>
@@ -84,7 +86,7 @@
                                     </div>
                                     <div *ngIf="pregunta.tipo==='text'">
                                         <div class="ques_title">
-                                            <span>Preguta {{i+1}}:- </span>
+                                            <span>Pregunta {{i+1}}:- </span>
                                             {{pregunta.contenido}}
                                         </div>
                                         <div class="ui search focus mt-15">

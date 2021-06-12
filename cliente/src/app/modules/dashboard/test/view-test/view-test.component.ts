@@ -46,7 +46,7 @@ export class ViewTestComponent implements OnInit {
         response.correctas.push(this.test.preguntas[i]);
       }  
     }
-    localStorage.setItem('result',JSON.stringify(r0esponse));
+    localStorage.setItem('result',JSON.stringify(response));
     this.router.navigate(['dashboard/test/result']);
   }
 }

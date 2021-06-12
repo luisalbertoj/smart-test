@@ -5681,7 +5681,7 @@ a.rmv-btn i {
 }
 
 .sign_in_up_bg {
-    background: #f7f7f7 !important;
+    background: #f7f7f7;
     position: relative;
 	width: 100%;
 }
