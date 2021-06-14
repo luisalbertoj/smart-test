@@ -1,63 +1,54 @@
-<div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-danger">
-            <h4 class="card-title">Lista de Recursos Educativos</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th class="text-center">Titulo</th>
-                    <th>Descripcion</th>
-                    <th>Creado por</th>
-                    <th>Leccion</th>
-                    <th class="text-right">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of recursosEducativos">
-                    <td class="text-center">{{ item.nombre }}</td>
-                    <td>{{ item.contenido }}</td>
-                    <td>
-                      {{ item.creador.nombre }} - {{ item.creador.apellido }}
-                    </td>
-                    <td>{{ item.leccion.nombre }}</td>
-                    <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" class="btn btn-info">
-                        <a
-                          href="{{ factory.apiMedia + '/' + item.link }}"
-                          target="_blank"
-                        >
-                          <i class="material-icons">download</i>
-                        </a>
-                      </button>
-                      <button
-                        type="button"
-                        rel="tooltip"
-                        class="btn btn-success"
-                        (click)="viewer(item.link)"
-                      >
-                        <i class="material-icons">start</i>
-                      </button>
-                      <button
-                        type="button"
-                        rel="tooltip"
-                        class="btn btn-danger"
-                        (click)="delete(item.id)"
-                      >
-                        <i class="material-icons">close</i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+<div class="wrapper">
+  <div class="sa4d25">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-danger">
+                <h2 class="card-title">Lista de Recursos Educativos</h2>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Creado por</th>
+                        <th>Leccion</th>
+                        <th class="text-right">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of recursosEducativos">
+                        <td class="text-center">{{ item.nombre }}</td>
+                        <td>{{ item.contenido }}</td>
+                        <td>
+                          {{ item.creador.nombre }} - {{ item.creador.apellido }}
+                        </td>
+                        <td>{{ item.leccion.nombre }}</td>
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" class="btn btn-info">
+                            <a href="{{ factory.apiMedia + '/' + item.link }}" target="_blank">
+                              <i class="material-icons">download</i>
+                            </a>
+                          </button>
+                          <button type="button" rel="tooltip" class="btn btn-success" (click)="viewer(item.link)">
+                            <i class="material-icons">start</i>
+                          </button>
+                          <button type="button" rel="tooltip" class="btn btn-danger" (click)="delete(item.id)">
+                            <i class="material-icons">close</i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br /><br /><br />
             </div>
           </div>
-          <br /><br /><br />
         </div>
       </div>
     </div>

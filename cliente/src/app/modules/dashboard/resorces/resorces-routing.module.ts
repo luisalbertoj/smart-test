@@ -6,7 +6,7 @@ import { ViewerComponent } from './viewer/viewer.component';
 
 const routes: Routes = [
   {path: 'create-resoruce', component: CreateResourceComponent},
-  {path: 'list', component: ListComponent},
+  {path: '', component: ListComponent},
   {path: 'viewer/:item', component: ViewerComponent}
 ];
 

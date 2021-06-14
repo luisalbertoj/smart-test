@@ -41,7 +41,22 @@
             <span class="menu--label">Recursos educativos</span>
           </label>
           <ul class="sub_menu">
-            
+            <li class="sub_menu--item">
+              <a
+                [routerLink]="['/dashboard/resorces']"
+                routerLinkActive="router-link-active"
+                class="sub_menu--link"
+                >Ver recursos</a
+              >
+            </li>
+            <li class="sub_menu--item">
+              <a
+                [routerLink]="['/dashboard/resorces/create-resoruce']"
+                routerLinkActive="router-link-active"
+                class="sub_menu--link"
+                >Nuevo recurso</a
+              >
+            </li>
           </ul>
         </li>
       </ul>
