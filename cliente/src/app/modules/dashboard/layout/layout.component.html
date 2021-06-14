@@ -59,6 +59,30 @@
             </li>
           </ul>
         </li>
+        <li class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
+            <i class="uil uil-layers menu--icon"></i>
+            <span class="menu--label">Administrador</span>
+          </label>
+          <ul class="sub_menu">
+            <li class="sub_menu--item">
+              <a
+                [routerLink]="['/dashboard/admin']"
+                routerLinkActive="router-link-active"
+                class="sub_menu--link"
+                >Usuarios</a
+              >  
+            </li>
+            <li class="sub_menu--item">
+              <a
+                [routerLink]="['/dashboard/admin/users/user-list']"
+                routerLinkActive="router-link-active"
+                class="sub_menu--link"
+                >Nuevo Usuario</a
+              >
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
 
