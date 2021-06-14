@@ -14,23 +14,34 @@
               <div class="card-body">
                 <form class="form" method="" action="">
                   <div class="select-element">
-                    <div class="dropdown">
-                      <button href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
-                        aria-expanded="true">
-                        Seleccione una competencia
-                        <b class="caret"></b>
-                      </button>
-                      <p class="card-category" *ngIf="this.element !== false">
-                        {{ this.element.nombre }}
-                      </p>
-                      <ul class="dropdown-menu">
-                        <li *ngFor="let item of competencias">
-                          <a (click)="selectedCompetencia(item)">{{
-                        item["nombre"]
-                      }}</a>
-                        </li>
-                      </ul>
+                    <div class="col-lg-12 col-md-12">
+                      <div class="ui search focus mt-30 lbel25">
+                        <label>Competencia asociada*</label>
+                        <div class="ui left icon input swdh19">
+                          <select name="leccion.competencia" class="
+                              ui
+                              hj145
+                              dropdown
+                              cntry152
+                              prompt
+                              srch_explore
+                              select-competencia
+                            ">
+                            <option value="">
+                              Selecciona la competencia
+                            </option>
+                            <option *ngFor="let competencia of competencias" value="competencia?.id">
+
+                              <a (click)="selectedCompetencia(competencia)">{{ competencia?.nombre }}</a>
+                            </option>
+                          </select>
+                          <p class="card-category" *ngIf="this.element !== false">
+                            {{ this.element.nombre }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
+
                   </div>
                   <div *ngIf="this.element !== false" class="upload-files">
                     <div class="form-group has-default">

@@ -23,25 +23,26 @@ export class CreateResourceComponent implements OnInit {
   constructor(public factory: FactoryService) { }
 
   ngOnInit(): void {
-    this.loadData();
+    this.cargarCompetencias();
   }
-  loadData(): void {
+  cargarCompetencias(): void {
     this.factory.getAll('competencia').subscribe(
       (response: any) => {
         this.competencias = response;
-        console.log(this.competencias);
+        /* console.log(this.competencias); */
       },
       (error: any) => {
         console.log(error);
       }
     );
   }
-  loadLecciones() {
+  cargarLecciones() {
     this.lecciones = this.element.lecciones;
   }
   selectedCompetencia(item: any) {
+    console.log(item);
     this.element = item;
-    this.loadLecciones();
+    this.cargarLecciones();
   }
   selectedLeccion(item: any) {
     this.recurso.leccion = item.nombre;
