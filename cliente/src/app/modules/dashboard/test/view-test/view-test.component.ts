@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FactoryService } from 'src/app/services/factory.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-test',
@@ -23,7 +24,17 @@ export class ViewTestComponent implements OnInit {
 
   loadTest (){
     this.factory.get('getprueba', this.rutaActiva.snapshot.params.id).subscribe(
-      (response: any) => { this.test = response.data; console.log(response);}
+      (response: any) => {
+      /*   if(response.status === 500) {
+          Swal.fire('Ops', response.data, 'info');
+        } else {
+          this.test = response.data;
+        console.log(response);
+        } */
+        
+        this.test = response.data;
+        console.log(response);
+      }
 
       )
   }

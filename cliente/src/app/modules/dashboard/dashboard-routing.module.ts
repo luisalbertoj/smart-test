@@ -33,6 +33,13 @@ const routes: Routes = [
             (m) => m.LessonsModule
           ),
       },
+      {
+        path: 'resorces',
+        loadChildren: () =>
+          import('./resorces/resorces.module').then(
+            (m) => m.ResorcesModule
+          ),
+      },
     ]
   }
 ];
