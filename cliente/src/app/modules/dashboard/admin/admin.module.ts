@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AdminRoutingModule } from './admin-routing.module';
 
-
-
+import { MaterialModule } from './../../app.module';
 
 
 @NgModule({
@@ -13,8 +13,8 @@ import { AdminRoutingModule } from './admin-routing.module';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-   
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class AdminModule { }

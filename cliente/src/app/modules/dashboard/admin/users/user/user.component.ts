@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FactoryService } from 'src/app/services/factory.service';
 import { txt } from 'src/app/util/strings';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-user',
