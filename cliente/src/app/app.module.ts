@@ -3,15 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
 
 @NgModule({
   declarations: [
@@ -26,14 +23,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     MaterialModule,
-    NgCircleProgressModule.forRoot({
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300
-    })
+    NgCircleProgressModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
