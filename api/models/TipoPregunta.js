@@ -1,5 +1,5 @@
 /**
- * Pregunta.js
+ * TipoPregunta.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,48 +12,28 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-    contenido: {
+    nombre: {
       type: 'string',
       required: true
-    },
-
-    estado: {
-      type: 'string',
-      defaultsTo: '1'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      blacklist: ['search']
+    },
 
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
-    tipo: {
-      model: 'tipoPregunta'
-    },
-
-    etiquetas: {
-      collection: 'tags',
-      via: 'preguntas'
-    },
-
-    respuestas: {
-      collection: 'respuesta',
-      via: 'preguntas'
-    },
-
-    pruebas: {
-      collection: 'pruebaconocimiento',
-      via: 'pregunta',
-      through: 'pruebapregunta'
-    },
-    respuesta_correcta: {
-      model: 'respuesta'
+    preguntas: {
+      collection: 'pregunta',
+      via: 'tipo',
     }
   },
 
 };
+

@@ -66,11 +66,11 @@
                   <div class="all_ques_lest">
 
                     <div *ngFor="let pregunta of test.preguntas; index as i" class="ques_item">
-                      <div *ngIf="(pregunta.respuestas?.length>0)&&(pregunta.tipo==='multiple')">
+                      <div *ngIf="(pregunta.respuestas?.length>0)&&(pregunta?.tipo?.nombre==='multiple')">
 
                         <div class="ques_title">
                           <span>Pregunta {{i+1}}: </span>
-                          {{pregunta.contenido}}
+                          {{pregunta?.contenido}}
                         </div>
 
                         <div class="ui form">
@@ -79,16 +79,16 @@
                               <div class="ui radio checkbox">
                                 <input type="radio" name="{{i}}" tabindex="0"
                                   (click)="respuestaSeleccionada(i,respuesta.id)" required>
-                                <label>{{respuesta.contenido}}</label>
+                                <label>{{respuesta?.contenido}}</label>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div *ngIf="pregunta.tipo==='text'">
+                      <div *ngIf="pregunta?.tipo?.nombre==='abierta'">
                         <div class="ques_title">
                           <span>Pregunta {{i+1}}:- </span>
-                          {{pregunta.contenido}}
+                          {{pregunta?.contenido}}
                         </div>
                         <div class="ui search focus mt-15">
                           <div class="ui form swdh30">
