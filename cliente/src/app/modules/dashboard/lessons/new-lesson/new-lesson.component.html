@@ -10,9 +10,9 @@
                   <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <div class="title-icon">
-                      <h3 class="title">
-                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menu1 }}
-                      </h3>
+                      <h4 class="title">
+                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuGeneral }}
+                      </h4>
                     </div>
                   </button>
                 </h2>
@@ -60,8 +60,8 @@
                           <div class="ui search focus mt-30 lbel25">
                             <label>Preconceptos*</label>
                             <div class="ui left icon input swdh19">
-                              <tag-input [ngModel]="preconSelec" place>
-                                <tag-input-dropdown [autocompleteItems]="items">
+                              <tag-input [ngModel]="preconSelec" placeholder="Selecciona los preconcepto" secondaryPlaceholder="Selecciona los preconcepto">
+                                <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
                                 </tag-input-dropdown>
                               </tag-input>
                             </div>
@@ -79,7 +79,7 @@
                           <div class="course_des_textarea mt-30 lbel25">
                             <label>Observaciones*</label>
                             <angular-editor [placeholder]="
-                                'Escribe aqui la introduccion de la leccion...'
+                                'Escribe aqui las observaciones de la leccion...'
                               " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
                           </div>
                         </div>
@@ -87,173 +87,11 @@
                           <div class="course_des_textarea mt-30 lbel25">
                             <label>Conclusiones*</label>
                             <angular-editor [placeholder]="
-                                'Escribe aqui la introduccion de la leccion...'
+                                'Escribe aqui las conclusiones de la leccion...'
                               " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
                           </div>
                         </div>
-                        <div class="col-lg-6 col-md-12"></div>
-                        <div class="col-lg-4 col-md-12">
-                          <div class="mt-30 lbel25">
-                            <label>Language*</label>
-                          </div>
-                          <select class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                            ">
-                            <option value="">Select Language</option>
-                            <option value="1">English</option>
-                            <option value="2">Español</option>
-                            <option value="3">Português</option>
-                            <option value="4">日本語</option>
-                            <option value="5">Deutsch</option>
-                            <option value="6">Français</option>
-                            <option value="7">Türkçe</option>
-                            <option value="8">हिन्दी</option>
-                            <option value="9">Italiano</option>
-                            <option value="10">Polski</option>
-                            <option value="11">ภาษาไทย</option>
-                            <option value="12">Română</option>
-                            <option value="13">Telugu</option>
-                            <option value="14">मराठी</option>
-                            <option value="15">ਪੰਜਾਬੀ</option>
-                          </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                          <div class="mt-30 lbel25">
-                            <label>Course Category*</label>
-                          </div>
-                          <select class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                            ">
-                            <option value="">Select Category</option>
-                            <option value="1">Development</option>
-                            <option value="2">Business</option>
-                            <option value="3">Finance & Accounting</option>
-                            <option value="4">IT & Software</option>
-                            <option value="5">Office Productivity</option>
-                            <option value="6">Personal Development</option>
-                            <option value="7">Design</option>
-                            <option value="8">Marketing</option>
-                            <option value="9">Lifestyle</option>
-                            <option value="10">Photography</option>
-                            <option value="11">Health & Fitness</option>
-                            <option value="12">Music</option>
-                            <option value="13">Teaching & Academics</option>
-                          </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                          <div class="mt-30 lbel25">
-                            <label>Course Subcategory*</label>
-                          </div>
-                          <select class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                            ">
-                            <option value="">Select Subcategory</option>
-                            <option value="1">Javascript</option>
-                            <option value="2">Angular</option>
-                            <option value="3">React</option>
-                            <option value="4">CSS</option>
-                            <option value="5">PHP</option>
-                            <option value="6">Node.Js</option>
-                            <option value="7">WordPress</option>
-                            <option value="8">Vue JS</option>
-                            <option value="9">Shopify</option>
-                            <option value="10">Magento</option>
-                            <option value="11">Open Cart</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="price_course">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div class="price_title">
-                            <h4>
-                              <i class="uil uil-dollar-sign-alt"></i>Pricing
-                            </h4>
-                          </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6">
-                          <div class="mt-30 lbel25">
-                            <label>Currency*</label>
-                          </div>
-                          <select class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                            ">
-                            <option value="">USD</option>
-                            <option value="1">USD</option>
-                            <option value="2">CAD</option>
-                            <option value="3">BRL</option>
-                            <option value="4">EUR</option>
-                            <option value="5">GBP</option>
-                            <option value="6">INR</option>
-                          </select>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                          <div class="mt-30 lbel25">
-                            <label>Select*</label>
-                          </div>
-                          <select class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                            ">
-                            <option value="">Select</option>
-                            <option value="0">Free</option>
-                            <option value="1">$24.99 (tier 1)</option>
-                            <option value="2">$29.99 (tier 2)</option>
-                            <option value="3">$34.99 (tier 3)</option>
-                            <option value="4">$39.99 (tier 4)</option>
-                            <option value="5">$44.99 (tier 5)</option>
-                            <option value="6">$49.99 (tier 6)</option>
-                            <option value="7">$54.99 (tier 7)</option>
-                            <option value="8">$59.99 (tier 8)</option>
-                            <option value="9">$64.99 (tier 9)</option>
-                            <option value="10">$69.99 (tier 10)</option>
-                            <option value="11">$74.99 (tier 11)</option>
-                            <option value="12">$79.99 (tier 12)</option>
-                            <option value="13">$84.99 (tier 13)</option>
-                            <option value="14">$89.99 (tier 14)</option>
-                            <option value="15">$94.99 (tier 15)</option>
-                            <option value="16">$99.99 (tier 16)</option>
-                            <option value="17">$104.99 (tier 17)</option>
-                            <option value="18">$109.99 (tier 18)</option>
-                            <option value="19">$114.99 (tier 19)</option>
-                            <option value="20">$119.99 (tier 20)</option>
-                            <option value="21">$124.99 (tier 21)</option>
-                            <option value="22">$129.99 (tier 22)</option>
-                            <option value="23">$134.99 (tier 23)</option>
-                            <option value="24">$139.99 (tier 24)</option>
-                            <option value="25">$144.99 (tier 25)</option>
-                            <option value="26">$149.99 (tier 26)</option>
-                            <option value="27">$154.99 (tier 27)</option>
-                            <option value="28">$159.99 (tier 28)</option>
-                            <option value="29">$164.99 (tier 29)</option>
-                            <option value="30">$169.99 (tier 30)</option>
-                          </select>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -265,14 +103,19 @@
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
+                    <div class="title-icon">
+                      <h4 class="title">
+                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuAprender }}
+                      </h4>
+                    </div>
                   </button>
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                  Some placeholder content for the second accordion panel. This
-                  panel is hidden by default.
+                  <angular-editor [placeholder]="
+                                'El aprender lo puedes copiar y pegar de un documento word...'
+                              " [(ngModel)]="leccion.aprender" name="leccion.aprender"></angular-editor>
                 </div>
               </div>
             </div>
@@ -281,7 +124,11 @@
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
+                    <div class="title-icon">
+                      <h4 class="title">
+                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuPracticar }}
+                      </h4>
+                    </div>
                   </button>
                 </h2>
               </div>

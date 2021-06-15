@@ -10,7 +10,10 @@ import { FactoryService } from 'src/app/services/factory.service';
 export class NewLessonComponent implements OnInit {
 
   plantilla: any = {
-    menu1: 'Informacion general de la leccion'
+    menuGeneral: 'Informacion general de la leccion',
+    menuAprender: 'Aprender',
+    menuPracticar: 'Practicar',
+    menuAplicar: 'Aplicar'
   };
 
   leccion: any = {

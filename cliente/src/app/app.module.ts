@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,15 @@ import { MaterialModule } from './material.module';
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
-    MaterialModule
+    MaterialModule,
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

@@ -25,15 +25,12 @@ export class ViewTestComponent implements OnInit {
   loadTest (){
     this.factory.get('getprueba', this.rutaActiva.snapshot.params.id).subscribe(
       (response: any) => {
-      /*   if(response.status === 500) {
+        if(response.status === 500) {
           Swal.fire('Ops', response.data, 'info');
         } else {
           this.test = response.data;
-        console.log(response);
-        } */
-        
-        this.test = response.data;
-        console.log(response);
+          console.log(this.test);
+        }
       }
 
       )
