@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import { MaterialModule } from './material.module';
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
-    MaterialModule
+    MaterialModule,
+    NgCircleProgressModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
