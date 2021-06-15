@@ -8,12 +8,13 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TagInputModule } from 'ngx-chips';
 
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 
 @NgModule({
-  declarations: [NewLessonComponent],
+  declarations: [NewLessonComponent, HomeComponent],
   imports: [
     CommonModule,
     HttpClientModule,
