@@ -7,30 +7,18 @@
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button
-                    class="btn btn-block text-left"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
+                  <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <div class="title-icon">
                       <h3 class="title">
-                        <i class="uil uil-info-circle"></i
-                        >{{ this.plantilla?.menu1 }}
+                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menu1 }}
                       </h3>
                     </div>
                   </button>
                 </h2>
               </div>
 
-              <div
-                id="collapseOne"
-                class="collapse show"
-                aria-labelledby="headingOne"
-                data-parent="#accordionExample"
-              >
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                   <div class="course__form">
                     <div class="general_info10">
@@ -39,18 +27,9 @@
                           <div class="ui search focus mt-30 lbel25">
                             <label>Titulo de la leccion*</label>
                             <div class="ui left icon input swdh19">
-                              <input
-                                [(ngModel)]="leccion.titulo"
-                                name="leccion.titulo"
-                                class="prompt srch_explore"
-                                type="text"
-                                placeholder="Ingresa el titulo de la leccion."
-                                data-purpose="edit-course-title"
-                                maxlength="60"
-                                id="main[title]"
-                                value=""
-                                required
-                              />
+                              <input [(ngModel)]="leccion.titulo" name="leccion.titulo" class="prompt srch_explore"
+                                type="text" placeholder="Ingresa el titulo de la leccion."
+                                data-purpose="edit-course-title" maxlength="60" id="main[title]" value="" required />
                             </div>
                           </div>
                         </div>
@@ -58,9 +37,7 @@
                           <div class="ui search focus mt-30 lbel25">
                             <label>Competencia asociada*</label>
                             <div class="ui left icon input swdh19">
-                              <select
-                                name="leccion.competencia"
-                                class="
+                              <select name="leccion.competencia" class="
                                   ui
                                   hj145
                                   dropdown
@@ -68,15 +45,11 @@
                                   prompt
                                   srch_explore
                                   select-competencia
-                                "
-                              >
+                                ">
                                 <option value="">
                                   Selecciona la competencia
                                 </option>
-                                <option
-                                  *ngFor="let competencia of competencias"
-                                  value="competencia?.id"
-                                >
+                                <option *ngFor="let competencia of competencias" value="competencia?.id">
                                   {{ competencia?.nombre }}
                                 </option>
                               </select>
@@ -97,37 +70,25 @@
                         <div class="col-lg-12 col-md-12">
                           <div class="course_des_textarea mt-30 lbel25">
                             <label>Introduccion*</label>
-                            <angular-editor
-                              [placeholder]="
+                            <angular-editor [placeholder]="
                                 'Escribe aqui la introduccion de la leccion...'
-                              "
-                              [(ngModel)]="leccion.introduccion"
-                              name="leccion.introduccion"
-                            ></angular-editor>
+                              " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
                           </div>
                         </div>
                         <div class="col-lg-12 col-md-12">
                           <div class="course_des_textarea mt-30 lbel25">
                             <label>Observaciones*</label>
-                            <angular-editor
-                              [placeholder]="
+                            <angular-editor [placeholder]="
                                 'Escribe aqui la introduccion de la leccion...'
-                              "
-                              [(ngModel)]="leccion.introduccion"
-                              name="leccion.introduccion"
-                            ></angular-editor>
+                              " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
                           </div>
                         </div>
                         <div class="col-lg-12 col-md-12">
                           <div class="course_des_textarea mt-30 lbel25">
                             <label>Conclusiones*</label>
-                            <angular-editor
-                              [placeholder]="
+                            <angular-editor [placeholder]="
                                 'Escribe aqui la introduccion de la leccion...'
-                              "
-                              [(ngModel)]="leccion.introduccion"
-                              name="leccion.introduccion"
-                            ></angular-editor>
+                              " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
                           </div>
                         </div>
                         <div class="col-lg-6 col-md-12"></div>
@@ -135,16 +96,14 @@
                           <div class="mt-30 lbel25">
                             <label>Language*</label>
                           </div>
-                          <select
-                            class="
+                          <select class="
                               ui
                               hj145
                               dropdown
                               cntry152
                               prompt
                               srch_explore
-                            "
-                          >
+                            ">
                             <option value="">Select Language</option>
                             <option value="1">English</option>
                             <option value="2">Español</option>
@@ -167,16 +126,14 @@
                           <div class="mt-30 lbel25">
                             <label>Course Category*</label>
                           </div>
-                          <select
-                            class="
+                          <select class="
                               ui
                               hj145
                               dropdown
                               cntry152
                               prompt
                               srch_explore
-                            "
-                          >
+                            ">
                             <option value="">Select Category</option>
                             <option value="1">Development</option>
                             <option value="2">Business</option>
@@ -197,16 +154,14 @@
                           <div class="mt-30 lbel25">
                             <label>Course Subcategory*</label>
                           </div>
-                          <select
-                            class="
+                          <select class="
                               ui
                               hj145
                               dropdown
                               cntry152
                               prompt
                               srch_explore
-                            "
-                          >
+                            ">
                             <option value="">Select Subcategory</option>
                             <option value="1">Javascript</option>
                             <option value="2">Angular</option>
@@ -236,16 +191,14 @@
                           <div class="mt-30 lbel25">
                             <label>Currency*</label>
                           </div>
-                          <select
-                            class="
+                          <select class="
                               ui
                               hj145
                               dropdown
                               cntry152
                               prompt
                               srch_explore
-                            "
-                          >
+                            ">
                             <option value="">USD</option>
                             <option value="1">USD</option>
                             <option value="2">CAD</option>
@@ -259,16 +212,14 @@
                           <div class="mt-30 lbel25">
                             <label>Select*</label>
                           </div>
-                          <select
-                            class="
+                          <select class="
                               ui
                               hj145
                               dropdown
                               cntry152
                               prompt
                               srch_explore
-                            "
-                          >
+                            ">
                             <option value="">Select</option>
                             <option value="0">Free</option>
                             <option value="1">$24.99 (tier 1)</option>
@@ -312,24 +263,13 @@
             <div class="card">
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
-                  <button
-                    class="btn btn-link btn-block text-left collapsed"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     Collapsible Group Item #2
                   </button>
                 </h2>
               </div>
-              <div
-                id="collapseTwo"
-                class="collapse"
-                aria-labelledby="headingTwo"
-                data-parent="#accordionExample"
-              >
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   Some placeholder content for the second accordion panel. This
                   panel is hidden by default.
@@ -339,24 +279,13 @@
             <div class="card">
               <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
-                  <button
-                    class="btn btn-link btn-block text-left collapsed"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                  >
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     Collapsible Group Item #3
                   </button>
                 </h2>
               </div>
-              <div
-                id="collapseThree"
-                class="collapse"
-                aria-labelledby="headingThree"
-                data-parent="#accordionExample"
-              >
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   And lastly, the placeholder content for the third and final
                   accordion panel. This panel is hidden by default.
