@@ -67,18 +67,26 @@
           <ul class="sub_menu">
             <li class="sub_menu--item">
               <a
-                [routerLink]="['/dashboard/admin']"
+                [routerLink]="['/dashboard/admin/user-list']"
                 routerLinkActive="router-link-active"
                 class="sub_menu--link"
                 >Usuarios</a
-              >  
+              >
             </li>
             <li class="sub_menu--item">
               <a
-                [routerLink]="['/dashboard/admin/users/user-list']"
+                [routerLink]="['/dashboard/admin/user']"
                 routerLinkActive="router-link-active"
                 class="sub_menu--link"
-                >Nuevo Usuario</a
+                >Nuevo usuario</a
+              >
+            </li>
+            <li class="sub_menu--item">
+              <a
+                [routerLink]="['/dashboard/admin/privilegios']"
+                routerLinkActive="router-link-active"
+                class="sub_menu--link"
+                >Privilegios</a
               >
             </li>
           </ul>

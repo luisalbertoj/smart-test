@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
+    MaterialModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
