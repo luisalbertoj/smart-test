@@ -51,8 +51,12 @@ module.exports = {
       via: 'pregunta',
       through: 'pruebapregunta'
     },
-    respuesta_correcta: {
+    respuestaCorrecta: {
       model: 'respuesta'
+    },
+    lecciones: {
+      collection: 'leccion',
+      via: 'practicar'
     }
   },
 

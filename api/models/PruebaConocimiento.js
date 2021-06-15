@@ -8,7 +8,9 @@
 module.exports = {
 
   attributes: {
-
+    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
+    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
+    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     nombre: {
       type: 'string',
       required: true
@@ -24,9 +26,6 @@ module.exports = {
     creador: {
       model: 'persona'
     },
-    grupo: {
-      model: 'grupo'
-    },
     inicio: {
       type: 'string',
       required: true
@@ -35,17 +34,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    preguntas: {
-      collection: 'pregunta',
-      via: 'prueba',
-      through: 'pruebapregunta'
-    }
-
-
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+    
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -55,6 +44,14 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    grupo: {
+      model: 'grupo'
+    },
+    preguntas: {
+      collection: 'pregunta',
+      via: 'prueba',
+      through: 'pruebapregunta'
+    }
 
   },
 
