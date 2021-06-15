@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
+
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard.component';
@@ -15,7 +18,8 @@ import { CourseComponent } from './course/course.component';
 @NgModule({
   declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, CourseDetailComponent, FooterComponent, CourseComponent],
   imports: [
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    NgxSpinnerModule
   ]
 })
 export class DashboardModule { }
