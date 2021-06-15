@@ -2,7 +2,20 @@
 <nav class="vertical_nav">
   <div class="left_section menu_left" id="js-menu">
     <div class="left_section">
+      
       <ul>
+        <li class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
+            <i class="uil uil-book-alt menu--icon"></i>
+            <span class="menu--label"><a
+              [routerLink]="['/dashboard']"
+              routerLinkActive="router-link-active"
+              class="sub_menu--link"
+              >Inicio</a></span>
+          </label>
+        </li>
+
+
         <li class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="uil uil-book-alt menu--icon"></i>
