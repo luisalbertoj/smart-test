@@ -9,6 +9,7 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { CourseComponent } from './course/course.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -16,8 +17,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   imports: [
     DashboardRoutingModule,
     NgxSpinnerModule,
-    NgCircleProgressModule
-  
+    NgCircleProgressModule,
+    CommonModule
   ]
 })
 export class DashboardModule { }
