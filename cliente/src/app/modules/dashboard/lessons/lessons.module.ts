@@ -9,12 +9,14 @@ import { TagInputModule } from 'ngx-chips';
 
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { HomeComponent } from './home/home.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+import { LessonViewComponent } from './lesson-view/lesson-view.component';
 
 
 
 
 @NgModule({
-  declarations: [NewLessonComponent, HomeComponent],
+  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent],
   imports: [
     CommonModule,
     HttpClientModule,

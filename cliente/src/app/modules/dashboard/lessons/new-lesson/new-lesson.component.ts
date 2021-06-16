@@ -186,7 +186,7 @@ export class NewLessonComponent implements OnInit {
           this.spinner.hide();
           this.toast.success('Leccion creada', 'Ok');
           setTimeout(() => {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['dashboard/lesson']);
           }, 500);
         },
         (error: any) => {

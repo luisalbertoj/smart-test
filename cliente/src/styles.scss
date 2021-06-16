@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.color-secondary {
+    color: #43bd41;
+}
+.color-primary {
+    color: #2671c3;
+}
+.back-secondary {
+    background-color: #43bd41;
+}
+.back-primary {
+    background-color: #2671c3;
+}
+.btn-plantilla {
+    background-color: #2671c3;
+}
+.btn-plantilla :hover{
+    background-color: #43bd41;
+}

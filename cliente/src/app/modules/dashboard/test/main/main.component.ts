@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { FactoryService } from 'src/app/services/factory.service';
 
 
@@ -22,9 +23,12 @@ export class MainComponent implements OnInit {
   public tests = [];
 
 
-  constructor(public factory: FactoryService) { }
+  constructor(public factory: FactoryService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.factory.returnAsObservable().subscribe((subs) => {
+      subs===true?this.spinner.hide():this.spinner.show();
+    });
     this.loadTests();
   }
 

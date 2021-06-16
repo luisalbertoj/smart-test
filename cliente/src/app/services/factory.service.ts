@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class FactoryService {
   public user: any = {};
   public apiMedia = environment.urlMedia;
+  private sub = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) {
     this.loadUser();
   }
@@ -50,5 +52,15 @@ export class FactoryService {
     formData.append('leccion', info.leccionId);
     console.log(info);
     return this.http.post(environment.urlApi + endPoint, formData);
+  }
+  returnAsObservable() {
+    return this.sub.asObservable();
+  }
+  showSpinner() {
+    
+    this.sub.next(true);
+  }
+  hideSpinner() {
+    this.sub.next(false);
   }
 }

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
-  selector: 'app-course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  selector: 'app-lesson-view',
+  templateUrl: './lesson-view.component.html',
+  styleUrls: ['./lesson-view.component.css']
 })
-export class CourseComponent implements OnInit {
+export class LessonViewComponent implements OnInit {
 
   public leccion: any = this.course.get();
 
@@ -14,7 +14,5 @@ export class CourseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  
 
 }

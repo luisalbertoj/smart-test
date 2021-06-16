@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from './home/home.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+import { LessonViewComponent } from './lesson-view/lesson-view.component';
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'new', component: NewLessonComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'new', component: NewLessonComponent},
+  {path: 'lesson-detail/:slug', component: LessonDetailComponent},
+  {path: ':slug', component: LessonViewComponent}
 ];
 
 @NgModule({
