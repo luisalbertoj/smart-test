@@ -6,10 +6,11 @@ import { TestResultComponent } from './test-result/test-result.component';
 import { ViewTestComponent } from './view-test/view-test.component';
 
 const routes: Routes = [
+  {path: 'create-test', component: CreateTestComponent},
   {path: '', component: MainComponent},
   {path: 'result', component: TestResultComponent},
-  {path: ':id', component: ViewTestComponent},
-  {path: '', component: CreateTestComponent}
+  {path: ':id', component: ViewTestComponent}
+ 
 ];
 
 @NgModule({

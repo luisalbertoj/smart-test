@@ -1,1 +1,124 @@
-<p>create-test works!</p>
+<div class="wrapper">
+    <div class="sa4d25">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <div class="title-icon">
+                        <h4 class="title">
+                          <i class="uil uil-info-circle"></i><!-- {{ this.plantilla?.menuPracticar }} -->
+                        </h4>
+                      </div>
+                    </button>
+                  </h2>
+                </div>
+  
+                
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12">
+                        <div class="ui search focus mt-30 lbel25">
+                          <label>Tipos de pregunta*</label>
+                          <div class="ui left icon input swdh19">
+                           <!--  [(ngModel)]="tipoSelect" name="leccion.competencia"  -->
+                            <select class="
+                              ui
+                              hj145
+                              dropdown
+                              cntry152
+                              prompt
+                              srch_explore
+                              select-competencia
+                            ">
+                              <option value="Selecciona">
+                                Selecciona
+                              </option>
+                              <!-- *ngFor="let tipo of tipoPregunta" value="{{tipo?.nombre}} -->
+                              <option>
+                               <!--  {{ tipo?.nombre | uppercase }} -->
+                              </option>
+                            </select>
+                          <!--   (click)="agregarPregunta()" type="button" class="btn btn-primary" -->
+                            <button >Agregar
+                              pregunta</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="accordion" id="acordeonPreguntas">
+                      <div>
+                     <!--    *ngFor="let pregunta of preguntas; index as i"  -->
+                        <div class="card">
+                          <div class="card-header" role="tab" role="tab"
+                           >
+                            <h2 class="mb-0">
+                              <button class="btn btn-block text-left" type="button">
+                                <div class="row">
+                                  <div class="title-icon" class="col-lg-11">
+                                    <label class="title"></label>
+                                  </div>
+                                  <div class="col-lg-1">
+                                    <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                                  </div>
+                                </div>
+  
+                              </button>
+                            </h2>
+                          </div>
+  
+                          <div class="collapse show"
+                            data-parent="#acordeonPreguntas">
+                            <div class="card-body" >
+                              <div  class="col-lg-12 col-md-12">
+                                <div class="course_des_textarea mt-30 lbel25">
+                                  <label>Pregunta*</label>
+                              
+                                </div>
+                                <div>
+                                  <br>
+                                  <button type="button" class="btn btn-primary">
+                                    Agregar respuesta
+                                  </button>
+                                  <hr>
+                                  <div>
+  
+                                    <label></label>
+                                    <br>
+                                    <input type="checkbox" >
+                                    <label class="form-check-label" for="exampleCheck1">Respuesta correcta?</label>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                              <div  class="col-lg-12 col-md-12">
+                                <div class="course_des_textarea mt-30 lbel25">
+                                  <label>Pregunta*</label>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

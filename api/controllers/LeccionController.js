@@ -22,8 +22,11 @@ module.exports = {
           for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
             leccion.preguntas[key].respuestas = [];
             leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, preguntas: [leccion.preguntas[key].id]}).fetch());
-            if(respuesta.correcta) {
-              leccion.preguntas[key].respuestaCorrecta  = await Pregunta.updateOne({id: leccion.preguntas[key].id}).set({respuestaCorrecta: leccion.preguntas[key].respuestas[key2].id});
+            if(respuesta.correcta && leccion.preguntas[key] && leccion.preguntas[key].respuestas[key2]) {
+              console.log(leccion.preguntas[key].id,leccion.preguntas[key].respuestas[key2].id);
+              leccion.preguntas[key].respuestaCorrecta  = 
+              await Pregunta.updateOne({id: leccion.preguntas[key].id})
+              .set({respuestaCorrecta: leccion.preguntas[key].respuestas[key2].id});
             }
           }
         }
