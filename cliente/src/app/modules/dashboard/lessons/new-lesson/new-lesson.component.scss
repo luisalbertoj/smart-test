@@ -1,12 +1,41 @@
 .select-competencia {
-    max-width: 250px;
+  max-width: 250px;
 }
+
 .option {
-    max-width: 250px;
-    overflow: scroll;
+  max-width: 250px;
+  overflow: scroll;
 }
+
 .card-preguntas {
-    background-color: #43bd41;
-    color: white;
-    text-decoration: none;
+  background-color: #43bd41;
+  color: white;
+  text-decoration: none;
+}
+
+.collapseAccordion :hover {
+  color: white;
+  background-color: #B1E8B0;
+}
+
+.expandAccordion {
+  color: white;
+  background-color: #94C0F0;
+}
+
+#iconodesplegable {
+  font-size: 25px;
+}
+
+.card-header {
+  background-color: white;
+}
+
+#cardprimera {
+  border-color: #2671c3;
+  border-bottom-width: 8px;
+}
+
+hr {
+  background-color: #2671c3;
 }
