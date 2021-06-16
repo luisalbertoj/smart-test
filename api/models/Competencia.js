@@ -19,7 +19,7 @@ module.exports = {
     creador: {
       model: 'persona'
     },
-    
+
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
@@ -42,7 +42,7 @@ module.exports = {
 
     lecciones: {
       collection: 'leccion',
-      via: 'competencia'
+      via: 'competencias'
     },
 
   }
