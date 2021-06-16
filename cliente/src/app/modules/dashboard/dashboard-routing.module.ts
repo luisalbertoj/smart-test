@@ -47,7 +47,6 @@ const routes: Routes = [
             (m) => m.AdminModule
           ),
       },
-     
     ]
   }
 ];
