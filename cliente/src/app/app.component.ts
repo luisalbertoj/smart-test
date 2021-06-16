@@ -25,13 +25,13 @@ export class AppComponent {
           setTimeout(() => {
             
             this.isLoaded = true;
-          }, 2000);
+          }, 1000);
         } else if (event instanceof NavigationEnd) {
           console.log('navigation ends');
           setTimeout(() => {
             this.spinner.hide();
             this.isLoaded = true;
-          }, 2000);
+          }, 1000);
         }
       },
       (error) => {

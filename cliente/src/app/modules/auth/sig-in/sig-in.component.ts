@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FactoryService } from 'src/app/services/factory.service';
-import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-sig-in',
@@ -18,10 +18,15 @@ export class SigInComponent implements OnInit {
   constructor(
     private factory: FactoryService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.factory.returnAsObservable().subscribe((subs) => {
+      subs===true?this.spinner.hide():this.spinner.show();
+    });
+  }
 
   login() {
     this.factory.post('persona/login', this.persona).subscribe(
