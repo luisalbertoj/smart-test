@@ -59,17 +59,17 @@ module.exports = {
       model: 'persona'
     },
 
-    competencia: {
-      model: 'competencia'
+    competencias: {
+      collection: 'competencia',
+      via: 'lecciones'
     },
 
     preconceptos: {
       collection: 'preconcepto',
       via: 'lecciones'
     },
-    objetivos: {
-      collection: 'objetivo',
-      via: 'lecciones'
+    objetivo: {
+      model: 'objetivo'
     },
     items: {
       collection: 'item',

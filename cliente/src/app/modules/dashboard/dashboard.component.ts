@@ -11,7 +11,6 @@ export class DashboardComponent {
   constructor(private spinner: NgxSpinnerService, private route: Router) {}
 
   ngOnInit() {
-    this.navegacion();
   }
   navegacion() {
     this.route.events.subscribe(
