@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/services/course.service';
@@ -7,21 +8,23 @@ import { FactoryService } from 'src/app/services/factory.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   public leccion: any = this.course.get();
   public lecciones: any = [];
-  
-  constructor(private course: CourseService,
+
+  constructor(
+    private course: CourseService,
     public factory: FactoryService,
     private spinner: NgxSpinnerService,
-    private toast: ToastrService) { }
+    private toast: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.factory.returnAsObservable().subscribe((subs) => {
-      subs===true?this.spinner.hide():this.spinner.show();
+      subs === true ? this.spinner.hide() : this.spinner.show();
     });
     this.loadLecciones();
   }
@@ -40,4 +43,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  iniciar(slug: any) {
+    this.router.navigate(['dashboard/lesson/lesson-detail', slug]);
+  }
 }

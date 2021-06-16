@@ -60,8 +60,10 @@
       <div class="row">
         <div class="col-sm-12">
           <div *ngFor="let leccion of lecciones; index as i" class="fcrse_1">
-            <a href="course_detail_view.html" class="hf_img">
-              <img src="{{leccion.portada || 'assets/images/courses/portada-base.png'}}" alt="Portada de la leccion{{i}}">
+            <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
+              routerLinkActive="router-link-active" class="hf_img">
+              <img src="{{leccion.portada || 'assets/images/courses/portada-base.png'}}"
+                alt="Portada de la leccion{{i}}">
               <div class="course-overlay overlay-peque">
                 <!-- <div class="badge_seller">Leccion pendiente</div> -->
                 <div class="crse_reviews">
@@ -84,7 +86,8 @@
                 <!-- <span class="vdt14">109k views</span>
                 <span class="vdt14">15 days ago</span> -->
               </div>
-              <a href="#" class="crse14s title900">
+              <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
+                routerLinkActive="router-link-active" class="crse14s title900">
                 <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de la leccion: </strong>
                 {{leccion.objetivo?.contenido}}
               </a>
@@ -92,9 +95,11 @@
               <div class="auth1lnkprce">
                 <p class="cr1fot">Creada por: <a href="#">{{factory.user.nombre}}</a></p>
                 <div class="prce142">
-                  <button class="part_btn_save btn-plantilla" type="button">Iniciar</button>
+                  <button (click)="iniciar(leccion.slug)" class="part_btn_save btn-plantilla" type="button">
+                    Iniciar
+                  </button>
                 </div>
-                
+
               </div>
             </div>
           </div>
