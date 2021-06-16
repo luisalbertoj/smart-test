@@ -4,11 +4,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-12 col-lg-12">
-          <div class="card mb-3 tarjeta">
+          <div class="card mb-3 tarjeta" id="cardprimera">
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-12">
+           
                   <h1 class="card-title">Progreso global</h1>
+                  <hr>
                   <div class="row">
                     <div class="col-xl-4 col-lg-4" class="col-sm-4">
                       <h3 id="tituloporcentaje1">Progreso de lecciones</h3>
@@ -72,9 +74,10 @@
 
       <!-- ----------------------------------------------------------- -->
       <h1>Competencias</h1>
-      <div class="row">
+      <div class="container"  >
+      <div class="row" >
         <div class="col-lg-12">
-          <div class="accordion" id="accordionExample">
+          <div class="accordion" id="accordionExample" >
             <div class="card" *ngFor="let competencia of competencias;let i = index;">
               <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" 
               role="tab" (click)="onClickAccordion(i,competencia)">
@@ -82,13 +85,18 @@
                   <button  class="btn btn-block text-left"
                     type="button"    
                   >
-                    <div class="title-icon">
+                  <div class="row">
+                    <div class="title-icon" class="col-lg-11" >
                       <ul>
                       <li class="title">
-                        {{ competencia?.nombre }}
+                        {{ competencia?.nombre }} 
                       </li>
                       </ul>
                     </div>
+                    <div class="col-lg-1">
+                    <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                  </div>
+                </div>
                   </button>
                 </h2>
               </div>
@@ -117,6 +125,8 @@
           </div>
         </div>
       </div>
+
+    </div>
 
 
     </div>

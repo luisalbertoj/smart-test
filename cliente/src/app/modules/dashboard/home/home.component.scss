@@ -27,14 +27,30 @@
   color: #2671c3;
 }
 
-.collapseAccordion {
-  color: white;
 
-  background-color: #43bd41;
-}
+.collapseAccordion :hover {
+    color: white;
+    background-color: #B1E8B0;
+  }
+  
+  .expandAccordion {
+    color: white;
+    background-color: #94C0F0;
+  }
 
-.expandAccordion {
-  color: white;
+  #iconodesplegable {
+      font-size: 25px;
+  }
 
-  background-color: #2671c3;
-}
+  .card-header{
+      background-color: white;
+  }
+
+  #cardprimera{
+      border-color: #2671c3 ;
+      border-bottom-width: 8px;
+  }
+
+ hr {
+     background-color: #2671c3;
+ }
