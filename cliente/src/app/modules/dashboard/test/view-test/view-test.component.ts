@@ -1,60 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { FactoryService } from 'src/app/services/factory.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-test',
   templateUrl: './view-test.component.html',
-  styleUrls: ['./view-test.component.scss']
+  styleUrls: ['./view-test.component.scss'],
 })
 export class ViewTestComponent implements OnInit {
-
   public test = null;
   public respuestas = [];
 
-  constructor(public factory: FactoryService, private rutaActiva: ActivatedRoute, private router: Router) { 
-
-  }
+  constructor(
+    public factory: FactoryService,
+    private rutaActiva: ActivatedRoute,
+    private router: Router,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
-     this.loadTest();
+    this.factory.returnAsObservable().subscribe((subs) => {
+      subs===true?this.spinner.hide():this.spinner.show();
+    });
+    this.loadTest();
   }
 
-
-  loadTest (){
-    this.factory.get('getprueba', this.rutaActiva.snapshot.params.id).subscribe(
-      (response: any) => {
-        if(response.status === 500) {
+  loadTest() {
+    this.factory
+      .get('getprueba', this.rutaActiva.snapshot.params.id)
+      .subscribe((response: any) => {
+        if (response.status === 500) {
           Swal.fire('Ops', response.data, 'info');
         } else {
           this.test = response.data;
           console.log(this.test);
         }
-      }
-
-      )
-  }
- 
-  respuestaSeleccionada (index, respuesta) {
-    this.respuestas[index]=respuesta;
+      });
   }
 
-  validarRespuestas(){
+  respuestaSeleccionada(index, respuesta) {
+    this.respuestas[index] = respuesta;
+  }
 
+  validarRespuestas() {
     let response = {
-      correctas:[],
-      totales:this.test.preguntas.length,
-      resUser:this.respuestas,
-      test:this.test
+      correctas: [],
+      totales: this.test.preguntas.length,
+      resUser: this.respuestas,
+      test: this.test,
     };
     for (let i = 0; i < this.respuestas.length; i++) {
       const element = this.respuestas[i];
-      if (this.respuestas[i]==this.test.preguntas[i].respuestacorrecta) {
+      if (this.respuestas[i] == this.test.preguntas[i].respuestacorrecta) {
         response.correctas.push(this.test.preguntas[i]);
-      }  
+      }
     }
-    localStorage.setItem('result',JSON.stringify(response));
+    localStorage.setItem('result', JSON.stringify(response));
     this.router.navigate(['dashboard/test/result']);
   }
 }

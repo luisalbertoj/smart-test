@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
-  selector: 'app-course-detail',
-  templateUrl: './course-detail.component.html',
-  styleUrls: ['./course-detail.component.scss']
+  selector: 'app-lesson-detail',
+  templateUrl: './lesson-detail.component.html',
+  styleUrls: ['./lesson-detail.component.css']
 })
-export class CourseDetailComponent implements OnInit {
-
+export class LessonDetailComponent implements OnInit {
   public leccion: any = this.course.get();
 
   constructor(private course: CourseService) { }
