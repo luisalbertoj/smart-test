@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 
@@ -42,7 +43,7 @@ export class NewLessonComponent implements OnInit {
   public preguntas: any = [];
   public respuestas: any = [];
 
-  constructor(public factory: FactoryService, private toast: ToastrService) {}
+  constructor(public factory: FactoryService, private toast: ToastrService, private router: Router) {}
 
   ngOnInit(): void {
     this.cargarCompetencias();
@@ -166,6 +167,9 @@ export class NewLessonComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.toast.success('Leccion creada', 'Ok');
+          setTimeout(() => {
+            this.router.navigate(['dashboard']);
+          }, 500);
         },
         (error: any) => {
           console.log(error);
