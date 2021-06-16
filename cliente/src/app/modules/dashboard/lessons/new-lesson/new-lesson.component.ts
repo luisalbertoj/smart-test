@@ -1,7 +1,8 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Toast, ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-new-lesson',
@@ -34,7 +35,7 @@ export class NewLessonComponent implements OnInit {
   public preconceptos: any = [];
   public objetivos: any = [];
   public tipoPregunta: any = [];
-  public tipoSelect: any = 'Selecciona';
+  public tipoSelect: any = '';
 
   public preconSelec: any = [];
   public items: any = [];
@@ -42,7 +43,10 @@ export class NewLessonComponent implements OnInit {
   public preguntas: any = [];
   public respuestas: any = [];
 
-  constructor(public factory: FactoryService, private toast: ToastrService) {}
+  constructor(public factory: FactoryService,
+    private toast: ToastrService,
+    private router: Router,
+    private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
     this.cargarCompetencias();
@@ -106,6 +110,17 @@ export class NewLessonComponent implements OnInit {
         )
     );
   }
+  onClickAccordion(key, value) {
+    if (!value.showbody) {
+      value.showbody = true;
+
+      value.accordianclass = 'collapseAccordion';
+    } else {
+      value.showbody = false;
+
+      value.accordianclass = 'expandAccordion';
+    }
+  }
 
   agregarPregunta() {
     if (
@@ -121,6 +136,8 @@ export class NewLessonComponent implements OnInit {
         contenido: '',
         respuestas: [{ contenido: '' }],
         respuestaCorrecta: '',
+        showbody: false,
+        accordianclass: 'collapseAccordion'
       });
       this.respuestas.push([]);
     }
@@ -157,6 +174,7 @@ export class NewLessonComponent implements OnInit {
     if (this.leccion.aplicar === '')
       return this.toast.error('Debes llenar el aplicar', 'error');
     console.log(this.leccion);
+    this.spinner.show();
     this.factory
       .post('leccion/createlesson', {
         leccion: this.leccion,
@@ -165,10 +183,15 @@ export class NewLessonComponent implements OnInit {
       })
       .subscribe(
         (response: any) => {
+          this.spinner.hide();
           this.toast.success('Leccion creada', 'Ok');
+          setTimeout(() => {
+            this.router.navigate(['dashboard']);
+          }, 500);
         },
         (error: any) => {
           console.log(error);
+          this.spinner.hide();
           return this.toast.error(error.message, 'Problema en el servidor');
           
         }

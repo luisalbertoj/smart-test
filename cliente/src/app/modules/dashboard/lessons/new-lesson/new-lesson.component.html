@@ -60,7 +60,8 @@
                           <div class="ui search focus mt-30 lbel25">
                             <label>Competencia*</label>
                             <div class="ui left icon input swdh19">
-                              <tag-input [(ngModel)]="leccion.competencias" name="leccion.competencias" placeholder="Selecciona las competencias"
+                              <tag-input [(ngModel)]="leccion.competencias" name="leccion.competencias"
+                                placeholder="Selecciona las competencias"
                                 secondaryPlaceholder="Selecciona las competencias">
                                 <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
                                 </tag-input-dropdown>
@@ -68,23 +69,12 @@
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="col-lg-12 col-md-12">
-                          <div class="ui search focus mt-30 lbel25">
-                            <label>Objetivos*</label>
-                            <div class="ui left icon input swdh19">
-                              <tag-input [(ngModel)]="leccion.objetivos" name="leccion.objetivos" placeholder="Selecciona los objetivos"
-                                secondaryPlaceholder="Selecciona los objetivos" >
-                                <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="itemsObjetivos">
-                                </tag-input-dropdown>
-                              </tag-input>
-                            </div>
-                          </div>
-                        </div> -->
                         <div class="col-lg-12 col-md-12">
                           <div class="ui search focus mt-30 lbel25">
                             <label>Preconceptos*</label>
                             <div class="ui left icon input swdh19">
-                              <tag-input [(ngModel)]="leccion.preconceptos" name="leccion.Preconceptos" placeholder="Selecciona los preconcepto"
+                              <tag-input [(ngModel)]="leccion.preconceptos" name="leccion.Preconceptos"
+                                placeholder="Selecciona los preconcepto"
                                 secondaryPlaceholder="Selecciona los preconcepto">
                                 <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
                                 </tag-input-dropdown>
@@ -187,22 +177,30 @@
                       </div>
                     </div>
                   </div>
-
+                  <br>
                   <div class="accordion" id="acordeonPreguntas">
                     <div>
                       <div *ngFor="let pregunta of preguntas; index as i" class="card">
-                        <div class="card-header card-preguntas" id="headingOne{{i}}">
+                        <div class="card-header" role="tab" [ngClass]="pregunta?.accordianclass" role="tab"
+                          (click)="onClickAccordion(i,pregunta)">
                           <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                              data-target="#collapse{{i}}" aria-expanded="true" aria-controls="collapse{{i}}">
-                              <label>Pregunta*: {{i + 1}}</label>
+                            <button class="btn btn-block text-left" type="button">
+                              <div class="row">
+                                <div class="title-icon" class="col-lg-11">
+                                  <label class="title">Pregunta*: {{i + 1}}</label>
+                                </div>
+                                <div class="col-lg-1">
+                                  <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                                </div>
+                              </div>
+
                             </button>
                           </h2>
                         </div>
 
                         <div id="headingOne{{i}}" aria-labelledby="headingOne{{i}}" class="collapse show"
                           data-parent="#acordeonPreguntas">
-                          <div class="card-body">
+                          <div class="card-body" *ngIf="pregunta.showbody">
                             <div *ngIf="pregunta.tipo === 'multiple'" class="col-lg-12 col-md-12">
                               <div class="course_des_textarea mt-30 lbel25">
                                 <label>Pregunta*</label>
@@ -212,10 +210,13 @@
                         "></angular-editor>
                               </div>
                               <div>
+                                <br>
                                 <button (click)="agregarRespuesta(i)" type="button" class="btn btn-primary">
                                   Agregar respuesta
                                 </button>
+                                <hr>
                                 <div *ngFor="let respuesta of respuestas[i]; index as b">
+
                                   <label>Respuesta*: {{b + 1}}</label>
                                   <br>
                                   <input type="checkbox" [(ngModel)]="respuesta.correcta" name="respuesta.correcta"
