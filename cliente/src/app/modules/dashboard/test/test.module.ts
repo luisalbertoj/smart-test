@@ -6,13 +6,21 @@ import { MainComponent } from './main/main.component';
 import { ViewTestComponent } from './view-test/view-test.component';
 import { TestResultComponent } from './test-result/test-result.component';
 import { CreateTestComponent } from './create-test/create-test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TagInputModule } from 'ngx-chips';
+
+
 
 
 @NgModule({
   declarations: [MainComponent, ViewTestComponent, TestResultComponent, CreateTestComponent],
   imports: [
     CommonModule,
-    TestRoutingModule
+    TestRoutingModule,
+    FormsModule,
+    AngularEditorModule,
+    TagInputModule
   ]
 })
 export class TestModule { }

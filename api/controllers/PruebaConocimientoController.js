@@ -6,6 +6,7 @@
  */
 
 
+
 module.exports = {
   getprueba: async function (req, res) {
     const parametros = req.allParams();
@@ -16,7 +17,7 @@ module.exports = {
         return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });
       } else {
         for await (let [key, pregunta] of prueba.preguntas.entries()) {
-          prueba.preguntas[key] = await Pregunta.findOne({ id: pregunta.id }).populate('respuestas').populate('tipo');
+          prueba.preguntas[key] = await Pregunta.findOne({ id: pregunta.id }).populate('respuestas').populate('tipo').populate('respuestaCorrecta');
         }
       }
     } catch (err) {
@@ -28,6 +29,51 @@ module.exports = {
 
     return res.json({ status: 200, data: prueba, msg: 'Pruebas traidas' });
 
+  },
+
+  createtest: async function (req, res) {
+    const parametros = req.allParams();
+    console.log(parametros);
+    var test = {preguntas: []};
+    var preguntas = [];
+    try {
+      for await (let [key, pregunta] of parametros.preguntas.entries()) {
+        pregunta.tipo = (await TipoPregunta.findOne({nombre: pregunta.tipo})).id;
+        test.preguntas.push(await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());
+        preguntas.push(test.preguntas[key].id);
+        if(parametros.respuestas[key]) {
+          for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
+            test.preguntas[key].respuestas = [];
+            test.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, preguntas: [test.preguntas[key].id]}).fetch());
+            if(respuesta.correcta && test.preguntas[key] && test.preguntas[key].respuestas[key2]) {
+              console.log(test.preguntas[key].id,test.preguntas[key].respuestas[key2].id);
+              test.preguntas[key].respuestaCorrecta  = 
+              await Pregunta.updateOne({id: test.preguntas[key].id})
+              .set({respuestaCorrecta: test.preguntas[key].respuestas[key2].id});
+            }
+          }
+        }
+      }
+
+      test = await PruebaConocimiento.create({
+        nombre: parametros.test.nombre,
+        observaciones: parametros.test.observaciones,
+        contenido: parametros.test.contenido,
+        inicio: parametros.test.inicio,
+        cierre: parametros.test.cierre,
+        preguntas: preguntas,
+        creador: parametros.test.creador || 1,
+        grupo: parametros.test.grupo
+
+      }).fetch();
+
+    } catch (err) {
+      switch (err.name) {
+        case 'UsageError': return res.badRequest(err);
+        default: throw err;
+      }
+    }
+    return res.json({ status: 200, data: test, msg: 'Test creado' });
   }
 
 };

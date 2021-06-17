@@ -52,8 +52,8 @@ export class ViewTestComponent implements OnInit {
       test: this.test,
     };
     for (let i = 0; i < this.respuestas.length; i++) {
-      const element = this.respuestas[i];
-      if (this.respuestas[i] == this.test.preguntas[i].respuestacorrecta) {
+      if (this.respuestas[i] == this.test.preguntas[i].respuestaCorrecta.id) {
+
         response.correctas.push(this.test.preguntas[i]);
       }
     }

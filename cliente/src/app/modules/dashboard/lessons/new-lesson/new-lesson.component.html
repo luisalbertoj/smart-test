@@ -135,10 +135,6 @@
               </div>
             </div>
 
-
-
-
-
             <div class="card">
               <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
@@ -161,7 +157,7 @@
                       <div class="ui search focus mt-30 lbel25">
                         <label>Tipos de pregunta*</label>
                         <div class="ui left icon input swdh19">
-                          <select [(ngModel)]="tipoSelect" name="leccion.competencia" class="
+                          <select [(ngModel)]="tipoSelect" name="tipoSelect" class="
                             ui
                             hj145
                             dropdown
@@ -213,8 +209,8 @@
                                 <label>Pregunta*</label>
                                 <angular-editor [(ngModel)]="pregunta.contenido" name="pregunta.contenido"
                                   [placeholder]="
-                          'Escribe aqui la pregunta de la leccion...'
-                        "></angular-editor>
+                                'Escribe aqui la pregunta de la leccion...'
+                               "></angular-editor>
                               </div>
                               <div>
                                 <br>
@@ -228,11 +224,11 @@
                                   <br>
                                   <input type="checkbox" [(ngModel)]="respuesta.correcta" name="respuesta.correcta"
                                     class="form-check-input" id="exampleCheck1">
-                                  <label class="form-check-label" for="exampleCheck1">Respuesta correcta?</label>
+                                  <label class="form-check-label" for="exampleCheck1">Respuesta correcta</label>
                                   <angular-editor [(ngModel)]="respuesta.contenido" name="respuesta.contenido"
                                     [placeholder]="
-                            'Escribe aqui la respuesta ..'
-                          "></angular-editor>
+                                 'Escribe aqui la respuesta ..'
+                                 "></angular-editor>
                                 </div>
                               </div>
                             </div>
@@ -240,8 +236,8 @@
                               <div class="course_des_textarea mt-30 lbel25">
                                 <label>Pregunta*</label>
                                 <angular-editor [(ngModel)]="pregunta.contenido" [placeholder]="
-                          'Escribe aqui la pregunta de la leccion...'
-                        " name="leccion.practicar"></angular-editor>
+                               'Escribe aqui la pregunta de la leccion...'
+                              " name="leccion.practicar"></angular-editor>
                               </div>
                             </div>
                           </div>
@@ -254,7 +250,7 @@
               </div>
             </div>
 
-            
+
             <div class="card">
               <div class="card-header" id="cuatro">
                 <h2 class="mb-0">
