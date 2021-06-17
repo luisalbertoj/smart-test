@@ -29,8 +29,8 @@ module.exports.routes = {
   'POST /persona/login' : {action: 'persona/login'},
   'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
   'POST /leccion/createlesson': {action: 'leccion/createlesson'},
+  'POST /leccion/registrarleccion': {action: 'leccion/registrarleccion'},
   'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'}
- 
 
 
 

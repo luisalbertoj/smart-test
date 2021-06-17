@@ -89,6 +89,19 @@ module.exports = {
 
     return res.json({ status: 200, data: leccion, msg: 'Preguntas traidas' });
 
+  },
+  registrarleccion: async function (req, res) {
+    const parametros = req.allParams();
+    console.log(parametros);
+    try {
+    } catch (err) {
+      switch (err.name) {
+        case 'UsageError': return res.badRequest(err);
+        default: throw err;
+      }
+    }
+
+    return res.json({ status: 200, data: parametros, msg: 'Leccion registrada traidas' });
   }
 
 };

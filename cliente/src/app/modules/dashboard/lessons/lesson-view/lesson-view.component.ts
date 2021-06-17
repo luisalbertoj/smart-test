@@ -68,6 +68,18 @@ export class LessonViewComponent implements OnInit {
     localStorage.setItem('result', JSON.stringify(this.response));
   }
   finalizarLeccion() {
-    
+    this.factory.post('leccion/registrarleccion', {
+      leccion: this.leccion,
+      respuestas: this.respuestas,
+      response: this.response
+    }).subscribe(
+      (response: any) => {
+      this.toast.success(response.msg);
+      this.router.navigate(['/dashboard/lesson/home']);
+    },
+    (error: any) => {
+      this.toast.error('Prblema al registrar la leccion');
+      console.log(error);
+    });
   }
 }
