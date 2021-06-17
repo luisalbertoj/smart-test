@@ -9,6 +9,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ngx-date-time-picker-schedule';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     MaterialModule,
-    NgCircleProgressModule.forRoot()
+    NgCircleProgressModule.forRoot(),
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

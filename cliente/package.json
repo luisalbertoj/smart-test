@@ -25,6 +25,7 @@
     "jquery-steps": "^1.1.0",
     "moment": "^2.29.1",
     "ng-circle-progress": "^1.6.0",
+    "ng-pick-datetime-moment": "^1.0.8",
     "ngx-chips": "^2.2.2",
     "ngx-circle-progress": "^6.0.2",
     "ngx-date-time-picker-schedule": "^9.4.15",

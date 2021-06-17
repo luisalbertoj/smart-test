@@ -37,8 +37,8 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <p class="card-text "> <i class="far fa-clock relojInicio"></i> Fecha inicio: {{item.inicio}} </p>
-                    <p class="card-text"> <i class="far fa-clock relojCierre"></i> Fecha cierre: {{item.cierre}} </p>
+                    <p class="card-text "> <i class="far fa-clock relojInicio"></i> Fecha inicio: {{item.inicio|date}} </p>
+                    <p class="card-text"> <i class="far fa-clock relojCierre"></i> Fecha cierre: {{item.cierre|date}} </p>
                   </div>
                   <div class="col-sm-5 colComenzar">
                     <a [routerLink]="['/dashboard/test', item.id]" routerLinkActive="router-link-active"  class="upload_btn botonComenzar">  {{plantilla.botonTarjeta}} <i id="iconoflecha" class="{{plantilla.botonTarjetaIcono}}"></i></a>
