@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TagInputModule } from 'ngx-chips';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ngx-date-time-picker-schedule';
-
+import { MaterialModule } from '../../../material.module';
 
 
 
@@ -23,7 +23,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ngx-date-time-picker
     AngularEditorModule,
     TagInputModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    MaterialModule
+    
   ]
 })
 export class TestModule { }

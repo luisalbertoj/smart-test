@@ -29,18 +29,9 @@
 }
 
 
-.collapseAccordion :hover {
-  color: white;
-  background-color: #B1E8B0;
-}
-
-.expandAccordion {
-  color: white;
-  background-color: #94C0F0;
-}
-
 #iconodesplegable {
   font-size: 25px;
+  color: #2671c3;
 }
 
 .card-header {
@@ -54,4 +45,11 @@
 
 hr {
   background-color: #2671c3;
+}
+
+.card{
+  border-left: white;
+  border-right: white; 
+  border-top-color: #2671c3;
+  border-bottom-color: white  ;
 }

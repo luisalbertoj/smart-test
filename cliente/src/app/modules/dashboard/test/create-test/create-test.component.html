@@ -28,15 +28,28 @@
             name="test.observaciones"
             [placeholder]="'Observaciones...'"
            ></angular-editor>
+       
+       <label> 
+        Fecha de inicio 
+        <input
+            [(ngModel)]="test.inicio"
+            name="test.inicio"
+            type="datetime-local"
+            class="form-control">
+       </label>
+       <label>
+         Fecha de cierre
+            <input
+            [(ngModel)]="test.cierre"
+            name="test.cierre"
+            type="datetime-local"
+            class="form-control">
 
-           <label>
-            Fecha de la prueba de conocimiento:
-            <input [owlDateTimeTrigger]="dt10" [owlDateTime]="dt10"
-                   [selectMode]="'range'">
-            <owl-date-time #dt10></owl-date-time>
-        </label>
+          </label>
             </div>
           </div>
+        
+        
 
           <br>
           <div class="card">
@@ -45,7 +58,7 @@
                 <div class="title-icon">
                   <h4>
                     <i class="uil uil-info-circle"></i
-                    >Prueba de conocimiento
+                    >Preguntas
                   </h4>
                 </div>
               </h2>
