@@ -16,7 +16,7 @@ module.exports = {
         return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });
       } else {
         for await (let [key, pregunta] of prueba.preguntas.entries()) {
-          prueba.preguntas[key] = await Pregunta.findOne({ id: pregunta.id }).populate(['respuestas','tipo']);
+          prueba.preguntas[key] = await Pregunta.findOne({ id: pregunta.id }).populate('respuestas').populate('tipo');
         }
       }
     } catch (err) {

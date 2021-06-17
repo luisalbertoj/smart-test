@@ -32,7 +32,10 @@ export class FactoryService {
     return this.http.get(environment.urlApi + model);
   }
 
-  get(model: string, id: number) {
+  get(model: string, id: number, att?: any) {
+    if(att) {
+      return this.http.get(environment.urlApi + model + '?' + att + '=' + id);
+    }
     return this.http.get(environment.urlApi + model + '/' + id);
   }
   query(modelo: string, query: any) {

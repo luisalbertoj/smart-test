@@ -1,5 +1,5 @@
 /**
- * Persona.js
+ * PersonaLeccion.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -8,39 +8,12 @@
 module.exports = {
 
   attributes: {
-
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    nombre: {
-      type: 'string',
-      required: true
-    },
-    apellido: {
-      type: 'string',
-      required: true
-    },
-    cedula: {
-      type: 'string',
-      required: true,
-      unique: true
-    },
-    email: {
-      type: 'string',
-      required: true,
-      unique: true
-    },
-    codigo: {
-      type: 'string'
-    },
-    username: {
-      type: 'string',
-      required: true,
-      unique: true
-    },
-    password: {
-      type: 'string',
-      required: true
+    correctas: {
+      collection: 'pregunta',
+      via: 'personaslecciones'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -51,19 +24,16 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    grupos: {
-      collection: 'grupo',
-      via: 'personas'
+
+    persona: {
+      model: 'persona'
     },
-    idRol: {
-      model: 'rol'
-    },
-    lecciones: {
-      collection: 'leccion',
-      via: 'persona',
-      through: 'personaleccion'
+
+    leccion: {
+      model: 'leccion'
     }
 
-  }
+  },
 
 };
+

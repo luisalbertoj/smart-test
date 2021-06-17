@@ -18,23 +18,28 @@ module.exports = {
 
     introduccion: {
       type: 'string',
+      columnType: 'longtext',
       required: true
     },
 
     observaciones: {
       type: 'string',
+      columnType: 'longtext'
     },
 
     conclusiones: {
-      type: 'string'
+      type: 'string',
+      columnType: 'longtext'
     },
 
     aprender: {
-      type: 'string'
+      type: 'string',
+      columnType: 'longtext'
     },
 
     aplicar: {
-      type: 'string'
+      type: 'string',
+      columnType: 'longtext'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -49,6 +54,11 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    estudiantes: {
+      collection: 'persona',
+      via: 'leccion',
+      through: 'personaleccion'
+    },
 
     practicar: {
       collection: 'pregunta',

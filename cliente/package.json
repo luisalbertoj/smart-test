@@ -4,14 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.0.4",
+    "@angular/animations": "^12.0.5",
     "@angular/cdk": "^12.0.4",
     "@angular/common": "~12.0.4",
     "@angular/compiler": "~12.0.4",
@@ -23,9 +23,11 @@
     "@angular/router": "~12.0.4",
     "@kolkov/angular-editor": "^1.1.7",
     "jquery-steps": "^1.1.0",
+    "moment": "^2.29.1",
     "ng-circle-progress": "^1.6.0",
     "ngx-chips": "^2.2.2",
     "ngx-circle-progress": "^6.0.2",
+    "ngx-date-time-picker-schedule": "^9.4.15",
     "ngx-doc-viewer": "^2.0.2",
     "ngx-spinner": "^12.0.0",
     "ngx-toastr": "^14.0.0",

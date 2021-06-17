@@ -24,7 +24,7 @@ module.exports = {
             leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, preguntas: [leccion.preguntas[key].id]}).fetch());
             if(respuesta.correcta && leccion.preguntas[key] && leccion.preguntas[key].respuestas[key2]) {
               console.log(leccion.preguntas[key].id,leccion.preguntas[key].respuestas[key2].id);
-              leccion.preguntas[key].respuestaCorrecta  = 
+              leccion.preguntas[key].respuestaCorrecta  =
               await Pregunta.updateOne({id: leccion.preguntas[key].id})
               .set({respuestaCorrecta: leccion.preguntas[key].respuestas[key2].id});
             }
@@ -65,6 +65,30 @@ module.exports = {
       }
     }
     return res.json({ status: 200, data: leccion, msg: 'Leccion creada' });
+  },
+  getleccion: async function (req, res) {
+    const parametros = req.allParams();
+    console.log(parametros);
+    var leccion;
+    try {
+      leccion = await Leccion.findOne(parametros).populate('practicar');
+      if(!leccion) {return res.badRequest('La leccion no se encontro');}
+      if (leccion.practicar.length === 0) {
+        return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });
+      } else {
+        for await (let [key, pregunta] of leccion.practicar.entries()) {
+          leccion.practicar[key] = await Pregunta.findOne({ id: pregunta.id }).populate('respuestas').populate('tipo');
+        }
+      }
+    } catch (err) {
+      switch (err.name) {
+        case 'UsageError': return res.badRequest(err);
+        default: throw err;
+      }
+    }
+
+    return res.json({ status: 200, data: leccion, msg: 'Preguntas traidas' });
+
   }
 
 };

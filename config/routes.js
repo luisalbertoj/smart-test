@@ -25,6 +25,7 @@ module.exports.routes = {
   'POST /persona/actualizar' : {action: 'persona/actualizar'},
   'POST /privilegio/cambiarprivilegios' : {action: 'privilegio/cambiarPrivilegios'},
   'GET /getprueba/:id' : {action: 'pruebaConocimiento/getprueba'},
+  'GET /getleccion/:slug' : {action: 'leccion/getleccion'},
   'POST /persona/login' : {action: 'persona/login'},
   'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
   'POST /leccion/createlesson': {action: 'leccion/createlesson'}

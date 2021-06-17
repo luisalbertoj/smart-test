@@ -57,6 +57,10 @@ module.exports = {
     lecciones: {
       collection: 'leccion',
       via: 'practicar'
+    },
+    personaslecciones: {
+      collection: 'personaleccion',
+      via: 'correctas'
     }
   },
 
