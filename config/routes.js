@@ -27,7 +27,10 @@ module.exports.routes = {
   'GET /getprueba/:id' : {action: 'pruebaConocimiento/getprueba'},
   'POST /persona/login' : {action: 'persona/login'},
   'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
-  'POST /leccion/createlesson': {action: 'leccion/createlesson'}
+  'POST /leccion/createlesson': {action: 'leccion/createlesson'},
+  'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'}
+ 
+
 
 
   /***************************************************************************
