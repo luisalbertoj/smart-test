@@ -3,13 +3,45 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
+
+          <div class="card">
+          <!--   <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h2 class="card-title">Información general</h2>
+              <label>Nombre de la prueba de conocimiento</label>
+              <angular-editor
+              [(ngModel)]="test.nombre"
+              name="test.nombre"
+              [placeholder]="'Nombre de la prueba de conocimiento...'"
+             ></angular-editor>
+
+             <label>Contenido</label>
+             <angular-editor
+             [(ngModel)]="test.contenido"
+             name="test.contenido"
+             [placeholder]="'Contenido...'"
+            ></angular-editor>
+
+            <label>Observaciones</label>
+            <angular-editor
+            [(ngModel)]="test.observaciones"
+            name="test.observaciones"
+            [placeholder]="'Observaciones...'"
+           ></angular-editor>
+
+           <label>Fecha de la prueba de conocimiento</label>
+         
+            </div>
+          </div>
+
+          <br>
           <div class="card">
             <div class="card-header" id="headingThree">
               <h2 class="mb-0">
                 <div class="title-icon">
-                  <h4 class="title">
+                  <h4>
                     <i class="uil uil-info-circle"></i
-                    >{{ this.plantilla?.menuTest }}
+                    >Prueba de conocimiento
                   </h4>
                 </div>
               </h2>

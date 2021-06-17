@@ -16,12 +16,12 @@ export class CreateTestComponent implements OnInit {
 
 
   test: any = {
-    nombre: 'prueba de prueba',
-    observaciones: 'observaciones de prueba',
-    contenido: 'contenido de prueba',
+    nombre: '',
+    observaciones: '',
+    contenido: '',
     creador: JSON.parse(localStorage.getItem('user')).id || 1,
-    inicio: '7',
-    cierre: '8',
+    inicio: '',
+    cierre: '',
     grupo: JSON.parse(localStorage.getItem('user')).grupo?.nombre || 1,
     preguntas: []
   };
