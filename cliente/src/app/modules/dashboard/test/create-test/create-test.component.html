@@ -29,8 +29,12 @@
             [placeholder]="'Observaciones...'"
            ></angular-editor>
 
-           <label>Fecha de la prueba de conocimiento</label>
-         
+           <label>
+            Fecha de la prueba de conocimiento:
+            <input [owlDateTimeTrigger]="dt10" [owlDateTime]="dt10"
+                   [selectMode]="'range'">
+            <owl-date-time #dt10></owl-date-time>
+        </label>
             </div>
           </div>
 
