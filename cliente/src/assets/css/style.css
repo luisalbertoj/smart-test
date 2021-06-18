@@ -317,7 +317,8 @@ input[type=text] {
   }
 
   .wrapper__minify {
-    margin-left: 0;
+    margin-left: 40;
+    float: left;
   }
 
 }
