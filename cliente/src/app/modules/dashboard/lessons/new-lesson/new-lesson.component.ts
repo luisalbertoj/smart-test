@@ -15,6 +15,7 @@ export class NewLessonComponent implements OnInit {
     menuAprender: 'Aprender',
     menuPracticar: 'Practicar',
     menuAplicar: 'Aplicar',
+    imgBanner: 'assets/images/bannercrearlecc.png'
   };
 
   leccion: any = {
