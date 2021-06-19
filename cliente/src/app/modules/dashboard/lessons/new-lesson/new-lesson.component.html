@@ -7,20 +7,28 @@
       <div class="row">
         <div class="col-lg-12">
 
-          <div class="card">
+          <div >
             <img src="{{plantilla.imgBanner}}" class="card-img-top" alt="...">
-         </div>
-          <div class="accordion" id="accordionExample">
-            <div class="card">
+             </div>
+              <div class="accordion" id="accordionExample">
+            
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <div class="title-icon">
-                      <h4 class="title">
-                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuGeneral }}
-                      </h4>
+                    <div class="row">
+                      <div class="title-icon" class="col-lg-11">
+                        <ul>
+                          <li class="title">
+                           {{ this.plantilla?.menuGeneral }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-1">
+                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                      </div>
                     </div>
+
                   </button>
                 </h2>
               </div>
@@ -119,17 +127,29 @@
                   </div>
                 </div>
               </div>
-            </div>
+            
+            
             <div class="card">
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <div class="title-icon">
-                      <h4 class="title">
-                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuAprender }}
-                      </h4>
+                   
+
+                    <div class="row">
+                      <div class="title-icon" class="col-lg-11">
+                        <ul>
+                          <li class="title">
+                            {{ this.plantilla?.menuAprender }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-1">
+                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                      </div>
                     </div>
+                   
+
                   </button>
                 </h2>
               </div>
@@ -147,11 +167,20 @@
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <div class="title-icon">
-                      <h4 class="title">
-                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuPracticar }}
-                      </h4>
+                  
+                    <div class="row">
+                      <div class="title-icon" class="col-lg-11">
+                        <ul>
+                          <li class="title">
+                           {{ this.plantilla?.menuPracticar }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-1">
+                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                      </div>
                     </div>
+
                   </button>
                 </h2>
               </div>
@@ -263,11 +292,20 @@
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
-                    <div class="title-icon">
-                      <h4 class="title">
-                        <i class="uil uil-info-circle"></i>{{ this.plantilla?.menuAplicar }}
-                      </h4>
+                   
+                    <div class="row">
+                      <div class="title-icon" class="col-lg-11">
+                        <ul>
+                          <li class="title">
+                            {{ this.plantilla?.menuAplicar }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-1">
+                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                      </div>
                     </div>
+                   
                   </button>
                 </h2>
               </div>
@@ -318,7 +356,7 @@
             </div>
           </div>
 
-          <button (click)="crearLeccion()" class="part_btn_save prt-sv" type="button">Crear leccion</button>
+          <button (click)="crearLeccion()" class="part_btn_save prt-sv btn-plantilla" type="button">Crear leccion</button>
         </div>
       </div>
     </div>

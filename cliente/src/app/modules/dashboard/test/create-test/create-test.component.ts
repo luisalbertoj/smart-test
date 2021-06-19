@@ -12,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CreateTestComponent implements OnInit {
   plantilla: any = {
     menuTest: 'Prueba de conocimiento',
+    imgBanner: 'assets/images/bannercrearpruebas.png'
   };
 
 

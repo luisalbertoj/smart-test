@@ -28,7 +28,6 @@
     "ng-pick-datetime-moment": "^1.0.8",
     "ngx-chips": "^2.2.2",
     "ngx-circle-progress": "^6.0.2",
-    "ngx-date-time-picker-schedule": "^9.4.15",
     "ngx-doc-viewer": "^2.0.2",
     "ngx-spinner": "^12.0.0",
     "ngx-toastr": "^14.0.0",
