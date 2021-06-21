@@ -10,6 +10,11 @@ import Swal from 'sweetalert2';
 })
 export class ListComponent implements OnInit {
 
+  plantilla: any = {
+    imgBanner: 'assets/images/bannerre.png'
+  };
+
+ 
   recursosEducativos: any = [];
   item: any = '0a6b164c-9a42-48ae-9727-6866279244d4.docx';
   doc = this.factory.apiMedia + '/' + this.item;

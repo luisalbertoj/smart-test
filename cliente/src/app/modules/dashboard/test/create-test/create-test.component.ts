@@ -84,11 +84,12 @@ export class CreateTestComponent implements OnInit {
         respuestaCorrecta: '',
         showbody:false
       });
-      this.respuestas.push([]);
     }
     if (this.tipoSelect === 'abierta') {
       this.preguntas.push({ tipo: 'abierta', contenido: '' });
+      
     }
+    this.respuestas.push([]);
   }
 
   agregarRespuesta(indice: any, pregunta?:any) {

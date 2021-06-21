@@ -16,6 +16,10 @@ declare interface DataTable {
 })
 export class UserListComponent implements OnInit {
 
+  plantilla: any = {
+    imgBanner: 'assets/images/banneruser.png'
+  };
+
   public dataTable: DataTable;
   public usuarioSeleccionado: any = {
     nombre: '',
