@@ -39,7 +39,9 @@ export class CreateTestComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-   
+    this.factory.returnAsObservable().subscribe((subs) => {
+      subs===true?this.spinner.hide():this.spinner.show();
+    });
     this.cargarTipos();
   }
 

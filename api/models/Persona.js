@@ -21,9 +21,7 @@ module.exports = {
       required: true
     },
     cedula: {
-      type: 'string',
-      required: true,
-      unique: true
+      type: 'string'
     },
     email: {
       type: 'string',

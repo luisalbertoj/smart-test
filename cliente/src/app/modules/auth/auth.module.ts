@@ -4,10 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SigInComponent } from './sig-in/sig-in.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [SigInComponent],
+  declarations: [SigInComponent, RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
