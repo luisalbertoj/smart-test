@@ -12,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CreateTestComponent implements OnInit {
   plantilla: any = {
     menuTest: 'Prueba de conocimiento',
+    imgBanner: 'assets/images/bannercrearpruebas.png'
   };
 
 
@@ -83,11 +84,12 @@ export class CreateTestComponent implements OnInit {
         respuestaCorrecta: '',
         showbody:false
       });
-      this.respuestas.push([]);
     }
     if (this.tipoSelect === 'abierta') {
       this.preguntas.push({ tipo: 'abierta', contenido: '' });
+      
     }
+    this.respuestas.push([]);
   }
 
   agregarRespuesta(indice: any, pregunta?:any) {
