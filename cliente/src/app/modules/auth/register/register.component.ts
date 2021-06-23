@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     username: '',
     password: '',
-    idRol: '1'
+    idRol: '3'
   };
 
   constructor(private factory: FactoryService,
