@@ -18,7 +18,7 @@
                       <div class="ui search focus mt-30 lbel25">
                         <label>Competencia asociada*</label>
                         <div class="ui left icon input swdh19">
-                          <select name="leccion.competencia" class="
+                          <select [(ngModel)]="element" name="element" class="
                               ui
                               hj145
                               dropdown
@@ -30,7 +30,7 @@
                             <option value="">
                               Selecciona la competencia
                             </option>
-                            <option *ngFor="let competencia of competencias" value="competencia?.id">
+                            <option *ngFor="let competencia of competencias" value="{{competencia?.id}}">
 
                               <a (click)="selectedCompetencia(competencia)">{{ competencia?.nombre }}</a>
                             </option>
@@ -44,7 +44,7 @@
 
                   </div>
 
-                  
+
                   <div *ngIf="this.element !== false" class="upload-files">
                     <div class="form-group has-default">
                       <div class="input-group">
@@ -88,7 +88,7 @@
                     <div class="container" appDnd (fileDropped)="onFileDropped($event)">
                       <input type="file" #fileDropRef id="fileDropRef" multiple
                         (change)="fileBrowseHandler($event.target.files)" />
-                      <img src="assets/img/dnd/ic-upload-file.svg" alt="" />
+                      <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg" alt="imagen de carga" />
                       <h3>Arrastra y suelta tus archivos aqui</h3>
                       <h3>o</h3>
                       <label for="fileDropRef">Buscar archivos</label>
