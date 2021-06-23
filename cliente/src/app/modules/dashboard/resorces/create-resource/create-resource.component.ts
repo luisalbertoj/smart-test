@@ -19,7 +19,7 @@ export class CreateResourceComponent implements OnInit {
     leccion: '',
     leccionId: ''
   };
-  element: any = false;
+  element: any = "";
   constructor(public factory: FactoryService) { }
 
   ngOnInit(): void {
