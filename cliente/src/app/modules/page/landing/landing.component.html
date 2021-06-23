@@ -1,22 +1,39 @@
- <!-- NAVIGATION -->
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="assets/images/page/img/logo.png" style="width: 20%;">
+      <img src="assets/images/page/img/logo1.png" style="width: 20%" />
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="col lapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/auth']"
+            routerLinkActive="router-link-active"
+          >
+            Iniciar sesión <i class="fas fa-sign-in-alt"></i>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Team</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/auth/register']"
+            routerLinkActive="router-link-active"
+          >
+            Registrarse <i class="fas fa-user-plus"></i
+          ></a>
         </li>
       </ul>
     </div>
@@ -25,20 +42,22 @@
 
 <!-- HEADER -->
 <header class="main-header">
-  <div class="background-overlay text-white py-5">
+  <div class="background-overlay py-5 bannerpri">
     <div class="container">
       <div class="row d-flex h-100">
-        <div class="col-sm-6 text-center justify-content-center align-self-center">
-          <h1>
-            this is the title or a phrase relate to the product
-          </h1>
-          <p>Elit reiciendis aspernatur obcaecati accusantium corporis? Mollitia eius ratione excepturi.</p>
-          <a href="#" class="btn btn-outline-secondary btn-lg text-white">
-            Read More
+        <div
+          class="col-sm-6 text-center justify-content-center align-self-center"
+        >
+          <p class="aprende">Aprende pruebas de software</p>
+          <p class="aprende">Aprende con <strong>¡Smart Test!</strong></p>
+
+          <a
+            [routerLink]="['/auth']"
+            routerLinkActive="router-link-active"
+            class="btn btn-lg back-secondary text-white btnaprender"
+          >
+            Aprender
           </a>
-        </div>
-        <div class="col-sm-6">
-          <img src="assets/images/page/img/product.jpg" class="img-fluid d-none d-sm-block">
         </div>
       </div>
     </div>
@@ -46,19 +65,17 @@
 </header>
 
 <!-- NEWSLETTER  -->
-<section id="newsletter" class="bg-dark text-white py-5">
+
+<section id="newsletter" class="py-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <input type="text" class="form-control form-control-lg" placeholder="Enter your Name">
-      </div>
-      <div class="col-md-4">
-        <input type="email" class="form-control form-control-lg" placeholder="Enter your Email">
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-primary btn-lg btn-block">
-          Suscribe
-        </button>
+      <div class="col-md-12 h1ser">
+        <h1>
+          <strong>
+            Smart Test te ofrece <i class="fas fa-pencil-alt"></i
+          ></strong>
+        </h1>
+        <hr />
       </div>
     </div>
   </div>
@@ -66,45 +83,53 @@
 
 <!-- FEATURES -->
 
-<section class="py-5">
+<section>
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <div class="card text-center border-primary">
+        <div class="card text-center">
           <div class="card-body">
-            <h3>Feature One</h3>
+            <i class="fas fa-chalkboard-teacher fa-4x icolorazul"></i>
+            <h3><strong> Lecciones </strong></h3>
             <p>
-              Amet alias a ipsa tempora ullam asperiores aperiam rem? 
+              Crea y desarrolla lecciones de aprendizaje, con la metología
+              Aprende-Práctica-Aplica
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card text-white bg-primary">
-          <div class="card-body">
-            <h3>Feature Two</h3>
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="fas fa-tasks fa-4x icolorverde"></i>
+            <h3><strong>Pruebas de conocimientos</strong></h3>
             <p>
-              Amet alias a ipsa tempora ullam asperiores aperiam rem? 
+              Crea y desarrolla test de conocimientos para medir tus
+              conocimientos adquiridos
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card text-center border-primary">
+        <div class="card text-center">
           <div class="card-body">
-            <h3>Feature Three</h3>
+            <i class="fas fa-redo fa-4x icolorazul"></i>
+            <h3><strong> Retroalimentación </strong></h3>
             <p>
-              Amet alias a ipsa tempora ullam asperiores 
+              Interactua con los estudiantes dando tus aportaciones a sus
+              resultados
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card text-white bg-primary">
-          <div class="card-body">
-            <h3>Feature Four</h3>
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="far fa-file-video fa-4x icolorverde"></i>
+            <h3><strong>Recurso educativos</strong></h3>
             <p>
-              Amet alias a ipsa tempora ullam asperiores aperiam rem? 
+              Agrega recursos educativos y visualiza en línea los recursos que
+              otros usuarios comparten
             </p>
           </div>
         </div>
@@ -117,63 +142,24 @@
 <section class="m5 text-center bg-light">
   <div class="container">
     <div class="row">
-      <div class="m-5">
-        <h3>Why this Product?</h3>
-        <p>
-          Consectetur dolor at delectus dolores fugiat! Rerum inventore cumque quidem corporis iusto temporibus nesciunt minima! Harum harum qui dolores natus dolore repudiandae quae animi aliquid nobis sed? Quod culpa quia?
-        </p>
+     
+        
+      <div class="col-md-2 bannergrisico">
+        <img class="bannergrisico" src="assets/images/page/img/logoico.png" />
+     
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ACCORDION -->
-<section class="container text-center p-5">
-  <div class="row">
-    <div class="accordion" id="accordionExample">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              ¿Question One?
-            </button>
-          </h5>
+        <div class="col-md-10 bannergris">
+          <h3><strong>¿Qué es Smart Test?</strong></h3>
+          <p>
+            Es una aplicación asistente en el proceso de pruebas de software
+            basado en la Norma ISO 29119 como soporte en la implementación de
+            una estrategia didáctica en el proceso formativo en educación
+            superior
+          </p>
         </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Collapsible Group Item #2
-            </button>
-          </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Collapsible Group Item #3
-            </button>
-          </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -181,19 +167,27 @@
 <!-- TEAM -->
 <section class="text-center team">
   <div class="container p-5">
-    <h1 class="text-center text-white">Team</h1>
+    <h1 class="text-center text-white">Universidades</h1>
     <p class="text-white">
-      Adipisicing unde eum odio aliquam dolor ad voluptas expedita consequuntur aperiam inventore eaque. Dolorum facilis aut eum a delectus. Fugit velit quas harum quisquam amet provident inventore. Repudiandae repudiandae delectus.
+      Adipisicing unde eum odio aliquam dolor ad voluptas expedita consequuntur
+      aperiam inventore eaque. Dolorum facilis aut eum a delectus. Fugit velit
+      quas harum quisquam amet provident inventore. Repudiandae repudiandae
+      delectus.
     </p>
     <div class="row">
       <!-- USER TEAM -->
+      <br />
       <div class="col-lg-3">
         <div class="card">
           <div class="card-body">
-            <img src="assets/images/page/img/person.png" class="img-fluid rounded-circle w-50">
-            <h3>John Carter</h3>
+            <img
+              src="assets/images/page/img/person.png"
+              class="img-fluid rounded-circle w-50"
+            />
+            <h3>Universidad de Santander</h3>
             <p>
-              Dolor modi repudiandae quia beatae consectetur? Nam ullafugit ullam, accusamus! Totam mollitia eveniet!
+              Dolor modi repudiandae quia beatae consectetur? Nam ullafugit
+              ullam, accusamus! Totam mollitia eveniet!
             </p>
             <div class="d-flex flex-row justify-content-center">
               <div class="p-4">
@@ -213,10 +207,14 @@
       <div class="col-lg-3">
         <div class="card">
           <div class="card-body">
-            <img src="assets/images/page/img/person.png" class="img-fluid rounded-circle w-50">
-            <h3>John Carter</h3>
+            <img
+              src="assets/images/page/img/person.png"
+              class="img-fluid rounded-circle w-50"
+            />
+            <h3>Tecnológico de Antotioquia</h3>
             <p>
-              Dolor modi repudiandae quia beatae consectetur? Nam ullafugit ullam, accusamus! Totam mollitia eveniet!
+              Dolor modi repudiandae quia beatae consectetur? Nam ullafugit
+              ullam, accusamus! Totam mollitia eveniet!
             </p>
             <div class="d-flex flex-row justify-content-center">
               <div class="p-4">
@@ -231,102 +229,45 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card">
-          <div class="card-body">
-            <img src="assets/images/page/img/person.png" class="img-fluid rounded-circle w-50">
-            <h3>John Carter</h3>
-            <p>
-              Dolor modi repudiandae quia beatae consectetur? Nam ullafugit ullam, accusamus! Totam mollitia eveniet!
-            </p>
-            <div class="d-flex flex-row justify-content-center">
-              <div class="p-4">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </div>
-              <div class="p-4">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </div>
-              <div class="p-4">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card">
-          <div class="card-body">
-            <img src="assets/images/page/img/person.png" class="img-fluid rounded-circle w-50">
-            <h3>John Carter</h3>
-            <p>
-              Dolor modi repudiandae quia beatae consectetur? Nam ullafugit ullam, accusamus! Totam mollitia eveniet!
-            </p>
-            <div class="d-flex flex-row justify-content-center">
-              <div class="p-4">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </div>
-              <div class="p-4">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </div>
-              <div class="p-4">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="bg-light py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-9">
-        <h3>Contact</h3>
-        <p>
-          Consectetur neque numquam autem animi?
-        </p>
-        <form action="">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <i class="fas fa-user input-group-text"></i>
-            </div>
-            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <i class="fas fa-envelope input-group-text"></i>
-            </div>
-            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <i class="fas fa-pencil-alt input-group-text"></i>
-            </div>
-            <textarea name="" cols="30" rows="10" placeholder="Message" class="form-control"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Send</button>
-        </form>
-      </div>
-      <div class="col-lg-3 align-self-center">
-        <img src="assets/images/page/img/logo.png" alt="">
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container p-3">
-    <div class="row text-center text-white">
-      <div class="col ml-auto">
-        <p>Copyright &copy; 2018</p>
+<footer class="footer mt-30">
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="footer_bottm">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="fotb_left">
+                <li>
+                  <a href="index.html">
+                    <div class="footer_logo">
+                      <img src="assets/images/logofooter.png" alt="" />
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <p>
+                    © 2021 <strong>Smart Test</strong>. Todos los derechos
+                    reservados.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <div class="edu_social_links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>       
+  </div>
 </footer>

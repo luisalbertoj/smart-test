@@ -1,21 +1,24 @@
 .navbar {
-    box-shadow: 2px 2px 5px #000;
+    box-shadow: 2px 2px 5px white;
     opacity: 0.9;
+    background-color: #43bd41;
   }
   
   .navbar .nav-item .nav-link {
     color: #fff;
+    font-size: 120%;
+    
   }
   
   .main-header {
     position: relative;
-    background: url(./../../../../assets/images/page/img/background.jpg);
-    background-size: cover;
-    min-height: 700px;
+   background: url(./../../../../assets/images/page/img/background1.png); 
+    width: 100%;
+    min-height: 500px;
+    background-repeat: no-repeat;
   }
   
   .background-overlay {
-    background: rgba(48, 51, 107,.7);
     top: 0;
     left: 0;
     width: 100%;
@@ -26,7 +29,66 @@
     border-radius: 0;
   }
   
-  .team, footer {
-    background: #30336b;
+  .team {
+    background: #2671c3;
+  }
+
+  .aprende{
+    font-size: 150%;
   }
   
+  hr{
+    background-color: #43bd41;
+  }
+
+  .h1ser{
+    text-align: center;
+  }
+
+  .btnaprender{
+    border-radius: 15px;
+  }
+
+  .borderadius{
+    border-radius: 360px;
+  }
+
+  .btn1542{
+    background-color: #43bd41;  
+  }
+  
+  .wrapper {
+    padding: 0;
+  }
+
+  .card{
+    border: none;
+  }
+
+  .bannerpri{
+    margin-top: 45%;
+    margin-left: 30%;
+  }
+
+  .icolorazul{
+    color: #2671c3;
+    margin-top: -10%;
+    margin-bottom: 10%;
+  }
+
+  .icolorverde{
+    color: #43bd41;
+    margin-top: -10%;
+    margin-bottom: 10%;
+  }
+
+  .bannergrisico{
+    padding-top: 3em;
+    padding-bottom: 2em;
+    width: 40%;
+  }
+
+  .bannergris{
+    padding-top: 3em;
+    padding-bottom: 2em;
+  }
