@@ -83,12 +83,29 @@
   }
 
   .bannergrisico{
-    padding-top: 3em;
-    padding-bottom: 2em;
-    width: 40%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 60%;
   }
 
   .bannergris{
     padding-top: 3em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;;
+   
+  }
+
+  .logotdea{
+    width: 67%;
+  }
+
+  .cardtdea{
+    height: 100%;
+    margin-left: 10%;
+   
+  }
+
+  .cardudes{
+    height: 100%;
+    margin-left: 20%;
+   
   }
