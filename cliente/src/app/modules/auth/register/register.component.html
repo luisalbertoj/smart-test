@@ -20,6 +20,7 @@
                   value="" id="id_fullname" required="" maxlength="64" placeholder="Nombres Completo" required>
               </div>
             </div>
+            <br>
             <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
                 <input [(ngModel)]="persona.apellido" class="prompt srch_explore" type="text" name="persona.apellido"
@@ -32,6 +33,7 @@
                   value="" id="id_email" required="" maxlength="64" placeholder="Correo electonico" required>
               </div>
             </div>
+            <br>
             <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
                 <input [(ngModel)]="persona.username" class="prompt srch_explore" type="text" name="persona.username"
@@ -52,7 +54,7 @@
                                 </div>
                             </div>
                         </div> -->
-            <button (click)="registrar()" class="login-btn" type="submit">Crear cuenta</button>
+            <button (click)="registrar()" class="login-btn boton" type="submit">Crear cuenta</button>
           </form>
           <p class="mb-0 mt-30">¿ya tienes una cuenta? <a [routerLink]="['/auth']"
               routerLinkActive="router-link-active">Ingresar</a></p>
