@@ -26,7 +26,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'resorces',
+        path: 'resources',
         loadChildren: () =>
           import('./resorces/resorces.module').then(
             (m) => m.ResorcesModule
