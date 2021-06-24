@@ -3,21 +3,6 @@
     
   }
 
-  #cardGeneral{
-    border-top-color: white;
-    border-left-color: #2671c3;
-    border-right-color: #2671c3;
-    border-bottom-color: #2671c3;
-    border-bottom-width: 3px;
-  }
-
-  #cardSegundo{
-    border-top-color: white;
-    border-left-color: #2671c3;
-    border-right-color: #2671c3;
-    border-bottom-color: #2671c3;
-    border-bottom-width: 3px;
-  }
 
   .card-header {
     background-color: white;
