@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FactoryService } from 'src/app/services/factory.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public factory: FactoryService) {}
 
   ngOnInit(): void {
     this.menu();
+    console.log(this.factory.user);
   }
 
   menu() {
