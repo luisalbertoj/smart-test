@@ -13,6 +13,8 @@ import { FactoryService } from 'src/app/services/factory.service';
 export class HomeComponent implements OnInit {
   public leccion: any = this.course.get();
   public lecciones: any = [];
+  public competencias: any = [];
+  public modo: any = false;
 
   constructor(
     private course: CourseService,
@@ -27,8 +29,25 @@ export class HomeComponent implements OnInit {
       subs === true ? this.spinner.hide() : this.spinner.show();
     });
     this.loadLecciones();
+    this.cargarCompetencias();
   }
-
+  cargarCompetencias() {
+    this.factory.getAll('competencia').subscribe(
+      (response: any) => {
+        this.competencias = response;
+        for (let competencia of this.competencias) {
+          competencia.showbody = false;
+          competencia.accordianclass = 'collapseAccordion';
+        }
+        console.log(this.competencias);
+      },
+      (error: any) =>
+        this.toast.error(
+          'Problema al cargar las Competencias revisa la conexion',
+          'Error de conexion'
+        )
+    );
+  }
   loadLecciones() {
     this.factory.getAll('leccion').subscribe(
       (response: any) => {
@@ -45,5 +64,16 @@ export class HomeComponent implements OnInit {
 
   iniciar(slug: any) {
     this.router.navigate(['dashboard/lesson/lesson-detail', slug]);
+  }
+  onClickAccordion(key, value) {
+    if (!value.showbody) {
+      value.showbody = true;
+
+      value.accordianclass = 'collapseAccordion';
+    } else {
+      value.showbody = false;
+
+      value.accordianclass = 'expandAccordion';
+    }
   }
 }
