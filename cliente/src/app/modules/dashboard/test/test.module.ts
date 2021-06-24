@@ -9,7 +9,6 @@ import { CreateTestComponent } from './create-test/create-test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TagInputModule } from 'ngx-chips';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ngx-date-time-picker-schedule';
 import { MaterialModule } from '../../../material.module';
 
 
@@ -22,8 +21,6 @@ import { MaterialModule } from '../../../material.module';
     FormsModule,
     AngularEditorModule,
     TagInputModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
     MaterialModule
     
   ]

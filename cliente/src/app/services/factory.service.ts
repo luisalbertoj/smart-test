@@ -43,17 +43,16 @@ export class FactoryService {
   }
   fileUpload(endPoint: any, data: any, info: any) {
     let formData: FormData = new FormData();
+    formData.append('nombre', info.nombre);
+    formData.append('contenido', info.contenido);
+    formData.append('creador', info.creador);
+    formData.append('leccion', info.leccionId);
     for (let i = 0; i < data.length; i++) {
       console.log('for' + i);
       console.log(data[i]);
       let file: File = data[i];
       formData.append('file' + i, file, file.name);
     }
-    formData.append('nombre', info.nombre);
-    formData.append('contenido', info.contenido);
-    formData.append('creador', info.creador);
-    formData.append('leccion', info.leccionId);
-    console.log(info);
     return this.http.post(environment.urlApi + endPoint, formData);
   }
   returnAsObservable() {

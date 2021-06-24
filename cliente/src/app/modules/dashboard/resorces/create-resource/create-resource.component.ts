@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import Swal from 'sweetalert2';
 
@@ -19,17 +20,20 @@ export class CreateResourceComponent implements OnInit {
   competencias: any = [];
   lecciones: any = [];
   recurso: any =  {
-    nombre: 'default',
+    nombre: '',
     contenido: '',
-    creador: 8,
+    creador: this.factory.user.id || 1,
     leccion: '',
     leccionId: ''
   };
-  element: any = "";
-  constructor(public factory: FactoryService) { }
+  element: any = '';
+  indexLeccion: any = '';
+  constructor(public factory: FactoryService,
+    private toast: ToastrService) { }
 
   ngOnInit(): void {
     this.cargarCompetencias();
+    
   }
   cargarCompetencias(): void {
     this.factory.getAll('competencia').subscribe(
@@ -42,17 +46,17 @@ export class CreateResourceComponent implements OnInit {
       }
     );
   }
-  cargarLecciones() {
-    this.lecciones = this.element.lecciones;
+  selectedCompetencia() {
+    console.log(this.element);
+    if(this.element === '') return 0;
+    if(this.element > this.competencias[this.element].lecciones.length) return this.toast.info('La competencia no tiene lecciones asociadas'); 
+    this.lecciones = this.competencias[this.element].lecciones;
+    console.log(this.lecciones);
   }
-  selectedCompetencia(item: any) {
-    console.log(item);
-    this.element = item;
-    this.cargarLecciones();
-  }
-  selectedLeccion(item: any) {
-    this.recurso.leccion = item.nombre;
-    this.recurso.leccionId = item.id;
+  selectedLeccion() {
+    if(this.indexLeccion === '') return 0;
+    this.recurso.leccion = this.lecciones[this.indexLeccion].titulo;
+    this.recurso.leccionId = this.lecciones[this.indexLeccion].id;
   }
    /**
    * on file drop handler
