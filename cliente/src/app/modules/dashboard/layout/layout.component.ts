@@ -13,6 +13,7 @@ export class LayoutComponent implements OnInit {
     public factory: FactoryService) {}
 
   ngOnInit(): void {
+    this.factory.loadUser();
     this.menu();
     console.log(this.factory.user);
   }
@@ -79,7 +80,7 @@ Vertical Responsive Menu
 
 
   salir() {
-    localStorage.clear();
+    localStorage.removeItem('user');
     this.router.navigate(['/']);
   }
 }
