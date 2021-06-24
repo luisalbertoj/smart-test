@@ -28,7 +28,7 @@
                 >Lecciones</a
               >
             </li>
-            <li class="sub_menu--item">
+            <li class="sub_menu--item" *ngIf="factory?.user?.idRol?.nombre === 'admin', 'docente'">
               <a
                 [routerLink]="['/dashboard/lesson/new']"
                 routerLinkActive="router-link-active"
@@ -54,7 +54,7 @@
             </li>
           </ul>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
+            <li class="sub_menu--item" *ngIf="factory?.user?.idRol?.nombre === 'admin', 'docente'">
               <a
                 [routerLink]="['/dashboard/test/create-test']"
                 routerLinkActive="router-link-active"
@@ -78,7 +78,7 @@
                 >Ver recursos</a
               >
             </li>
-            <li class="sub_menu--item">
+            <li class="sub_menu--item" *ngIf="factory?.user?.idRol?.nombre === 'admin', 'docente'">
               <a
                 [routerLink]="['/dashboard/resources/create-resoruce']"
                 routerLinkActive="router-link-active"
@@ -88,7 +88,7 @@
             </li>
           </ul>
         </li>
-        <li class="menu--item menu--item__has_sub_menu">
+        <li class="menu--item menu--item__has_sub_menu" *ngIf="factory?.user?.idRol?.nombre === 'admin' && factory?.user?.idRol?.nombre === 'docente'">
           <label class="menu--link" title="Tests">
              <i class="fas fa-user-friends menu--icon iconos"></i>
             <span class="menu--label">Administrador</span>
