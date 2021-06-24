@@ -23,7 +23,7 @@
               <div class="card-body tarjetatest">
                 <div class="row">
                   <div class="col-sm-9">
-                    <h4 class="card-title">{{item.nombre}} <i class="far fa-check-circle checkVerde"></i> <i class="far fa-check-circle "></i></h4>
+                    <h4 class="card-title"><span [innerHTML]="item.nombre"></span> <i class="far fa-check-circle checkVerde"></i> <i class="far fa-check-circle "></i></h4>
                     <p class="card-text">{{item.observaciones}} </p>
 
                   </div>
@@ -32,7 +32,6 @@
                     <img src="{{factory.user.img || 'assets/images/test/docente.jpg'}}" alt="imagen docente {{item.id}}" class="rounded-circle imagencirculo">
                     <p class="card-text textDocente"> {{factory.user.nombre + factory.user.apellido}} </p>
                     <span></span>
-
                   </div>
                 </div>
                 <div class="row">

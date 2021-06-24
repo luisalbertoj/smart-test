@@ -3,11 +3,12 @@
   <div class="sa4d25">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-9 col-lg-8">
+       
+        <div class="col-xl-9 col-lg-8 ">
           <div class="row">
             <div class="col-sm-12">
-              <div class="section3125 mt-50">
-                <h4 class="item_title">Leccion destacada</h4>
+              <div class="section3125 ">
+                <h4 class="item_title"><strong>Lección destacada</strong></h4>
                 <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
                   routerLinkActive="router-link-active" class="fcrse_img">
                   <img src="{{this.leccion.portada}}" alt="">
@@ -22,13 +23,11 @@
                     </div>
                   </div>
                 </a>
-                <div class="la5lo1">
-
-                </div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-xl-3 col-lg-4">
           <div class="right_side">
             <div class="fcrse_2 mb-30">
@@ -55,6 +54,7 @@
             </div>
           </div>
         </div>
+
       </div>
       <hr>
       <div class="row">
@@ -88,7 +88,7 @@
               </div>
               <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
                 routerLinkActive="router-link-active" class="crse14s title900">
-                <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de la leccion: </strong>
+                <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de la lección: </strong>
                 {{leccion.objetivo?.contenido}}
               </a>
               <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->

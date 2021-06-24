@@ -9,6 +9,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-resource.component.scss']
 })
 export class CreateResourceComponent implements OnInit {
+
+  plantilla: any = {
+    imgBanner: 'assets/images/bannerre.png'
+  };
+
+
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
   files: any[] = [];
   competencias: any = [];
