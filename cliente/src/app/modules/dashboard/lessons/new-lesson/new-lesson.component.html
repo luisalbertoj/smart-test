@@ -1,58 +1,58 @@
 <div class="wrapper">
   <div class="sa4d25">
-    
-  
+
+
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
 
-          <div >
+          <div>
             <img src="{{plantilla.imgBanner}}" class="card-img-top" alt="...">
-             </div>
-              <div class="accordion" id="accordionExample">
-            
-              <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <div class="row">
-                      <div class="title-icon" class="col-lg-11">
-                        <ul>
-                          <li class="title">
-                           {{ this.plantilla?.menuGeneral }}
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="col-lg-1">
-                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
-                      </div>
+          </div>
+          <div class="accordion" id="accordionExample">
+
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  <div class="row">
+                    <div class="title-icon" class="col-lg-11">
+                      <ul>
+                        <li class="title">
+                          {{ this.plantilla?.menuGeneral }}
+                        </li>
+                      </ul>
                     </div>
+                    <div class="col-lg-1">
+                      <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                    </div>
+                  </div>
 
-                  </button>
-                </h2>
-              </div>
+                </button>
+              </h2>
+            </div>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                  <div class="course__form">
-                    <div class="general_info10">
-                      <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                          <div class="ui search focus mt-30 lbel25">
-                            <label>Titulo de la leccion*</label>
-                            <div class="ui left icon input swdh19">
-                              <input [(ngModel)]="leccion.titulo" name="leccion.titulo" class="prompt srch_explore"
-                                type="text" placeholder="Ingresa el titulo de la leccion."
-                                data-purpose="edit-course-title" maxlength="60" id="main[title]" value="" required />
-                            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="course__form">
+                  <div class="general_info10">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6">
+                        <div class="ui search focus mt-30 lbel25">
+                          <label>Titulo de la leccion*</label>
+                          <div class="ui left icon input swdh19">
+                            <input [(ngModel)]="leccion.titulo" name="leccion.titulo" class="prompt srch_explore"
+                              type="text" placeholder="Ingresa el titulo de la leccion."
+                              data-purpose="edit-course-title" maxlength="60" id="main[title]" value="" required />
                           </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="ui search focus mt-30 lbel25">
-                            <label>Objetivo asociado*</label>
-                            <div class="ui left icon input swdh19">
-                              <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo" class="
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="ui search focus mt-30 lbel25">
+                          <label>Objetivo asociado*</label>
+                          <div class="ui left icon input swdh19">
+                            <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo" class="
                                   ui
                                   hj145
                                   dropdown
@@ -61,80 +61,80 @@
                                   srch_explore
                                   select-competencia
                                 ">
-                                <option value="">
-                                  Selecciona el objetivo
-                                </option>
-                                <option *ngFor="let objetivo of objetivos" value="{{objetivo?.id}}">
-                                  {{ objetivo?.contenido }}
-                                </option>
-                              </select>
-                            </div>
+                              <option value="">
+                                Selecciona el objetivo
+                              </option>
+                              <option *ngFor="let objetivo of objetivos" value="{{objetivo?.id}}">
+                                {{ objetivo?.contenido }}
+                              </option>
+                            </select>
                           </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="ui search focus mt-30 lbel25">
-                            <label>Competencia*</label>
-                            <div class="ui left icon input swdh19">
-                              <tag-input [(ngModel)]="leccion.competencias" name="leccion.competencias"
-                                placeholder="Selecciona las competencias"
-                                secondaryPlaceholder="Selecciona las competencias">
-                                <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
-                                </tag-input-dropdown>
-                              </tag-input>
-                            </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="ui search focus mt-30 lbel25">
+                          <label>Competencia*</label>
+                          <div class="ui left icon input swdh19">
+                            <tag-input [(ngModel)]="leccion.competencias" name="leccion.competencias"
+                              placeholder="Selecciona las competencias"
+                              secondaryPlaceholder="Selecciona las competencias">
+                              <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
+                              </tag-input-dropdown>
+                            </tag-input>
                           </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="ui search focus mt-30 lbel25">
-                            <label>Preconceptos*</label>
-                            <div class="ui left icon input swdh19">
-                              <tag-input [(ngModel)]="leccion.preconceptos" name="leccion.Preconceptos"
-                                placeholder="Selecciona los preconcepto"
-                                secondaryPlaceholder="Selecciona los preconcepto">
-                                <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
-                                </tag-input-dropdown>
-                              </tag-input>
-                            </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="ui search focus mt-30 lbel25">
+                          <label>Preconceptos*</label>
+                          <div class="ui left icon input swdh19">
+                            <tag-input [(ngModel)]="leccion.preconceptos" name="leccion.Preconceptos"
+                              placeholder="Selecciona los preconcepto"
+                              secondaryPlaceholder="Selecciona los preconcepto">
+                              <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
+                              </tag-input-dropdown>
+                            </tag-input>
                           </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="course_des_textarea mt-30 lbel25">
-                            <label>Introduccion*</label>
-                            <angular-editor [placeholder]="
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="course_des_textarea mt-30 lbel25">
+                          <label>Introduccion*</label>
+                          <angular-editor [placeholder]="
                                 'Escribe aqui la introduccion de la leccion...'
                               " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
-                          </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="course_des_textarea mt-30 lbel25">
-                            <label>Observaciones*</label>
-                            <angular-editor [placeholder]="
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="course_des_textarea mt-30 lbel25">
+                          <label>Observaciones*</label>
+                          <angular-editor [placeholder]="
                                 'Escribe aqui las observaciones de la leccion...'
                               " [(ngModel)]="leccion.observaciones" name="leccion.observaciones"></angular-editor>
-                          </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                          <div class="course_des_textarea mt-30 lbel25">
-                            <label>Conclusiones*</label>
-                            <angular-editor [placeholder]="
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="course_des_textarea mt-30 lbel25">
+                          <label>Conclusiones*</label>
+                          <angular-editor [placeholder]="
                                 'Escribe aqui las conclusiones de la leccion...'
                               " [(ngModel)]="leccion.conclusiones" name="leccion.conclusiones"></angular-editor>
-                          </div>
                         </div>
-
                       </div>
+
                     </div>
                   </div>
                 </div>
               </div>
-            
-            
+            </div>
+
+
             <div class="card">
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                   
+
 
                     <div class="row">
                       <div class="title-icon" class="col-lg-11">
@@ -145,10 +145,10 @@
                         </ul>
                       </div>
                       <div class="col-lg-1">
-                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                        <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
                       </div>
                     </div>
-                   
+
 
                   </button>
                 </h2>
@@ -167,17 +167,17 @@
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  
+
                     <div class="row">
                       <div class="title-icon" class="col-lg-11">
                         <ul>
                           <li class="title">
-                           {{ this.plantilla?.menuPracticar }}
+                            {{ this.plantilla?.menuPracticar }}
                           </li>
                         </ul>
                       </div>
                       <div class="col-lg-1">
-                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                        <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
                       </div>
                     </div>
 
@@ -185,7 +185,7 @@
                 </h2>
               </div>
 
-              
+
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   <div class="row">
@@ -202,7 +202,7 @@
                             srch_explore
                             select-competencia
                           ">
-                            <option value="Selecciona">
+                            <option value="">
                               Selecciona
                             </option>
                             <option *ngFor="let tipo of tipoPregunta" value="{{tipo?.nombre}}">
@@ -258,13 +258,27 @@
 
                                   <label>Respuesta*: {{b + 1}}</label>
                                   <br>
+
+                                  <label class="form-check-label" for="exampleCheck1">Respuesta correcta </label>
+                                  <span> </span>
                                   <input type="checkbox" [(ngModel)]="respuesta.correcta" name="respuesta.correcta"
-                                    class="form-check-input" id="exampleCheck1">
-                                  <label class="form-check-label" for="exampleCheck1">Respuesta correcta</label>
+                                    id="exampleCheck1">
                                   <angular-editor [(ngModel)]="respuesta.contenido" name="respuesta.contenido"
                                     [placeholder]="
                                  'Escribe aqui la respuesta ..'
                                  "></angular-editor>
+
+                                  <button (click)="respuesta.addRetro = true" type="button" class="btn btn-primary">
+                                    Agregar retroalimentacion
+                                  </button>
+                                  <div *ngIf="respuesta.addRetro">
+                                    <angular-editor [(ngModel)]="respuesta.retroalimentacion"
+                                      name="respuesta.retroalimentacion" [placeholder]="
+                               'Escribe aqui la retroalimentacion ..'
+                               "></angular-editor>
+                                  </div>
+
+
                                 </div>
                               </div>
                             </div>
@@ -292,7 +306,7 @@
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
-                   
+
                     <div class="row">
                       <div class="title-icon" class="col-lg-11">
                         <ul>
@@ -302,10 +316,10 @@
                         </ul>
                       </div>
                       <div class="col-lg-1">
-                        <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                        <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
                       </div>
                     </div>
-                   
+
                   </button>
                 </h2>
               </div>
@@ -356,7 +370,8 @@
             </div>
           </div>
 
-          <button (click)="crearLeccion()" class="part_btn_save prt-sv btn-plantilla" type="button">Crear leccion</button>
+          <button (click)="crearLeccion()" class="part_btn_save prt-sv btn-plantilla" type="button">Crear
+            leccion</button>
         </div>
       </div>
     </div>

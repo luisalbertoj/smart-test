@@ -39,15 +39,17 @@ module.exports = {
     try {
       for await (let [key, pregunta] of parametros.preguntas.entries()) {
         pregunta.tipo = (await TipoPregunta.findOne({nombre: pregunta.tipo})).id;
+        pregunta.retroalimentacion !== ''?
+        test.preguntas.push(await Pregunta.create({ contenido: pregunta.contenido, retroalimentacion: pregunta.retroalimentacion, tipo: pregunta.tipo }).fetch()):
         test.preguntas.push(await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());
         preguntas.push(test.preguntas[key].id);
         if(parametros.respuestas[key]) {
           for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
             test.preguntas[key].respuestas = [];
-            test.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, preguntas: [test.preguntas[key].id]}).fetch());
+            test.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [test.preguntas[key].id]}).fetch());
             if(respuesta.correcta && test.preguntas[key] && test.preguntas[key].respuestas[key2]) {
               console.log(test.preguntas[key].id,test.preguntas[key].respuestas[key2].id);
-              test.preguntas[key].respuestaCorrecta  = 
+              test.preguntas[key].respuestaCorrecta  =
               await Pregunta.updateOne({id: test.preguntas[key].id})
               .set({respuestaCorrecta: test.preguntas[key].respuestas[key2].id});
             }
@@ -64,7 +66,6 @@ module.exports = {
         preguntas: preguntas,
         creador: parametros.test.creador || 1,
         grupo: parametros.test.grupo
-
       }).fetch();
 
     } catch (err) {

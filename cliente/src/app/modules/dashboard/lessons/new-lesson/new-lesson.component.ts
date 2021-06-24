@@ -152,6 +152,8 @@ export class NewLessonComponent implements OnInit {
       pregunta: indice,
       contenido: '',
       correcta: false,
+      addRetro: false,
+      retroalimentacion: ''
     });
   }
 

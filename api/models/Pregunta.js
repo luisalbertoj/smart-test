@@ -18,6 +18,10 @@ module.exports = {
       required: true
     },
 
+    retroalimentacion: {
+      type: 'string'
+    },
+
     estado: {
       type: 'string',
       defaultsTo: '1'

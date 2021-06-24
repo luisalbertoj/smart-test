@@ -99,7 +99,8 @@ export class CreateTestComponent implements OnInit {
       pregunta: indice,
       contenido: '',
       correcta: false,
-
+      addRetro: false,
+      retroalimentacion: ''
     });
     pregunta.showbody=true;
   }

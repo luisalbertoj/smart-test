@@ -237,6 +237,15 @@
                                         'Escribe aqui la respuesta ..'
                                       "
                                     ></angular-editor>
+                                    <button (click)="respuesta.addRetro = true" type="button" class="btn btn-primary">
+                                      Agregar retroalimentacion
+                                    </button>
+                                    <div *ngIf="respuesta.addRetro">
+                                      <angular-editor [(ngModel)]="respuesta.retroalimentacion" name="respuesta.retroalimentacion"
+                                      [placeholder]="
+                                   'Escribe aqui la retroalimentacion ..'
+                                   "></angular-editor>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -263,6 +272,15 @@
                       "
                       name="pregunta.contenido"
                     ></angular-editor>
+                    <button (click)="pregunta.addRetro = true" type="button" class="btn btn-primary">
+                      Agregar retroalimentacion
+                    </button>
+                    <div *ngIf="pregunta.addRetro">
+                      <angular-editor [(ngModel)]="pregunta.retroalimentacion" name="pregunta.retroalimentacion"
+                      [placeholder]="
+                   'Escribe aqui la retroalimentacion ..'
+                   "></angular-editor>
+                    </div>
                   </div>
                 </div>
             </div>
