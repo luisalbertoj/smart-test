@@ -8,6 +8,13 @@ const routes: Routes = [
       import('./users/users.module').then(
         (m) => m.UsersModule
       ),
+  },
+  {
+    path: 'import-export',
+    loadChildren: () =>
+      import('./import-export/import-export.module').then(
+        (m) => m.ImportExportModule
+      ),
   }
 ];
 
