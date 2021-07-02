@@ -4,12 +4,19 @@ import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+
+
 @Component({
   selector: 'app-new-lesson',
   templateUrl: './new-lesson.component.html',
   styleUrls: ['./new-lesson.component.scss'],
 })
 export class NewLessonComponent implements OnInit {
+ 
+  
+  
+  
+  
   plantilla: any = {
     menuGeneral: 'Informacion general de la leccion',
     menuAprender: 'Aprender',

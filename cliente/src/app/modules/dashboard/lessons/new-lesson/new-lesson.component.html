@@ -48,9 +48,9 @@
                             <label >Titulo de la leccion*</label>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                            <div class="ui left icon input swdh19 ">
-                          <input  [(ngModel)]="leccion.titulo" name="leccion.titulo" class=" custom-select "
-                              type="text" placeholder="Ingresa el titulo de la leccion"
+                            <div class="ui left icon input swdh19  ">
+                            <input  [(ngModel)]="leccion.titulo" name="leccion.titulo" class=" custom-select inputtitle"
+                              type="text" placeholder=" "
                               data-purpose="edit-course-title"  value="" required /> 
                           </div>
                           </div>
@@ -65,10 +65,10 @@
                             <label>Objetivo asociado*</label>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                          <div class="ui left icon input swdh19">
+                          <div class="ui left icon input swdh19 divobj ">
                             <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo" class="
-                                
                                   custom-select
+                                  inputobject
                                 ">
                               <option value="">
                                 Selecciona el objetivo
@@ -90,11 +90,13 @@
                             <label>Competencia*</label>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                          <div class="ui left icon input swdh19">
-                            <tag-input class="input-tag" [(ngModel)]="leccion.competencias" name="leccion.competencias"
+                          <div class="ui left icon input swdh19 taginput">
+                            <tag-input class="dropdown"  [(ngModel)]="leccion.competencias" name="leccion.competencias"
                               placeholder="Selecciona las competencias"
-                              secondaryPlaceholder="Selecciona las competencias">
-                              <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
+                              secondaryPlaceholder=" "
+                              
+                              >
+                              <tag-input-dropdown class="ng2-dropdown-container ng2-menu-item"  [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
                               </tag-input-dropdown>
                             </tag-input>
                           </div>
@@ -111,10 +113,10 @@
                             <label>Preconceptos*</label>
                           </div>
                             <div class="col-sm-12 col-md-9">
-                              <div class="ui left icon input swdh19">
+                              <div class="ui left icon input swdh19 ">
                             <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos" name="leccion.Preconceptos"
                               placeholder="Selecciona los preconcepto"
-                              secondaryPlaceholder="Selecciona los preconcepto">
+                              secondaryPlaceholder="">
                               <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
                               </tag-input-dropdown>
                             </tag-input>
@@ -123,16 +125,17 @@
                         </div>
                       </div>
                       <div class="col-lg-12 col-md-12">
-                        <div class="course_des_textarea mt-30 lbel25">
+                        <div class=" mt-30 lbel25">
                             
                           <div class="row">
-                          <div class="col-sm-12 col-md-3">
+                          <div class="col-sm-12 col-md-3 labelangular">
                           <label>Introducción*</label>
                           </div>
-                          <div class="col-sm-12 col-md-9">
-                          <angular-editor class="editorangular" [placeholder]="
+                          <div class="col-sm-12 col-md-9 editorangular">
+                          <angular-editor [placeholder]="
                                 'Escribe aqui la introeditorangularducción de la leccion...'
                               " [(ngModel)]="leccion.introduccion" name="leccion.introduccion"></angular-editor>
+                              
                         </div>
                       </div>
                     </div>
@@ -141,11 +144,11 @@
                       <div class="col-lg-12 col-md-12">
                         <div class="course_des_textarea mt-30 lbel25">
                           <div class="row">
-                          <div class="col-sm-12 col-md-3">
-                          <label>Observaciones*</label>
+                          <div class="col-sm-12 col-md-3 labelangular">
+                          <label >Observaciones*</label>
                           </div>
-                          <div class="col-sm-12 col-md-9">
-                          <angular-editor class="editorangular" [placeholder]="
+                          <div class="col-sm-12 col-md-9 editorangular">
+                          <angular-editor [placeholder]="
                                 'Escribe aqui las observaciones de la leccion...'
                               " [(ngModel)]="leccion.observaciones" name="leccion.observaciones"></angular-editor>
                         </div>
@@ -155,7 +158,7 @@
                       <div class="col-lg-12 col-md-12">
                         <div class="course_des_textarea mt-30 lbel25">
                           <div class="row">
-                          <div class="col-sm-12 col-md-3">
+                          <div class="col-sm-12 col-md-3 labelangular">
                           <label>Conclusiones*</label>
                         </div>
                           <div class="col-sm-12 col-md-9 editorangular">

@@ -10,6 +10,10 @@ import Swal from 'sweetalert2'
 })
 export class UserComponent implements OnInit {
 
+  plantilla: any = {
+    imgBanner: 'assets/images/banneruser.png'
+  };
+  
   public persona: any = {
     nombre : "",
     apellido: "",

@@ -59,12 +59,44 @@ li {
 }
 
 
-.input-tag{
-  width: 100%;
+tag-input{
+  width: 800px;
+
 }
 
 .editorangular{
-  width: 200%;
+  padding-right: 0;
+  margin-right: 0;
+  padding-left: 0.5em;
+ 
 }
+
+.labelangular{
+  padding-left: 0.1em;
+}
+
+tag-input-dropdown{
+  width: 2000vh !important;
+  padding: 0;
+}
+
+input.custom-select.inputtitle.ng-untouched.ng-pristine.ng-invalid{
+  border: 1px gray solid;
+  border-radius: 0;
+}
+
+select.custom-select.inputobject.ng-untouched.ng-pristine.ng-valid{
+  border: 1px gray solid;
+  height: 40px;
+  border-radius: 0%;
+}
+
+
+input.ng2-tag-input__text-input.ng-pristine.ng-valid.ng-touched{
+  height: 40px;
+  border: 1px gray solid;
+}
+
+
 
 

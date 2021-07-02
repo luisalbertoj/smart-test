@@ -2,8 +2,13 @@
     height: 200px;
     
   }
-
-
   .card-header {
     background-color: white;
+  }
+
+  .btncrear{
+    width: 20%;
+    background-color: #2671c3;
+    margin-bottom: 1%;
+    margin-left: 75%;
   }
