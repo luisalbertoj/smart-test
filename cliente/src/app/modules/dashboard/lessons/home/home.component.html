@@ -3,7 +3,6 @@
   <div class="sa4d25">
     <div class="container-fluid">
       <div class="row">
-
         <div class="col-xl-9 col-lg-8 ">
           <div class="row">
             <div class="col-sm-12">
@@ -13,13 +12,14 @@
                   routerLinkActive="router-link-active" class="fcrse_img">
                   <img src="{{this.leccion.portada}}" alt="">
                   <div class="course-overlay">
-                    <div class="badge_seller">{{this.leccion.estado}}</div>
-                    <div class="crse_reviews">
-                      <i class='uil uil-star'></i>{{this.leccion.titulo}}
-                    </div>
-                    <span class="play_btn1"><i class="uil uil-play"></i></span>
-                    <div class="crse_timer">
-                      {{this.leccion.codigo}}
+                    <div class="badge_seller">{{this.leccion.estado}}
+                      <div class="crse_reviews">
+                        <i class='uil uil-star'></i>{{this.leccion.titulo}}
+                      </div>
+                      <span class="play_btn1"><i class="uil uil-play"></i></span>
+                      <div class="crse_timer">
+                        {{this.leccion.codigo}}
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -41,10 +41,11 @@
                     <i class="uil uil-check-circle"></i>
                   </div>
                 </div>
-                <div class="tutor_cate">{{this.leccion.docente.rol.nombre}}</div>
-                <ul class="tutor_social_links">
-                  <li><a href="#" class="fb"><i class="fab fa-whatsapp"></i></a></li>
-                </ul>
+                <div class="tutor_cate">{{this.leccion.docente.rol.nombre}}
+                  <ul class="tutor_social_links">
+                    <li><a href="#" class="fb"><i class="fab fa-whatsapp"></i></a></li>
+                  </ul>
+                </div>
                 <div class="tut1250">
                   <span class="vdt15">0 Estudiantes</span>
                   <span class="vdt15">1 Lección</span>
@@ -54,16 +55,12 @@
             </div>
           </div>
         </div>
-
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-12">
           <button class="part_btn_save prt-sv btn-plantilla btnvercomp" (click)="modo = !modo"> Ver por competencias</button>
-       
-
           <div *ngIf="!modo">
-
             <br>
             <div *ngFor="let leccion of lecciones; index as i" class="fcrse_1">
               <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
@@ -88,10 +85,7 @@
                   <span><i class='uil uil-times'></i>Remove</span>
                 </div>
               </div> -->
-                <div class="vdtodt">
-                  <!-- <span class="vdt14">109k views</span>
-                <span class="vdt14">15 days ago</span> -->
-                </div>
+            
                 <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
                   routerLinkActive="router-link-active" class="crse14s title900">
                   <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de la lección: </strong>
@@ -114,18 +108,19 @@
          
           <div *ngIf="modo">
             <br>
-          <div class="card" *ngFor="let competencia of competencias;let i = index;">
-            <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
-              (click)="onClickAccordion(i,competencia)">
-              <h2 class="mb-0">
-                <button class="btn btn-block text-left" type="button">
-                  <div class="row">
-                    <div class="title-icon" class="col-lg-11">
-                      <ul>
-                        <li class="title">
+            <div class="card" *ngFor="let competencia of competencias;let i = index;">
+               <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
+                 (click)="onClickAccordion(i,competencia)">
+                 <h2 class="mb-0">
+                  <button class="btn btn-block text-left" type="button">
+                    <div class="row">
+                      <div class="title-icon" class="col-lg-11">
+                        <ul>
+                          <li class="title">
                           {{ competencia?.nombre }}
-                        </li>
-                      </ul>
+                          </li>
+                        </ul>
+                       </div>
                     </div>
                     <div class="col-lg-1">
                       <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
@@ -160,10 +155,8 @@
                             <span><i class='uil uil-times'></i>Remove</span>
                           </div>
                         </div> -->
-                      <div class="vdtodt">
-                        <!-- <span class="vdt14">109k views</span>
-                          <span class="vdt14">15 days ago</span> -->
-                      </div>
+                  
+
                       <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
                         routerLinkActive="router-link-active" class="crse14s title900">
                         <strong><i class="fas fa-bullseye color-secondary"></i> Titulo de la lección: </strong>
@@ -188,6 +181,7 @@
 
         </div>
       </div>
+
     </div>
   </div>
 </div>
