@@ -11,9 +11,8 @@ import { FactoryService } from 'src/app/services/factory.service';
 export class MainComponent implements OnInit {
 
   public plantilla = {
-    bannerImg: 'assets/images/test/main.jpg',
+    bannerImg: 'assets/images/bannercrearpruebas.png',
     bannerAlt: 'banner pruebas de conocimiento',
-    bannerTitulo: 'Pruebas de conocimiento',
     bannerBoton: 'Nueva',
     bannerBotonIcono: 'fas fa-plus',
     botonTarjeta: 'Comenzar',

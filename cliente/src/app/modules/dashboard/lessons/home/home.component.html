@@ -59,11 +59,12 @@
       <hr>
       <div class="row">
         <div class="col-sm-12">
-          <button class="part_btn_save prt-sv btn-plantilla" (click)="modo = !modo"> Ver por competencias</button>
-          <br>
+          <button class="part_btn_save prt-sv btn-plantilla btnvercomp" (click)="modo = !modo"> Ver por competencias</button>
+       
+
           <div *ngIf="!modo">
 
-
+            <br>
             <div *ngFor="let leccion of lecciones; index as i" class="fcrse_1">
               <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
                 routerLinkActive="router-link-active" class="hf_img">
@@ -110,23 +111,24 @@
             </div>
           </div>
           <!-- modo 2 -->
+         
           <div *ngIf="modo">
-            <div class="card" *ngFor="let competencia of competencias;let i = index;">
-              <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
-                (click)="onClickAccordion(i,competencia)">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left" type="button">
-                    <div class="row">
-                      <div class="title-icon" class="col-lg-11">
-                        <ul>
-                          <li class="title">
-                            {{ competencia?.nombre }}
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="col-lg-1">
-                        <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
-                      </div>
+            <br>
+          <div class="card" *ngFor="let competencia of competencias;let i = index;">
+            <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
+              (click)="onClickAccordion(i,competencia)">
+              <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button">
+                  <div class="row">
+                    <div class="title-icon" class="col-lg-11">
+                      <ul>
+                        <li class="title">
+                          {{ competencia?.nombre }}
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-1">
+                      <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
                     </div>
                   </button>
                 </h2>

@@ -100,12 +100,19 @@
 
   .cardtdea{
     height: 100%;
-    margin-left: 10%;
-   
+    margin-left: 110%;
+    width: 120%;   
   }
 
   .cardudes{
     height: 100%;
-    margin-left: 20%;
-   
+    margin-left: 70%;
+    width: 120%;
+  }
+
+  .redsocial1{
+    margin-top: 2%;
+  }
+  .redsocial2{
+    margin-top: 2%;
   }

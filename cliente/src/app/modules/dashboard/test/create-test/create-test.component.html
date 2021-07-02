@@ -15,51 +15,80 @@
             <div id="cardGeneral" class="card">
             <div class="card-body">
               <h2 class="card-title">Información general</h2>
+              
+              <div class="row">
+              <div class="col-sm-12 col-md-3"> 
               <label>Nombre de la prueba de conocimiento</label>
+              </div>
+              <div class="col-sm-12 col-md-9">
               <angular-editor
                 [(ngModel)]="test.nombre"
                 name="test.nombre"
                 [placeholder]="'Nombre de la prueba de conocimiento...'"
               ></angular-editor>
+            </div>
+            </div>
+
+       
               <br>
+              <div class="row">
+              <div class="col-sm-12 col-md-3">
               <label>Contenido</label>
+              </div>
+              <div class="col-sm-12 col-md-9">
               <angular-editor
                 [(ngModel)]="test.contenido"
                 name="test.contenido"
                 [placeholder]="'Contenido...'"
               ></angular-editor>
+              </div>
+              </div>
               <br>
+              <div class="row">
+              <div class="col-sm-12 col-md-3">
               <label>Observaciones</label>
+              </div>
+              <div class="col-sm-12 col-md-9">
               <angular-editor
                 [(ngModel)]="test.observaciones"
                 name="test.observaciones"
                 [placeholder]="'Observaciones...'"
               ></angular-editor>
-
+              </div>
+            </div>
               <br>
+              <div class="row">
+              <div class="col-sm-12 col-md-3">
               <label>
                 Fecha de inicio
+              </label>
+              </div>
+              <div class="col-sm-12 col-md-9">
                 <input
                   [(ngModel)]="test.inicio"
                   name="test.inicio"
                   type="datetime-local"
                   class="form-control"
                 />
-              </label>
+            </div>
+            </div>
 
+            <div class="row">
+              <div class="col-sm-12 col-md-3">
               <label>
                 Fecha de cierre
+              </label>
+            </div>
+            <div class="col-sm-12 col-md-9">
                 <input
                   [(ngModel)]="test.cierre"
                   name="test.cierre"
                   type="datetime-local"
                   class="form-control"
                 />
-              </label>
+              </div>
             </div>
 
-
-        
 
          
             <div class="card-header" id="headingThree">
@@ -286,10 +315,10 @@
           </div>
           <button
             (click)="crearTest()"
-            class="part_btn_save prt-sv"
+            class="part_btn_save btncrear"
             type="button"
           >
-            Crear Prueba de Conocimiento
+            Guardar
           </button>
         </div>
       </div>

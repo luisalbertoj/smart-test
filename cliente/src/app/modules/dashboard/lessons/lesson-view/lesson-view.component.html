@@ -229,6 +229,17 @@
                                 " [(ngModel)]="response.aplica" name="response.aplica"></angular-editor>
                             </div>
                           </div>
+                          
+                        <!--   <div class="container" appDnd (fileDropped)="onFileDropped($event)">
+                            <input type="file" #fileDropRef id="fileDropRef" multiple
+                              (change)="fileBrowseHandler($event.target.files)" />
+                            <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg" alt="imagen de carga" />
+                            <h3>Arrastra y suelta tus archivos aqui</h3>
+                            <h3>o</h3>
+                            <label for="fileDropRef">Buscar archivos</label>
+                          </div>
+ -->
+
                           <button (click)="finalizarLeccion()" data-direction="next" class="btn btn-default steps_btn">
                             Finalizar
                           </button>

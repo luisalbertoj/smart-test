@@ -79,7 +79,7 @@
                           placeholder="Digite una descripcion sobre el contenido del recurso..." />
                       </div>
                     </div>
-                    <div class="dropdown">
+                    <div class="dropdown ">
                       <select (click)="selectedLeccion()" [(ngModel)]="indexLeccion" name="indexLeccion" class="
                               ui
                               hj145
@@ -88,6 +88,7 @@
                               prompt
                               srch_explore
                               select-competencia
+                              custom-select
                             ">
                         <option value="">
                           Selecciona la leccion a la que deseas asociar el recurso
@@ -108,6 +109,7 @@
                         </li>
                       </ul> -->
                     </div>
+                    <br>
                     <div class="container" appDnd (fileDropped)="onFileDropped($event)">
                       <input type="file" #fileDropRef id="fileDropRef" multiple
                         (change)="fileBrowseHandler($event.target.files)" />

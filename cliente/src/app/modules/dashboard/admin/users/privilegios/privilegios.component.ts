@@ -13,6 +13,9 @@ export class PrivilegiosComponent implements OnInit {
   public rolSeleccionado = "Seleccione un rol";
   idRol = "";
 
+  plantilla: any = {
+    imgBanner: 'assets/images/privilegio.png'
+  };
 
   constructor(private factory: FactoryService) { }
 
