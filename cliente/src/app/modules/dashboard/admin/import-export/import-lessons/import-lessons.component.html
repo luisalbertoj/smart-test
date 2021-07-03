@@ -1,11 +1,56 @@
-<div class="wrapper" >
-    <div class="sa4d25">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xl-12 col-lg-12">
-              
+<div class="wrapper">
+  <div class="sa4d25">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <h1>
+                Carga de lecciones masivas
+              </h1>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Recomendacion para la carga</h2>
+              <p class="card-text">
+                1. Descargue la plantilla de carga masiva <a href="#" target="_blank">haciendo click aqui.</a>
+                <br>
+                2. Llene toda la informacion posible y no altere la extructura del formato
+              </p>
+              <!-- Carga de Archivos -->
+
+              <div class="container" appDnd (fileDropped)="onFileDropped($event)">
+                <input type="file" #fileDropRef id="fileDropRef" multiple
+                  (change)="fileBrowseHandler($event.target.files)" />
+                <img src="assets/images/dnd/ic-upload-file.svg" alt="">
+                <h3>Arrastra y suelta el archivo aqui o</h3>
+                <label for="fileDropRef">Buscar archivo</label>
+              </div>
+              <div class="files-list">
+                <div class="single-file" *ngFor="let file of files; let i = index">
+                  <img src="assets/images/dnd/ic-file.svg" width="45px" alt="file">
+                  <div class="info">
+                    <h4 class="name">
+                      {{ file?.name }}
+                    </h4>
+                    <p class="size">
+                      {{ formatBytes(file?.size) }}
+                    </p>
+                    <app-progress [progress]="file?.progress"></app-progress>
+                  </div>
+                  <img src="assets/images/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file"
+                    (click)="deleteFile(i)">
+                </div>
+              </div>
+              <!-- Fin de carga de archivos -->
+              <button (click)="upload()" class="btn btn-default btn-success">
+                <i class="fa fa-angle-double-down">
+                  Iniciar carga
+                </i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>

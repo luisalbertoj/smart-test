@@ -23,6 +23,8 @@ export class SigInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.factory.loadUser();
+    this.factory.user? this.router.navigate(['dashboard']): 0 ;
     this.factory.returnAsObservable().subscribe((subs) => {
       subs===true?this.spinner.hide():this.spinner.show();
     });
