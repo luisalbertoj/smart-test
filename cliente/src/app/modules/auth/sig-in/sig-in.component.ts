@@ -34,6 +34,7 @@ export class SigInComponent implements OnInit {
     this.factory.post('persona/login', this.persona).subscribe(
       (response: any) => {
         localStorage.setItem('user', JSON.stringify(response.data));
+        this.factory.loadUser();
         this.router.navigate(['dashboard']);
       },
       (error: any) => {
