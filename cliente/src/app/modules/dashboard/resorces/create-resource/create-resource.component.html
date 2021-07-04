@@ -110,12 +110,12 @@
                       </ul> -->
                     </div>
                     <br>
-                    <div class="container" appDnd (fileDropped)="onFileDropped($event)">
+                    <div class="container "  appDnd (fileDropped)="onFileDropped($event)">
                       <input type="file" #fileDropRef id="fileDropRef" multiple
                         (change)="fileBrowseHandler($event.target.files)" />
                       <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg" alt="imagen de carga" />
                       <h3>Arrastra y suelta tus archivos aqui</h3>
-                      <h3>o</h3>
+                    
                       <label for="fileDropRef">Buscar archivos</label>
                     </div>
                     <br>

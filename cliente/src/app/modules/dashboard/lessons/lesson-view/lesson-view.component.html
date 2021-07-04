@@ -230,15 +230,37 @@
                             </div>
                           </div>
                           
-                        <!--   <div class="container" appDnd (fileDropped)="onFileDropped($event)">
+                          <div class="card-body">
+                            <form class="form" method="" action="">
+
+                          <div class="container containercarga" appDnd (fileDropped)="onFileDropped($event)">
                             <input type="file" #fileDropRef id="fileDropRef" multiple
                               (change)="fileBrowseHandler($event.target.files)" />
                             <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg" alt="imagen de carga" />
                             <h3>Arrastra y suelta tus archivos aqui</h3>
-                            <h3>o</h3>
+                            
                             <label for="fileDropRef">Buscar archivos</label>
                           </div>
- -->
+
+                          <div class="files-list">
+                            <div class="single-file" *ngFor="let file of files; let i = index">
+                              <img src="assets/images/dnd/ic-file.svg" width="45px" alt="file" />
+                              <div class="info">
+                                <h4 class="name">
+                                  {{ file?.name }}
+                                </h4>
+                                <p class="size">
+                                  {{ formatBytes(file?.size) }}
+                                </p>
+                                <app-progress [progress]="file?.progress"></app-progress>
+                              </div>
+                              <img src="assets/images/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file"
+                                (click)="deleteFile(i)" />
+                            </div>
+                            <button (click)="uploadFile()" class="btn btn-success">Guardar</button>
+                          </div>
+                            </form>
+                          </div>
 
                           <button (click)="finalizarLeccion()" data-direction="next" class="btn btn-default steps_btn">
                             Finalizar
