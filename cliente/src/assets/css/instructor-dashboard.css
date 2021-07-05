@@ -2300,7 +2300,7 @@ table {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 	border: 0px solid;
 	border-radius: 0px;
-	padding-top: 60px;
+	padding-top: 0px;
 }
 
 #add-course-tab > .step-content .title-icon {
@@ -2533,7 +2533,7 @@ table {
     font-weight: 500 !important;
     font-family: 'Roboto', sans-serif !important;
     color: #fff !important;
-    background: #ed2a26 !important;
+    background: #2671c3 !important;
     padding: 0px 20px !important;
     border-radius: 25px !important;
     border: 0 !important;

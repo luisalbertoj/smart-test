@@ -36,6 +36,82 @@
                                     </div>
                                 </li>
                             </ul>
+                            
+                            <div class="col-lg-7 col-md-6">
+                                <div class="certi_form">
+                                  <form>
+                                    <div class="all_ques_lest">
+                  
+                                      <div *ngFor="let pregunta of result.test.preguntas; index as i" class="ques_item">
+                                        <div *ngIf="(pregunta.respuestas?.length>0)&&(pregunta?.tipo?.nombre==='multiple')">
+                  
+                                          <div class="ques_title">
+                                            <span>Pregunta {{i+1}}: </span>
+                                           <span [innerHTML]="pregunta?.contenido"></span> 
+                                           
+                                          </div>
+                  
+                                          <div class="ui form">
+                                            <div class="grouped fields">
+                                              <div class="field fltr-radio" *ngFor="let respuesta of pregunta.respuestas">
+                                                 <div class="ui radio checkbox" *ngIf="respuesta.id === this.result.resUser [i] &&
+                                                        this.result.resUser[ i ] !== pregunta.respuestaCorrecta?.id;
+                                                        else elseBlock " 
+                                                    style=" background-color: red;">
+                                                    <input type="radio" tabindex="0" checked disabled />
+                                                    <label [innerHTML]="
+                                                        respuesta?.contenido
+                                                        "></label>
+                                                 </div>
+                                                 <ng-template #elseBlock>
+                                                    <div class="ui radio checkbox" *ngIf="respuesta.id ===  pregunta.respuestaCorrecta?.id;
+                                                        else elseBlock2" style="
+                                                        background-color: green;
+                                                      ">
+                                                      <input type="radio" tabindex="0" checked disabled />
+                                                      <label [innerHTML]="
+                                                          respuesta?.contenido
+                                                        "></label>
+                                                    </div>
+                                                    <ng-template #elseBlock2>
+                                                      <div class="
+                                                          ui
+                                                          radio
+                                                          checkbox
+                                                        ">
+                                                        <input type="radio" name="{{ i }}" tabindex="0" required />
+                                                        <label [innerHTML]="
+                                                            respuesta?.contenido
+                                                          "></label>
+                                                      </div>
+                                                    </ng-template>
+                                                  </ng-template>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div *ngIf="pregunta?.tipo?.nombre==='abierta'">
+                                          <div class="ques_title">
+                                            <span>Pregunta {{i+1}}:- </span>
+                                            {{pregunta?.contenido}}
+                                          </div>
+                                          <div class="ui search focus mt-15">
+                                            <div class="ui form swdh30">
+                                              <div class="field">
+                                                <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
+                                                  required></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                     
+                                  </form>
+                                </div>
+                              </div>
+
+
                             <div class="result_content">
                                 <h2>Test terminado</h2>
                                 <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active"  class="download_btn">Volver al inicio</a>

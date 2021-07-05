@@ -64,8 +64,10 @@ export class LessonViewComponent implements OnInit {
       resUser: this.respuestas,
       leccion: this.leccion,
     };
+    console.log(this.respuestas);
+    console.log(this.leccion);
     for (let i = 0; i < this.respuestas.length; i++) {
-      if (this.respuestas[i] == this.leccion.practicar[i].respuestacorrecta) {
+      if (this.respuestas[i] === this.leccion.practicar[i].respuestaCorrecta) {
         this.response.correctas.push(this.leccion.practicar[i]);
       }
     }
