@@ -154,6 +154,11 @@ export class NewLessonComponent implements OnInit {
     }
   }
 
+  eliminarPregunta(indice: any){
+    this.preguntas.splice(indice);
+
+  }
+
   agregarRespuesta(indice: any) {
     this.respuestas[indice].push({
       pregunta: indice,
@@ -162,6 +167,10 @@ export class NewLessonComponent implements OnInit {
       addRetro: false,
       retroalimentacion: ''
     });
+  }
+
+  eliminarRespuesta(indice: any) {
+    this.respuestas.splice(indice);
   }
 
   aplicarSelect() {
@@ -206,7 +215,5 @@ export class NewLessonComponent implements OnInit {
           
         }
       );
-  }
-
-  
+  }  
 }

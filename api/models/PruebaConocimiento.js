@@ -34,6 +34,11 @@ module.exports = {
       type: 'string',
       required: true
     },
+
+    duracion: {
+      type: 'string',
+      required: true
+    },
   
     
 

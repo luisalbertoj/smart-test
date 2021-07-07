@@ -2425,7 +2425,7 @@ i.icon2 {
 /*--- Course Detail View Page ---*/
 
 ._bg4586 {
-	padding: 60px 0 0 !important;
+	padding: 0px 0 0 !important;
 }
 
 ._215b01 {
@@ -4604,7 +4604,7 @@ a.rmv-btn i {
 .title126 {
     float: left;
     width: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 
 .title126 h2 {
@@ -7172,11 +7172,11 @@ a.rmv-btn i {
 
 .ui.checkbox input:checked~.box:before, .ui.checkbox input:checked~label:before {
     background: #fff;
-    border-color: #ed2a26 !important;
+    border-color: #2671c3 !important;
 }
 
 .ui.radio.checkbox input:checked~.box:after, .ui.radio.checkbox input:checked~label:after {
-    background-color: #ed2a26 !important;
+    background-color: #2671c3 !important;
 }
 
 .sign_form p {

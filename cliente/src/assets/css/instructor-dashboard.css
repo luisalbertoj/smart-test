@@ -2784,7 +2784,7 @@ table {
 }
 
 .ui.radio.checkbox input:checked~.box:after, .ui.radio.checkbox input:checked~label:after {
-    background-color: #ed2a26 !important;
+    background-color: #2671c3 !important;
 }
 
 .ui.checkbox.mncheck input:checked~.box:after, .ui.checkbox.mncheck input:checked~label:after {

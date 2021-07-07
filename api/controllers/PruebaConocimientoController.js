@@ -63,6 +63,7 @@ module.exports = {
         contenido: parametros.test.contenido,
         inicio: parametros.test.inicio,
         cierre: parametros.test.cierre,
+        duracion: parametros.test.duracion,
         preguntas: preguntas,
         creador: parametros.test.creador || 1,
         grupo: parametros.test.grupo

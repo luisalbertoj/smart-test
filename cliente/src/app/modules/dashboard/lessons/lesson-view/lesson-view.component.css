@@ -1,5 +1,4 @@
 @page { margin-left: 1.18in; margin-right: 1.18in; margin-top: 0.98in; margin-bottom: 0.98in }
-		P { margin-left: 0.5in; text-indent: -0.25in; margin-bottom: 0.08in; direction: ltr; line-height: 100%; text-align: justify; widows: 2; orphans: 2 }
 		P.western { font-family: "Arial", serif; font-size: 12pt }
 		P.cjk { font-family: "Arial"; font-size: 12pt; will-change: es-CO }
 		P.ctl { font-family: "Arial"; font-size: 12pt }
@@ -130,3 +129,22 @@
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 }
+
+.resultT{
+	margin-bottom: -8;
+
+}
+
+.checkColorT2 ::before{
+	color: green;
+	background-color: green !important;
+}
+
+.checkColorT ::before{
+	color: red;
+	background-color: red !important;
+}
+
+
+
+
