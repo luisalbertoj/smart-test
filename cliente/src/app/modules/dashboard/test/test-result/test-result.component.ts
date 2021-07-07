@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-result',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class TestResultComponent implements OnInit {
 
   public result: any = {};
+  
 
-  constructor() { }
+  constructor(   private router: Router) { }
 
 
   ngOnInit(): void {
@@ -21,4 +23,9 @@ export class TestResultComponent implements OnInit {
     console.log(this.result);
 
   }
+
+  validarRespuestas() {
+    this.router.navigate(['dashboard/test/result']);
+  }
+  
 }

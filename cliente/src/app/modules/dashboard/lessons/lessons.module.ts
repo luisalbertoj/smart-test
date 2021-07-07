@@ -11,12 +11,13 @@ import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { HomeComponent } from './home/home.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonViewComponent } from './lesson-view/lesson-view.component';
+import { ProgressComponent } from './progress/progress.component';
 
 
 
 
 @NgModule({
-  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent],
+  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent],
   imports: [
     CommonModule,
     HttpClientModule,

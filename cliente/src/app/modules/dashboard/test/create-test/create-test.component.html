@@ -3,7 +3,6 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-           <div>
             <img
               src="{{ plantilla.imgBanner }}"
               class="card-img-top"
@@ -28,8 +27,6 @@
               ></angular-editor>
             </div>
             </div>
-
-       
               <br>
               <div class="row">
               <div class="col-sm-12 col-md-3">
@@ -89,6 +86,20 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-sm-12 col-md-3">
+              <label>
+                Duración
+              </label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+              <angular-editor
+              [(ngModel)]="test.duracion"
+              name="test.duracion"
+              [placeholder]="'Duración...'"
+            ></angular-editor>
+              </div>
+            </div>
 
          
             <div class="card-header" id="headingThree">
@@ -191,6 +202,10 @@
                         <div class="title-icon" class="col-lg-12">
                           <label class="title">Respuestas</label>
                         </div>
+
+                        <button (click)="eliminarRespuesta(b)" class="part_btn_save prt-sv btn-plantilla" type="button">Eliminar
+                                    
+                        </button>
                       </div>
                     </button>
                   </h3>
@@ -302,6 +317,8 @@
                     ></angular-editor>
                     <button (click)="pregunta.addRetro = true" type="button" class="btn btn-primary">
                       Agregar retroalimentacion
+                    </button>
+                    <button (click)="eliminarPregunta(i)" class="part_btn_save prt-sv btn-plantilla" type="button">Eliminar
                     </button>
                     <div *ngIf="pregunta.addRetro">
                       <angular-editor [(ngModel)]="pregunta.retroalimentacion" name="pregunta.retroalimentacion"

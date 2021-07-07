@@ -23,6 +23,7 @@ export class CreateTestComponent implements OnInit {
     creador: JSON.parse(localStorage.getItem('user')).id || 1,
     inicio: '',
     cierre: '',
+    duracion: '',
     grupo: JSON.parse(localStorage.getItem('user')).grupo?.nombre || 1,
     preguntas: []
   };
@@ -94,6 +95,10 @@ export class CreateTestComponent implements OnInit {
     this.respuestas.push([]);
   }
 
+  eliminarPregunta(indice: any){
+    this.preguntas.splice(indice);
+
+  }
   agregarRespuesta(indice: any, pregunta?:any) {
     this.respuestas[indice].push({
       pregunta: indice,
@@ -119,6 +124,8 @@ export class CreateTestComponent implements OnInit {
     if (this.test.inicio === '')
       return this.toast.error('Debes elegir el inicio', 'error');
     if (this.test.cierre === '')
+      return this.toast.error('Debes elegir el cierre', 'error');
+    if (this.test.duracion === '')
       return this.toast.error('Debes elegir el cierre', 'error');
     if (this.preguntas?.length === 0)
       return this.toast.error('Debes llenar el practicar', 'error');

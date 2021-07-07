@@ -15,25 +15,25 @@
             <div id="add-course-tab" class="step-app">
               <ul class="step-steps">
                 <li class="active">
-                  <a href="#tab_step1">
-                    <span class="number"></span>
-                    <span class="step-name">Aprende</span>
+                  <a>
+                    <span class="number" disabled></span>
+                    <span class="step-name" disabled>Aprende</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#tab_step2">
+                  <a>
                     <span class="number"></span>
                     <span class="step-name">Practica</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#tab_step3">
+                  <a>
                     <span class="number"></span>
                     <span class="step-name">Realimentación</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#tab_step4">
+                  <a>
                     <span class="number"></span>
                     <span class="step-name">Aplica</span>
                   </a>
@@ -50,12 +50,9 @@
                     <div class="course__form">
                       <span [innerHTML]="this.leccion.aprender"></span>
                       <div class="step-footer step-tab-pager">
-                        <button style="visibility: hidden" data-direction="prev" class="btn btn-default steps_btn">
-                          Volver
-                        </button>
                         <a id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
                           aria-controls="pills-contact" aria-selected="false">
-                          <button data-direction="next" class="btn btn-default steps_btn">
+                          <button data-direction="next" class="btn btn-default steps_btn btn-plantilla">
                             Siguiente
                           </button>
                         </a>
@@ -78,19 +75,24 @@
                         <div class="faq1256">
                           <div class="container">
                             <div class="row">
-                              <h2>
-                                Seleccionar la respuesta correcta
-                              </h2>
-                              <div *ngFor="let pregunta of leccion.practicar; index as i">
-                                <div *ngIf="(pregunta.respuestas?.length>0)&&(pregunta?.tipo?.nombre==='multiple')"
-                                  class="ques_item">
+                              <h2>Seleccionar la respuesta correcta</h2>
+                              <div *ngFor="
+                                  let pregunta of leccion.practicar;
+                                  index as i
+                                ">
+                                <div *ngIf="
+                                    pregunta.respuestas?.length > 0 &&
+                                    pregunta?.tipo?.nombre === 'multiple'
+                                  " class="ques_item">
                                   <div class="ques_title">
-                                    <span>Pregunta {{i+1}} :-</span>
+                                    <span>Pregunta {{ i + 1 }} :-</span>
                                     <span [innerHTML]="pregunta?.contenido"></span>
                                   </div>
                                   <div class="ui form">
                                     <div class="grouped fields">
-                                      <div class="field fltr-radio" *ngFor="let respuesta of pregunta.respuestas">
+                                      <div class="field fltr-radio" *ngFor="
+                                          let respuesta of pregunta.respuestas
+                                        ">
                                         <div class="ui radio checkbox">
                                           <input type="radio" name="{{i}}" tabindex="0"
                                             (click)="respuestaSeleccionada(i,respuesta.id)"  required>
@@ -102,10 +104,10 @@
                                   </div>
                                 </div>
 
-                                <div *ngIf="pregunta.tipo?.nombre==='abierta'">
+                                <div *ngIf="pregunta.tipo?.nombre === 'abierta'">
                                   <div class="ques_title">
-                                    <span>Pregunta {{i+1}}:- </span>
-                                    {{pregunta?.contenido}}
+                                    <span>Pregunta {{ i + 1 }}:- </span>
+                                    {{ pregunta?.contenido }}
                                   </div>
                                   <div class="ui search focus mt-15">
                                     <div class="ui form swdh30">
@@ -119,12 +121,10 @@
                               </div>
                             </div>
                             <div class="step-footer step-tab-pager">
-                              <button data-direction="prev" class="btn btn-default steps_btn">
-                                Volver
-                              </button>
                               <a id="#tab_step3-tab" data-toggle="pill" href="#tab_step3" role="tab"
                                 aria-controls="#tab_step3" aria-selected="false">
-                                <button (click)="validarRespuestas()" data-direction="next" class="btn btn-default steps_btn">
+                                <button (click)="validarRespuestas()" data-direction="next"
+                                  class="btn btn-default steps_btn">
                                   Siguiente
                                 </button>
                               </a>
@@ -135,15 +135,15 @@
                     </div>
                   </div>
                 </div>
-                <div class="step-tab-panel step-tab-location" id="tab_step3" role="tabpanel"
+                <div class="step-tab-panel step-tab-location step" id="tab_step3" role="tabpanel"
                   aria-labelledby="tab_step3-contact-tab">
                   <div class="tab-from-content">
-                    <div class="wrapper _bg4586 _new89">
+                    <div class="wrapper _bg4586 _new89 wrapper">
                       <div class="_215b15">
                         <div class="container">
                           <div class="row">
                             <div class="col-lg-12">
-                              <div class="title126">
+                              <div class="title126 resultT">
                                 <h2>Resultados</h2>
                               </div>
                             </div>
@@ -156,31 +156,122 @@
                             <div class="col-md-6">
                               <div class="certi_form rght1528">
                                 <div class="test_result_bg">
+
                                   <ul class="test_result_left">
                                     <li>
-                                      <div class="result_dt">
-                                        <i class="uil uil-check right_ans"></i>
-                                        <p>Correctas<span>({{response?.correctas?.length}})</span></p>
-                                      </div>
+                                        <div class="result_dt">
+                                            <i class="uil uil-check right_ans"></i>
+                                            <p>Correcto<span>({{response?.correctas?.length}})</span></p>
+                                        </div>
                                     </li>
                                     <li>
-                                      <div class="result_dt">
-                                        <i class="uil uil-times wrong_ans"></i>
-                                        <p>Errores<span>({{(response?.totales - response?.correctas?.length)}})</span></p>
-                                      </div>
+                                        <div class="result_dt">
+                                            <i class="uil uil-times wrong_ans"></i>
+                                            <p>Incorrecto<span>({{(response?.totales - response?.correctas?.length)}})</span></p>
+                                        </div>
                                     </li>
                                     <li>
-                                      <div class="result_dt">
-                                        <h4>{{response?.correctas?.length}}</h4>
-                                        <p>   {{response?.correctas?.length}} de {{response?.totales}}</p>
-                                      </div>
+                                        <div class="result_dt">
+                                            <h4>{{response?.correctas?.length}}</h4>
+                                            <p>{{response?.totales}}</p>
+                                        </div>
                                     </li>
-                                  </ul>
+                                </ul>
                                   <div class="result_content">
                                     <h2>Buen trabajo</h2>
                                     <p>
                                       Con esfuerzo y perseverancia podrás alcanzar tus metas
                                     </p>
+
+                                  </div>
+                                </div>
+                            
+                                <!-- Body Start -->
+                               
+                              </div>
+                            </div>
+
+
+                            <div class="wrapper _bg4586 _new89">
+                              <div class="faq1256">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-md-10">
+                                    <hr>
+                                    <div *ngFor="
+                                        let pregunta of leccion.practicar;
+                                        index as i
+                                      ">
+                                      <div *ngIf="
+                                          pregunta.respuestas?.length > 0 &&
+                                          pregunta?.tipo?.nombre === 'multiple'" class="ques_item">
+                                        <div class="ques_title">
+                                          <span>Pregunta {{ i + 1 }} :-</span>
+                                          <span [innerHTML]="pregunta?.contenido"></span>
+                                        </div>
+
+                                        <div class="ui form">
+                                          <div class="grouped fields">
+                                            <div class="field fltr-radio" *ngFor=" let respuesta of pregunta.respuestas">
+                                              <div class="ui radio checkbox checkColor" *ngIf="
+                                                  respuesta.id === this.response.resUser [i] &&
+                                                    this.response.resUser[ i ] !== pregunta.respuestaCorrecta;
+                                                  else elseBlock " 
+                                                >
+                                                <input type="radio" tabindex="0" checked  />
+                                            <p class="checkColorT"> <label  [innerHTML]="
+                                                    respuesta?.contenido
+                                                  "></label>  </p>
+                                              </div>
+
+                                              <ng-template #elseBlock>
+                                                <div class="ui radio checkbox checkColor2" *ngIf="
+                                                    respuesta.id ===
+                                                      pregunta.respuestaCorrecta;
+                                                    else elseBlock2
+                                                  " >
+                                                  <input   type="radio" tabindex="0" checked  />
+                                                <p class="checkColorT2" > <label [innerHTML]="
+                                                      respuesta?.contenido
+                                                    "></label></p> 
+                                                </div>
+                                                <ng-template #elseBlock2>
+                                                  <div class="
+                                                      ui
+                                                      radio
+                                                      checkbox
+                                                    ">
+                                                    <input type="radio" name="{{ i }}" tabindex="0" required disabled />
+                                                    <label [innerHTML]="
+                                                        respuesta?.contenido
+                                                      "></label>
+                                                  </div>
+                                                </ng-template>
+                                              </ng-template>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div *ngIf="
+                                          pregunta.tipo?.nombre ===
+                                          'abierta'
+                                        ">
+                                        <div class="ques_title">
+                                          <span>Pregunta {{ i + 1 }}:-
+                                          </span>
+                                          {{ pregunta?.contenido }}
+                                        </div>
+                                        <div class="ui search focus mt-15">
+                                          <div class="ui form swdh30">
+                                            <div class="field">
+                                              <textarea rows="5" name="answer" id="id_answer"
+                                                placeholder="Pls explain" required></textarea>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                     <a id="#tab_step4-tab" data-toggle="pill" href="#tab_step4" role="tab"
                                       aria-controls="#tab_step4" aria-selected="false">
                                       <button data-direction="next" class="btn btn-default steps_btn">
@@ -188,9 +279,14 @@
                                       </button>
                                     </a>
                                   </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
+
+
+
+
                           </div>
                         </div>
                       </div>
@@ -215,13 +311,14 @@
                           </div>
                           <div class="col-lg-12 col-md-12">
                             <div class="course_des_textarea mt-30 lbel25">
-                              <label>Eres el líder de un proyecto estás desarrollando una tienda virtual y quieres
-                                probar la
-                                funcionalidad de carrito de compras. Intenta formular el caso de uso, detallando los
-                                pasos que
-                                debe llevar a cabo el usuario para realizar la acción posteriormente define el caso de
-                                prueba
-                                como los ejemplificados durante la lección detallando contexto, acción y resultado
+                              <label>Eres el líder de un proyecto estás
+                                desarrollando una tienda virtual y quieres
+                                probar la funcionalidad de carrito de compras.
+                                Intenta formular el caso de uso, detallando los
+                                pasos que debe llevar a cabo el usuario para
+                                realizar la acción posteriormente define el caso
+                                de prueba como los ejemplificados durante la
+                                lección detallando contexto, acción y resultado
                                 esperado.
                               </label>
                               <angular-editor [placeholder]="
@@ -229,16 +326,41 @@
                                 " [(ngModel)]="response.aplica" name="response.aplica"></angular-editor>
                             </div>
                           </div>
-                          
-                        <!--   <div class="container" appDnd (fileDropped)="onFileDropped($event)">
-                            <input type="file" #fileDropRef id="fileDropRef" multiple
-                              (change)="fileBrowseHandler($event.target.files)" />
-                            <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg" alt="imagen de carga" />
-                            <h3>Arrastra y suelta tus archivos aqui</h3>
-                            <h3>o</h3>
-                            <label for="fileDropRef">Buscar archivos</label>
+
+                          <div class="card-body">
+                            <form class="form" method="" action="">
+                              <div class="container containercarga" appDnd (fileDropped)="onFileDropped($event)">
+                                <input type="file" #fileDropRef id="fileDropRef" multiple (change)="
+                                    fileBrowseHandler($event.target.files)
+                                  " />
+                                <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg"
+                                  alt="imagen de carga" />
+                                <h3>Arrastra y suelta tus archivos aqui</h3>
+
+                                <label for="fileDropRef">Buscar archivos</label>
+                              </div>
+
+                              <div class="files-list">
+                                <div class="single-file" *ngFor="let file of files; let i = index">
+                                  <img src="assets/images/dnd/ic-file.svg" width="45px" alt="file" />
+                                  <div class="info">
+                                    <h4 class="name">
+                                      {{ file?.name }}
+                                    </h4>
+                                    <p class="size">
+                                      {{ formatBytes(file?.size) }}
+                                    </p>
+                                    <app-progress [progress]="file?.progress"></app-progress>
+                                  </div>
+                                  <img src="assets/images/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file"
+                                    (click)="deleteFile(i)" />
+                                </div>
+                                <button (click)="uploadFile()" class="btn btn-success">
+                                  Guardar
+                                </button>
+                              </div>
+                            </form>
                           </div>
- -->
 
                           <button (click)="finalizarLeccion()" data-direction="next" class="btn btn-default steps_btn">
                             Finalizar
@@ -255,7 +377,6 @@
       </div>
 
       <!-- Body End -->
-
     </div>
   </div>
 </div>

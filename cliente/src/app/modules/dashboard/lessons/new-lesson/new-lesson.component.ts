@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+
 
 
 
@@ -13,8 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class NewLessonComponent implements OnInit {
  
-  
-  
+ 
   
   
   plantilla: any = {
@@ -154,6 +154,11 @@ export class NewLessonComponent implements OnInit {
     }
   }
 
+  eliminarPregunta(indice: any){
+    this.preguntas.splice(indice);
+
+  }
+
   agregarRespuesta(indice: any) {
     this.respuestas[indice].push({
       pregunta: indice,
@@ -162,6 +167,10 @@ export class NewLessonComponent implements OnInit {
       addRetro: false,
       retroalimentacion: ''
     });
+  }
+
+  eliminarRespuesta(indice: any) {
+    this.respuestas.splice(indice);
   }
 
   aplicarSelect() {
@@ -206,5 +215,5 @@ export class NewLessonComponent implements OnInit {
           
         }
       );
-  }
+  }  
 }
