@@ -93,7 +93,7 @@
                                       <div class="field fltr-radio" *ngFor="let respuesta of pregunta.respuestas">
                                         <div class="ui radio checkbox">
                                           <input type="radio" name="{{i}}" tabindex="0"
-                                            (click)="respuestaSeleccionada(i,respuesta.id)" required>
+                                            (click)="respuestaSeleccionada(i,respuesta.id)"  required>
 
                                           <label [innerHTML]="respuesta?.contenido"></label>
                                         </div>

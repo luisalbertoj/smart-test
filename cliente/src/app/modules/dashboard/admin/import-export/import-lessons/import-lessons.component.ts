@@ -92,7 +92,7 @@ export class ImportLessonsComponent implements OnInit {
 
   upload() {
     console.log(this.files);
-    return this.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'?
+    this.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'?
     this.toast.error('Solo se permiten archivos xlsx'): 0;
 
   }
