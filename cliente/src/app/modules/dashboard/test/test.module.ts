@@ -10,11 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TagInputModule } from 'ngx-chips';
 import { MaterialModule } from '../../../material.module';
+import { ViewResultComponent } from './view-result/view-result.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent, ViewTestComponent, TestResultComponent, CreateTestComponent],
+  declarations: [MainComponent, ViewTestComponent, TestResultComponent, CreateTestComponent, ViewResultComponent],
   imports: [
     CommonModule,
     TestRoutingModule,
