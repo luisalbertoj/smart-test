@@ -85,7 +85,8 @@ export class CreateTestComponent implements OnInit {
         contenido: '',
         respuestas: [{ contenido: '' }],
         respuestaCorrecta: '',
-        showbody:false
+        showbody:false,
+        accordianclass: 'expandAccordion'
       });
     }
     if (this.tipoSelect === 'abierta') {

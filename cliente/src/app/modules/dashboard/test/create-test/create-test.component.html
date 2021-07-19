@@ -3,62 +3,56 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-            <img
-              src="{{ plantilla.imgBanner }}"
-              class="card-img-top"
-              alt="..."
-            />
+          <img src="{{ plantilla.imgBanner }}" class="card-img-top" alt="..." />
+        </div>
 
-          </div>
+        <div id="cardGeneral" class="card">
+          <div class="card-body">
+            <h2 class="card-title">Información general</h2>
 
-            <div id="cardGeneral" class="card">
-            <div class="card-body">
-              <h2 class="card-title">Información general</h2>
-              
-              <div class="row">
-              <div class="col-sm-12 col-md-3"> 
-              <label>Nombre de la prueba de conocimiento</label>
+            <div class="row">
+              <div class="col-sm-12 col-md-3">
+                <label>Nombre de la prueba de conocimiento</label>
               </div>
               <div class="col-sm-12 col-md-9">
-              <angular-editor
-                [(ngModel)]="test.nombre"
-                name="test.nombre"
-                [placeholder]="'Nombre de la prueba de conocimiento...'"
-              ></angular-editor>
+                <angular-editor
+                  [(ngModel)]="test.nombre"
+                  name="test.nombre"
+                  [placeholder]="'Nombre de la prueba de conocimiento...'"
+                ></angular-editor>
+              </div>
             </div>
-            </div>
-              <br>
-              <div class="row">
+            <br />
+            <div class="row">
               <div class="col-sm-12 col-md-3">
-              <label>Contenido</label>
+                <label>Contenido</label>
               </div>
               <div class="col-sm-12 col-md-9">
-              <angular-editor
-                [(ngModel)]="test.contenido"
-                name="test.contenido"
-                [placeholder]="'Contenido...'"
-              ></angular-editor>
-              </div>
-              </div>
-              <br>
-              <div class="row">
-              <div class="col-sm-12 col-md-3">
-              <label>Observaciones</label>
-              </div>
-              <div class="col-sm-12 col-md-9">
-              <angular-editor
-                [(ngModel)]="test.observaciones"
-                name="test.observaciones"
-                [placeholder]="'Observaciones...'"
-              ></angular-editor>
+                <angular-editor
+                  [(ngModel)]="test.contenido"
+                  name="test.contenido"
+                  [placeholder]="'Contenido...'"
+                >
+                </angular-editor>
               </div>
             </div>
-              <br>
-              <div class="row">
+            <br />
+            <div class="row">
               <div class="col-sm-12 col-md-3">
-              <label>
-                Fecha de inicio
-              </label>
+                <label>Observaciones</label>
+              </div>
+              <div class="col-sm-12 col-md-9">
+                <angular-editor
+                  [(ngModel)]="test.observaciones"
+                  name="test.observaciones"
+                  [placeholder]="'Observaciones...'"
+                ></angular-editor>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-sm-12 col-md-3">
+                <label> Fecha de inicio </label>
               </div>
               <div class="col-sm-12 col-md-9">
                 <input
@@ -67,16 +61,14 @@
                   type="datetime-local"
                   class="form-control"
                 />
-            </div>
+              </div>
             </div>
 
             <div class="row">
               <div class="col-sm-12 col-md-3">
-              <label>
-                Fecha de cierre
-              </label>
-            </div>
-            <div class="col-sm-12 col-md-9">
+                <label> Fecha de cierre </label>
+              </div>
+              <div class="col-sm-12 col-md-9">
                 <input
                   [(ngModel)]="test.cierre"
                   name="test.cierre"
@@ -88,206 +80,242 @@
 
             <div class="row">
               <div class="col-sm-12 col-md-3">
-              <label>
-                Duración
-              </label>
-            </div>
-            <div class="col-sm-12 col-md-9">
-              <angular-editor
-              [(ngModel)]="test.duracion"
-              name="test.duracion"
-              [placeholder]="'Duración...'"
-            ></angular-editor>
+                <label> Duración </label>
+              </div>
+              <div class="col-sm-12 col-md-9">
+                <angular-editor
+                  [(ngModel)]="test.duracion"
+                  name="test.duracion"
+                  [placeholder]="'Duración...'"
+                >
+                </angular-editor>
               </div>
             </div>
 
-         
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
+          
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button
+                    class="btn btn-link btn-block text-left collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#testpreguntas"
+                    aria-expanded="false"
+                    aria-controls="testpreguntas"
+                  >
+                    <div class="row">
+                      <div class="title-icon" class="col-lg-11">
+                        <ul>
+                          <li class="title">
+                            preguntas
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-1">
+                        <i
+                          id="iconodesplegable"
+                          class="fas fa-angle-double-down"
+                        ></i>
+                      </div>
+                    </div>
+                  </button>
+                </h2>
+              </div>
 
-                <div class="row">
-                  <div class="title-icon" class="col-lg-12">
-                    <ul>
-                      <li class="title">
-                       Preguntas
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </h2>
-            </div>
+              <div
+                id="testpreguntas"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#testpreguntas"
+                >
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                      <div class="ui search focus mt-30 lbel25">
+                        <label>Tipos de pregunta*</label>
+                        <div class="ui left icon input swdh19">
+                          <select
+                            [(ngModel)]="tipoSelect"
+                            name="tipoSelect"
+                            class="
+                              ui
+                              hj145
+                              dropdown
+                              cntry152
+                              prompt
+                              srch_explore
+                              select-competencia
+                            "
+                          >
+                            <option value="">Selecciona</option>
 
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-12 col-md-12">
-                  <div class="ui search focus mt-30 lbel25">
-                    <label>Tipos de pregunta*</label>
-                    <div class="ui left icon input swdh19">
-                      <select
-                        [(ngModel)]="tipoSelect"
-                        name="tipoSelect"
-                        class="
-                          ui
-                          hj145
-                          dropdown
-                          cntry152
-                          prompt
-                          srch_explore
-                          select-competencia
-                        "
-                      >
-                        <option value="">Selecciona</option>
-
-                        <option
-                          *ngFor="let tipo of tipoPregunta"
-                          value="{{ tipo?.nombre }}"
-                        >
-                          {{ tipo?.nombre | uppercase }}
-                        </option>
-                      </select>
-                      <button
-                        (click)="agregarPregunta()"
-                        type="button"
-                        class="btn btn-primary"
-                      >
-                        Agregar pregunta
-                      </button>
+                            <option
+                              *ngFor="let tipo of tipoPregunta"
+                              value="{{ tipo?.nombre }}"
+                            >
+                              {{ tipo?.nombre | uppercase }}
+                            </option>
+                          </select>
+                          <button
+                            (click)="agregarPregunta()"
+                            type="button"
+                            class="btn btn-primary btn-plantilla btnAddPregunta"
+                          >
+                            Agregar pregunta
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              
 
-
-            
-            <div
-              *ngFor="let pregunta of preguntas; index as i"
-              class="card-body"
-            >
               <div
-                *ngIf="pregunta.tipo == 'multiple'"
-                class="col-lg-12 col-md-12"
+                *ngFor="let pregunta of preguntas; index as i"
+                class="card-body"
               >
-                <div class="course_des_textarea mt-30 lbel25">
-                  <label>Pregunta*</label>
-                  <angular-editor
-                    [(ngModel)]="pregunta.contenido"
-                    name="pregunta.contenido"
-                    [placeholder]="'Escribe aqui la pregunta...'"
-                  ></angular-editor>
-                </div>
-
-                <br />
-                <button
-                  (click)="agregarRespuesta(i, pregunta)"
-                  type="button"
-                  class="btn btn-primary"
-                >
-                  Agregar respuesta
-                </button>
-                <hr />
-
                 <div
-                  class="card-header"
-                  role="tab"
-                  [ngClass]="respuesta?.accordianclass"
-                  role="tab"
-                  (click)="
-                    onClickAccordion(i, pregunta, (pregunta.showbody = true))
-                  "
+                  *ngIf="pregunta.tipo == 'multiple'"
+                  class="col-lg-12 col-md-12"
                 >
-                  <h3>
-                    <button class="btn btn-block text-left" type="button">
-                      <div class="row">
-                        <div class="title-icon" class="col-lg-12">
-                          <label class="title">Respuestas</label>
+                  <div class="course_des_textarea mt-30 lbel25">
+                    <label>Pregunta*</label>
+                    <angular-editor
+                      [(ngModel)]="pregunta.contenido"
+                      name="pregunta.contenido"
+                      [placeholder]="'Escribe aqui la pregunta...'"
+                    ></angular-editor>
+                  </div>
+
+                  <br />
+                  <button
+                    (click)="agregarRespuesta(i, pregunta)"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Agregar respuesta
+                  </button>
+                  <hr />
+
+                  <div
+                    class="card-header"
+                    role="tab"
+                    [ngClass]="respuesta?.accordianclass"
+                    role="tab"
+                    (click)="
+                      onClickAccordion(i, pregunta, (pregunta.showbody = true))
+                    "
+                  >
+                    <h3>
+                      <button class="btn btn-block text-left" type="button">
+                        <div class="row">
+                          <div class="title-icon" class="col-lg-12">
+                            <label class="title">Respuestas</label>
+                          </div>
+
+                          <button
+                            (click)="eliminarRespuesta(b)"
+                            class="part_btn_save prt-sv btn-plantilla"
+                            type="button"
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                      </button>
+                    </h3>
+                  </div>
+                  <div
+                    id="collapseOne"
+                    class="collapse show"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordionExample"
+                    *ngIf="pregunta.showbody"
+                  >
+                    <div class="accordion" id="acordeonPreguntas">
+                      <div
+                        *ngFor="let respuesta of respuestas[i]; index as b"
+                        class="card"
+                      >
+                        <div
+                          class="card-header"
+                          role="tab"
+                          [ngClass]="respuesta?.accordianclass"
+                          role="tab"
+                          (click)="onClickAccordion(i, respuesta)"
+                        >
+                          <h2 class="mb-0">
+                            <button
+                              class="btn btn-block text-left"
+                              type="button"
+                            >
+                              <div class="row">
+                                <div class="title-icon" class="col-lg-11">
+                                  <label class="title"
+                                    >Respuesta*: {{ b + 1 }}</label
+                                  >
+                                </div>
+                                <div class="col-lg-1">
+                                  <i
+                                    id="iconodesplegable"
+                                    class="fas fa-angle-double-down"
+                                  ></i>
+                                </div>
+                              </div>
+                            </button>
+                          </h2>
                         </div>
 
-                        <button (click)="eliminarRespuesta(b)" class="part_btn_save prt-sv btn-plantilla" type="button">Eliminar
-                                    
-                        </button>
-                      </div>
-                    </button>
-                  </h3>
-                </div>
-                <div
-                  id="collapseOne"
-                  class="collapse show"
-                  aria-labelledby="headingOne"
-                  data-parent="#accordionExample"
-                  *ngIf="pregunta.showbody"
-                >
-                  <div class="accordion" id="acordeonPreguntas">
-                    <div
-                      *ngFor="let respuesta of respuestas[i]; index as b"
-                      class="card"
-                    >
-                      <div
-                        class="card-header"
-                        role="tab"
-                        [ngClass]="respuesta?.accordianclass"
-                        role="tab"
-                        (click)="onClickAccordion(i, respuesta)"
-                      >
-                        <h2 class="mb-0">
-                          <button class="btn btn-block text-left" type="button">
-                            <div class="row">
-                              <div class="title-icon" class="col-lg-11">
-                                <label class="title"
-                                  >Respuesta*: {{ b + 1 }}</label
-                                >
-                              </div>
-                              <div class="col-lg-1">
-                                <i
-                                  id="iconodesplegable"
-                                  class="fas fa-angle-double-down"
-                                ></i>
-                              </div>
-                            </div>
-                          </button>
-                        </h2>
-                      </div>
-
-                      <div
-                        id="collapseOne"
-                        class="collapse show"
-                        aria-labelledby="headingOne"
-                        data-parent="#accordionExample"
-                      >
-                        <div class="card-body" *ngIf="respuesta.showbody">
-                          <div class="course__form">
-                            <div class="general_info10">
-                              <div class="row">
-                                <div class="col-lg-12 col-md-12">
-                                  <div class="ui search focus mt-30 lbel25">
-                                    <input
-                                      type="checkbox"
-                                      [(ngModel)]="respuesta.correcta"
-                                      name="respuesta.correcta"
-                                      class="form-check-input"
-                                      id="exampleCheck1"
-                                    />
-                                    <label
-                                      class="form-check-label"
-                                      for="exampleCheck1"
-                                    >
-                                      Respuesta correcta</label
-                                    >
-                                    <angular-editor
-                                      [(ngModel)]="respuesta.contenido"
-                                      name="respuesta.contenido"
-                                      [placeholder]="
-                                        'Escribe aqui la respuesta ..'
-                                      "
-                                    ></angular-editor>
-                                    <button (click)="respuesta.addRetro = true" type="button" class="btn btn-primary">
-                                      Agregar retroalimentacion
-                                    </button>
-                                    <div *ngIf="respuesta.addRetro">
-                                      <angular-editor [(ngModel)]="respuesta.retroalimentacion" name="respuesta.retroalimentacion"
-                                      [placeholder]="
-                                   'Escribe aqui la retroalimentacion ..'
-                                   "></angular-editor>
+                        <div
+                          id="collapseOne"
+                          class="collapse show"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body" *ngIf="respuesta.showbody">
+                            <div class="course__form">
+                              <div class="general_info10">
+                                <div class="row">
+                                  <div class="col-lg-12 col-md-12">
+                                    <div class="ui search focus mt-30 lbel25">
+                                      <input
+                                        type="checkbox"
+                                        [(ngModel)]="respuesta.correcta"
+                                        name="respuesta.correcta"
+                                        class="form-check-input"
+                                        id="exampleCheck1"
+                                      />
+                                      <label
+                                        class="form-check-label"
+                                        for="exampleCheck1"
+                                      >
+                                        Respuesta correcta</label
+                                      >
+                                      <angular-editor
+                                        [(ngModel)]="respuesta.contenido"
+                                        name="respuesta.contenido"
+                                        [placeholder]="
+                                          'Escribe aqui la respuesta ..'
+                                        "
+                                      ></angular-editor>
+                                      <button
+                                        (click)="respuesta.addRetro = true"
+                                        type="button"
+                                        class="btn btn-primary"
+                                      >
+                                        Agregar retroalimentacion
+                                      </button>
+                                      <div *ngIf="respuesta.addRetro">
+                                        <angular-editor
+                                          [(ngModel)]="
+                                            respuesta.retroalimentacion
+                                          "
+                                          name="respuesta.retroalimentacion"
+                                          [placeholder]="
+                                            'Escribe aqui la retroalimentacion ..'
+                                          "
+                                        ></angular-editor>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -299,10 +327,7 @@
                     </div>
                   </div>
                 </div>
-
-                
-              </div>
-              <div
+                <div
                   *ngIf="pregunta.tipo === 'abierta'"
                   class="col-lg-12 col-md-12"
                 >
@@ -315,28 +340,41 @@
                       "
                       name="pregunta.contenido"
                     ></angular-editor>
-                    <button (click)="pregunta.addRetro = true" type="button" class="btn btn-primary">
+                    <button
+                      (click)="pregunta.addRetro = true"
+                      type="button"
+                      class="btn btn-primary"
+                    >
                       Agregar retroalimentacion
                     </button>
-                    <button (click)="eliminarPregunta(i)" class="part_btn_save prt-sv btn-plantilla" type="button">Eliminar
+                    <button
+                      (click)="eliminarPregunta(i)"
+                      class="part_btn_save prt-sv btn-plantilla"
+                      type="button"
+                    >
+                      Eliminar
                     </button>
                     <div *ngIf="pregunta.addRetro">
-                      <angular-editor [(ngModel)]="pregunta.retroalimentacion" name="pregunta.retroalimentacion"
-                      [placeholder]="
-                   'Escribe aqui la retroalimentacion ..'
-                   "></angular-editor>
+                      <angular-editor
+                        [(ngModel)]="pregunta.retroalimentacion"
+                        name="pregunta.retroalimentacion"
+                        [placeholder]="'Escribe aqui la retroalimentacion ..'"
+                      ></angular-editor>
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
+            </div>
+
+            <button
+              (click)="crearTest()"
+              class="part_btn_save btncrear"
+              type="button"
+            >
+              Guardar
+            </button>
           </div>
-          <button
-            (click)="crearTest()"
-            class="part_btn_save btncrear"
-            type="button"
-          >
-            Guardar
-          </button>
         </div>
       </div>
     </div>
