@@ -71,6 +71,18 @@
             </li>
           </ul>
         </li>
+        <li class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
+            <i class="far fa-file-video menu--icon iconos"></i>
+            <span class="menu--label">Laboratorio </span>
+          </label>
+          <ul class="sub_menu">
+            <li class="sub_menu--item">
+              <a [routerLink]="['/dashboard/laboratory']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Mis laboratorios</a>
+            </li>
+          </ul>
+        </li>
         <li class="menu--item menu--item__has_sub_menu" *ngIf="factory?.user?.idRol?.nombre === 'administrador'">
           <label class="menu--link" title="Tests">
             <i class="fas fa-user-friends menu--icon iconos"></i>

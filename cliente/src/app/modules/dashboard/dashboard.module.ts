@@ -8,15 +8,19 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { CommonModule } from '@angular/common';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent],
+  declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent, UploadFileComponent],
   imports: [
     DashboardRoutingModule,
     NgxSpinnerModule,
     NgCircleProgressModule,
     CommonModule
+  ],
+  exports: [
+    UploadFileComponent
   ]
 })
 export class DashboardModule { }
