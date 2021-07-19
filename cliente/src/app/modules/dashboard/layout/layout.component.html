@@ -1,66 +1,56 @@
 <!-- Left Sidebar Start -->
-<nav class="vertical_nav nav-movile" >
-  <div class="left_section menu_left" id="js-menu" >
+<nav class="vertical_nav nav-movile">
+  <div class="left_section menu_left" id="js-menu">
     <div class="left_section" id="menuborde">
       <ul>
         <li class="menu--item">
           <label class="menu--link" title="Tests">
             <i class="uil  menu--icon  fas fa-home iconos"></i>
-            <span class="menu--label"><a
-              [routerLink]="['/dashboard']"
-              routerLinkActive="router-link-active"
-              class="sub_menu--link"
-              >Inicio</a></span>
+            <span class="menu--label"><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Inicio</a></span>
           </label>
         </li>
 
         <li class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
-            <i class="fas fa-chalkboard-teacher menu--icon iconos"></i> 
+            <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Lecciones</span>
           </label>
           <ul class="sub_menu">
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/lesson']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Lecciones</a
-              >
+              <a [routerLink]="['/dashboard/lesson']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Lecciones</a>
             </li>
-            <li class="sub_menu--item" *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a
-                [routerLink]="['/dashboard/lesson/new']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Crear Lección</a
-              >
+            <li class="sub_menu--item"
+              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
+              <a [routerLink]="['/dashboard/lesson/new']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Crear Lección</a>
             </li>
           </ul>
         </li>
         <li class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
-             <i class="fas fa-tasks menu--icon iconos"></i>
+            <i class="fas fa-tasks menu--icon iconos"></i>
             <span class="menu--label">Test de conocimiento</span>
           </label>
           <ul class="sub_menu">
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/test']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Mis Pruebas</a
-              >
+              <a [routerLink]="['/dashboard/test']" routerLinkActive="router-link-active" class="sub_menu--link">Mis
+                Pruebas</a>
             </li>
           </ul>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a
-                [routerLink]="['/dashboard/test/create-test']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Crear prueba</a
-              >
+            <li class="sub_menu--item"
+              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
+              <a [routerLink]="['/dashboard/test/create-test']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Crear prueba</a>
+            </li>
+          </ul>
+          <ul class="sub_menu">
+            <li class="sub_menu--item"
+              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
+              <a [routerLink]="['/dashboard/test/view-result']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Ver resultados</a>
             </li>
           </ul>
         </li>
@@ -71,60 +61,49 @@
           </label>
           <ul class="sub_menu">
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/resources']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Ver recursos</a
-              >
+              <a [routerLink]="['/dashboard/resources']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Ver recursos</a>
             </li>
-            <li class="sub_menu--item" *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a
-                [routerLink]="['/dashboard/resources/create-resoruce']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Nuevo recurso</a
-              >
+            <li class="sub_menu--item"
+              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
+              <a [routerLink]="['/dashboard/resources/create-resoruce']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Nuevo recurso</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
+            <i class="far fa-file-video menu--icon iconos"></i>
+            <span class="menu--label">Laboratorio </span>
+          </label>
+          <ul class="sub_menu">
+            <li class="sub_menu--item">
+              <a [routerLink]="['/dashboard/laboratory']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Mis laboratorios</a>
             </li>
           </ul>
         </li>
         <li class="menu--item menu--item__has_sub_menu" *ngIf="factory?.user?.idRol?.nombre === 'administrador'">
           <label class="menu--link" title="Tests">
-             <i class="fas fa-user-friends menu--icon iconos"></i>
+            <i class="fas fa-user-friends menu--icon iconos"></i>
             <span class="menu--label">Administrador</span>
           </label>
           <ul class="sub_menu">
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/admin/user-list']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Usuarios</a
-              >
+              <a [routerLink]="['/dashboard/admin/user-list']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Usuarios</a>
             </li>
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/admin/user']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Nuevo usuario</a
-              >
+              <a [routerLink]="['/dashboard/admin/user']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Nuevo usuario</a>
             </li>
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/admin/privilegios']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >Privilegios</a
-              >
+              <a [routerLink]="['/dashboard/admin/privilegios']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Privilegios</a>
             </li>
             <li class="sub_menu--item">
-              <a
-                [routerLink]="['/dashboard/admin/import-export/lessons']"
-                routerLinkActive="router-link-active"
-                class="sub_menu--link"
-                >IE Lessons</a
-              >
+              <a [routerLink]="['/dashboard/admin/import-export/lessons']" routerLinkActive="router-link-active"
+                class="sub_menu--link">IE Lessons</a>
             </li>
           </ul>
         </li>
@@ -133,12 +112,9 @@
         <li class="menu--item">
           <label class="menu--link" title="Tests">
             <i class="fas fa-arrow-left menu--icon iconos"></i>
-            <span class="menu--label"><a
-              (click)="salir()"
-              class="sub_menu--link"
-              >Salir</a></span>
+            <span class="menu--label"><a (click)="salir()" class="sub_menu--link">Salir</a></span>
           </label>
-        </li>     
+        </li>
       </ul>
     </div>
 
