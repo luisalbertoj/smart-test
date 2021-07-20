@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { SearchElementComponent } from './components/search-element/search-element.component';
 import { AddElementComponent } from './components/add-element/add-element.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,9 @@ import { AddElementComponent } from './components/add-element/add-element.compon
     DashboardRoutingModule,
     NgxSpinnerModule,
     NgCircleProgressModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     UploadFileComponent,

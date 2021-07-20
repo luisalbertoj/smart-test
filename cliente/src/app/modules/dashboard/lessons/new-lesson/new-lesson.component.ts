@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-lesson',
@@ -21,6 +22,30 @@ export class NewLessonComponent implements OnInit {
 
     body: [{ name: 'id' }, { name: 'titulo' }, { name: 'concepto' }],
   };
+
+  tablaPreguntas: any = {
+    header: [{ name: '#' }, { name: 'Pregunta' },  { name: 'Acciones'}],
+
+    body: [{ name: 'id' }, { name: 'contenido' }],
+  };
+
+  newCompetencia: any = {
+    form: new FormGroup({
+      elements: new FormArray([
+        new FormControl('nombre', Validators.required),
+        new FormControl('observaciones', Validators.required)
+      ])
+    }),
+    arrayForm: new FormArray([
+      new FormControl(''),
+      new FormControl('')
+    ]),
+
+    labels: ['Nombre', 'Observaciones'],
+    model: 'competencia',
+    title: 'Agregar Competencia'
+  }
+
 
   plantilla: any = {
     menuGeneral: 'Informacion general de la leccion',
@@ -78,6 +103,12 @@ export class NewLessonComponent implements OnInit {
     console.log(dato);
     this.leccion.preconceptos = dato;
   }
+
+  selectPreguntas(dato) {
+    console.log(dato);
+    this.leccion.preguntas = dato;
+  }
+
   cargarObjetivos() {
     this.factory.getAll('objetivo').subscribe(
       (response: any) => {

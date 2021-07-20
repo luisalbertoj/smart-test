@@ -129,8 +129,11 @@
                                   <i class="fas fa-search"></i>
                                 </button>
                                 <app-search-element [title]="'Banco de competencias'" [model]="'competencia'" [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body" (selectElementos)="selectCompetencias($event)"></app-search-element> 
-                                
-                                <app-add-element><</app-add-element>
+                                    <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#addcompetencia">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+                                <app-add-element [arrayModel]="newCompetencia.arrayForm" [model]="newCompetencia.model" [title]="newCompetencia.title" [labels]="newCompetencia.labels"></app-add-element>
                               
                             </div>
                           </div>
@@ -382,6 +385,7 @@
                                     ></i>
                                   </div>
                                   <div class="col-lg-7">
+
                                     <button
                                       (click)="eliminarPregunta(i)"
                                       class="part_btn_save prt-sv btn-plantilla"
@@ -425,6 +429,13 @@
                                   >
                                     Agregar respuesta
                                   </button>
+
+                                  <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#pregunta">
+                                    <i class="fas fa-search"></i>
+                                  </button>
+                                  <app-search-element [title]="'Banco de preguntas'" [model]="'pregunta'" [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body" (selectElementos)="selectPreguntas($event)"></app-search-element>
+
+
                                   <hr />
                                   <div
                                     *ngFor="
