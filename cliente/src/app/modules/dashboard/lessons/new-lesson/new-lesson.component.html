@@ -114,6 +114,7 @@
                                 name="leccion.competencias"
                                 placeholder="Selecciona las competencias"
                                 secondaryPlaceholder=" "
+                                canDeleteTags="false"
                               >
                                 <tag-input-dropdown
                                   class="ng2-dropdown-container ng2-menu-item"
@@ -123,12 +124,14 @@
                                 </tag-input-dropdown>
                               </tag-input> 
 
-                              <button
-                              type="button"
-                              class="btn btn-plantilla btnaddpreg btn-primary"
-                            >
-                            <i class="fas fa-search"></i>
-                              </button>
+                              <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#competencia">
+                                  <i class="fas fa-search"></i>
+                                </button>
+                                <app-search-element [title]="'Banco de competencias'" [model]="'competencia'" [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body" (selectElementos)="selectCompetencias($event)"></app-search-element> 
+                                
+                                <app-add-element><</app-add-element>
+                              
                             </div>
                           </div>
                         </div>
@@ -142,7 +145,6 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19">
-
                               <tag-input
                                 class="input-tag"
                                 [(ngModel)]="leccion.preconceptos"
@@ -156,13 +158,11 @@
                                 >
                                 </tag-input-dropdown>
                               </tag-input> 
-
-                              <button
-                              type="button"
-                              class="btn btn-plantilla btnaddpreg btn-primary"
-                            >
-                            <i class="fas fa-search"></i>
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#preconcepto">
+                                <i class="fas fa-search"></i>
                               </button>
+                              <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'" [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body" (selectElementos)="selectPreconceptos($event)"></app-search-element>
                             </div>
                           </div>
                         </div>

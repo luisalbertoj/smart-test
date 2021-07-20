@@ -1,11 +1,8 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-
-
-
 
 @Component({
   selector: 'app-new-lesson',
@@ -13,16 +10,24 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./new-lesson.component.scss'],
 })
 export class NewLessonComponent implements OnInit {
- 
- 
-  
-  
+  tablaCompetencias: any = {
+    header: [{ name: '#' }, { name: 'Competencia' }, { name: 'Autor' }, { name: 'Acciones'}],
+
+    body: [{ name: 'id' }, { name: 'nombre' }, { name: 'creador', attribute: 'nombre'}],
+  };
+
+  tablaPreconceptos: any = {
+    header: [{ name: '#' }, { name: 'Preconcepto' },  { name: 'Definición' }, { name: 'Acciones'}],
+
+    body: [{ name: 'id' }, { name: 'titulo' }, { name: 'concepto' }],
+  };
+
   plantilla: any = {
     menuGeneral: 'Informacion general de la leccion',
     menuAprender: 'Aprender',
     menuPracticar: 'Practicar',
     menuAplicar: 'Aplicar',
-    imgBanner: 'assets/images/bannercrearlecc.png'
+    imgBanner: 'assets/images/bannercrearlecc.png',
   };
 
   leccion: any = {
@@ -37,7 +42,7 @@ export class NewLessonComponent implements OnInit {
     creador: JSON.parse(localStorage.getItem('user')).id || 1,
     competencias: [],
     preconceptos: [],
-    objetivo: ''
+    objetivo: '',
   };
   public competencias: any = [];
   public preconceptos: any = [];
@@ -51,16 +56,27 @@ export class NewLessonComponent implements OnInit {
   public preguntas: any = [];
   public respuestas: any = [];
 
-  constructor(public factory: FactoryService,
+  constructor(
+    public factory: FactoryService,
     private toast: ToastrService,
     private router: Router,
-    private spinner: NgxSpinnerService) {}
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.cargarCompetencias();
     this.cargarPreconceptos();
     this.cargarTipos();
     this.cargarObjetivos();
+  }
+  selectCompetencias(dato) {
+    console.log(dato);
+    this.leccion.competencias = dato;
+  }
+
+  selectPreconceptos(dato) {
+    console.log(dato);
+    this.leccion.preconceptos = dato;
   }
   cargarObjetivos() {
     this.factory.getAll('objetivo').subscribe(
@@ -92,7 +108,7 @@ export class NewLessonComponent implements OnInit {
         this.preconceptos = response;
         for (const it of this.preconceptos) {
           /* if(it.slug.length > 20) it.slug = it.slug.substring(15, 30); */
-          this.items.push(it.id + '⌂' +it.slug);
+          this.items.push(it.id + '⌂' + it.slug);
         }
       },
       (error: any) =>
@@ -108,7 +124,7 @@ export class NewLessonComponent implements OnInit {
         this.competencias = response;
         for (const it of this.competencias) {
           /* if(it.slug.length > 20) it.slug = it.slug.substring(15, 30); */
-          this.itemsCompetencia.push(it.id + '⌂' +it.slug);
+          this.itemsCompetencia.push(it.id + '⌂' + it.slug);
         }
       },
       (error: any) =>
@@ -145,7 +161,7 @@ export class NewLessonComponent implements OnInit {
         respuestas: [{ contenido: '' }],
         respuestaCorrecta: '',
         showbody: false,
-        accordianclass: 'collapseAccordion'
+        accordianclass: 'collapseAccordion',
       });
       this.respuestas.push([]);
     }
@@ -154,9 +170,8 @@ export class NewLessonComponent implements OnInit {
     }
   }
 
-  eliminarPregunta(indice: any){
+  eliminarPregunta(indice: any) {
     this.preguntas.splice(indice);
-
   }
 
   agregarRespuesta(indice: any) {
@@ -165,7 +180,7 @@ export class NewLessonComponent implements OnInit {
       contenido: '',
       correcta: false,
       addRetro: false,
-      retroalimentacion: ''
+      retroalimentacion: '',
     });
   }
 
@@ -212,8 +227,7 @@ export class NewLessonComponent implements OnInit {
           console.log(error);
           this.spinner.hide();
           return this.toast.error(error.message, 'Problema en el servidor');
-          
         }
       );
-  }  
+  }
 }

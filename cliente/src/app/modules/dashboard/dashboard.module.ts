@@ -9,10 +9,13 @@ import { FooterComponent } from './footer/footer.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { CommonModule } from '@angular/common';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { SearchElementComponent } from './components/search-element/search-element.component';
+import { AddElementComponent } from './components/add-element/add-element.component';
+
 
 
 @NgModule({
-  declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent, UploadFileComponent],
+  declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent, UploadFileComponent, SearchElementComponent, AddElementComponent],
   imports: [
     DashboardRoutingModule,
     NgxSpinnerModule,
@@ -20,7 +23,9 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
     CommonModule
   ],
   exports: [
-    UploadFileComponent
+    UploadFileComponent,
+    SearchElementComponent,
+    AddElementComponent
   ]
 })
 export class DashboardModule { }

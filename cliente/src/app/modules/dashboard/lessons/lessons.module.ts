@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonViewComponent } from './lesson-view/lesson-view.component';
 import { ProgressComponent } from './progress/progress.component';
+import { DashboardModule } from '../dashboard.module';
 
 
 
@@ -25,7 +26,8 @@ import { ProgressComponent } from './progress/progress.component';
     ReactiveFormsModule,
     LessonsRoutingModule,
     AngularEditorModule,
-    TagInputModule
+    TagInputModule,
+    DashboardModule
   ]
 })
 export class LessonsModule { }
