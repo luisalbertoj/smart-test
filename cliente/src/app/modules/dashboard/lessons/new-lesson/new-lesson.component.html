@@ -116,16 +116,16 @@
                               </tag-input>
 
                               <!-- Button trigger modal -->
-                              <button type="button" class="
+                              <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
+                                [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
+                                (selectElementos)="selectCompetencias($event)" #searchCompetencia></app-search-element>
+                              <button type="button" (click)="searchCompetencia.cargarModel()" class="
                                     btn btn-plantilla
                                     btnaddpreg
                                     btn-primary
                                   " data-toggle="modal" data-target="#competencia">
                                 <i class="fas fa-search"></i>
                               </button>
-                              <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
-                                [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
-                                (selectElementos)="selectCompetencias($event)"></app-search-element>
                               <!-- Button trigger modal -->
                               <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title"
                                 [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #addcompetencias>
@@ -153,7 +153,8 @@
                                 <label>Preconceptos *</label>
                               </div>
                               <div class="col-sm-12 col-md-2">
-                                <button class="btn-tooltip" data-toggle="tooltip" title="Los preconceptos son las bases que se debe tener el estudiante para el desarrollo de la lección">
+                                <button class="btn-tooltip" data-toggle="tooltip"
+                                  title="Los preconceptos son las bases que se debe tener el estudiante para el desarrollo de la lección">
                                   <i class="far fa-question-circle"></i>
                                 </button>
                               </div>
@@ -168,18 +169,21 @@
                                 </tag-input-dropdown>
                               </tag-input>
                               <!-- Button trigger modal -->
-                              <button type="button" class="
-                                      btn btn-plantilla
-                                      btnaddpreg
-                                      btn-primary
-                                    " data-toggle="modal" data-target="#preconcepto">
-                                <i class="fas fa-search"></i>
-                              </button>
                               <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'"
                                 [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body"
                                 (selectElementos)="
                                       selectPreconceptos($event)
-                                    "></app-search-element>
+                                    " #searchPreconceptos></app-search-element>
+                                    <button type="button"
+                                    (click)="searchPreconceptos.cargarModel()"
+                                    class="
+                                    btn btn-plantilla
+                                    btnaddpreg
+                                    btn-primary
+                                  " data-toggle="modal" data-target="#preconcepto">
+                              <i class="fas fa-search"></i>
+                            </button>
+                              
                               <!-- Button trigger modal -->
                               <app-add-element [model]="newPreconcepto.model" [title]="newPreconcepto.title"
                                 [labels]="newPreconcepto.labels" [mer]="newPreconcepto.mer" #addPreconcepto>
@@ -209,7 +213,8 @@
                                 <label>Introducción *</label>
                               </div>
                               <div class="col-sm-12 col-md-2">
-                                <button class="btn-tooltip" data-toggle="tooltip" title="Breve introducción sobre los temas que va a tratar la lección">
+                                <button class="btn-tooltip" data-toggle="tooltip"
+                                  title="Breve introducción sobre los temas que va a tratar la lección">
                                   <i class="far fa-question-circle"></i>
                                 </button>
                               </div>
@@ -229,16 +234,17 @@
                         <div class="course_des_textarea mt-30 lbel25">
                           <div class="row">
                             <div class="col-sm-12 col-md-3 labelangular">
-                              
+
                               <div class="row">
                                 <div class="col-sm-12 col-md-10">
-                              <label>Observaciones *</label>
+                                  <label>Observaciones *</label>
                                 </div>
-                              <div class="col-sm-12 col-md-2">
-                                <button class="btn-tooltip" data-toggle="tooltip" title="En las observaciones se puede incluir las fuentes bibliograficas de la lección">
-                                  <i class="far fa-question-circle"></i>
-                                </button>
-                              </div>
+                                <div class="col-sm-12 col-md-2">
+                                  <button class="btn-tooltip" data-toggle="tooltip"
+                                    title="En las observaciones se puede incluir las fuentes bibliograficas de la lección">
+                                    <i class="far fa-question-circle"></i>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                             <div class="col-sm-12 col-md-9 editorangular">
@@ -254,16 +260,17 @@
                         <div class="course_des_textarea mt-30 lbel25">
                           <div class="row">
                             <div class="col-sm-12 col-md-3">
-                                <div class="row">
-                                      <div class="col-sm-12 col-md-10">
-                                    <label>Conclusiones *</label>
-                                      </div>
+                              <div class="row">
+                                <div class="col-sm-12 col-md-10">
+                                  <label>Conclusiones *</label>
+                                </div>
                                 <div class="col-sm-12 col-md-2">
-                                  <button class="btn-tooltip" data-toggle="tooltip" title="Las conclusión deben indicarle al estudiante el fin educativo de la lección">
+                                  <button class="btn-tooltip" data-toggle="tooltip"
+                                    title="Las conclusión deben indicarle al estudiante el fin educativo de la lección">
                                     <i class="far fa-question-circle"></i>
                                   </button>
                                 </div>
-                                </div>
+                              </div>
                             </div>
                             <div class="col-sm-12 col-md-9 editorangular">
                               <angular-editor [placeholder]="
@@ -297,7 +304,7 @@
                                 <i class="far fa-question-circle"></i>
                               </button>
                             </li>
-                          
+
                           </ul>
                         </div>
                         <div class="col-lg-1">
