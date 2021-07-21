@@ -13,21 +13,32 @@ export class AddElementComponent implements OnInit {
   
   @Input() title: string = '';
   @Input() model: string = '';
-
-  @Output() textContent = new EventEmitter<String>();
-  @Input() arrayModel: any = new FormArray([]);
   @Input() labels = '';
+  @Input() mer: any = {};
+  elementsModel = new FormGroup({
+    arrayModel: new FormArray([])
+  });
+  arrayModel = this.elementsModel.get("arrayModel") as FormArray;
+  
   constructor(private factory: FactoryService, private toast: ToastrService) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
   }
-
+ 
   ngDoCheck() {
   }
+
+  addArray(datos: any) {
+    for (const dato of datos) {
+      this.arrayModel.push(dato);
+    }
+  }
+
   create() {
-    return console.log(this.arrayModel);
-    
-    this.factory.post(this.model, {}).subscribe(
+    let datos = {};
+    datos = this.model === 'competencia' ? {nombre: this.arrayModel.value[0], observaciones: this.arrayModel.value[1]} : datos;
+    if(datos = {}) return this.toast.error("El modelo de datos no esta definido");
+    this.factory.post(this.model, datos).subscribe(
       (response: any) => {
         this.toast.success("Elemento creado correctamente");
         console.log(response);

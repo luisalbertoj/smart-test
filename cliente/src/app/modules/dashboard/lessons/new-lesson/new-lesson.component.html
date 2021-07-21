@@ -134,10 +134,10 @@
                                 </button>
                                 <app-search-element [title]="'Banco de competencias'" [model]="'competencia'" [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body" (selectElementos)="selectCompetencias($event)"></app-search-element> 
                                     <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#addcompetencia">
+                                <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title" [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #selector1></app-add-element>
+                                <button type="button" (click)="selector1.addArray(newCompetencia.arrayForm)" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#addcompetencia" >
                                   <i class="fas fa-plus"></i>
                                 </button>
-                                <app-add-element [arrayModel]="newCompetencia.arrayForm" [model]="newCompetencia.model" [title]="newCompetencia.title" [labels]="newCompetencia.labels"></app-add-element>
                               
                             </div>
                           </div>
