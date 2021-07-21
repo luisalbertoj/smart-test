@@ -35,12 +35,10 @@ export class AddElementComponent implements OnInit {
   }
 
   create() {
-    let body = {};
-    for (const dato of this.arrayModel.value) {
-      
-    }
-    
-    this.factory.post(this.model, {}).subscribe(
+    let datos = {};
+    datos = this.model === 'competencia' ? {nombre: this.arrayModel.value[0], observaciones: this.arrayModel.value[1]} : datos;
+    if(datos = {}) return this.toast.error("El modelo de datos no esta definido");
+    this.factory.post(this.model, datos).subscribe(
       (response: any) => {
         this.toast.success("Elemento creado correctamente");
         console.log(response);
