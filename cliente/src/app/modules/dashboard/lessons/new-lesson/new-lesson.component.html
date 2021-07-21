@@ -58,7 +58,7 @@
                           <div class="col-sm-12 col-md-9">
                             
                             <div class="ui left icon input swdh19">
-                              <a href="#" data-toggle="tooltip" title="Hooray!">?</a>
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Nombre de la lección"><i class="far fa-question-circle"></i></button>
                               <input
                                 [(ngModel)]="leccion.titulo"
                                 name="leccion.titulo"
@@ -82,6 +82,7 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19 divobj">
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
                               <select
                                 [(ngModel)]="leccion.objetivo"
                                 name="leccion.objetivo"
@@ -108,7 +109,7 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19 taginput">
-                            
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
 
                           <tag-input
                                 class="dropdown"
@@ -150,6 +151,7 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19">
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
                               <tag-input
                                 class="input-tag"
                                 [(ngModel)]="leccion.preconceptos"
@@ -175,19 +177,27 @@
                       <div class="col-lg-12 col-md-12">
                         <div class="mt-30 lbel25">
                           <div class="row">
-                            <div class="col-sm-12 col-md-3 labelangular">
-                              <label>Introducción*</label>
+                              <div class="col-sm-12 col-md-3 ">
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-10 labelangular">
+                                  <label>Introducción*</label>
+                                  </div>
+                                  <div class="col-sm-12 col-md-2 ">
+                                    <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div class="col-sm-12 col-md-9 editorangular">
+                                  <angular-editor
+                                    [placeholder]="
+                                      'Escribe aqui la introeditorangularducción de la leccion...'
+                                    "
+                                    [(ngModel)]="leccion.introduccion"
+                                    name="leccion.introduccion"
+                                  >  
+                                </angular-editor>
                             </div>
-                            <div class="col-sm-12 col-md-9 editorangular">
-                              <angular-editor
-                                [placeholder]="
-                                  'Escribe aqui la introeditorangularducción de la leccion...'
-                                "
-                                [(ngModel)]="leccion.introduccion"
-                                name="leccion.introduccion"
-                              ></angular-editor>
-                            </div>
-                          </div>
                         </div>
                       </div>
 

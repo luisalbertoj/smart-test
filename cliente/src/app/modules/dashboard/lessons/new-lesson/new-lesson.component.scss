@@ -37,7 +37,7 @@
 }
 
 hr {
-  background-color: #2671c3;
+  background-color: #9ba2a8;
 }
 
 .card-img-top{
@@ -101,4 +101,16 @@ input.ng2-tag-input__text-input.ng-pristine.ng-valid.ng-touched{
   margin-left: 2%;
   border-radius: 25px;
   margin-top: 0;
+}
+
+.btn-tooltip{
+  background-color: white;
+  border: 0;
+  margin-right: 10px;
+  color: #2671c3;
+  width: 20px;
+  padding: 0;
+}
+.inputtitle {
+  width: 80%;
 }
