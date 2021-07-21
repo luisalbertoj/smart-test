@@ -21,7 +21,7 @@
                     <thead>
                         <tr>
                             <th *ngFor="let header of headerTable" scope="col">
-                                {{ header.name }}
+                                {{ header?.name }}
                             </th>
                         </tr>
                     </thead>
@@ -29,9 +29,10 @@
                         <tr *ngFor="let item of modelItems">
                             <td *ngFor="let value of bodyTable">
                                 {{
-                                value.attribute
-                                ? item[value.name][value.attribute]
-                                : item[value.name]
+                                value?.attribute
+                                ? (item[value?.name][value?.attribute]?
+                                item[value?.name][value?.attribute]:'Sin autor')
+                                : item[value?.name]
                                 }}
                             </td>
                             <td>

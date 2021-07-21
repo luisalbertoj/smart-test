@@ -5,6 +5,8 @@ import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
+declare var $:any;
+
 @Component({
   selector: 'app-new-lesson',
   templateUrl: './new-lesson.component.html',
@@ -83,6 +85,7 @@ export class NewLessonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    $('[data-toggle="tooltip"]').tooltip();
     this.cargarCompetencias();
     this.cargarPreconceptos();
     this.cargarTipos();
