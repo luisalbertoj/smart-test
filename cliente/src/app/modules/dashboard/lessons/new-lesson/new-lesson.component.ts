@@ -41,6 +41,16 @@ export class NewLessonComponent implements OnInit {
     title: 'Agregar Competencia'
   }
 
+  newPreconcepto: any = {
+    arrayForm: [
+      new FormControl('', Validators.required),
+      new FormControl('', Validators.required),
+      new FormControl('', Validators.required)
+    ],
+    labels: ['Preconcepto', 'Defición', 'Fuente'],
+    model: 'preconcepto',
+    title: 'Agregar Preconcepto'
+  }
 
   plantilla: any = {
     menuGeneral: 'Informacion general de la leccion',
