@@ -12,11 +12,14 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
 import { SearchElementComponent } from './components/search-element/search-element.component';
 import { AddElementComponent } from './components/add-element/add-element.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DndDirective } from './dnd.directive';
+import { ProgressComponent } from './components/progress/progress.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent, UploadFileComponent, SearchElementComponent, AddElementComponent],
+  declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent, UploadFileComponent, SearchElementComponent, AddElementComponent,  DndDirective,
+    ProgressComponent],
   imports: [
     DashboardRoutingModule,
     NgxSpinnerModule,

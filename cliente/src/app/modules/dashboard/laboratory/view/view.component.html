@@ -17,7 +17,27 @@
                 </li>
                 <li class="nav-item" role="presentation">
                   <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                    aria-controls="pills-contact" aria-selected="false">Contact</a>
+                    aria-controls="pills-contact" aria-selected="false">Resultado de las pruebas</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-plan" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Documentacion plan de pruebas</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-unitarias" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Documentacion pruebas unitarias</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-integracion" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Documentacion pruebas de integracion</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-aceptacion" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Plan de pruebas de aceptacion</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-fianl" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Generar documentacion</a>
                 </li>
               </ul>
             </div>
@@ -49,7 +69,50 @@
                   <app-upload-file></app-upload-file>
                 </p>
               </div>
-              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...
+              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="consola">
+                  <p class="impresion">
+                    Started by user anonymous <br>
+                    Building in workspace <br>
+                    LoadView is running... status: Submitting Test Request <br>
+                    <br>
+                    ok /not really/
+                    <br>
+
+                    # match line starting with 'error ', case-insensitive <br>
+                    error /(?i)^error /<br>
+                    <br>
+
+                    # list of warnings here...<br>
+                    warning /[Ww]arning/<br>
+                    warning /WARNING/<br>
+                    <br>
+                    # create a quick access link to lines in the report containing 'INFO'<br>
+                    info /INFO/<br>
+                    <br>
+                    # each line containing 'BUILD' represents the start of a section for grouping errors<br> and warnings found after the line.<br>
+                    # also creates a quick access link.<br>
+                    start /BUILD/<br>
+                    Job Configu<br>
+                    <br>
+                  </p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-plan" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <h1>Plan de pruebas de software</h1>
+                <h3>El plan de pruebas es el elemento principal en el proceso de pruebas de software en el se establecen todos las acciones que se deben ejecutar para llevar acabo el aseguramiento de la calidad del producto</h3>
+              </div>
+              <div class="tab-pane fade" id="pills-unitarias" role="tabpanel" aria-labelledby="pills-contact-tab">
+                
+              </div>
+              <div class="tab-pane fade" id="pills-integracion" role="tabpanel" aria-labelledby="pills-contact-tab">
+                
+              </div>
+              <div class="tab-pane fade" id="pills-aceptacion" role="tabpanel" aria-labelledby="pills-contact-tab">
+                
+              </div>
+              <div class="tab-pane fade" id="pills-final" role="tabpanel" aria-labelledby="pills-contact-tab">
+                
               </div>
             </div>
             </div>

@@ -4,24 +4,14 @@
       <div class="row">
         <div class="col-lg-12">
           <div>
-            <img
-              src="{{ plantilla.imgBanner }}"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="{{ plantilla.imgBanner }}" class="card-img-top" alt="..." />
           </div>
           <div class="accordion" id="accordionExample">
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button
-                    class="btn btn-block text-left"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
+                  <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <div class="row">
                       <div class="title-icon" class="col-lg-11">
                         <ul>
@@ -31,22 +21,14 @@
                         </ul>
                       </div>
                       <div class="col-lg-1">
-                        <i
-                          id="iconodesplegable"
-                          class="fas fa-angle-double-down"
-                        ></i>
+                        <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
                       </div>
                     </div>
                   </button>
                 </h2>
               </div>
 
-              <div
-                id="collapseOne"
-                class="collapse show"
-                aria-labelledby="headingOne"
-                data-parent="#accordionExample"
-              >
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="general_info10">
                   <div class="row">
                     <div class="col-lg-12 col-md-12">
@@ -56,19 +38,12 @@
                             <label>Titulo de la leccion*</label>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                            
+
                             <div class="ui left icon input swdh19">
-                              <button class="btn-tooltip" data-toggle="tooltip" title="En es"><i class="far fa-question-circle"></i></button>
-                              <input
-                                [(ngModel)]="leccion.titulo"
-                                name="leccion.titulo"
-                                class="custom-select inputtitle"
-                                type="text"
-                                placeholder=" "
-                                data-purpose="edit-course-title"
-                                value=""
-                                required
-                              />
+                              <button class="btn-tooltip" data-toggle="tooltip" title="En es"><i
+                                  class="far fa-question-circle"></i></button>
+                              <input [(ngModel)]="leccion.titulo" name="leccion.titulo" class="custom-select inputtitle"
+                                type="text" placeholder=" " data-purpose="edit-course-title" value="" required />
                             </div>
                           </div>
                         </div>
@@ -82,17 +57,12 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19 divobj">
-                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
-                              <select
-                                [(ngModel)]="leccion.objetivo"
-                                name="leccion.objetivo"
-                                class="custom-select inputobject"
-                              >
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i
+                                  class="far fa-question-circle"></i></button>
+                              <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo"
+                                class="custom-select inputobject">
                                 <option value="">Selecciona el objetivo</option>
-                                <option
-                                  *ngFor="let objetivo of objetivos"
-                                  value="{{ objetivo?.id }}"
-                                >
+                                <option *ngFor="let objetivo of objetivos" value="{{ objetivo?.id }}">
                                   {{ objetivo?.contenido }}
                                 </option>
                               </select>
@@ -109,35 +79,35 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19 taginput">
-                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i
+                                  class="far fa-question-circle"></i></button>
 
-                          <tag-input
-                                class="dropdown"
-                                [(ngModel)]="leccion.competencias"
-                                name="leccion.competencias"
-                                placeholder="Selecciona las competencias"
-                                secondaryPlaceholder=" "
-                                canDeleteTags="false"
-                              >
-                                <tag-input-dropdown
-                                  class="ng2-dropdown-container ng2-menu-item"
-                                  [showDropdownIfEmpty]="true"
-                                  [autocompleteItems]="itemsCompetencia"
-                                >
+                              <tag-input class="dropdown" [(ngModel)]="leccion.competencias" name="leccion.competencias"
+                                placeholder="Selecciona las competencias" secondaryPlaceholder=" "
+                                canDeleteTags="false">
+                                <tag-input-dropdown class="ng2-dropdown-container ng2-menu-item"
+                                  [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
                                 </tag-input-dropdown>
-                              </tag-input> 
-
+                              </tag-input>
+                              <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
+                                [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
+                                (selectElementos)="selectCompetencias($event)" #searchCompetencias></app-search-element>
                               <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#competencia">
-                                  <i class="fas fa-search"></i>
-                                </button>
-                                <app-search-element [title]="'Banco de competencias'" [model]="'competencia'" [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body" (selectElementos)="selectCompetencias($event)"></app-search-element> 
-                                    <!-- Button trigger modal -->
-                                <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title" [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #selector1></app-add-element>
-                                <button type="button" (click)="selector1.addArray(newCompetencia.arrayForm)" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#addcompetencia" >
-                                  <i class="fas fa-plus"></i>
-                                </button>
-                              
+                              <button type="button" (click)="searchCompetencias.cargarModel()"
+                                class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal"
+                                data-target="#competencia">
+                                <i class="fas fa-search"></i>
+                              </button>
+                              <!-- Button trigger modal -->
+                              <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title"
+                                [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #selector1>
+                              </app-add-element>
+                              <button type="button" (click)="selector1.addArray(newCompetencia.arrayForm)"
+                                class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal"
+                                data-target="#addcompetencia">
+                                <i class="fas fa-plus"></i>
+                              </button>
+
                             </div>
                           </div>
                         </div>
@@ -151,25 +121,22 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="ui left icon input swdh19">
-                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
-                              <tag-input
-                                class="input-tag"
-                                [(ngModel)]="leccion.preconceptos"
-                                name="leccion.Preconceptos"
-                                placeholder="Selecciona los preconcepto"
-                                secondaryPlaceholder=""
-                              >
-                                <tag-input-dropdown
-                                  [showDropdownIfEmpty]="true"
-                                  [autocompleteItems]="items"
-                                >
+                              <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i
+                                  class="far fa-question-circle"></i></button>
+                              <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos"
+                                name="leccion.Preconceptos" placeholder="Selecciona los preconcepto"
+                                secondaryPlaceholder="">
+                                <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
                                 </tag-input-dropdown>
-                              </tag-input> 
+                              </tag-input>
                               <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#preconcepto">
+                              <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal"
+                                data-target="#preconcepto">
                                 <i class="fas fa-search"></i>
                               </button>
-                              <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'" [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body" (selectElementos)="selectPreconceptos($event)"></app-search-element>
+                              <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'"
+                                [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body"
+                                (selectElementos)="selectPreconceptos($event)"></app-search-element>
                             </div>
                           </div>
                         </div>
@@ -177,167 +144,122 @@
                       <div class="col-lg-12 col-md-12">
                         <div class="mt-30 lbel25">
                           <div class="row">
-                              <div class="col-sm-12 col-md-3 ">
-                                <div class="row">
-                                  <div class="col-sm-12 col-md-10 labelangular">
+                            <div class="col-sm-12 col-md-3 ">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-10 labelangular">
                                   <label>Introducción*</label>
-                                  </div>
-                                  <div class="col-sm-12 col-md-2 ">
-                                    <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i class="far fa-question-circle"></i></button>
-                                  </div>
+                                </div>
+                                <div class="col-sm-12 col-md-2 ">
+                                  <button class="btn-tooltip" data-toggle="tooltip" title="Hooray!"><i
+                                      class="far fa-question-circle"></i></button>
                                 </div>
                               </div>
-                              
-                              <div class="col-sm-12 col-md-9 editorangular">
-                                  <angular-editor
-                                    [placeholder]="
-                                      'Escribe aqui la introeditorangularducción de la leccion...'
-                                    "
-                                    [(ngModel)]="leccion.introduccion"
-                                    name="leccion.introduccion"
-                                  >  
-                                </angular-editor>
                             </div>
-                        </div>
-                      </div>
 
-                      <div class="col-lg-12 col-md-12">
-                        <div class="course_des_textarea mt-30 lbel25">
-                          <div class="row">
-                            <div class="col-sm-12 col-md-3 labelangular">
-                              <label>Observaciones*</label>
-                            </div>
                             <div class="col-sm-12 col-md-9 editorangular">
-                              <angular-editor
-                                [placeholder]="
-                                  'Escribe aqui las observaciones de la leccion...'
-                                "
-                                [(ngModel)]="leccion.observaciones"
-                                name="leccion.observaciones"
-                              ></angular-editor>
+                              <angular-editor [placeholder]="
+                                      'Escribe aqui la introeditorangularducción de la leccion...'
+                                    " [(ngModel)]="leccion.introduccion" name="leccion.introduccion">
+                              </angular-editor>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-lg-12 col-md-12">
-                        <div class="course_des_textarea mt-30 lbel25">
-                          <div class="row">
-                            <div class="col-sm-12 col-md-3 labelangular">
-                              <label>Conclusiones*</label>
+
+                        <div class="col-lg-12 col-md-12">
+                          <div class="course_des_textarea mt-30 lbel25">
+                            <div class="row">
+                              <div class="col-sm-12 col-md-3 labelangular">
+                                <label>Observaciones*</label>
+                              </div>
+                              <div class="col-sm-12 col-md-9 editorangular">
+                                <angular-editor [placeholder]="
+                                  'Escribe aqui las observaciones de la leccion...'
+                                " [(ngModel)]="leccion.observaciones" name="leccion.observaciones"></angular-editor>
+                              </div>
                             </div>
-                            <div class="col-sm-12 col-md-9 editorangular">
-                              <angular-editor
-                                [placeholder]="
+                          </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                          <div class="course_des_textarea mt-30 lbel25">
+                            <div class="row">
+                              <div class="col-sm-12 col-md-3 labelangular">
+                                <label>Conclusiones*</label>
+                              </div>
+                              <div class="col-sm-12 col-md-9 editorangular">
+                                <angular-editor [placeholder]="
                                   'Escribe aqui las conclusiones de la leccion...'
-                                "
-                                [(ngModel)]="leccion.conclusiones"
-                                name="leccion.conclusiones"
-                              ></angular-editor>
+                                " [(ngModel)]="leccion.conclusiones" name="leccion.conclusiones"></angular-editor>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+
+                  <br />
                 </div>
 
-                <br />
-              </div>
-
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h2 class="mb-0">
-                    <button
-                      class="btn btn-link btn-block text-left collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      <div class="row">
-                        <div class="title-icon" class="col-lg-11">
-                          <ul>
-                            <li class="title">
-                              {{ this.plantilla?.menuAprender }}
-                            </li>
-                          </ul>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <div class="row">
+                          <div class="title-icon" class="col-lg-11">
+                            <ul>
+                              <li class="title">
+                                {{ this.plantilla?.menuAprender }}
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-1">
+                            <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                          </div>
                         </div>
-                        <div class="col-lg-1">
-                          <i
-                            id="iconodesplegable"
-                            class="fas fa-angle-double-down"
-                          ></i>
-                        </div>
-                      </div>
-                    </button>
-                  </h2>
-                </div>
+                      </button>
+                    </h2>
+                  </div>
 
-                <div
-                  id="collapseTwo"
-                  class="collapse"
-                  aria-labelledby="headingTwo"
-                  data-parent="#accordionExample"
-                >
-                  <div class="card-body">
-                    <angular-editor
-                      [placeholder]="
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <angular-editor [placeholder]="
                         'El aprender lo puedes copiar y pegar de un documento word...'
-                      "
-                      [(ngModel)]="leccion.aprender"
-                      name="leccion.aprender"
-                    ></angular-editor>
+                      " [(ngModel)]="leccion.aprender" name="leccion.aprender"></angular-editor>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="card">
-                <div class="card-header" id="headingThree">
-                  <h2 class="mb-0">
-                    <button
-                      class="btn btn-link btn-block text-left collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <div class="row">
+                          <div class="title-icon" class="col-lg-11">
+                            <ul>
+                              <li class="title">
+                                {{ this.plantilla?.menuPracticar }}
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-1">
+                            <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
                       <div class="row">
-                        <div class="title-icon" class="col-lg-11">
-                          <ul>
-                            <li class="title">
-                              {{ this.plantilla?.menuPracticar }}
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-lg-1">
-                          <i
-                            id="iconodesplegable"
-                            class="fas fa-angle-double-down"
-                          ></i>
-                        </div>
-                      </div>
-                    </button>
-                  </h2>
-                </div>
-
-                <div
-                  id="collapseThree"
-                  class="collapse"
-                  aria-labelledby="headingThree"
-                  data-parent="#accordionExample"
-                  >
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12">
-                        <div class="ui search focus mt-30 lbel25">
-                          <label>Tipos de pregunta</label>
-                          <div class="ui left icon input swdh19">
-                            <select
-                              [(ngModel)]="tipoSelect"
-                              name="tipoSelect"
-                              class="
+                        <div class="col-lg-12 col-md-12">
+                          <div class="ui search focus mt-30 lbel25">
+                            <label>Tipos de pregunta</label>
+                            <div class="ui left icon input swdh19">
+                              <select [(ngModel)]="tipoSelect" name="tipoSelect" class="
                                 ui
                                 hj145
                                 dropdown
@@ -345,180 +267,114 @@
                                 prompt
                                 srch_explore
                                 select-competencia
-                              "
-                            >
-                              <option value="">Selecciona</option>
-                              <option
-                                *ngFor="let tipo of tipoPregunta"
-                                value="{{ tipo?.nombre }}"
-                              >
-                                {{ tipo?.nombre | uppercase }}
-                              </option>
-                            </select>
+                              ">
+                                <option value="">Selecciona</option>
+                                <option *ngFor="let tipo of tipoPregunta" value="{{ tipo?.nombre }}">
+                                  {{ tipo?.nombre | uppercase }}
+                                </option>
+                              </select>
 
-                            <button
-                              (click)="agregarPregunta()"
-                              type="button"
-                              class="btn btn-plantilla btnaddpreg btn-primary"
-                            >
-                              Agregar pregunta
-                            </button>
+                              <button (click)="agregarPregunta()" type="button"
+                                class="btn btn-plantilla btnaddpreg btn-primary">
+                                Agregar pregunta
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <br />
-                    <div class="accordion" id="acordeonPreguntas">
-                      <div>
-                        <div
-                          *ngFor="let pregunta of preguntas; index as i"
-                          class="card"
-                        >
-                          <div
-                            class="card-header"
-                            role="tab"
-                            [ngClass]="pregunta?.accordianclass"
-                            role="tab"
-                            (click)="onClickAccordion(i, pregunta)"
-                          >
-                            <h2 class="mb-0">
-                              <button
-                                class="btn btn-block text-left"
-                                type="button"
-                              >
-                                <div class="row">
-                                  <div class="title-icon" class="col-lg-5">
-                                    <label class="title"
-                                      >Pregunta*: {{ i + 1 }}</label
-                                    >
-                                    <i
-                                      id="iconodesplegable"
-                                      class="fas fa-angle-double-down"
-                                    ></i>
-                                  </div>
-                                  <div class="col-lg-7">
+                      <br />
+                      <div class="accordion" id="acordeonPreguntas">
+                        <div>
+                          <div *ngFor="let pregunta of preguntas; index as i" class="card">
+                            <div class="card-header" role="tab" [ngClass]="pregunta?.accordianclass" role="tab"
+                              (click)="onClickAccordion(i, pregunta)">
+                              <h2 class="mb-0">
+                                <button class="btn btn-block text-left" type="button">
+                                  <div class="row">
+                                    <div class="title-icon" class="col-lg-5">
+                                      <label class="title">Pregunta*: {{ i + 1 }}</label>
+                                      <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                                    </div>
+                                    <div class="col-lg-7">
 
-                                    <button
-                                      (click)="eliminarPregunta(i)"
-                                      class="part_btn_save prt-sv btn-plantilla"
-                                      type="button"
-                                    >
-                                      Eliminar
-                                    </button>
+                                      <button (click)="eliminarPregunta(i)" class="part_btn_save prt-sv btn-plantilla"
+                                        type="button">
+                                        Eliminar
+                                      </button>
+                                    </div>
                                   </div>
-                                </div>
-                              </button>
-                            </h2>
-                          </div>
+                                </button>
+                              </h2>
+                            </div>
 
-                          <div
-                            id="headingOne{{ i }}"
-                            aria-labelledby="headingOne{{ i }}"
-                            class="collapse show"
-                            data-parent="#acordeonPreguntas"
-                          >
-                            <div class="card-body" *ngIf="pregunta.showbody">
-                              <div
-                                *ngIf="pregunta.tipo === 'multiple'"
-                                class="col-lg-12 col-md-12"
-                              >
-                                <div class="course_des_textarea mt-30 lbel25">
-                                  <label>Pregunta*</label>
-                                  <angular-editor
-                                    [(ngModel)]="pregunta.contenido"
-                                    name="pregunta.contenido"
-                                    [placeholder]="
+                            <div id="headingOne{{ i }}" aria-labelledby="headingOne{{ i }}" class="collapse show"
+                              data-parent="#acordeonPreguntas">
+                              <div class="card-body" *ngIf="pregunta.showbody">
+                                <div *ngIf="pregunta.tipo === 'multiple'" class="col-lg-12 col-md-12">
+                                  <div class="course_des_textarea mt-30 lbel25">
+                                    <label>Pregunta*</label>
+                                    <angular-editor [(ngModel)]="pregunta.contenido" name="pregunta.contenido"
+                                      [placeholder]="
                                       'Escribe aqui la pregunta de la leccion...'
-                                    "
-                                  ></angular-editor>
-                                </div>
-                                <div>
-                                  <br />
-                                  <button
-                                    (click)="agregarRespuesta(i)"
-                                    type="button"
-                                    class="btn btn-primary"
-                                  >
-                                    Agregar respuesta
-                                  </button>
+                                    "></angular-editor>
+                                  </div>
+                                  <div>
+                                    <br />
+                                    <button (click)="agregarRespuesta(i)" type="button" class="btn btn-primary">
+                                      Agregar respuesta
+                                    </button>
 
-                                  <button type="button" class="btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#pregunta">
-                                    <i class="fas fa-search"></i>
-                                  </button>
-                                  <app-search-element [title]="'Banco de preguntas'" [model]="'pregunta'" [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body" (selectElementos)="selectPreguntas($event)"></app-search-element>
+                                    <button type="button" class="btn btn-plantilla btnaddpreg btn-primary"
+                                      data-toggle="modal" data-target="#pregunta">
+                                      <i class="fas fa-search"></i>
+                                    </button>
+                                    <app-search-element [title]="'Banco de preguntas'" [model]="'pregunta'"
+                                      [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body"
+                                      (selectElementos)="selectPreguntas($event)"></app-search-element>
 
 
-                                  <hr />
-                                  <div
-                                    *ngFor="
+                                    <hr />
+                                    <div *ngFor="
                                       let respuesta of respuestas[i];
                                       index as b
-                                    "
-                                  >
-                                    <label>Respuesta*: {{ b + 1 }}</label>
-                                    <br />
+                                    ">
+                                      <label>Respuesta*: {{ b + 1 }}</label>
+                                      <br />
 
-                                    <label
-                                      class="form-check-label"
-                                      for="exampleCheck1"
-                                      >Respuesta correcta
-                                    </label>
-                                    <span> </span>
-                                    <input
-                                      type="checkbox"
-                                      [(ngModel)]="respuesta.correcta"
-                                      name="respuesta.correcta"
-                                      id="exampleCheck1"
-                                    />
-                                    <angular-editor
-                                      [(ngModel)]="respuesta.contenido"
-                                      name="respuesta.contenido"
-                                      [placeholder]="
-                                        'Escribe aqui la respuesta ..'
-                                      "
-                                    ></angular-editor>
-
-                                    <button
-                                      (click)="respuesta.addRetro = true"
-                                      type="button"
-                                      class="btn btn-primary"
-                                    >
-                                      Agregar retroalimentacion
-                                    </button>
-                                    <button
-                                      (click)="eliminarRespuesta(b)"
-                                      class="part_btn_save prt-sv btn-plantilla"
-                                      type="button"
-                                    >
-                                      Eliminar
-                                    </button>
-                                    <div *ngIf="respuesta.addRetro">
-                                      <angular-editor
-                                        [(ngModel)]="
-                                          respuesta.retroalimentacion
-                                        "
-                                        name="respuesta.retroalimentacion"
+                                      <label class="form-check-label" for="exampleCheck1">Respuesta correcta
+                                      </label>
+                                      <span> </span>
+                                      <input type="checkbox" [(ngModel)]="respuesta.correcta" name="respuesta.correcta"
+                                        id="exampleCheck1" />
+                                      <angular-editor [(ngModel)]="respuesta.contenido" name="respuesta.contenido"
                                         [placeholder]="
+                                        'Escribe aqui la respuesta ..'
+                                      "></angular-editor>
+
+                                      <button (click)="respuesta.addRetro = true" type="button" class="btn btn-primary">
+                                        Agregar retroalimentacion
+                                      </button>
+                                      <button (click)="eliminarRespuesta(b)" class="part_btn_save prt-sv btn-plantilla"
+                                        type="button">
+                                        Eliminar
+                                      </button>
+                                      <div *ngIf="respuesta.addRetro">
+                                        <angular-editor [(ngModel)]="
+                                          respuesta.retroalimentacion
+                                        " name="respuesta.retroalimentacion" [placeholder]="
                                           'Escribe aqui la retroalimentacion ..'
-                                        "
-                                      ></angular-editor>
+                                        "></angular-editor>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div
-                                *ngIf="pregunta.tipo === 'abierta'"
-                                class="col-lg-12 col-md-12"
-                              >
-                                <div class="course_des_textarea mt-30 lbel25">
-                                  <label>Pregunta*</label>
-                                  <angular-editor
-                                    [(ngModel)]="pregunta.contenido"
-                                    [placeholder]="
+                                <div *ngIf="pregunta.tipo === 'abierta'" class="col-lg-12 col-md-12">
+                                  <div class="course_des_textarea mt-30 lbel25">
+                                    <label>Pregunta*</label>
+                                    <angular-editor [(ngModel)]="pregunta.contenido" [placeholder]="
                                       'Escribe aqui la pregunta de la leccion...'
-                                    "
-                                    name="leccion.practicar"
-                                  ></angular-editor>
+                                    " name="leccion.practicar"></angular-editor>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -528,52 +384,34 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="card">
-                <div class="card-header" id="cuatro">
-                  <h2 class="mb-0">
-                    <button
-                      class="btn btn-link btn-block text-left collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseFor"
-                      aria-expanded="false"
-                      aria-controls="collapseFor"
-                    >
-                      <div class="row">
-                        <div class="title-icon" class="col-lg-11">
-                          <ul>
-                            <li class="title">
-                              {{ this.plantilla?.menuAplicar }}
-                            </li>
-                          </ul>
+                <div class="card">
+                  <div class="card-header" id="cuatro">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
+                        <div class="row">
+                          <div class="title-icon" class="col-lg-11">
+                            <ul>
+                              <li class="title">
+                                {{ this.plantilla?.menuAplicar }}
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-1">
+                            <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                          </div>
                         </div>
-                        <div class="col-lg-1">
-                          <i
-                            id="iconodesplegable"
-                            class="fas fa-angle-double-down"
-                          ></i>
-                        </div>
-                      </div>
-                    </button>
-                  </h2>
-                </div>
-                <div
-                  id="collapseFor"
-                  class="collapse"
-                  aria-labelledby="cuatro"
-                  data-parent="#accordionExample"
-                >
-                  <div class="card-body">
-                    <div class="col-lg-12 col-md-12">
-                      <div class="ui search focus mt-30 lbel25">
-                        <label>Tipos de estudio*</label>
-                        <div class="ui left icon input swdh19">
-                          <select
-                            [(ngModel)]="tipoSelect"
-                            name="tipoSelect"
-                            class="
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFor" class="collapse" aria-labelledby="cuatro" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <div class="col-lg-12 col-md-12">
+                        <div class="ui search focus mt-30 lbel25">
+                          <label>Tipos de estudio*</label>
+                          <div class="ui left icon input swdh19">
+                            <select [(ngModel)]="tipoSelect" name="tipoSelect" class="
                               ui
                               hj145
                               dropdown
@@ -581,46 +419,39 @@
                               prompt
                               srch_explore
                               select-competencia
-                            "
-                          >
-                            <option value="">Selecciona</option>
-                            <option value="estudio">Caso de estudio</option>
-                            <option value="practico">Caso practico</option>
-                          </select>
+                            ">
+                              <option value="">Selecciona</option>
+                              <option value="estudio">Caso de estudio</option>
+                              <option value="practico">Caso practico</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div *ngIf="tipoSelect === 'estudio'" class="col-sm-12">
-                        <hr />
-                        <h2>Caso de estudio</h2>
-                        <label>Sigue el instructivo de ejemplo</label>
-                        <angular-editor
-                          [(ngModel)]="leccion.aplicar"
-                          [placeholder]="'Escribe aqui el caso de estudio...'"
-                          name="leccion.aplicar"
-                        ></angular-editor>
-                      </div>
-                      <div *ngIf="tipoSelect === 'practico'" class="col-sm-12">
-                        <hr />
-                        <h2>Practico</h2>
+                      <div class="row">
+                        <div *ngIf="tipoSelect === 'estudio'" class="col-sm-12">
+                          <hr />
+                          <h2>Caso de estudio</h2>
+                          <label>Sigue el instructivo de ejemplo</label>
+                          <angular-editor [(ngModel)]="leccion.aplicar"
+                            [placeholder]="'Escribe aqui el caso de estudio...'" name="leccion.aplicar">
+                          </angular-editor>
+                        </div>
+                        <div *ngIf="tipoSelect === 'practico'" class="col-sm-12">
+                          <hr />
+                          <h2>Practico</h2>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <button
-              (click)="crearLeccion()"
-              class="part_btn_save prt-sv btn-plantilla"
-              type="button"
-            >
-              Crear leccion
-            </button>
+              <button (click)="crearLeccion()" class="part_btn_save prt-sv btn-plantilla" type="button">
+                Crear leccion
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
