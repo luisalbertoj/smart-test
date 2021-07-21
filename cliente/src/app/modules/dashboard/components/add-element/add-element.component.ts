@@ -49,6 +49,7 @@ export class AddElementComponent implements OnInit {
         this.toast.error(error.message);
         console.log(error);
       }
+      
     )
   }
 
