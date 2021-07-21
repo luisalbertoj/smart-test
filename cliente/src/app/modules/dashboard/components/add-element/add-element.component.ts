@@ -38,7 +38,7 @@ export class AddElementComponent implements OnInit {
     let datos = {};
     console.log(this.model);
     datos = (this.model === 'competencia') ? 
-    ({nombre: this.arrayModel.value[0], observaciones: this.arrayModel.value[1], autor:  this.factory.user.id}) : datos;
+    ({nombre: this.arrayModel.value[0], observaciones: this.arrayModel.value[1], creador:  this.factory.user.id}) : datos;
     if(datos === {}) return this.toast.error("El modelo de datos no esta definido");
     this.factory.post(this.model, datos).subscribe(
       (response: any) => {
