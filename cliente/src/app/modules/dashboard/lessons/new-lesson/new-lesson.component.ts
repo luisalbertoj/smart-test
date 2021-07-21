@@ -38,7 +38,6 @@ export class NewLessonComponent implements OnInit {
     ],
     labels: ['Nombre', 'Observaciones'],
     model: 'competencia',
-    mer: {nombre: '', observaciones: ''},
     title: 'Agregar Competencia'
   }
 
@@ -147,7 +146,7 @@ export class NewLessonComponent implements OnInit {
         )
     );
   }
-  cargarCompetencias() {
+  cargarCompetencias(evento?) {
     this.factory.getAll('competencia').subscribe(
       (response: any) => {
         this.competencias = response;

@@ -15,6 +15,9 @@ export class AddElementComponent implements OnInit {
   @Input() model: string = '';
   @Input() labels = '';
   @Input() mer: any = {};
+
+  @Output() addElementos = new EventEmitter<String>();
+
   elementsModel = new FormGroup({
     arrayModel: new FormArray([])
   });
@@ -29,6 +32,10 @@ export class AddElementComponent implements OnInit {
   }
 
   addArray(datos: any) {
+    this.elementsModel = new FormGroup({
+      arrayModel: new FormArray([])
+    });
+    this.arrayModel = this.elementsModel.get("arrayModel") as FormArray;
     for (const dato of datos) {
       this.arrayModel.push(dato);
     }
@@ -43,13 +50,13 @@ export class AddElementComponent implements OnInit {
     this.factory.post(this.model, datos).subscribe(
       (response: any) => {
         this.toast.success("Elemento creado correctamente");
+        this.addElementos.emit("Elmento creado");
         console.log(response);
       },
       (error: any) => {
         this.toast.error(error.message);
         console.log(error);
       }
-      
     )
   }
 
