@@ -30,19 +30,13 @@ export class NewLessonComponent implements OnInit {
   };
 
   newCompetencia: any = {
-    form: new FormGroup({
-      elements: new FormArray([
-        new FormControl('nombre', Validators.required),
-        new FormControl('observaciones', Validators.required)
-      ])
-    }),
-    arrayForm: new FormArray([
-      new FormControl(''),
-      new FormControl('')
-    ]),
-
+    arrayForm: [
+      new FormControl('', Validators.required),
+      new FormControl('', Validators.required)
+    ],
     labels: ['Nombre', 'Observaciones'],
     model: 'competencia',
+    mer: {nombre: '', observaciones: ''},
     title: 'Agregar Competencia'
   }
 
@@ -94,6 +88,7 @@ export class NewLessonComponent implements OnInit {
     this.cargarTipos();
     this.cargarObjetivos();
   }
+
   selectCompetencias(dato) {
     console.log(dato);
     this.leccion.competencias = dato;
