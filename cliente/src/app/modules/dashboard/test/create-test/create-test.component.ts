@@ -4,6 +4,9 @@ import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner'; 
 
+
+declare var $:any;
+
 @Component({
   selector: 'app-create-test',
   templateUrl: './create-test.component.html',
@@ -40,6 +43,7 @@ export class CreateTestComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    $('[data-toggle="tooltip"]').tooltip();
     this.factory.returnAsObservable().subscribe((subs) => {
       subs===true?this.spinner.hide():this.spinner.show();
     });

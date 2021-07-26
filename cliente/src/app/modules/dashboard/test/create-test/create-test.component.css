@@ -18,6 +18,14 @@
     border-radius: 25px;
   }
 
+  .btn-tooltip{
+    background-color: white;
+    border: 0;
+    margin-right: 10px;
+    color: #2671c3;
+    width: 20px;
+    padding: 0;
+  }
 
 
   

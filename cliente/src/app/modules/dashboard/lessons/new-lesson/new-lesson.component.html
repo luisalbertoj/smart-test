@@ -83,6 +83,18 @@
                                   {{ objetivo?.contenido }}
                                 </option>
                               </select>
+                            <app-add-element [model]="newObjetivo.model" [title]="newObjetivo.title"
+                              [labels]="newObjetivo.labels" (addElementos)="cargarObjetivos($event)" #addobjetivos>
+                                </app-add-element>
+                                <button type="button"  (click)="
+                                addobjetivos.addArray(newObjetivo.arrayForm)" class="
+                                      btn btn-plantilla
+                                      btnaddpreg
+                                      btn-primary
+                                    " data-toggle="modal" data-target="#addobjetivo">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+
                             </div>
                           </div>
                         </div>
@@ -115,17 +127,17 @@
                                 </tag-input-dropdown>
                               </tag-input>
 
-                              <!-- Button trigger modal -->
-                              <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
-                                [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
-                                (selectElementos)="selectCompetencias($event)" #searchCompetencia></app-search-element>
-                              <button type="button" (click)="searchCompetencia.cargarModel()" class="
-                                    btn btn-plantilla
-                                    btnaddpreg
-                                    btn-primary
-                                  " data-toggle="modal" data-target="#competencia">
-                                <i class="fas fa-search"></i>
-                              </button>
+                                <!-- Button trigger modal -->
+                                <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
+                                  [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
+                                  (selectElementos)="selectCompetencias($event)" #searchCompetencia></app-search-element>
+                                <button type="button" (click)="searchCompetencia.cargarModel()" class="
+                                      btn btn-plantilla
+                                      btnaddpreg
+                                      btn-primary
+                                    " data-toggle="modal" data-target="#competencia">
+                                  <i class="fas fa-search"></i>
+                                </button>
                               <!-- Button trigger modal -->
                               <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title"
                                 [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #addcompetencias>
@@ -356,6 +368,7 @@
                       <div class="col-lg-12 col-md-12">
                         <div class="ui search focus mt-30 lbel25">
                           <label>Tipos de pregunta</label>
+                      
                           <div class="ui left icon input swdh19">
                             <select [(ngModel)]="tipoSelect" name="tipoSelect" class="
                                       ui
@@ -395,6 +408,7 @@
                                   <div class="title-icon" class="col-lg-5">
                                     <label class="title">Pregunta*: {{ i + 1 }}</label>
                                     <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                                    
                                   </div>
                                   <div class="col-lg-7">
                                     <button (click)="eliminarPregunta(i)" class="
@@ -460,7 +474,10 @@
 
                                     <button (click)="respuesta.addRetro = true" type="button" class="btn btn-primary">
                                       Agregar retroalimentacion
-                                    </button>
+                                    </button> 
+                                  
+                                
+
                                     <button (click)="eliminarRespuesta(b)" class="
                                               part_btn_save
                                               prt-sv
@@ -468,6 +485,7 @@
                                             " type="button">
                                       Eliminar
                                     </button>
+                                    
                                     <div *ngIf="respuesta.addRetro">
                                       <angular-editor [(ngModel)]="
                                                 respuesta.retroalimentacion

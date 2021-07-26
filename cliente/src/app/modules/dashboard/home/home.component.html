@@ -3,7 +3,7 @@
   <div class="sa4d25">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-12 col-lg-12">
+        <div class="col-xl-12 col-lg-12 col-sm-12 colProgress">
           <div class="card mb-3 tarjeta">
             <div class="card-body">
               <div class="row">
@@ -42,90 +42,34 @@
         </div>
       </div>
 
-      <!-- ----------------------------------------------------------- -->
-      <h1><strong>Competencias</strong></h1>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="accordion" id="accordionExample">
-              <div class="card" *ngFor="let competencia of competencias;let i = index;">
-                <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
-                  (click)="onClickAccordion(i,competencia)">
-                  <h2 class="mb-0">
-                    <button class="btn btn-block text-left" type="button">
-                      <div class="row">
-                        <div class="title-icon" class="col-lg-11">
-                          <ul>
-                            <li class="title">
-                              {{ competencia?.nombre }}
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-lg-1">
-                          <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
-                        </div>
-                      </div>
-                    </button>
-                  </h2>
-                </div>
-             
-                  <div class="card-body" *ngIf="competencia.showbody">
-                      <div class="general_info10">
-                        <div *ngFor="let leccion of competencia.lecciones; index as i" class="fcrse_1">
-                          <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                            routerLinkActive="router-link-active" class="hf_img">
-                            <img src="{{leccion.portada || 'assets/images/courses/portada-base.png'}}"
-                              alt="Portada de la leccion{{i}}">
-                            <div class="course-overlay overlay-peque">
-                              <!-- <div class="badge_seller">Leccion pendiente</div> -->
-                              <div class="crse_reviews">
-                                <i class="uil uil-star"></i> {{leccion.titulo}}
-                              </div>
-                              <span class="play_btn1"><i class="uil uil-play"></i></span>
-                              <div class="crse_timer">
-                                Leccion #{{leccion.id}}
-                              </div>
-                            </div>
-                          </a>
-                          <div class="hs_content">
-                            <!-- <div class="eps_dots eps_dots10 more_dropdown">
-                              <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                              <div class="dropdown-content">
-                                <span><i class='uil uil-times'></i>Remove</span>
-                              </div>
-                            </div> -->
-                            <div class="vdtodt">
-                              <!-- <span class="vdt14">109k views</span>
-                              <span class="vdt14">15 days ago</span> -->
-                            </div>
-                            <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                              routerLinkActive="router-link-active" class="crse14s title900">
-                              <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de la lección: </strong>
-                              {{leccion.objetivo?.contenido}}
-                            </a>
-                            <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
-                            <div class="auth1lnkprce">
-                              <p class="cr1fot">Creada por: <a href="#">{{factory.user.nombre}}</a></p>
-                              <div class="prce142">
-                                <button (click)="iniciar(leccion.slug)" class="part_btn_save btn-plantilla" type="button">
-                                  Iniciar
-                                </button>
-                              </div>
-              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                
-              </div>
-            </div>
-          </div>
+      <hr>
+
+      <div  class="row">
+        <div class="col-sm-12 col-lg-2">
+          <img src="assets/images/gato1.png" class="gato">
         </div>
 
+        <div class="col-sm-12 col-lg-9 bocadillo-cuadrado">
+          <h1 >Hola, Bienvenidos a <strong>SmartTest!</strong></h1>
+          <h3> Mi nombre es CAT y te daré un recorrido por toda nuestra plataforma virtual
+            <br>
+            Empecemos...
+          </h3>
+        </div>
       </div>
 
+      <div  class="row">
 
+
+        <div class="col-sm-12 col-lg-9 bocadillo-cuadrado2">
+          <h1 ></h1>
+          <h3>
+          </h3>
+        </div>
+        <div class="col-sm-12 col-lg-2">
+          <img src="assets/images/gato1.png" class="gato2">
+        </div>
+      </div>
     </div>
   </div>
 </div>

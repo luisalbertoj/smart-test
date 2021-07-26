@@ -52,6 +52,16 @@ export class NewLessonComponent implements OnInit {
     title: 'Agregar Preconcepto'
   }
 
+  newObjetivo: any = {
+    arrayForm: [
+      new FormControl('', Validators.required),
+      new FormControl('', Validators.required)
+    ],
+    labels: ['Titulo', 'Objetivo'],
+    model: 'objetivo',
+    title: 'Agregar Objetivo'
+  }
+
   plantilla: any = {
     menuGeneral: 'Informacion general de la leccion',
     menuAprender: 'Aprender',
@@ -116,7 +126,7 @@ export class NewLessonComponent implements OnInit {
     this.leccion.preguntas = dato;
   }
 
-  cargarObjetivos() {
+  cargarObjetivos(evt?) {
     this.factory.getAll('objetivo').subscribe(
       (response: any) => {
         this.objetivos = response;

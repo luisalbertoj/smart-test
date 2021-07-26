@@ -3,22 +3,24 @@
   <div class="sa4d25">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-9 col-lg-8 ">
+        <div class="col-xl-9 col-lg-8">
           <div class="row">
             <div class="col-sm-12">
-              <div class="section3125 ">
-                <h4 class="item_title"><strong>Lección destacada</strong></h4>
-                <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                  routerLinkActive="router-link-active" class="fcrse_img">
-                  <img src="{{this.leccion.portada}}" alt="">
+              <div class="section3125">
+                <a [routerLink]="[
+                    '/dashboard/lesson/lesson-detail',
+                    this.leccion.slug
+                  ]" routerLinkActive="router-link-active" class="fcrse_img">
+                  <img src="{{ this.leccion.portada }}" alt="" />
                   <div class="course-overlay">
-                    <div class="badge_seller">{{this.leccion.estado}}
+                    <div class="badge_seller">
+                      {{ this.leccion.estado }}
                       <div class="crse_reviews">
-                        <i class='uil uil-star'></i>{{this.leccion.titulo}}
+                        <i class="uil uil-star"></i>{{ this.leccion.titulo }}
                       </div>
                       <span class="play_btn1"><i class="uil uil-play"></i></span>
                       <div class="crse_timer">
-                        {{this.leccion.codigo}}
+                        {{ this.leccion.codigo }}
                       </div>
                     </div>
                   </div>
@@ -32,18 +34,23 @@
           <div class="right_side">
             <div class="fcrse_2 mb-30">
               <div class="tutor_img">
-                <a href="#"><img src="{{this.leccion.docente.img}}" alt=""></a>
+                <a href="#"><img src="{{ this.leccion.docente.img }}" alt="" /></a>
               </div>
               <div class="tutor_content_dt">
                 <div class="tutor150">
-                  <a href="#" class="tutor_name">{{this.leccion.docente.nombre}}</a>
+                  <a href="#" class="tutor_name">{{
+                    this.leccion.docente.nombre
+                    }}</a>
                   <div class="mef78" title="Verify">
                     <i class="uil uil-check-circle"></i>
                   </div>
                 </div>
-                <div class="tutor_cate">{{this.leccion.docente.rol.nombre}}
+                <div class="tutor_cate">
+                  {{ this.leccion.docente.rol.nombre }}
                   <ul class="tutor_social_links">
-                    <li><a href="#" class="fb"><i class="fab fa-whatsapp"></i></a></li>
+                    <li>
+                      <a href="#" class="fb"><i class="fab fa-whatsapp"></i></a>
+                    </li>
                   </ul>
                 </div>
                 <div class="tut1250">
@@ -56,26 +63,29 @@
           </div>
         </div>
       </div>
-      <hr>
+      <hr />
       <div class="row">
         <div class="col-sm-12">
-          <button class="part_btn_save prt-sv btn-plantilla btnvercomp" (click)="modo = !modo"> Ver por competencias</button>
+          <button class="part_btn_save prt-sv btn-plantilla btnvercomp" (click)="modo = !modo">
+            Ver por competencias
+          </button>
           <div *ngIf="!modo">
-            <br>
+            <br />
             <div *ngFor="let leccion of lecciones; index as i" class="fcrse_1">
-              <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                routerLinkActive="router-link-active" class="hf_img">
-                <img src="{{leccion.portada || 'assets/images/courses/portada-base.png'}}"
-                  alt="Portada de la leccion{{i}}">
+              <a [routerLink]="[
+                  '/dashboard/lesson/lesson-detail',
+                  this.leccion.slug
+                ]" routerLinkActive="router-link-active" class="hf_img">
+                <img src="{{
+                    leccion.portada || 'assets/images/courses/portada-base.png'
+                  }}" alt="Portada de la leccion{{ i }}" />
                 <div class="course-overlay overlay-peque">
                   <!-- <div class="badge_seller">Leccion pendiente</div> -->
                   <div class="crse_reviews">
-                    <i class="uil uil-star"></i> {{leccion.titulo}}
+                    <i class="uil uil-star"></i> {{ leccion.titulo }}
                   </div>
                   <span class="play_btn1"><i class="uil uil-play"></i></span>
-                  <div class="crse_timer">
-                    Leccion #{{leccion.id}}
-                  </div>
+                  <div class="crse_timer">Leccion #{{ leccion.id }}</div>
                 </div>
               </a>
               <div class="hs_content">
@@ -85,67 +95,73 @@
                   <span><i class='uil uil-times'></i>Remove</span>
                 </div>
               </div> -->
-            
-                <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                  routerLinkActive="router-link-active" class="crse14s title900">
-                  <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de la lección: </strong>
-                  {{leccion.objetivo?.contenido}}
+
+                <a [routerLink]="[
+                    '/dashboard/lesson/lesson-detail',
+                    this.leccion.slug
+                  ]" routerLinkActive="router-link-active" class="crse14s title900">
+                  <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de
+                    la lección:
+                  </strong>
+                  {{ leccion.objetivo?.contenido }}
                 </a>
                 <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
                 <div class="auth1lnkprce">
-                  <p class="cr1fot">Creada por: <a href="#">{{factory.user.nombre}}</a></p>
+                  <p class="cr1fot">
+                    Creada por: <a href="#">{{ factory.user.nombre }}</a>
+                  </p>
                   <div class="prce142">
                     <button (click)="iniciar(leccion.slug)" class="part_btn_save btn-plantilla" type="button">
                       Iniciar
                     </button>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
           <!-- modo 2 -->
-         
+
           <div *ngIf="modo">
-            <br>
-            <div class="card" *ngFor="let competencia of competencias;let i = index;">
-               <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
-                 (click)="onClickAccordion(i,competencia)">
-                 <h2 class="mb-0">
+            <br />
+            <div class="card" *ngFor="let competencia of competencias; let i = index">
+              <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
+                (click)="onClickAccordion(i, competencia)">
+                <h2 class="mb-0">
                   <button class="btn btn-block text-left" type="button">
                     <div class="row">
                       <div class="title-icon" class="col-lg-11">
                         <ul>
                           <li class="title">
-                          {{ competencia?.nombre }}
+                            {{ competencia?.nombre }}
                           </li>
                         </ul>
-                       </div>
+                      </div>
                     </div>
                     <div class="col-lg-1">
-                      <i id="iconodesplegable" class="fas fa-angle-double-down" ></i>
+                      <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
                     </div>
                   </button>
                 </h2>
               </div>
 
-
               <div class="card-body" *ngIf="competencia.showbody">
                 <div class="general_info10">
                   <div *ngFor="let leccion of competencia.lecciones; index as i" class="fcrse_1">
-                    <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                      routerLinkActive="router-link-active" class="hf_img">
-                      <img src="{{leccion.portada || 'assets/images/courses/portada-base.png'}}"
-                        alt="Portada de la leccion{{i}}">
+                    <a [routerLink]="[
+                        '/dashboard/lesson/lesson-detail',
+                        this.leccion.slug
+                      ]" routerLinkActive="router-link-active" class="hf_img">
+                      <img src="{{
+                          leccion.portada ||
+                            'assets/images/courses/portada-base.png'
+                        }}" alt="Portada de la leccion{{ i }}" />
                       <div class="course-overlay overlay-peque">
                         <!-- <div class="badge_seller">Leccion pendiente</div> -->
                         <div class="crse_reviews">
-                          <i class="uil uil-star"></i> {{leccion.titulo}}
+                          <i class="uil uil-star"></i> {{ leccion.titulo }}
                         </div>
                         <span class="play_btn1"><i class="uil uil-play"></i></span>
-                        <div class="crse_timer">
-                          Leccion #{{leccion.id}}
-                        </div>
+                        <div class="crse_timer">Leccion #{{ leccion.id }}</div>
                       </div>
                     </a>
                     <div class="hs_content">
@@ -155,22 +171,26 @@
                             <span><i class='uil uil-times'></i>Remove</span>
                           </div>
                         </div> -->
-                  
 
-                      <a [routerLink]="['/dashboard/lesson/lesson-detail', this.leccion.slug]"
-                        routerLinkActive="router-link-active" class="crse14s title900">
-                        <strong><i class="fas fa-bullseye color-secondary"></i> Titulo de la lección: </strong>
-                        {{leccion.titulo}}
+                      <a [routerLink]="[
+                          '/dashboard/lesson/lesson-detail',
+                          this.leccion.slug
+                        ]" routerLinkActive="router-link-active" class="crse14s title900">
+                        <strong><i class="fas fa-bullseye color-secondary"></i>
+                          Titulo de la lección:
+                        </strong>
+                        {{ leccion.titulo }}
                       </a>
                       <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
                       <div class="auth1lnkprce">
-                        <p class="cr1fot">Creada por: <a href="#">{{factory.user.nombre}}</a></p>
+                        <p class="cr1fot">
+                          Creada por: <a href="#">{{ factory.user.nombre }}</a>
+                        </p>
                         <div class="prce142">
                           <button (click)="iniciar(leccion.slug)" class="part_btn_save btn-plantilla" type="button">
                             Iniciar
                           </button>
                         </div>
-
                       </div>
                     </div>
                   </div>
@@ -178,10 +198,8 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
 </div>

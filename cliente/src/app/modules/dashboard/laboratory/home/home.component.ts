@@ -12,7 +12,7 @@ import { FactoryService } from 'src/app/services/factory.service';
 export class HomeComponent implements OnInit {
 
   plantilla: any = {
-    imgBanner: 'assets/images/bannerre.png',
+    imgBanner: 'assets/images/imgLaboratorio.png',
     tituloBanner: 'Laboratorio de pruebas de software'
   };
 
