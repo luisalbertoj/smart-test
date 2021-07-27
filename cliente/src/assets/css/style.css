@@ -106,7 +106,7 @@ textarea {
 p {
 	font-size: 14px;
 	line-height: 26px;
-	color: #686f7a;
+	color: black;
 }
 
 /* ================ Typography Css =============== */
@@ -849,7 +849,8 @@ i.icon1 {
 }
 
 .mt-35 {
-	margin-top: 35px;
+	margin-top: 12px;
+    color: black;
 }
 
 .mt-30 {
@@ -2130,7 +2131,8 @@ i.icon1 {
 .user_dt5 {
 	float: left;
 	width: 100%;
-	margin-bottom: 20px;
+
+
 }
 
 .user_dt_left {
@@ -2755,7 +2757,7 @@ i.icon2 {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    color: #686f7a;
+    color: black;
     text-align: left;
 	line-height: 26px;
 }
@@ -2789,7 +2791,7 @@ i.icon2 {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    color: #686f7a;
+    color: black;
     text-align: left;
 	margin-bottom: 15px;
 	margin-top: 15px;
@@ -2839,7 +2841,7 @@ i.icon2 {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    color: #686f7a;
+    color: black;
     text-align: left;
 	line-height: 26px;
 	margin-left: 15px;

@@ -1,5 +1,8 @@
 <!-- Body Start -->
 <div class="wrapper _bg4586">
+    <br>
+    <br>
+    <br>
     <div class="_215b01">
         <div class="container-fluid">			
             <div class="row">
@@ -70,28 +73,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user_dt_right">
-                            <ul>
-                                <!-- <li>
-                                    <a href="#" class="lkcm152"><i class="uil uil-eye"></i><span>1452</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="lkcm152"><i class="uil uil-thumbs-up"></i><span>100</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="lkcm152"><i class="uil uil-thumbs-down"></i><span>20</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="lkcm152"><i class="uil uil-share-alt"></i><span>9</span></a>
-                                </li> -->
-                            </ul>
-                        </div>
+                
                     </div>
                     <div class="course_tabs">
                         <nav>
                             <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">Información</a>
-                                <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Conclusiones de la lección</a>
+                                
                                 <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="false">Competencias</a>
                             </div>
                         </nav>						
@@ -103,7 +91,7 @@
     <div class="_215b17">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-informacion">
                     <div class="course_tab_content">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
@@ -116,31 +104,26 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    <hr>
                                     <div class="_htg452 mt-35">
                                         <h3>Introducción</h3>
                                         <span [innerHTML]="this.leccion.introduccion"></span>
                                     </div>
-                                    <!-- <div class="_htg452 mt-35">
-                                        <h3>¿Para quién es esta lección?:</h3>
-                                        <ul class="_abc124">												
-                                            <li *ngFor="let item of this.leccion.nivel_educativo">
-                                                <span class="_5f7g11">{{item.nombre}}</span>
-                                            </li>
-                                        </ul>
-                                    </div> -->	
-                                    						
+                                    <hr>
+                                    <div class="_htg452 mt-35">
+                                        <h3>Conclusiones de la lección</h3>
+                                        <span [innerHTML]="this.leccion.conclusiones"></span>
+                                    </div>
+                                
                                 </div>							
                             </div>
-                            <div class="tab-pane fade" id="nav-courses" role="tabpanel">
-                                <h2>Conclusiones de la lección</h2>
-                                <span [innerHTML]="this.leccion.conclusiones"></span>
-                            </div>
+                        
                             <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                                 <div class="_htgdrt mt-35">
                                     <h3>Competencias asociadas </h3>
                                     <div class="_scd123">
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12">
                                                 <ul class="_htg452 _abcd145">												
                                                     <li *ngFor="let item of this.leccion.competencias">
                                                         <div class="_5f7g15">
@@ -150,8 +133,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="col-lg-6">
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>	
