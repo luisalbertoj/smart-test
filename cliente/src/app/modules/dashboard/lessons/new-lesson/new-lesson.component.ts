@@ -278,4 +278,17 @@ export class NewLessonComponent implements OnInit {
         }
       );
   }
+
+  animateCollapsibles() {
+
+    $('.collapse').on('show', function() {
+        var $t = $(this);
+        var header = $("a[href='#" + $t.attr("id") + "']");
+        header.find(".fa-angle-right").removeClass("fa-angle-right").addClass("fa-angle-down");
+    }).on('hide', function(){
+        var $t = $(this);
+        var header = $("a[href='#" + $t.attr("id") + "']");
+        header.find(".fa-angle-down").removeClass("fa-angle-down").addClass("fa-angle-right");
+    });
+}
 }
