@@ -130,9 +130,8 @@
 	padding-bottom: 0 !important;
 }
 
-.resultT{
-	margin-bottom: -8;
-
+.resultados{
+	margin-bottom: 0 !important;
 }
 
 .checkColorT2 ::before{
@@ -145,6 +144,37 @@
 	background-color: red !important;
 }
 
+.aprenderContent{
+	color: black;
+	border: none;
+	margin-right: 60px;
+	margin-left: 60px;
+}
 
+.practicaContent{
+	color: black;
+	margin-right: 60px;
+	margin-left: 60px;
+}
+
+.btnSiguiente{
+	justify-content: flex-end !important;
+}
+
+.resultGrafits{
+	height: 300px !important;
+}
+
+.resultContent{
+	color: black;
+	margin-right: 60px;
+	margin-left: 60px;
+}
+
+.aplicarContent{
+	color: black;
+	margin-right: 60px;
+	margin-left: 60px;
+}
 
 

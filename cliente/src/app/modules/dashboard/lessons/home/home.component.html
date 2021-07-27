@@ -13,8 +13,9 @@
                   ]" routerLinkActive="router-link-active" class="fcrse_img">
                   <img src="{{ this.leccion.portada }}" alt="" />
                   <div class="course-overlay">
-                    <div class="badge_seller">
+                  <div class="badge_seller">
                       {{ this.leccion.estado }}
+                    </div> 
                       <div class="crse_reviews">
                         <i class="uil uil-star"></i>{{ this.leccion.titulo }}
                       </div>
@@ -22,8 +23,8 @@
                       <div class="crse_timer">
                         {{ this.leccion.codigo }}
                       </div>
-                    </div>
                   </div>
+                  
                 </a>
               </div>
             </div>
@@ -89,12 +90,6 @@
                 </div>
               </a>
               <div class="hs_content">
-                <!-- <div class="eps_dots eps_dots10 more_dropdown">
-                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                <div class="dropdown-content">
-                  <span><i class='uil uil-times'></i>Remove</span>
-                </div>
-              </div> -->
 
                 <a [routerLink]="[
                     '/dashboard/lesson/lesson-detail',
