@@ -64,16 +64,6 @@ tag-input{
 
 }
 
-.editorangular{
-  padding-right: 0;
-  margin-right: 0;
-  padding-left: 0.5em;
- 
-}
-
-.labelangular{
-  padding-left: 0.1em;
-}
 
 tag-input-dropdown{
   width: 2000vh !important;
@@ -114,3 +104,18 @@ input.ng2-tag-input__text-input.ng-pristine.ng-valid.ng-touched{
 .inputtitle {
   width: 80%;
 }
+
+.cardHeard{
+  border: none;
+  
+}
+
+
+
+.hr{
+  background-color: rgba(0,0,0,.125);
+  width: 95%;
+  align-self: center;
+  margin: 0;
+}
+
