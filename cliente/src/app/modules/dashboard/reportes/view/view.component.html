@@ -10,12 +10,105 @@
           <div class="card">
             <div class="card-header card-header-danger">
               <div class="d-flex justify-content-start">
-                <h2 class="card-title">{{plantilla.tituloBanner}}</h2>
+                <h1 class="card-title">{{plantilla.tituloBanner}}</h1>
               </div>
 
             </div>
             <div class="card-body">
-                <h1>Reportes</h1>
+              <div class="container-fluid">
+                <div class="container">
+
+                  <div class="row">
+
+                    <div class="col-sm-12">
+
+                      <select [(ngModel)]="consulta.tipoReporte" class="custom-select" id="inputGroupSelect01">
+                        <option value="">Selecciona el tipo de reporte...</option>
+                        <option value="lessons">Lecciones</option>
+                        <option value="tests">Pruebas de conocimiento</option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <hr>
+                  <ng-container *ngIf="consulta.tipoReporte === 'lessons'">
+                    <div class="row lessons">
+                      <div class="col-sm-6 col-md-3">
+                        <label for="consulta.fechaInicio">
+                          Fecha de inicio
+                          <input [(ngModel)]="consulta.fechaInicio" name="consulta.fechaInicio" type="date"
+                            max="{{consulta.fechaFin}}" class="form-control" />
+                        </label>
+                      </div>
+                      <div class="col-sm-6 col-md-3">
+                        <label for="consulta.fechaFin">
+                          Fecha de fin
+                          <input [(ngModel)]="consulta.fechaFin" name="consulta.fechaFin" type="date"
+                            min="{{consulta.fechaInicio}}" max="{{consulta.fechaFin}}" class="form-control" />
+                        </label>
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                        <label for="consulta.grupo">
+                          Grupos
+                          <select [(ngModel)]="consulta.grupo" class="custom-select" id="inputGroupSelect01">
+                            <option value="">Todos los grupos...</option>
+                            <option *ngFor="let grupo of grupos" value="grupo.id">
+                              {{grupo.codigo}} - {{grupo.nombre}}
+                            </option>
+                          </select>
+                        </label>
+                      </div>
+                      <div class="col-sm-12 justify-content-end d-flex">
+                        <button (click)="generarReporte()" class="btn btn-success">
+                          <i class="fa fa-star" aria-hidden="true"></i> <!-- Compliant icon fonts usage -->
+                          Generar reporte
+                        </button>
+                      </div>
+                      <div class="col-sm-6"></div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="consulta.tipoReporte === 'tests'">
+                    
+
+                  </ng-container>
+                  <canvas id="myChart"></canvas>
+                  <hr>
+                    <table id="htmlData" class="table table-hover text-center">
+                      <caption>Tabla reporte</caption>
+                      <thead class="table-header thead-dark">
+                        <tr>
+                          <ng-container *ngFor="let header of reporte.data.headers">
+                            <th scope="col">{{header}}</th>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngFor="let body of reporte.data.body">
+                          <tr>
+                            <th scope="row">{{body?.codigo}}</th>
+                            <td>{{body?.nombre}}</td>
+                            <td>{{body?.grupo}}</td>
+                            <td>{{body?.completas}}</td>
+                            <td>{{body?.aciertos}}</td>
+                          </tr>
+                        </ng-container>
+                      </tbody>
+                    </table>
+                  <div *ngIf="reporte.activo">
+                    
+                    <div class="col-sm-12 justify-content-end d-flex">
+                      <button (click)="generarExcel()" class="btn btn-info">
+                        Generar Excel
+                      </button>
+                      <span class="text-white"> - </span>
+                      <button (click)="generarPdf()" class="btn btn-info">
+                        Generar PDF
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
