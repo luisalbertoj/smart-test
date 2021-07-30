@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
   plantilla: any = {
-    imgBanner: 'assets/images/bannerre.png',
+    imgBanner: 'assets/images/bannerReportes.png',
     tituloBanner: 'Laboratorio de pruebas de software'
   };
 

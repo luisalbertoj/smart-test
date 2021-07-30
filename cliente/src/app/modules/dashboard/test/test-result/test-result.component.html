@@ -70,7 +70,7 @@
                                     checked
                                     disabled
                                   />
-                              <p class="checkColorT"> <label [innerHTML]="respuesta?.contenido">
+                                  <p class="checkColorT"> <label [innerHTML]="respuesta?.contenido">
                                   </label> </p>
                                 </div>
                                 <ng-template #elseBlock>
@@ -101,12 +101,17 @@
                                         tabindex="0"
                                         required
                                       />
-                                     <p> <label
+                                      <p> <label
                                         [innerHTML]="respuesta?.contenido"
                                       ></label> </p>
                                     </div>
                                   </ng-template>
                                 </ng-template>
+                                <!--retroalimentacion-->
+
+                          <div *ngIf="respuesta.retroalimentacion" class="alert alert-warning" role="alert">
+                            <i class="fas fa-star"></i> {{ respuesta?.retroalimentacion}}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -130,7 +135,11 @@
                           </div>
                         </div>
                       </div>
+                      <div *ngIf="pregunta.retroalimentacion" class="alert alert-warning" role="alert">
+                        {{ pregunta?.retroalimentacion}}
+                      </div>
                     </div>
+                    
 
 
                 </div>

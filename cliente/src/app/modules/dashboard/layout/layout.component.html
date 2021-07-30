@@ -46,13 +46,7 @@
                 class="sub_menu--link">Crear prueba</a>
             </li>
           </ul>
-          <ul class="sub_menu">
-            <li class="sub_menu--item"
-              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a [routerLink]="['/dashboard/test/view-result']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Ver resultados</a>
-            </li>
-          </ul>
+      
         </li>
         <li class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
@@ -91,7 +85,7 @@
           <ul class="sub_menu">
             <li class="sub_menu--item">
               <a [routerLink]="['/dashboard/reportes/']" routerLinkActive="router-link-active"
-                class="sub_menu--link">ver reportes</a>
+                class="sub_menu--link">Ver reportes</a>
             </li>
           </ul>
         </li>
