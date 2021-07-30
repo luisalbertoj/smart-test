@@ -68,11 +68,13 @@
                     </div>
                   </ng-container>
                   <ng-container *ngIf="consulta.tipoReporte === 'tests'">
-                    
+
 
                   </ng-container>
                   <canvas id="myChart"></canvas>
-                  <hr>
+                  
+                  <div *ngIf="reporte.activo">
+                    <hr>
                     <table id="htmlData" class="table table-hover text-center">
                       <caption>Tabla reporte</caption>
                       <thead class="table-header thead-dark">
@@ -94,8 +96,6 @@
                         </ng-container>
                       </tbody>
                     </table>
-                  <div *ngIf="reporte.activo">
-                    
                     <div class="col-sm-12 justify-content-end d-flex">
                       <button (click)="generarExcel()" class="btn btn-info">
                         Generar Excel
