@@ -27,7 +27,7 @@
                         <th>Descripcion</th>
                         <th>Creado por</th>
                         <th>Leccion</th>
-                        <th class="text-right">Acciones</th>
+                        <th class="text-center">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -38,16 +38,17 @@
                           {{ item.creador.nombre }} - {{ item.creador.apellido }}
                         </td>
                         <td>{{ item.leccion.nombre }}</td>
-                        <td class="td-actions text-right">
+                        <td class="td-actions text-center">
                           <button type="button" rel="tooltip" class="btn btn-info">
                             <a href="{{ factory.apiMedia + '/' + item.link }}" target="_blank">
                               <i class="fas fa-download"></i>
                             </a>
                           </button>
                           
-                          <button type="button" rel="tooltip" class="btn btn-success" (click)="viewer(item.link)">
+                          <button type="button" rel="tooltip" class="btn btn-success btnMedio" (click)="viewer(item.link)">
                             <i class="far fa-eye"></i>
                           </button>
+
                           <button type="button" rel="tooltip" class="btn btn-danger" (click)="delete(item.id)">
                             <i class="fas fa-trash-alt"></i>
                           </button>
@@ -65,3 +66,4 @@
     </div>
   </div>
 </div>
+

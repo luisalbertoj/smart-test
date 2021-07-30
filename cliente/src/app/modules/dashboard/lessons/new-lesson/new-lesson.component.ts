@@ -95,13 +95,16 @@ export class NewLessonComponent implements OnInit {
   public itemsCompetencia: any = [];
   public preguntas: any = [];
   public respuestas: any = [];
+  public iconStatus = [false,false,false,false];
 
   constructor(
     public factory: FactoryService,
     private toast: ToastrService,
     private router: Router,
     private spinner: NgxSpinnerService
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit(): void {
     $('[data-toggle="tooltip"]').tooltip();
@@ -279,16 +282,5 @@ export class NewLessonComponent implements OnInit {
       );
   }
 
-  animateCollapsibles() {
-
-    $('.collapse').on('show', function() {
-        var $t = $(this);
-        var header = $("a[href='#" + $t.attr("id") + "']");
-        header.find(".fa-angle-right").removeClass("fa-angle-right").addClass("fa-angle-down");
-    }).on('hide', function(){
-        var $t = $(this);
-        var header = $("a[href='#" + $t.attr("id") + "']");
-        header.find(".fa-angle-down").removeClass("fa-angle-down").addClass("fa-angle-right");
-    });
-}
+  
 }

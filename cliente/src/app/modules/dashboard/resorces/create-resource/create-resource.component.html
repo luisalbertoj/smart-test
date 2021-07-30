@@ -26,19 +26,12 @@
                   <div class="select-element">
                     <div class="col-lg-12 col-md-12">
                       <div class="ui search focus mt-30 lbel25">
-                        <label>Competencia asociada*</label>
                         <div class="ui left icon input swdh19">
                           <select  (click)="selectedCompetencia()" [(ngModel)]="element" name="element" class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                              select-competencia
+                          custom-select
                             ">
                             <option value="">
-                              Selecciona la competencia
+                              Selecciona la competencia asociada
                             </option>
                             <option *ngFor="let competencia of competencias; let i = index" value="{{i}}">
 
@@ -79,16 +72,11 @@
                           placeholder="Digite una descripcion sobre el contenido del recurso..." />
                       </div>
                     </div>
+                    <div class="col-md-12 col-sm-12">
                     <div class="dropdown ">
+                      <div class="ui left icon input swdh19">
                       <select (click)="selectedLeccion()" [(ngModel)]="indexLeccion" name="indexLeccion" class="
-                              ui
-                              hj145
-                              dropdown
-                              cntry152
-                              prompt
-                              srch_explore
-                              select-competencia
-                              custom-select
+                      custom-select
                             ">
                         <option value="">
                           Selecciona la leccion a la que deseas asociar el recurso
@@ -98,6 +86,7 @@
                           <a>{{ leccion?.titulo }}</a>
                         </option>
                       </select>
+                      </div>
                       <!-- <p class="card-category" *ngIf="this.element !== ''">
                         {{ this.recurso?.leccion }}
                       </p> -->
@@ -109,6 +98,7 @@
                         </li>
                       </ul> -->
                     </div>
+                    </div>
                     <br>
                     <div class="container "  appDnd (fileDropped)="onFileDropped($event)">
                       <input type="file" #fileDropRef id="fileDropRef" multiple
@@ -118,8 +108,7 @@
                     
                       <label for="fileDropRef">Buscar archivos</label>
                     </div>
-                    <br>
-                    <div class="files-list">
+                  
                       <div class="single-file" *ngFor="let file of files; let i = index">
                         <img src="assets/images/dnd/ic-file.svg" width="45px" alt="file" />
                         <div class="info">
@@ -134,8 +123,10 @@
                         <img src="assets/images/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file"
                           (click)="deleteFile(i)" />
                       </div>
-                      <button (click)="uploadFile()" class="btn btn-success">Guardar</button>
-                    </div>
+                      <div class="col-sm-12 col-md-12 prce142 ">
+                      <button (click)="uploadFile()" class="btn btn-plantilla ">Guardar</button>
+                      </div>
+                  
                   </div>
                 </form>
               </div>

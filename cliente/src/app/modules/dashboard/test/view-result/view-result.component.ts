@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewResultComponent implements OnInit {
 
+  plantilla: any = {
+    menuTest: 'Resultados',
+    imgBanner: 'assets/images/bannerResultados.png'
+  };
+
+
   constructor() { }
 
   ngOnInit(): void {

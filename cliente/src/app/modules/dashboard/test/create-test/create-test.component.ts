@@ -37,6 +37,8 @@ export class CreateTestComponent implements OnInit {
   public preguntas: any = [];
   public respuestas: any = [];
   public showbody = false;
+  public iconStatus = [false,false,false,false];
+
   constructor(public factory: FactoryService,
     private toast: ToastrService,
     private router: Router,
