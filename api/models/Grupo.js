@@ -16,7 +16,8 @@ module.exports = {
 
     codigo: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true
     },
 
     docente: {
