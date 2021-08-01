@@ -53,6 +53,13 @@ const routes: Routes = [
             (m) => m.AdminModule
           ),
       },
+      {
+        path: 'perfil',
+        loadChildren: () =>
+          import('./perfil/perfil.module').then(
+            (m) => m.PerfilModule
+          ),
+      },
     ]
   }
 ];

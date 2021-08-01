@@ -41,6 +41,11 @@ module.exports = {
       required: true
     },
 
+    photo: {
+      type: 'string',
+      defaultsTo: 'imgDefaults.jpg'
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

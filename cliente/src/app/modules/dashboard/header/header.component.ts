@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FactoryService } from 'src/app/services/factory.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  classperfil = "menu dropdown_account";
+
+  constructor(public factory: FactoryService) { }
+
+
 
   ngOnInit(): void {
+  }
+
+  abrirPerfil(){
+    this.classperfil = this.classperfil == "menu dropdown_account left transition visible"?
+    "menu dropdown_account": "menu dropdown_account left transition visible";
   }
 
 }

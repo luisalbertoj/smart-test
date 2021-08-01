@@ -1,1 +1,195 @@
-<p>perfil works!</p>
+<div class="wrapper _bg4586">
+    <br>
+    <br>
+    <br>
+    <div class="_216b01">
+        <div class="container-fluid">			
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="section3125 rpt145">							
+                        <div class="row">						
+                            <div class="col-sm-12 col-lg-12">
+                                <a href="#" class="_216b22">										
+                                    <span><i class="uil uil-cog"></i></span>Setting
+                                </a>
+                                <div class="dp_dt150">						
+                                    <div class="img148">
+                                        <ng-container *ngIf="factory.user.photo;else elsePhoto">
+                                            <img src="{{(env + 'user/' + factory.user?.photo) || env + 'user/imgDefaults.jpg' }}" alt="Imagen de usuario">	
+                                        </ng-container>
+                                        <ng-container #elsePhoto>
+                                            <img src="{{(env + 'user/imgDefaults.jpg')}}" alt="Imagen del usuario">
+                                        </ng-container>
+                                    </div>
+                                    <div class="prfledt1">
+                                        <h2>{{this.factory.user?.nombre}} {{this.factory.user.apellido}}</h2>
+                                        <span>{{this.factory.user?.idRol?.nombre}}</span>
+                                        <br>
+                                        <span>Grupo: {{this.factory.user?.grupos?.codigo}}</span>
+                                    </div>										
+                                </div>
+                                <ul class="_ttl120">										
+                                    <li>
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Lecciones</div>
+                                            <div class="_ttl123">{{data.lecciones}}</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Tests</div>
+                                            <div class="_ttl123">{{data.tests}}</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Laboratorios</div>
+                                            <div class="_ttl123">{{data.laboratorios}}</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Rendimiento</div>
+                                            <div class="_ttl123">{{data.lecciones}}%</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>                        													
+                        </div>							
+                    </div>							
+                </div>															
+            </div>
+        </div>
+    </div>
+    <div class="_215b15" style="background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">						
+                    <div class="course_tabs">
+                        <nav>
+                            <div class="nav nav-tabs tab_crse" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">Mis datos</a>
+                                <a class="nav-item nav-link" id="nav-purchased-tab" data-toggle="tab" href="#nav-purchased" role="tab" aria-selected="false">Mis lecciones</a>
+                            </div>
+                        </nav>						
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="_215b17" style="background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="course_tab_content">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
+                                <div class="_htg451">
+                                    <div class="_htg452"   >
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <label>Nombre</label>
+                                                <input  name="nombre" class="form-control ng-untouched ng-pristine ng-valid"
+                                                type="text" placeholder=""  value="{{factory.user.nombre}}" disabled="false"/>
+                                                
+                                            </div> 
+                                                
+                                            <div class="col-sm-6 col-md-6">
+                                                <label>Apellido</label>
+                                                <input  name="apellido" class="form-control ng-untouched ng-pristine ng-valid"
+                                                type="text" placeholder=""  value="{{factory.user.apellido}}" disabled="false"/>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <label>Cédula</label>
+                                                <input  name="cedula" class="form-control ng-untouched ng-pristine ng-valid"
+                                                type="text" placeholder=""  value="{{factory.user.cedula}}" disabled="false"/>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <label>Email</label>
+                                                <input  name="email" class="form-control ng-untouched ng-pristine ng-valid"
+                                                type="text" placeholder=""  value="{{factory.user.email}}" disabled="false"/>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <label>Código</label>
+                                                <input  name="codigo" class="form-control ng-untouched ng-pristine ng-valid"
+                                                type="text" placeholder=""  value="{{factory.user.codigo}}" disabled="false"/>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <label>Username</label>
+                                                <input  name="user.email" class="form-control ng-untouched ng-pristine ng-valid"
+                                                type="text" placeholder=""  value="{{factory.user.email}}" disabled="false"/>
+                                            </div>
+                                        </div>
+                                    </div>	
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 justify-content-center d-flex">
+                                        <button class="btn btn-plantilla"> Editar</button>	
+                                        </div>
+                                    </div>
+                                </div>							
+                            </div>
+                            <div class="tab-pane fade show" id="nav-purchased" role="tabpanel">
+                                <div class="_htg451">
+                                    <div class="_htg452">
+                                        <h3>Mis lecciones</h3>
+                                            <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="fcrse_1 mt-20">
+                                                    <a href="course_detail_view.html" class="hf_img">
+                                                        <img src="images/courses/img-1.jpg" alt="">
+                                                        <div class="course-overlay">
+                                                            <div class="badge_seller">Bestseller</div>
+                                                            <div class="crse_reviews">
+                                                                <i class="uil uil-star"></i>4.5
+                                                            </div>
+                                                            <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                            <div class="crse_timer">
+                                                                25 hours
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="hs_content">
+                                                        <div class="eps_dots eps_dots10 more_dropdown">
+                                                            <a href="#"><i class="uil uil-ellipsis-v"></i></a>
+                                                            <div class="dropdown-content">
+                                                                <span><i class="uil uil-download-alt"></i>Download</span>															
+                                                                <span><i class="uil uil-trash-alt"></i>Delete</span>															
+                                                            </div>																											
+                                                        </div>
+                                                        <div class="vdtodt">
+                                                            <span class="vdt14">109k views</span>
+                                                            <span class="vdt14">15 days ago</span>
+                                                        </div>
+                                                        <a href="course_detail_view.html" class="crse14s title900">Complete Python Bootcamp: Go from zero to hero in Python 3</a>
+                                                        <a href="#" class="crse-cate">Web Development | Python</a>
+                                                        <div class="purchased_badge">Purchased</div>
+                                                        <div class="auth1lnkprce">
+                                                            <p class="cr1fot">By <a href="#">John Doe</a></p>
+                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                
+                                            
+                                            </div>									
+                                        </div>
+                                    </div>																	
+                                </div>							
+                            </div>
+                        
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

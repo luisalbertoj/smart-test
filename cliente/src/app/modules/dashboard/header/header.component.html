@@ -25,8 +25,43 @@
   </div>
   <div class="header_right">
     <ul>
-   
       <li class="ui dropdown">
+        <a class="opts_account" (click)="abrirPerfil()">
+          <img src="assets/images/hd_dp.jpg" alt="" />
+        </a>
+        <div [ngClass]="classperfil" tabindex="-1">
+          <div class="channel_my">
+            <div class="profile_link">
+              <img src="assets/images/hd_dp.jpg" alt="" />
+              <div class="pd_content">
+                <div class="rhte85">
+                  <h4>{{this.factory.user.nombre}} {{this.factory.user.apellido}}</h4>
+                  <div class="mef78" title="Verify">
+                    <i class='uil uil-check-circle'></i>
+                  </div>
+                </div>
+                <span>{{this.factory.user.email}}</span>
+              </div>	
+            </div>
+            
+            <a [routerLink]="['/dashboard/perfil']" routerLinkActive="router-link-active" class="dp_link_12">Ver perfíl</a>						
+          </div>
+          <div class="night_mode_switch__btn">
+            <a href="#" id="night-mode" class="btn-night-mode">
+              <i class="uil uil-moon"></i> Nocturno
+              <span class="btn-night-mode-switch">
+                <span class="uk-switch-button"></span>
+              </span>
+            </a>
+          </div>
+          <a href="sign_in.html" class="item channel_item">Salir</a>
+        </div>
+      </li>
+
+
+
+
+     <!--  <li class="ui dropdown">
         <a href="#" class="opts_account">
           <img src="assets/images/hd_dp.jpg" alt="" />
         </a>
@@ -69,7 +104,7 @@
           >
           <a href="sign_in.html" class="item channel_item">Salir</a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </header>
