@@ -358,7 +358,7 @@ input[type=text] {
 }
 
 .left_footer a:hover {
-	color: #ed2a26 !important;
+	color: #2671c3 !important;
 }
 
 .left_footer_content {
@@ -599,7 +599,7 @@ i.icon1 {
 }
 
 .dp_link_12:hover {
-    color: #ed2a26 !important;
+    color: #2671c3 !important;
 }
 
 .ui.dropdown .menu>.channel_item {
@@ -7769,7 +7769,7 @@ a.rmv-btn i {
     font-size: 120%;
 	height: 30px;
 	Width: 30px;
-	background: #ffecec;
+    background-color: #aaeca9;
 	border-radius: 100%;
 	margin-right: 10px;
 	padding: 6px 4px 0;
