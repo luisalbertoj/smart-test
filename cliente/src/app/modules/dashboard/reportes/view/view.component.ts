@@ -38,7 +38,7 @@ export class ViewComponent implements OnInit {
   fileName = 'ExcelSheet.xlsx';
   plantilla: any = {
     imgBanner: 'assets/images/bannerReportes.png',
-    tituloBanner: 'Laboratorio de pruebas de software'
+    tituloBanner: ''
     
   };
   grupos: any = [];

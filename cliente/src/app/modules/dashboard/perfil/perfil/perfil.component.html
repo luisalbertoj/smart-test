@@ -14,12 +14,12 @@
                                 </a>
                                 <div class="dp_dt150">						
                                     <div class="img148">
-                                        <ng-container *ngIf="factory.user.photo;else elsePhoto">
+                                        <div *ngIf="factory.user?.photo != null; else elseBlock">
                                             <img src="{{(env + 'user/' + factory.user?.photo) || env + 'user/imgDefaults.jpg' }}" alt="Imagen de usuario">	
-                                        </ng-container>
-                                        <ng-container #elsePhoto>
+                                        </div>
+                                        <ng-template #elseBlock>
                                             <img src="{{(env + 'user/imgDefaults.jpg')}}" alt="Imagen del usuario">
-                                        </ng-container>
+                                        </ng-template>
                                     </div>
                                     <div class="prfledt1">
                                         <h2>{{this.factory.user?.nombre}} {{this.factory.user.apellido}}</h2>
