@@ -32,6 +32,7 @@
     "jquery": "^3.6.0",
     "jquery-steps": "^1.1.0",
     "jspdf": "^2.3.1",
+    "mailgun.js": "^3.5.2",
     "moment": "^2.29.1",
     "ng-circle-progress": "^1.6.0",
     "ng-pick-datetime-moment": "^1.0.8",

@@ -11,6 +11,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TagInputModule } from 'ngx-chips';
 import { MaterialModule } from '../../../material.module';
 import { ViewResultComponent } from './view-result/view-result.component';
+import { DashboardModule } from '../dashboard.module';
 
 
 
@@ -22,7 +23,9 @@ import { ViewResultComponent } from './view-result/view-result.component';
     FormsModule,
     AngularEditorModule,
     TagInputModule,
-    MaterialModule
+    MaterialModule,
+    DashboardModule
+
     
   ]
 })

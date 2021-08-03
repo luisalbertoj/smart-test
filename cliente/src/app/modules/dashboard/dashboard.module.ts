@@ -14,12 +14,15 @@ import { AddElementComponent } from './components/add-element/add-element.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DndDirective } from './dnd.directive';
 import { ProgressComponent } from './components/progress/progress.component';
+import { EmailComponent } from './components/email/email.component';
+import { EmailService } from 'src/app/services/email.service';
 
 
 
 @NgModule({
   declarations: [HomeComponent, LayoutComponent, DashboardComponent, HeaderComponent, FooterComponent, UploadFileComponent, SearchElementComponent, AddElementComponent,  DndDirective,
-    ProgressComponent],
+    ProgressComponent,
+    EmailComponent],
   imports: [
     DashboardRoutingModule,
     NgxSpinnerModule,
@@ -31,7 +34,11 @@ import { ProgressComponent } from './components/progress/progress.component';
   exports: [
     UploadFileComponent,
     SearchElementComponent,
-    AddElementComponent
+    AddElementComponent,
+    EmailComponent,
+  ],
+  providers: [
+    EmailService
   ]
 })
 export class DashboardModule { }
