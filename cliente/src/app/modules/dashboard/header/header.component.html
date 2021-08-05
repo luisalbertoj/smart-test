@@ -8,12 +8,8 @@
     <span class="collapse_menu--label"></span>
   </button>
   <div class="main_logo" id="logo">
-    <a [routerLink]="['/dashboard']"
-      ><img src="assets/images/Logo.png" alt="" width="140%"
-    /></a>
-    <a [routerLink]="['/dashboard']"
-      ><img class="logo-inverse" src="assets/images/Logo.png" alt=""
-    /></a>
+    <a [routerLink]="['/dashboard']"><img src="assets/images/Logo.png" alt="" width="140%" /></a>
+    <a [routerLink]="['/dashboard']"><img class="logo-inverse" src="assets/images/Logo.png" alt="" /></a>
   </div>
   <div class="search120">
     <div class="ui search">
@@ -26,29 +22,46 @@
   <div class="header_right">
     <ul>
       <li class="ui dropdown">
-        <a class="opts_account" (click)="abrirPerfil()">
-          <img src="assets/images/hd_dp.jpg" alt="" />
+        <a class="opts_account" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" >
+          <div *ngIf="factory.user?.photo != null; else elseBlock">
+            <img src="{{
+                env + 'user/' + factory.user?.photo ||
+                  env + 'user/imgDefaults.jpg'
+              }}" alt="Imagen de usuario" />
+          </div>
+          <ng-template #elseBlock>
+            <img src="{{ env + 'user/imgDefaults.jpg' }}" alt="Imagen del usuario" />
+          </ng-template>
         </a>
-        <div [ngClass]="classperfil" tabindex="-1">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" tabindex="-1">
           <div class="channel_my">
             <div class="profile_link">
-              <img src="assets/images/hd_dp.jpg" alt="" />
+              <div *ngIf="factory.user?.photo != null; else elseBlock">
+                <img src="{{
+                    env + 'user/' + factory.user?.photo ||
+                      env + 'user/imgDefaults.jpg'
+                  }}" alt="Imagen de usuario" />
+              </div>
+              <ng-template #elseBlock>
+                <img src="{{ env + 'user/imgDefaults.jpg' }}" alt="Imagen del usuario" />
+              </ng-template>
               <div class="pd_content">
-                <div class="rhte85">
-                  <h4>{{this.factory.user.nombre}} {{this.factory.user.apellido}}</h4>
-                  <div class="mef78" title="Verify">
-                    <i class='uil uil-check-circle'></i>
+                <div class="rhte85 ">
+                  <h4 class="dropdown-item">{{this.factory.user.nombre + '  ' + this.factory.user.apellido}}
+                  </h4>
+                  <div class="mef78 dropdown-item" title="Verify">
+                    <i class="uil uil-check-circle"></i>
                   </div>
-                
                 </div>
 
-                <span>{{this.factory.user.email}}</span>
-                
-              </div>	
+                <p>{{ this.factory.user.email }}</p>
+              </div>
             </div>
-            
-            <a [routerLink]="['/dashboard/perfil']" routerLinkActive="router-link-active" class="dp_link_12">Ver perfíl</a>		
-            <a href="sign_in.html" class="dp_link_12">Salir</a>				
+
+            <a [routerLink]="['/dashboard/perfil']" routerLinkActive="router-link-active" class="dp_link_12">Ver
+              perfíl</a>
+            <a href="sign_in.html" class="dp_link_12">Salir</a>
           </div>
           <div class="night_mode_switch__btn">
             <a href="#" id="night-mode" class="btn-night-mode">
@@ -58,10 +71,8 @@
               </span>
             </a>
           </div>
-        
         </div>
       </li>
-
     </ul>
   </div>
 </header>

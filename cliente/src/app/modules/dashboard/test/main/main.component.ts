@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FactoryService } from 'src/app/services/factory.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { FactoryService } from 'src/app/services/factory.service';
 })
 export class MainComponent implements OnInit {
 
+  public env = environment.urlMedia;
+  
   public plantilla = {
     bannerImg: 'assets/images/bannercrearpruebas.png',
     bannerAlt: 'banner pruebas de conocimiento',

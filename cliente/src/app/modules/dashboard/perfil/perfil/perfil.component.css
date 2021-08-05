@@ -1,0 +1,52 @@
+.imgFondo{
+    background: url('/assets/images/fondoPerfil.png') no-repeat ;
+}
+
+li{
+    border: 0;
+}
+
+ul{
+    border: 0;
+}
+
+.li1{
+    border: 3px solid #2671c3;
+    padding: 8px;
+
+}
+
+.li2{
+    border: 3px solid #F47279;
+    padding: 8px;
+
+}
+
+.li3{
+    border: 3px solid #FBE675;
+    padding: 8px;
+
+}
+
+.li4{
+    border: 3px solid #43bd41;
+    padding: 8px;
+
+}
+
+._215b15{
+    margin: 0;
+}
+
+.container{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.colDatos1{
+    padding-right: 20px;
+}
+
+.colDatos2{
+    padding-left: 20px;
+}

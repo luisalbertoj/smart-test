@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 
 declare var $:any;
 
@@ -222,7 +223,16 @@ export class NewLessonComponent implements OnInit {
   }
 
   eliminarPregunta(indice: any) {
-    this.preguntas.splice(indice);
+
+    let temporal = [];
+    for (let index = 0; index < this.preguntas.length; index++) {
+      if (index!==indice) {
+        temporal.push(this.preguntas[index])
+      }      
+    }
+
+    this.preguntas=temporal;
+  
   }
 
   agregarRespuesta(indice: any) {

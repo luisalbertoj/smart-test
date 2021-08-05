@@ -24,7 +24,7 @@
               <div class="card-body">
                 <form class="form" method="" action="">
                   <div class="select-element">
-                    <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-12 col-md-12 colSelectCompet">
                       <div class="ui search focus mt-30 lbel25">
                         <div class="ui left icon input swdh19">
                           <select  (click)="selectedCompetencia()" [(ngModel)]="element" name="element" class="
@@ -69,17 +69,17 @@
                           </span>
                         </div>
                         <input type="text" [(ngModel)]="this.recurso.contenido" name="contenido" class="form-control"
-                          placeholder="Digite una descripcion sobre el contenido del recurso..." />
+                          placeholder="Digite una descripciín sobre el contenido del recurso" />
                       </div>
                     </div>
-                    <div class="col-md-12 col-sm-12">
+                    <div class="col-md-12 col-sm-12 colSelectLeccion">
                     <div class="dropdown ">
                       <div class="ui left icon input swdh19">
                       <select (click)="selectedLeccion()" [(ngModel)]="indexLeccion" name="indexLeccion" class="
                       custom-select
                             ">
                         <option value="">
-                          Selecciona la leccion a la que deseas asociar el recurso
+                          Selecciona la lección a la que deseas asociar el recurso
                         </option>
                         <option *ngFor="let leccion of lecciones;let  i = index" value="{{i}}">
 
@@ -100,11 +100,12 @@
                     </div>
                     </div>
                     <br>
+                    <br>
                     <div class="container "  appDnd (fileDropped)="onFileDropped($event)">
                       <input type="file" #fileDropRef id="fileDropRef" multiple
                         (change)="fileBrowseHandler($event.target.files)" />
                       <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg" alt="imagen de carga" />
-                      <h3>Arrastra y suelta tus archivos aqui</h3>
+                      <h3>Arrastra y suelta tus archivos aquí</h3>
                     
                       <label for="fileDropRef">Buscar archivos</label>
                     </div>

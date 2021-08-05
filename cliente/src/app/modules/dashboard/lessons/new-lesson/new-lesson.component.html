@@ -121,39 +121,46 @@
                             </div>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                            <div class="ui left icon input swdh19 taginput">
-                              <tag-input class="dropdown" [(ngModel)]="leccion.competencias" name="leccion.competencias"
-                                placeholder="Selecciona las competencias" secondaryPlaceholder=" "
-                                canDeleteTags="false">
-                                <tag-input-dropdown class="ng2-dropdown-container ng2-menu-item"
-                                  [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
-                                </tag-input-dropdown>
-                              </tag-input>
+                            <div class="row">
+                              <div class="col-sm-10 col-md-10">
+                                <div class="ui left icon input swdh19 taginput">
+                                  <tag-input class="dropdown" [(ngModel)]="leccion.competencias" name="leccion.competencias"
+                                    placeholder="Selecciona las competencias" secondaryPlaceholder=" "
+                                    canDeleteTags="false">
+                                    <tag-input-dropdown class="ng2-dropdown-container ng2-menu-item"
+                                      [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
+                                    </tag-input-dropdown>
+                                  </tag-input>
 
-                              <!-- Button trigger modal -->
-                              <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
-                                [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
-                                (selectElementos)="selectCompetencias($event)" #searchCompetencia></app-search-element>
-                              <button type="button" (click)="searchCompetencia.cargarModel()" class="
-                                      btn btn-plantilla
-                                      btnaddpreg
-                                      btn-primary
-                                    " data-toggle="modal" data-target="#competencia">
-                                <i class="fas fa-search"></i>
-                              </button>
-                              <!-- Button trigger modal -->
-                              <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title"
-                                [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #addcompetencias>
-                              </app-add-element>
-                              <button type="button" (click)="
-                                  addcompetencias.addArray(newCompetencia.arrayForm)
-                                  " class="
-                                    btn btn-plantilla
-                                    btnaddpreg
-                                    btn-primary
-                                  " data-toggle="modal" data-target="#addcompetencia">
-                                <i class="fas fa-plus"></i>
-                              </button>
+                                  <!-- Button trigger modal -->
+                                  <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
+                                    [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
+                                    (selectElementos)="selectCompetencias($event)" #searchCompetencia></app-search-element>
+                                  
+                                  <!-- Button trigger modal -->
+                                  <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title"
+                                    [labels]="newCompetencia.labels" [mer]="newCompetencia.mer" #addcompetencias>
+                                  </app-add-element>
+                                </div>
+                              </div>
+                              <div class="col-sm-2 col-md-2 btnesBanco ">
+                                <button type="button" (click)="searchCompetencia.cargarModel()" class="
+                                          btn btn-plantilla
+                                          btnsearpreg
+                                          btn-primary
+                                        " data-toggle="modal" data-target="#competencia">
+                                    <i class="fas fa-search"></i>
+                                  </button>
+                                  <button type="button" (click)="
+                                      addcompetencias.addArray(newCompetencia.arrayForm)
+                                      " class="
+                                        btn btn-plantilla
+                                        btnaddpreg
+                                        btn-primary
+                                      " data-toggle="modal" data-target="#addcompetencia">
+                                    <i class="fas fa-plus"></i>
+                                  </button>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -176,31 +183,37 @@
                             </div>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                            <div class="ui left icon input swdh19">
-                              <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos"
-                                name="leccion.Preconceptos" placeholder="Selecciona los preconcepto"
-                                secondaryPlaceholder="">
-                                <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
-                                </tag-input-dropdown>
-                              </tag-input>
-                              <!-- Button trigger modal -->
-                              <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'"
-                                [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body"
-                                (selectElementos)="
-                                      selectPreconceptos($event)
-                                    " #searchPreconceptos></app-search-element>
+                            <div class="row">
+                              <div class="col-sm-10 col-md-10">
+                              <div class="ui left icon input swdh19">
+                                <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos"
+                                  name="leccion.Preconceptos" placeholder="Selecciona los preconcepto"
+                                  secondaryPlaceholder="">
+                                  <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
+                                  </tag-input-dropdown>
+                                </tag-input>
+                                <!-- Button trigger modal -->
+                                <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'"
+                                  [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body"
+                                  (selectElementos)="
+                                        selectPreconceptos($event)
+                                      " #searchPreconceptos></app-search-element>
+                                
+
+                                <!-- Button trigger modal -->
+                                <app-add-element [model]="newPreconcepto.model" [title]="newPreconcepto.title"
+                                  [labels]="newPreconcepto.labels" [mer]="newPreconcepto.mer" #addPreconcepto>
+                                </app-add-element>
+                              </div>
+                              </div>
+                            <div class="col-sm-2 col-md-2 btnesBanco">
                               <button type="button" (click)="searchPreconceptos.cargarModel()" class="
                                     btn btn-plantilla
-                                    btnaddpreg
+                                    btnsearpreg
                                     btn-primary
                                   " data-toggle="modal" data-target="#preconcepto">
                                 <i class="fas fa-search"></i>
                               </button>
-
-                              <!-- Button trigger modal -->
-                              <app-add-element [model]="newPreconcepto.model" [title]="newPreconcepto.title"
-                                [labels]="newPreconcepto.labels" [mer]="newPreconcepto.mer" #addPreconcepto>
-                              </app-add-element>
                               <button type="button" (click)="
                                 addPreconcepto.addArray(newPreconcepto.arrayForm)
                                   " class="
@@ -210,6 +223,7 @@
                                   " data-toggle="modal" data-target="#addpreconcepto">
                                 <i class="fas fa-plus"></i>
                               </button>
+                            </div>
                             </div>
                           </div>
                         </div>
@@ -235,7 +249,7 @@
                           </div>
                           <div class="col-sm-12 col-md-9 ">
                             <angular-editor [placeholder]="
-                                      'Escribe aqui la introeditorangularducción de la leccion...'
+                                      'Escribe aqui la introducción de la leccion...'
                                     " [(ngModel)]="leccion.introduccion" name="leccion.introduccion">
                             </angular-editor>
                           </div>
@@ -320,10 +334,8 @@
                                 </button>
                               </h3>
                             </li>
-
                           </ul>
                         </div>
-
                       </div>
                     </button>
                   </h2>
@@ -342,7 +354,7 @@
                 <div class="" id="headingThree">
                   <h2 class="mb-0">
                     <button class="btn btn-link btn-block text-left collapsed"
-                      (click)="this.iconStatus[2] = !this.iconStatus[2]" type="button" data-toggle="collapse"
+                        type="button" data-toggle="collapse"
                       data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       <div class="row">
                         <div class="title-icon" class="col-lg-12">
@@ -367,13 +379,11 @@
                   </h2>
                 </div>
 
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                  <div class="card-body">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"             data-parent="#accordionExample">
+                  <div class="card-body bodyPractica">
                     <div class="row">
                       <div class="col-lg-12 col-md-12">
                         <div class="ui search focus mt-30 lbel25">
-                          <label>Tipos de pregunta</label>
-
                           <div class="ui left icon input swdh19">
                             <select [(ngModel)]="tipoSelect" name="tipoSelect" class="
                                       ui
@@ -384,8 +394,8 @@
                                       srch_explore
                                       select-competencia
                                     ">
-                              <option value="">Selecciona</option>
-                              <option *ngFor="let tipo of tipoPregunta" value="{{ tipo?.nombre }}">
+                              <option value="">Tipo de pregunta</option>
+                              <option *ngFor="let tipo of tipoPregunta" value="{{ tipo?.nombre }}" >
                                 {{ tipo?.nombre | uppercase }}
                               </option>
                             </select>
@@ -395,58 +405,9 @@
                                       btnaddpreg
                                       btn-primary
                                     ">
-                              Agregar pregunta
+                                    <i class="fas fa-plus"></i>
                             </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br />
-                    <div class="accordion" id="acordeonPreguntas">
-                      <div>
-                        <div *ngFor="let pregunta of preguntas; index as i" class="card">
-                          <div class="card-header" role="tab" [ngClass]="pregunta?.accordianclass" role="tab"
-                            (click)="onClickAccordion(i, pregunta)">
-                            <h2 class="mb-0">
-                              <button class="btn btn-block text-left" type="button">
-                                <div class="row">
-                                  <div class="title-icon" class="col-lg-5">
-                                    <label class="title">Pregunta*: {{ i + 1 }}</label>
-                                    <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
-
-                                  </div>
-                                  <div class="col-lg-7">
-                                    <button (click)="eliminarPregunta(i)" class="
-                                              part_btn_save
-                                              prt-sv
-                                              btn-plantilla
-                                            " type="button">
-                                      Eliminar
-                                    </button>
-                                  </div>
-                                </div>
-                              </button>
-                            </h2>
-                          </div>
-
-                          <div id="headingOne{{ i }}" aria-labelledby="headingOne{{ i }}" class="collapse show"
-                            data-parent="#acordeonPreguntas">
-                            <div class="card-body" *ngIf="pregunta.showbody">
-                              <div *ngIf="pregunta.tipo === 'multiple'" class="col-lg-12 col-md-12">
-                                <div class="course_des_textarea mt-30 lbel25">
-                                  <label>Pregunta*</label>
-                                  <angular-editor [(ngModel)]="pregunta.contenido" name="pregunta.contenido"
-                                    [placeholder]="
-                                            'Escribe aqui la pregunta de la leccion...'
-                                          "></angular-editor>
-                                </div>
-                                <div>
-                                  <br />
-                                  <button (click)="agregarRespuesta(i)" type="button" class="btn btn-primary">
-                                    Agregar respuesta
-                                  </button>
-
-                                  <button type="button" class="
+                            <button type="button" class="
                                             btn btn-plantilla
                                             btnaddpreg
                                             btn-primary
@@ -458,7 +419,49 @@
                                     (selectElementos)="
                                             selectPreguntas($event)
                                           "></app-search-element>
-
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="accordion" id="acordeonPreguntas">
+                      <div>
+                        <div *ngFor="let pregunta of preguntas; index as i" class="card">
+                          <div class="card-header" role="tab" [ngClass]="pregunta?.accordianclass" role="tab"
+                            (click)="onClickAccordion(i, pregunta)">
+                            <h2 class="mb-0">
+                              <button class="btn btn-block text-left" type="button" (click)="this.iconStatus[2]
+                              = !this.iconStatus[2]">
+                                <div class="row">
+                                  <div class="title-icon" class="col-lg-11">
+                                    
+                                    <label class="title"> <i *ngIf="!this.iconStatus[2]" class="fas fa-angle-right"> </i>
+                                      <i *ngIf="this.iconStatus[2]" class="fas fa-angle-down"> </i> Pregunta {{ i + 1 }}</label>
+                                    
+                                  </div>
+                                  <div class="col-lg-1">
+                                    <i class="far fa-trash-alt text-danger fa-2x" (click)="eliminarPregunta(i)" ></i>
+                                  </div>
+                                </div>
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="headingOne{{ i }}" aria-labelledby="headingOne{{ i }}" class="collapse show"
+                            data-parent="#acordeonPreguntas">
+                            <div class="card-body" *ngIf="pregunta.showbody">
+                              <div *ngIf="pregunta.tipo === 'multiple'" class="col-lg-12 col-md-12">
+                                <div class="course_des_textarea  lbel25">
+                                  <angular-editor [(ngModel)]="pregunta.contenido" name="pregunta.contenido"
+                                    [placeholder]="
+                                            'Escribe aqui la pregunta de la leccion...'
+                                          "></angular-editor>
+                                </div>
+                                <div>
+                                  <br />
+                                  <button (click)="agregarRespuesta(i)" type="button" class="btn btn-respuesta">
+                                    Agregar respuesta
+                                  </button>
+                                  
                                   <hr />
                                   <div *ngFor="
                                             let respuesta of respuestas[i];

@@ -22,7 +22,7 @@ export class LessonViewComponent implements OnInit {
     totales: 0,
     resUser: this.respuestas,
     leccion: this.leccion,
-    aplica: ''
+    aplica: 'Holaa'
   };
 
   constructor(
@@ -49,6 +49,7 @@ export class LessonViewComponent implements OnInit {
         } else {
           this.leccion = response.data;
           console.log(this.leccion);
+
         }
       });
   }
@@ -72,6 +73,7 @@ export class LessonViewComponent implements OnInit {
       }
     }
     localStorage.setItem('result', JSON.stringify(this.response));
+    this.response.aplica = "Hola";
   }
   finalizarLeccion() {
     this.factory.post('leccion/registrarleccion', {

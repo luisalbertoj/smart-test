@@ -2,7 +2,7 @@
     <br>
     <br>
     <br>
-    <div class="_216b01">
+    <div class="_216b01 imgFondo">
         <div class="container-fluid">			
             <div class="row justify-content-md-center">
                 <div class="col-md-10">
@@ -26,29 +26,31 @@
                                         <span>{{this.factory.user?.idRol?.nombre}}</span>
                                         <br>
                                         <span>Grupo: {{this.factory.user?.grupos?.codigo}}</span>
-                                    </div>										
+                                    </div>
                                 </div>
+
+                            
                                 <ul class="_ttl120">										
                                     <li>
-                                        <div class="_ttl121">
+                                        <div class="_ttl121 li1">
                                             <div class="_ttl122">Lecciones</div>
                                             <div class="_ttl123">{{data.lecciones}}</div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="_ttl121">
+                                        <div class="_ttl121 li2">
                                             <div class="_ttl122">Tests</div>
                                             <div class="_ttl123">{{data.tests}}</div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="_ttl121">
+                                        <div class="_ttl121 li3">
                                             <div class="_ttl122">Laboratorios</div>
                                             <div class="_ttl123">{{data.laboratorios}}</div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="_ttl121">
+                                        <div class="_ttl121 li4">
                                             <div class="_ttl122">Rendimiento</div>
                                             <div class="_ttl123">{{data.lecciones}}%</div>
                                         </div>
@@ -87,14 +89,14 @@
                                 <div class="_htg451">
                                     <div class="_htg452"   >
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6" >
+                                            <div class="col-sm-6 col-md-6 colDatos1" >
                                                 <label>Nombre</label>
                                                 <input  name="nombre" class="form-control ng-untouched ng-pristine ng-valid"
                                                 type="text" placeholder=""  value="{{factory.user.nombre}}" disabled="false"/>
                                                 
                                             </div> 
                                                 
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Apellido</label>
                                                 <input  name="apellido" class="form-control ng-untouched ng-pristine ng-valid"
                                                 type="text" placeholder=""  value="{{factory.user.apellido}}" disabled="false"/>
@@ -102,12 +104,12 @@
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 colDatos1">
                                                 <label>Cédula</label>
                                                 <input  name="cedula" class="form-control ng-untouched ng-pristine ng-valid"
                                                 type="text" placeholder=""  value="{{factory.user.cedula}}" disabled="false"/>
                                             </div>
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Email</label>
                                                 <input  name="email" class="form-control ng-untouched ng-pristine ng-valid"
                                                 type="text" placeholder=""  value="{{factory.user.email}}" disabled="false"/>
@@ -115,15 +117,15 @@
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 colDatos1">
                                                 <label>Código</label>
-                                                <input  name="codigo" class="form-control ng-untouched ng-pristine ng-valid"
+                                                <input  name="codigo" class="form-control ng-untouched ng-pristine ng-valid" 
                                                 type="text" placeholder=""  value="{{factory.user.codigo}}" disabled="false"/>
                                             </div>
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Username</label>
                                                 <input  name="user.email" class="form-control ng-untouched ng-pristine ng-valid"
-                                                type="text" placeholder=""  value="{{factory.user.email}}" disabled="false"/>
+                                                type="text" placeholder=""  value="{{factory.user.username}}" disabled="false"/>
                                             </div>
                                         </div>
                                     </div>	

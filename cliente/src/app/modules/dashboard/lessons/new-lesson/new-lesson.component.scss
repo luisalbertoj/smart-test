@@ -64,7 +64,6 @@ tag-input{
 
 }
 
-
 tag-input-dropdown{
   width: 2000vh !important;
   padding: 0;
@@ -91,6 +90,13 @@ input.ng2-tag-input__text-input.ng-pristine.ng-valid.ng-touched{
   margin-left: 2%;
   border-radius: 25px;
   margin-top: 0;
+
+}
+
+.btnsearpreg{
+  margin-left: 20%;
+  border-radius: 25px;
+  margin-right: 10%;
 }
 
 .btn-tooltip{
@@ -119,3 +125,15 @@ input.ng2-tag-input__text-input.ng-pristine.ng-valid.ng-touched{
   margin: 0;
 }
 
+.btnesBanco{
+  padding: 0;
+}
+
+
+.bodyPractica{
+  padding-top: 0;
+}
+
+h3 {
+  margin: 0 0 0 0;
+}
