@@ -126,13 +126,11 @@
 }
 
 .wrapper{
-	padding-top: 0 !important;
+	
 	padding-bottom: 0 !important;
 }
 
-.resultados{
-	margin-bottom: 0 !important;
-}
+
 
 .checkColorT2 ::before{
 	color: green;
@@ -177,4 +175,14 @@
 	margin-left: 60px;
 }
 
+.card{
+	padding-bottom: 20px;
+}
 
+.title{
+	margin-top: 0;
+}
+
+.titleResult{
+	margin-bottom: 0;
+}
