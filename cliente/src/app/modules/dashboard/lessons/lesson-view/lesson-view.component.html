@@ -249,7 +249,12 @@
                                                     </div>
                                                   </ng-template>
                                                 </ng-template>
-                                              </div>
+                                                
+                                                <!--retroalimentacion-->
+                                                <div *ngIf="respuesta.retroalimentacion" class="alert alert-warning" role="alert">
+                                                  <i class="fas fa-star"></i> - <span [innerHTML]="respuesta?.retroalimentacion"></span>
+                                                </div>
+                                              </div> 
                                             </div>
                                           </div>
                                         </div>
@@ -311,7 +316,7 @@
                       <div class="row aplicarContent">
                         <div class="col-lg-12">
                           <div class="extra_info">
-                            <h4 class="part__title">Caso de Estudio</h4>
+                            <h3 class="part__title">Caso de Estudio</h3>
                           </div>
                           <div class="col-lg-12 col-md-12">
                             <div class="course_des_textarea mt-30 lbel25">
@@ -331,6 +336,7 @@
                             </div>
                           </div>
 
+                          <br>
                           <div class="card-body">
                             <form class="form" method="" action="">
                               <div class="container containercarga" appDnd (fileDropped)="onFileDropped($event)">
@@ -339,9 +345,9 @@
                                   " />
                                 <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg"
                                   alt="imagen de carga" />
-                                <h3>Arrastra y suelta tus archivos aqui</h3>
+                                <h3 class="arrastra">Arrastra y suelta tus archivos aquí</h3>
 
-                                <label for="fileDropRef">Buscar archivos</label>
+                                <label class="btnBuscar" for="fileDropRef">Buscar archivos</label>
                               </div>
 
                               <div class="files-list">
@@ -359,14 +365,11 @@
                                   <img src="assets/images/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file"
                                     (click)="deleteFile(i)" />
                                 </div>
-                                <button (click)="uploadFile()" class="btn btn-default steps_btn">
-                                  Guardar
-                                </button>
                               </div>
                             </form>
                           </div>
 
-                          <div class="step-footer step-tab-pager btnSiguiente " text-center>
+                          <div class="step-footer step-tab-pager btnSiguiente btnFinalizar" text-center>
                             <button (click)="finalizarLeccion()" data-direction="next"
                               class="btn btn-default steps_btn">
                               Finalizar
