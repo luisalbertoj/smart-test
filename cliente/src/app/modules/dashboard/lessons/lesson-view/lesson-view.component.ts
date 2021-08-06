@@ -13,6 +13,14 @@ import Swal from 'sweetalert2';
 export class LessonViewComponent implements OnInit {
 
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
+
+  classStep = {
+    one: 'active',
+    two: '',
+    three: '',
+    fourt: ''
+  };
+
   
   files: any[] = [];
   public leccion: any = [];
@@ -52,6 +60,12 @@ export class LessonViewComponent implements OnInit {
 
         }
       });
+  }
+
+  change(prev, step){
+    this.classStep[step] = 'active';
+    this.classStep[prev] = 'done';
+    
   }
 
   respuestaSeleccionada(index, respuesta) {

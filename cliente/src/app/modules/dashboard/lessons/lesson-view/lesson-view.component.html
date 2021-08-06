@@ -14,25 +14,25 @@
           <div class="course_tabs_1">
             <div id="add-course-tab" class="step-app">
               <ul class="step-steps">
-                <li class="active">
+                <li [ngClass]="classStep.one">
                   <a>
                     <span class="number" disabled></span>
                     <span class="step-name" disabled>Aprende</span>
                   </a>
                 </li>
-                <li>
+                <li [ngClass]="classStep.two">
                   <a>
                     <span class="number"></span>
                     <span class="step-name">Practica</span>
                   </a>
                 </li>
-                <li>
+                <li  [ngClass]="classStep.three">
                   <a>
                     <span class="number"></span>
                     <span class="step-name">Realimentación</span>
                   </a>
                 </li>
-                <li>
+                <li  [ngClass]="classStep.fourt">
                   <a>
                     <span class="number"></span>
                     <span class="step-name">Aplica</span>
@@ -54,7 +54,7 @@
                       <div class="step-footer step-tab-pager btnSiguiente">
                         <a id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
                           aria-controls="pills-contact" aria-selected="false">
-                          <button data-direction="next" class="btn btn-default steps_btn btn-plantilla ">
+                          <button data-direction="next" class="btn btn-default steps_btn btn-plantilla" (click)="change('one','two')">
                             Siguiente
                             <i class="fas fa-arrow-right"></i>
                           </button>
@@ -125,7 +125,7 @@
                                 <a id="#tab_step3-tab" data-toggle="pill" href="#tab_step3" role="tab"
                                   aria-controls="#tab_step3" aria-selected="false">
                                   <button (click)="validarRespuestas()" data-direction="next"
-                                    class="btn btn-default steps_btn ">
+                                    class="btn btn-default steps_btn " (click)="change('two','three')">
                                     Siguiente <i class="fas fa-arrow-right"></i>
                                   </button>
                                 </a>
@@ -281,7 +281,7 @@
                                       <div class="step-footer step-tab-pager btnSiguiente">
                                         <a id="#tab_step4-tab" data-toggle="pill" href="#tab_step4" role="tab"
                                           aria-controls="#tab_step4" aria-selected="false">
-                                          <button data-direction="next" class="btn btn-default steps_btn">
+                                          <button data-direction="next" class="btn btn-default steps_btn " (click)="change('three','fourt')">
                                             Siguiente <i class="fas fa-arrow-right"></i>
                                           </button>
                                         </a>
