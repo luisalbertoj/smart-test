@@ -1,0 +1,235 @@
+/* Font Definitions */
+@font-face
+{font-family:"MS Mincho";
+panose-1:2 2 6 9 4 2 5 8 3 4;}
+@font-face
+{font-family:"Cambria Math";
+panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+{font-family:Calibri;
+panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+{font-family:"Calibri Light";
+panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+{font-family:"Arial Unicode MS";
+panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+{font-family:NewsGotT;}
+@font-face
+{font-family:Tahoma;
+panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+{font-family:"\@Arial Unicode MS";
+panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+{font-family:"\@MS Mincho";
+panose-1:2 2 6 9 4 2 5 8 3 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+{margin-top:0cm;
+margin-right:0cm;
+margin-bottom:8.0pt;
+margin-left:0cm;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;}
+h1
+{mso-style-link:"Título 1 Car";
+margin-top:6.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+page-break-after:avoid;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:normal;}
+h2
+{mso-style-link:"Título 2 Car";
+margin-top:6.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+page-break-after:avoid;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:normal;}
+h3
+{mso-style-link:"Título 3 Car";
+margin-top:6.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+page-break-after:avoid;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:normal;}
+h4
+{mso-style-link:"Título 4 Car";
+margin-top:6.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+page-break-after:avoid;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:normal;}
+h5
+{mso-style-link:"Título 5 Car";
+margin-top:12.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;}
+h6
+{mso-style-link:"Título 6 Car";
+margin-top:12.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+{mso-style-link:"Título 7 Car";
+margin-top:12.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+{mso-style-link:"Título 8 Car";
+margin-top:12.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:bold;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+{mso-style-link:"Título 9 Car";
+margin-top:12.0pt;
+margin-right:0cm;
+margin-bottom:3.0pt;
+margin-left:0cm;
+text-align:justify;
+text-indent:0cm;
+line-height:12.0pt;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+font-weight:bold;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+{margin-top:0cm;
+margin-right:0cm;
+margin-bottom:8.0pt;
+margin-left:36.0pt;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+{margin-top:0cm;
+margin-right:0cm;
+margin-bottom:0cm;
+margin-left:36.0pt;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+{margin-top:0cm;
+margin-right:0cm;
+margin-bottom:0cm;
+margin-left:36.0pt;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+{margin-top:0cm;
+margin-right:0cm;
+margin-bottom:8.0pt;
+margin-left:36.0pt;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;}
+p.TableContents, li.TableContents, div.TableContents
+{mso-style-name:"Table Contents";
+margin:0cm;
+text-align:justify;
+text-autospace:ideograph-other;
+font-size:10.0pt;
+font-family:NewsGotT;}
+p.Textoindependiente1, li.Textoindependiente1, div.Textoindependiente1
+{mso-style-name:"Texto independiente1";
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:6.0pt;
+margin-left:0cm;
+line-height:11.0pt;
+font-size:10.0pt;
+font-family:"Times New Roman",serif;}
+p.hcp6, li.hcp6, div.hcp6
+{mso-style-name:hcp6;
+margin-right:0cm;
+margin-left:0cm;
+text-align:center;
+font-size:12.0pt;
+font-family:"Times New Roman",serif;}
+p.hcp7, li.hcp7, div.hcp7
+{mso-style-name:hcp7;
+margin-right:3.4pt;
+margin-left:3.4pt;
+text-align:center;
+font-size:12.0pt;
+font-family:"Times New Roman",serif;}
+span.Ttulo1Car
+{mso-style-name:"Título 1 Car";
+mso-style-link:"Título 1";
+font-family:"Arial",sans-serif;}
+p.infoblue, li.infoblue, div.infoblue
+{mso-style-name:infoblue;
+margin:0cm;
+text-align:justify;
+line-height:12.0pt;
+font-size:10.0pt;
+font-family:"Arial",sans-serif;
+color:black;}
+.MsoChpDefault
+{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+{margin-bottom:8.0pt;
+line-height:107%;}
+/* Page Definitions */
+@page WordSection1
+{size:612.0pt 792.0pt;
+margin:36.0pt 36.0pt 36.0pt 36.0pt;}
+div.WordSection1
+{page:WordSection1;}
+/* List Definitions */
+ol
+{margin-bottom:0cm;}
+ul
+{margin-bottom:0cm;}

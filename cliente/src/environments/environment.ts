@@ -4,7 +4,8 @@
 export const environment = {
   production: false,
   urlApi: 'http://localhost:1337/',
-  urlMedia: 'http://localhost:1337/uploads/'
+  urlMedia: 'http://localhost:1337/uploads/',
+  urlClient: 'http://localhost:4200/'
   /* urlApi: 'https://api-smart-test.herokuapp.com/',
   urlMedia: 'https://api-smart-test.herokuapp.com/uploads/' */
 };

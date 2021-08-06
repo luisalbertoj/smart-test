@@ -15,71 +15,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Nombre del sistema</span>
             </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea [(ngModel)]="plan.title" name="plan.title" class="form-control"
+              aria-label="With textarea"></textarea>
           </div>
-          <!--   
           <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p> -->
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-      font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
 
           <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>1.<span
@@ -93,7 +32,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Objetivo</span>
             </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea [(ngModel)]="plan.objetivo" name="plan.objetivo" class="form-control"
+              aria-label="With textarea"></textarea>
           </div>
           <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>2.<span
@@ -103,6 +43,13 @@
 
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
       color:#0070C0'>&lt;Realizar una breve descripción del sistema a probar&gt;</span></p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Descripcion</span>
+            </div>
+            <textarea [(ngModel)]="plan.descripcion" name="plan.descripcion" class="form-control"
+              aria-label="With textarea"></textarea>
+          </div>
 
           <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.<span
@@ -113,6 +60,13 @@
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
       color:#0070C0'>&lt;Defina la estructura del sistema a probar- especificando
               módulos, submódulos y formularios&gt;</span></p>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Modulos</span>
+            </div>
+            <textarea [(ngModel)]="plan.modulos" name="plan.modulos" class="form-control"
+              aria-label="With textarea"></textarea>
+          </div>
 
           <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>4.<span
@@ -122,7 +76,13 @@
 
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
       color:#0070C0'>&lt;Listado de los formularios a probar del aplicativo&gt;</span></p>
-
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Formularios</span>
+            </div>
+            <textarea [(ngModel)]="plan.formularios" name="plan.formularios" class="form-control"
+              aria-label="With textarea"></textarea>
+          </div>
           <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>5.<span
                   style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
@@ -158,12 +118,19 @@
               Este formato presenta la información necesaria para que el proveedor
               identifique exactamente en donde debe realizar la corrección, ver formato 1.
               (Este contiene la descripción de este.)</span></p>
-
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Metodologia</span>
+            </div>
+            <textarea [(ngModel)]="plan.meotodologia" name="plan.metodologia" class="form-control"
+              aria-label="With textarea"></textarea>
+          </div>
           <p class=MsoNormal></p>
 
-          <div align=center>
+          <div>
 
-            <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>
+            <table class="MsoTableGrid" border=1 cellspacing=0 cellpadding=0
+              style='border-collapse:collapse;border:none'>
               <tr style='height:18.0pt'>
                 <td width=118 rowspan=3 valign=top style='width:88.5pt;border:solid windowtext 1.0pt;
         padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
@@ -190,6 +157,13 @@
                   <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
         line-height:normal'><b><span style='font-family:"Calibri Light",sans-serif;
         color:#0070C0'>Nombre del proyecto</span></b></p>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Nombre</span>
+                    </div>
+                    <textarea [(ngModel)]="plan.nombre" name="plan.nombre" class="form-control"
+                      aria-label="With textarea"></textarea>
+                  </div>
                 </td>
                 <td width=141 style='width:105.5pt;border-top:none;border-left:none;
         border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -231,6 +205,12 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>del
                       CP&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Id</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.identificador" name="plan.identificador"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
                 <td width=80 valign=top style='width:59.65pt;border-top:none;border-left:
         none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -245,6 +225,12 @@
                       style='color:#0070C0'>&lt;&lt;Número de versión del</span></p>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>CP&gt;&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Version</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.version" name="plan.version"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:21.4pt'>
@@ -259,6 +245,12 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Nombre del funcionario que realiza la
                       prueba&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Encargado</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.encargado" name="plan.encargado"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.25pt'>
@@ -272,6 +264,12 @@
         padding:0cm 5.4pt 0cm 5.4pt;height:20.25pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba el nombre del caso de prueba&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Nombre del caso</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.caso" name="plan.caso"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:21.5pt'>
@@ -294,6 +292,12 @@
                       la</span></p>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>prueba&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Modulo</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.modulo" name="plan.modulo"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
                 <td width=312 colspan=3 valign=top style='width:234.15pt;border-top:none;
         border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -303,6 +307,12 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>realiza
                       la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Submodulo</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.submodulo" name="plan.submodulo"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.65pt'>
@@ -650,7 +660,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="htmlData">
         <div class="container">
           <div lang=ES-CO style='word-wrap:break-word'>
 
@@ -660,8 +670,7 @@
         font-family:"Calibri Light",sans-serif'>PLAN DE PRUEBAS</span></b></p>
 
               <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-        font-family:"Calibri Light",sans-serif;color:#0070C0'>&lt;Nombre del sistema a
-                    probar&gt;</span></b></p>
+        font-family:"Calibri Light",sans-seri'>{{plan.title}}</span></b></p>
 
               <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
         font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
@@ -732,9 +741,7 @@
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>OBJETIVO</span></b>
               </p>
 
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>&lt;Especificar el objetivo a lograr con el desarrollo de las
-                  pruebas&gt;</span></p>
+              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;'>{{plan.objetivo}}</span></p>
 
               <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>2.<span
@@ -742,8 +749,8 @@
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>DESCRIPCIÓN
                     DEL SISTEMA</span></b></p>
 
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>&lt;Realizar una breve descripción del sistema a probar&gt;</span></p>
+              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;'>
+                {{plan.descripcion}}</span></p>
 
               <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.<span
@@ -751,9 +758,8 @@
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>MODULOS
                     DEL SISTEMA A PROBAR – Componente VE</span></b></p>
 
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>&lt;Defina la estructura del sistema a probar- especificando
-                  módulos, submódulos y formularios&gt;</span></p>
+              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;'>
+                {{plan.modulos}}</span></p>
 
               <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>4.<span
@@ -761,8 +767,8 @@
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>FORMULARIOS
                     DEL APLICATIVO A PROBAR</span></b></p>
 
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>&lt;Listado de los formularios a probar del aplicativo&gt;</span></p>
+              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;'>
+              {{plan.formularios}}</span></p>
 
               <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>5.<span
@@ -770,39 +776,12 @@
                     style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>METODOLOGIA
                     PARA LA APLICACIÓN DE LAS PRUEBAS</span></b></p>
 
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>&lt;Descripción de la metodología que se utilizará para realizar
-                  las pruebas&gt;</span></p>
-
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>&lt;P. EJEM: A continuación, se detalla la metodología de
-                  trabajo a seguir durante el proceso de las pruebas para el sistema de
-                  Información del Laboratorio de Salud Pública, en su componente de Vigilancia de
-                  Enfermedades (VE). La metodología general de pruebas a implementar es una
-                  metodología de pruebas de interfaz de usuario con pruebas de caja negra, en la
-                  cual se verificará el correcto funcionamiento sistema.</span></p>
-
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>Las pruebas realizadas se deben diligenciar en el aplicativo de
-                  Gestión de Pruebas dispuesto para tal fin, por la Dirección de Planeación y
-                  Sistemas, en la URL de acceso tanto interno como externo http://dev.saludcapital.gov.co/pruebas,
-                  el diligenciamiento de las pruebas estará a cargo del técnico del Laboratorio
-                  y/o del grupo de pruebas de la Dirección de Planeación y Sistemas, donde se
-                  hace necesario que el profesional de cada uno de los eventos esté presente (en
-                  el cronograma se especifica con que profesional trabajará cada uno de los
-                  integrantes del grupo de pruebas y/o técnico del laboratorio).</span></p>
-
-              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-        color:#0070C0'>Las no conformidades generadas por el proceso de pruebas serán enviadas
-                  al proveedor en el documento creado por el aplicativo de gestión de pruebas
-                  “Formato de Plan de Pruebas de Usuario”, para sus respectivas correcciones.
-                  Este formato presenta la información necesaria para que el proveedor
-                  identifique exactamente en donde debe realizar la corrección, ver formato 1.
-                  (Este contiene la descripción de este.)</span></p>
+              <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;'>
+                {{plan.metodologia}}</span></p>
 
               <p class=MsoNormal></p>
 
-              <div align=center>
+              <div>
 
                 <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
                   style='border-collapse:collapse;border:none'>
@@ -810,7 +789,7 @@
                     <td width=118 rowspan=3 valign=top style='width:88.5pt;border:solid windowtext 1.0pt;
           padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
                       <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-          line-height:normal'><img width=62 height=81 id="Imagen 3" src="assets/images/logo-udes.png"
+          line-height:normal'><img width=62 height=81 id="Imagen 3" src="{{client + 'assets/images/logo-udes.png'}}"
                           alt="Imagen relacionada"></p>
                     </td>
                     <td width=384 colspan=4 style='width:288.0pt;border:solid windowtext 1.0pt;
@@ -830,8 +809,8 @@
           none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
           padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt'>
                       <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-          line-height:normal'><b><span style='font-family:"Calibri Light",sans-serif;
-          color:#0070C0'>Nombre del proyecto</span></b></p>
+          line-height:normal'><b><span style='font-family:"Calibri Light",sans-serif;'>
+          {{plan.nombre}}</span></b></p>
                     </td>
                     <td width=141 style='width:105.5pt;border-top:none;border-left:none;
           border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -866,15 +845,8 @@
           none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
           padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
                       <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                          style='color:#0070C0'>CP
-                          -
-                          &lt;Número</span></p>
-                      <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                          style='color:#0070C0'>de
-                          identificación</span></p>
-                      <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                          style='color:#0070C0'>del
-                          CP&gt;</span></p>
+                          >
+                          {{plan.identificador}}</span></p>
                     </td>
                     <td width=80 valign=top style='width:59.65pt;border-top:none;border-left:
           none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -1288,6 +1260,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="generarWord()">Generar WORD</button>
       </div>
     </div>
   </div>

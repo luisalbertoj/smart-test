@@ -6,6 +6,9 @@ import { HomeComponent } from './home/home.component';
 import { ViewComponent } from './view/view.component';
 import { DashboardModule } from '../dashboard.module';
 import { PlanPruebasComponent } from './plan-pruebas/plan-pruebas.component';
+import { PlanUnitariasIntegracionComponent } from './plan-unitarias-integracion/plan-unitarias-integracion.component';
+import { PlanAceptacionComponent } from './plan-aceptacion/plan-aceptacion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,12 +16,16 @@ import { PlanPruebasComponent } from './plan-pruebas/plan-pruebas.component';
   declarations: [
     HomeComponent,
     ViewComponent,
-    PlanPruebasComponent
+    PlanPruebasComponent,
+    PlanUnitariasIntegracionComponent,
+    PlanAceptacionComponent
   ],
   imports: [
     CommonModule,
     LaboratoryRoutingModule,
-    DashboardModule
+    DashboardModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LaboratoryModule { }
