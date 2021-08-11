@@ -3,19 +3,20 @@
     <br>
     <br>
     <div class="_216b01 imgFondo">
-        <div class="container-fluid">			
+        <div class="container-fluid">
             <div class="row justify-content-md-center">
                 <div class="col-md-10">
-                    <div class="section3125 rpt145">							
-                        <div class="row">						
+                    <div class="section3125 rpt145">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-12">
-                                <a href="#" class="_216b22">										
+                                <a href="#" class="_216b22">
                                     <span><i class="uil uil-cog"></i></span>Setting
                                 </a>
-                                <div class="dp_dt150">						
+                                <div class="dp_dt150">
                                     <div class="img148">
                                         <div *ngIf="factory.user?.photo != null; else elseBlock">
-                                            <img src="{{(env + 'user/' + factory.user?.photo) || env + 'user/imgDefaults.jpg' }}" alt="Imagen de usuario">	
+                                            <img src="{{(env + 'user/' + factory.user?.photo) || env + 'user/imgDefaults.jpg' }}"
+                                                alt="Imagen de usuario">
                                         </div>
                                         <ng-template #elseBlock>
                                             <img src="{{(env + 'user/imgDefaults.jpg')}}" alt="Imagen del usuario">
@@ -25,55 +26,73 @@
                                         <h2>{{this.factory.user?.nombre}} {{this.factory.user.apellido}}</h2>
                                         <span>{{this.factory.user?.idRol?.nombre}}</span>
                                         <br>
-                                        <span>Grupo: {{this.factory.user?.grupos?.codigo}}</span>
+                                        <span *ngIf="factory.user.idRol.nombre==='estudiante'">Grupo: 
+                                            <ng-container *ngFor="let grupo of this.factory.user?.grupos">
+                                                {{grupo.codigo}}
+                                            </ng-container>
+                                        </span>
                                     </div>
                                 </div>
 
-                            
-                                <ul class="_ttl120">										
-                                    <li>
-                                        <div class="_ttl121 li1">
-                                            <div class="_ttl122">Lecciones</div>
-                                            <div class="_ttl123">{{data.lecciones}}</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="_ttl121 li2">
-                                            <div class="_ttl122">Tests</div>
-                                            <div class="_ttl123">{{data.tests}}</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="_ttl121 li3">
-                                            <div class="_ttl122">Laboratorios</div>
-                                            <div class="_ttl123">{{data.laboratorios}}</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="_ttl121 li4">
-                                            <div class="_ttl122">Rendimiento</div>
-                                            <div class="_ttl123">{{data.lecciones}}%</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>                        													
-                        </div>							
-                    </div>							
-                </div>															
+                                <ng-container
+                                    *ngIf="factory.user.idRol.nombre==='docente' || factory.user.idRol.nombre==='administrador' ">
+                                    <button type="button" class="btn btn-plantilla" data-toggle="modal" data-target="#exampleModal">Generar código registro</button>
+                                    <!-- Modal -->
+
+                                </ng-container>
+
+
+
+
+                                <ng-container *ngIf="factory.user.idRol.nombre==='estudiante'">
+                                    <ul class="_ttl120">
+                                        <li>
+                                            <div class="_ttl121 li1">
+                                                <div class="_ttl122">Lecciones</div>
+                                                <div class="_ttl123">{{data.lecciones}}</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="_ttl121 li2">
+                                                <div class="_ttl122">Tests</div>
+                                                <div class="_ttl123">{{data.tests}}</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="_ttl121 li3">
+                                                <div class="_ttl122">Laboratorios</div>
+                                                <div class="_ttl123">{{data.laboratorios}}</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="_ttl121 li4">
+                                                <div class="_ttl122">Rendimiento</div>
+                                                <div class="_ttl123">{{data.lecciones}}%</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </ng-container>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="_215b15" style="background-color: white;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">						
+                <div class="col-lg-12">
                     <div class="course_tabs">
                         <nav>
                             <div class="nav nav-tabs tab_crse" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">Mis datos</a>
-                                <a class="nav-item nav-link" id="nav-purchased-tab" data-toggle="tab" href="#nav-purchased" role="tab" aria-selected="false">Mis lecciones</a>
+                                <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab"
+                                    href="#nav-about" role="tab" aria-selected="true">Mis datos</a>
+                                <a class="nav-item nav-link" id="nav-purchased-tab" data-toggle="tab"
+                                    href="#nav-purchased" role="tab" aria-selected="false">Mis lecciones</a>
                             </div>
-                        </nav>						
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -82,70 +101,82 @@
     <div class="_215b17" style="background-color: white;">
         <div class="container">
             <div class="row">
+                <div class="col-sm-12 col-md-12 justify-content-end d-flex">
+                    <button class="btn btn-plantilla"  (click)="habilitar()"> Editar</button>
+                </div>
+
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="course_tab_content">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
                                 <div class="_htg451">
-                                    <div class="_htg452"   >
+                                    <div class="_htg452">
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6 colDatos1" >
+                                            <div class="col-sm-6 col-md-6 colDatos1">
                                                 <label>Nombre</label>
-                                                <input  name="nombre" class="form-control ng-untouched ng-pristine ng-valid"
-                                                type="text" placeholder=""  value="{{factory.user.nombre}}" disabled="false"/>
-                                                
-                                            </div> 
-                                                
+                                                <input  [(ngModel)]="persona.nombre" name="persona.nombre"
+                                                    class="form-control ng-untouched ng-pristine ng-valid" type="text"
+                                                    placeholder="" value="{{factory.user.nombre}}" [readonly]="readonly" />
+                                            </div>
+
                                             <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Apellido</label>
-                                                <input  name="apellido" class="form-control ng-untouched ng-pristine ng-valid"
-                                                type="text" placeholder=""  value="{{factory.user.apellido}}" disabled="false"/>
+                                                <input name="apellido"
+                                                    class="form-control ng-untouched ng-pristine ng-valid" type="text"
+                                                    placeholder="" value="{{factory.user.apellido}}" [readonly]="readonly" />
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 colDatos1">
                                                 <label>Cédula</label>
-                                                <input  name="cedula" class="form-control ng-untouched ng-pristine ng-valid"
-                                                type="text" placeholder=""  value="{{factory.user.cedula}}" disabled="false"/>
+                                                <input name="cedula"
+                                                    class="form-control ng-untouched ng-pristine ng-valid" type="text"
+                                                    placeholder="" value="{{factory.user.cedula}}" [readonly]="readonly" />
                                             </div>
                                             <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Email</label>
-                                                <input  name="email" class="form-control ng-untouched ng-pristine ng-valid"
-                                                type="text" placeholder=""  value="{{factory.user.email}}" disabled="false"/>
+                                                <input name="email"
+                                                    class="form-control ng-untouched ng-pristine ng-valid" type="text"
+                                                    placeholder="" value="{{factory.user.email}}" [readonly]="readonly" />
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 colDatos1">
                                                 <label>Código</label>
-                                                <input  name="codigo" class="form-control ng-untouched ng-pristine ng-valid" 
-                                                type="text" placeholder=""  value="{{factory.user.codigo}}" disabled="false"/>
+                                                <input name="codigo"
+                                                    class="form-control ng-untouched ng-pristine ng-valid" type="text"
+                                                    placeholder="" value="{{factory.user.codigo}}"  [readonly]="readonly"/>
                                             </div>
                                             <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Username</label>
-                                                <input  name="user.email" class="form-control ng-untouched ng-pristine ng-valid"
-                                                type="text" placeholder=""  value="{{factory.user.username}}" disabled="false"/>
+                                                <input name="user.email"
+                                                    class="form-control ng-untouched ng-pristine ng-valid" type="text"
+                                                    value="{{factory.user.username}}" id="input" [readonly]="readonly"/>
                                             </div>
                                         </div>
-                                    </div>	
+                                    </div>
                                     <br>
                                     <div class="row">
+                                        
                                         <div class="col-sm-12 col-md-12 justify-content-center d-flex">
-                                        <button class="btn btn-plantilla"> Editar</button>	
+                                            <button class="btn btn-plantilla"   (click)="actualizarUser()" (click)="desabilitar()"> Guardar</button>
                                         </div>
                                     </div>
-                                </div>							
+                                </div>
                             </div>
                             <div class="tab-pane fade show" id="nav-purchased" role="tabpanel">
                                 <div class="_htg451">
                                     <div class="_htg452">
                                         <h3>Mis lecciones</h3>
-                                            <div class="row">
+                                        <div class="row">
                                             <div class="col-md-9">
                                                 <div class="fcrse_1 mt-20">
                                                     <a href="course_detail_view.html" class="hf_img">
-                                                        <img src="images/courses/img-1.jpg" alt="">
+                                                    
                                                         <div class="course-overlay">
                                                             <div class="badge_seller">Bestseller</div>
                                                             <div class="crse_reviews">
@@ -161,36 +192,66 @@
                                                         <div class="eps_dots eps_dots10 more_dropdown">
                                                             <a href="#"><i class="uil uil-ellipsis-v"></i></a>
                                                             <div class="dropdown-content">
-                                                                <span><i class="uil uil-download-alt"></i>Download</span>															
-                                                                <span><i class="uil uil-trash-alt"></i>Delete</span>															
-                                                            </div>																											
+                                                                <span><i
+                                                                        class="uil uil-download-alt"></i>Download</span>
+                                                                <span><i class="uil uil-trash-alt"></i>Delete</span>
+                                                            </div>
                                                         </div>
                                                         <div class="vdtodt">
                                                             <span class="vdt14">109k views</span>
                                                             <span class="vdt14">15 days ago</span>
                                                         </div>
-                                                        <a href="course_detail_view.html" class="crse14s title900">Complete Python Bootcamp: Go from zero to hero in Python 3</a>
+                                                        <a href="course_detail_view.html"
+                                                            class="crse14s title900">Complete Python Bootcamp: Go from
+                                                            zero to hero in Python 3</a>
                                                         <a href="#" class="crse-cate">Web Development | Python</a>
                                                         <div class="purchased_badge">Purchased</div>
                                                         <div class="auth1lnkprce">
                                                             <p class="cr1fot">By <a href="#">John Doe</a></p>
-                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                        
-                                                
-                                            
-                                            </div>									
+                                            </div>
                                         </div>
-                                    </div>																	
-                                </div>							
+                                    </div>
+                                </div>
                             </div>
-                        
-                            
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Código registro de estudiantes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="consulta.grupo">
+                    Grupos
+                    <select (click)="selectGrupo()" [(ngModel)]="consulta.grupo" class="custom-select" id="inputGroupSelect01">
+                    <option value="">Todos los grupos...</option>
+                      <option *ngFor="let grupo of grupos" value="{{grupo.codigo}}">
+                        {{grupo.codigo}} - {{grupo.nombre}}
+                    </option>
+                    </select>
+                </label>
+                <input  type="text" [(ngModel)]="codeEncrypt" 
+                    class="form-control ng-untouched ng-pristine ng-valid" #formInputText [readonly]="readonly"
+                    />
+            </div>
+            <div class="modal-footer">
+                <i class="far fa-copy fa-2x color-secondary" [ngxClipboard]="formInputText"></i>
             </div>
         </div>
     </div>

@@ -40,20 +40,20 @@
                   value="" id="id_username" required="" maxlength="64" placeholder="Username" required>
               </div>
             </div>
+
             <div class="ui search focus mt-15">
               <div class="ui left icon input swdh11 swdh19">
                 <input [(ngModel)]="persona.password" class="prompt srch_explore" type="password"
                   name="persona.password" value="" id="id_password" required="" maxlength="64" placeholder="Contraseña" required>
               </div>
             </div>
-            <!-- <div class="ui form mt-30 checkbox_sign">
-                            <div class="inline field">
-                                <div class="ui checkbox mncheck">
-                                    <input type="checkbox" tabindex="0" class="hidden">
-                                    <label>I’m in for emails with exciting discounts and personalized recommendations</label>
-                                </div>
-                            </div>
-                        </div> -->
+            <br>
+              <div class="ui search focus">
+              <div class="ui left icon input swdh11 swdh19">
+                <input [(ngModel)]="codigoRegistro" class="prompt srch_explore" type="text" name="codigoRegistro"
+                  value="" id="codigoRegistro" required="true" maxlength="64" placeholder="Código de registro" required>
+              </div>
+            </div>
             <button (click)="registrar()" class="login-btn boton" type="submit">Crear cuenta</button>
           </form>
           <p class="mb-0 mt-30">¿ya tienes una cuenta? <a [routerLink]="['/auth']"

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import Swal from 'sweetalert2';
 
 declare var $:any;
 
@@ -102,7 +103,8 @@ export class NewLessonComponent implements OnInit {
     public factory: FactoryService,
     private toast: ToastrService,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private activateRouter: ActivatedRoute
   ) {
     
   }
@@ -113,6 +115,26 @@ export class NewLessonComponent implements OnInit {
     this.cargarPreconceptos();
     this.cargarTipos();
     this.cargarObjetivos();
+
+    this.factory.returnAsObservable().subscribe((subs) => {
+      subs === true ? this.spinner.hide() : this.spinner.show();
+    });
+    const slug = this.activateRouter.snapshot.paramMap.get('slug');
+    this.loadLeccion(slug);
+  }
+
+  loadLeccion(slug) {
+    this.factory
+      .get('getleccion', slug)
+      .subscribe((response: any) => {
+        if (response.status === 500) {
+          Swal.fire('Ops', response.data, 'info');
+        } else {
+          this.leccion = response.data;
+          console.log("carga de leccion a actualizar", this.leccion);
+
+        }
+      });
   }
 
   selectCompetencias(dato) {

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
+import * as CryptoJS from 'crypto-js';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +14,11 @@ export class FactoryService {
     this.loadUser();
   }
   loadUser() {
-    this.user = JSON.parse(localStorage.getItem('user'));
+    try {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    } catch (error) {
+      localStorage.clear();
+    }
   }
   post(model: string, data: any) {
     return this.http.post(environment.urlApi + model, data);
@@ -64,5 +68,15 @@ export class FactoryService {
   }
   hideSpinner() {
     this.sub.next(false);
+  }
+
+  encryptData(data, inicio?, final?) {
+    try {
+      const codigo = inicio && final ? CryptoJS.AES.encrypt((data), environment.secretKey ).toString().slice(inicio,final): CryptoJS.AES.encrypt((data), environment.secretKey ).toString();
+      return codigo;
+    } catch (e) {
+      console.log(e);
+      return '';
+    }
   }
 }

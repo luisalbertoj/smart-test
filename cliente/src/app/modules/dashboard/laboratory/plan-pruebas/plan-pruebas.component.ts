@@ -26,7 +26,13 @@ export class PlanPruebasComponent implements OnInit {
     version: '',
     caso: '',
     modulo: '',
-    submodulo: ''
+    submodulo: '',
+    formulario: '',
+    descripcionPrueba: '',
+    resultadosEsperados: '',
+    resultadosReales: '',
+    error: '',
+    responsables: '',
   }
   constructor(
     private spinner: NgxSpinnerService

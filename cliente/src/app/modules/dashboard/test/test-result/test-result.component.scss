@@ -1,0 +1,28 @@
+.resultGrafits{
+    height: 300px;
+}
+
+.result_content{
+    margin-top: 30px;
+    width: 100%;
+    
+}
+
+.checkColorT2 ::before{
+	color: green;
+	background-color: green !important;
+}
+
+.checkColorT ::before{
+	color: red;
+	background-color: red !important;
+}
+
+.colPregunt{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+hr{
+    margin: 0;
+}

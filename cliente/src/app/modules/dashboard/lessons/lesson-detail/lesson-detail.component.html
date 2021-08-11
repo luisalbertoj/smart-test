@@ -20,27 +20,13 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="_215b10">										
-                                    <a href="#" class="_215b11">										
-                                        <span><i class='uil uil-heart-alt'></i></span>Favoritos
-                                    </a>
-                                </div>
+                            
                             </div>
                             <div class="col-xl-8 col-lg-7 col-md-6">
                                 <div class="_215b03">
                                     <h2>{{this.leccion.titulo}}</h2>
                                     <span class="_215b04">{{this.leccion.objetivo?.contenido}}</span>
                                 </div>
-                                <div class="_215b05">
-                                    <div class="crse_reviews mr-2">
-                                        <i class="uil uil-star"></i> {{this.leccion.codigo}}
-                                    </div>
-                                    {{this.leccion.completado}} (Completado)
-                                </div>
-                                <div class="_215b05">										
-                                    {{this.leccion.cantidad_estudiantes}} Estudiantes la han completado
-                                </div>
-                        
                                 <ul class="_215b31">										
                                     <li>
                                         <a [routerLink]="['/dashboard/lesson', this.leccion.slug]" routerLinkActive="router-link-active">
@@ -66,7 +52,7 @@
                                     <a href="#"><img src="{{this.leccion?.creador?.img || 'assets/images/hd_dp.jpg'}}" alt=""></a>												
                                 </div>
                                 <div class="user_cntnt">
-                                    <a href="#" class="_df7852">{{this.leccion?.creador?.nombre}} {{this.leccion?.creador?.apellido}}</a>
+                                    <a href="#" class="_df7852">{{this.leccion?.creador?.nombre}} {{this.leccion?.creador?.apellido}} {{this.leccion?.creador?.idRol?.nombre}}</a>
                                 </div>
                             </div>
                         </div>

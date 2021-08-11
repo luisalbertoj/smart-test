@@ -1,4 +1,13 @@
-
 .btnvercomp{
     margin-top: 0.5%;
+}
+
+.btnEditar{
+    margin-right: 15px;
+    background-color: #43bd41;
+}
+
+h3{
+    margin: 0;
+    background-color: #2671c3;
 }

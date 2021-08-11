@@ -87,7 +87,7 @@ module.exports = {
       },
       success: function () {
         console.log(params);
-        Persona.findOne({ username: params.username })
+        Persona.findOne({ username: params.username }).populate('grupos')
           .then((persona) => {
             if (persona) {
               console.log(params.password);

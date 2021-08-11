@@ -277,20 +277,21 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Módulo</span></b></p>
                 </td>
                 <td width=312 colspan=3 valign=top style='width:234.15pt;border-top:none;
-        border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-        padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
+                    border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Submódulo</span></b>
                   </p>
                 </td>
               </tr>
               <tr style='height:35.55pt'>
                 <td width=330 colspan=3 valign=top style='width:247.85pt;border:solid windowtext 1.0pt;
-        border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
+                  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el módulo al cual se realiza
                       la</span></p>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>prueba&gt;</span></p>
+                      
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">Modulo</span>
@@ -299,8 +300,8 @@
                       </div>
                 </td>
                 <td width=312 colspan=3 valign=top style='width:234.15pt;border-top:none;
-        border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-        padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
+                border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el submódulo al cual se</span></p>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
@@ -314,6 +315,7 @@
                       </div>
                 </td>
               </tr>
+
               <tr style='height:20.65pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
         border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.65pt'>
@@ -321,27 +323,41 @@
                   </p>
                 </td>
               </tr>
+
               <tr style='height:21.0pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-        border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt'>
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el formulario en el cual se realiza
                       la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Formulario</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.formulario" name="plan.formulario"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
+
               <tr style='height:20.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-        border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
+                    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Descripción de la
                         prueba</span></b></p>
                 </td>
               </tr>
               <tr style='height:21.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-        border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
+                  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba el procedimiento (pasos) en detalle
                       de la prueba que va a realizar&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Descripción prueba</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.descripcionPrueba" name="plan.descripcionPrueba"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:19.8pt'>
@@ -353,10 +369,16 @@
               </tr>
               <tr style='height:21.5pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-        border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
+              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el resultado ideal de la
                       prueba&gt;</span></p>
+                  <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Resultados esperados</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.resultadosEsperados" name="plan.resultadosEsperados"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
               </tr>
               <tr style='height:20.4pt'>
@@ -372,11 +394,17 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el resultado real de la prueba
                       realizada&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Resultados reales</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.resultadosReales" name="plan.resultadosReales"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.95pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-        border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.95pt'>
+                border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.95pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Error</span></b></p>
                 </td>
               </tr>
@@ -386,6 +414,12 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Describa el error que se encontró luego de
                       realizar la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Error</span>
+                        </div>
+                        <textarea [(ngModel)]="plan.error" name="plan.error"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.6pt'>
@@ -578,11 +612,13 @@
 
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
       color:#0070C0'>&lt;Relacione los responsables de las pruebas incluyendo los
-              responsables</span></p>
-
-          <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
-      color:#0070C0'>funcionales y el grupo de pruebas&gt;</span></p>
-
+              responsables funcionales y el grupo de pruebas&gt;</span></p>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Responsables</span>
+                </div>
+                <textarea [(ngModel)]="plan.responsables" name="plan.responsables"class="form-control" aria-label="With textarea"></textarea>
+              </div>
           <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>8.<span
                   style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES

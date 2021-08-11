@@ -11,6 +11,7 @@ import { MaterialModule } from './material.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,6 +26,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ToastrModule.forRoot(),
     MaterialModule,
     NgCircleProgressModule.forRoot()
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

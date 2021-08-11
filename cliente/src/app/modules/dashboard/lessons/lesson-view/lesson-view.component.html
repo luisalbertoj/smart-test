@@ -26,13 +26,13 @@
                     <span class="step-name">Practica</span>
                   </a>
                 </li>
-                <li  [ngClass]="classStep.three">
+                <li [ngClass]="classStep.three">
                   <a>
                     <span class="number"></span>
-                    <span class="step-name">Realimentación</span>
+                    <span class="step-name">Resultados</span>
                   </a>
                 </li>
-                <li  [ngClass]="classStep.fourt">
+                <li [ngClass]="classStep.fourt">
                   <a>
                     <span class="number"></span>
                     <span class="step-name">Aplica</span>
@@ -46,7 +46,7 @@
                   <div class="tab-from-content">
                     <div class="title-icon">
                       <h3 class="title">
-                        Aprender
+                        <i class="fas fa-book"></i> Aprender
                       </h3>
                     </div>
                     <div class=" aprenderContent">
@@ -54,7 +54,8 @@
                       <div class="step-footer step-tab-pager btnSiguiente">
                         <a id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
                           aria-controls="pills-contact" aria-selected="false">
-                          <button data-direction="next" class="btn btn-default steps_btn btn-plantilla" (click)="change('one','two')">
+                          <button data-direction="next" class="btn btn-default steps_btn btn-plantilla"
+                            (click)="change('one','two')">
                             Siguiente
                             <i class="fas fa-arrow-right"></i>
                           </button>
@@ -69,71 +70,71 @@
                   <div class="tab-from-content">
                     <div class="title-icon">
                       <h3 class="title">
-                        Practicar
+                        <i class="fas fa-laptop"></i>  Practicar
                       </h3>
                     </div>
                     <div class="practicaContent">
                       <!-- Body Start -->
-                              <h2>Seleccionar la respuesta correcta</h2>
-                              <div *ngFor="
+                      <h2>Seleccionar la respuesta correcta</h2>
+                      <div *ngFor="
                                   let pregunta of leccion.practicar;
                                   index as i
                                 ">
-                                <div *ngIf="
+                        <div *ngIf="
                                     pregunta.respuestas?.length > 0 &&
                                     pregunta?.tipo?.nombre === 'multiple'
                                   " class="ques_item">
-                                  <div class="">
-                                    <span>Pregunta {{ i + 1 }} : </span>
-                                    <span [innerHTML]="pregunta?.contenido"></span>
-                                  </div>
-                                  <div class="ui form">
-                                    <div class="grouped fields">
-                                      <div class="field fltr-radio" *ngFor="
+                          <div class="">
+                            <span>Pregunta {{ i + 1 }} : </span>
+                            <span [innerHTML]="pregunta?.contenido"></span>
+                          </div>
+                          <div class="ui form">
+                            <div class="grouped fields">
+                              <div class="field fltr-radio" *ngFor="
                                           let respuesta of pregunta.respuestas
                                         ">
-                                        <div class="ui radio checkbox">
-                                          <input type="radio" name="{{i}}" tabindex="0"
-                                            (click)="respuestaSeleccionada(i,respuesta.id)" required>
+                                <div class="ui radio checkbox">
+                                  <input type="radio" name="{{i}}" tabindex="0"
+                                    (click)="respuestaSeleccionada(i,respuesta.id)" required>
 
-                                          <label [innerHTML]="respuesta?.contenido"></label>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                  <label [innerHTML]="respuesta?.contenido"></label>
                                 </div>
-
-                                <div *ngIf="pregunta.tipo?.nombre === 'abierta'">
-                                  <div class="ques_title">
-                                    <span>Pregunta {{ i + 1 }}:- </span>
-                                    {{ pregunta?.contenido }}
-                                  </div>
-                                  <div class="ui search focus mt-15">
-                                    <div class="ui form swdh30">
-                                      <div class="field">
-                                        <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
-                                          required></textarea>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
                               </div>
+                            </div>
+                          </div>
+                        </div>
 
-
-                              <div class="step-footer step-tab-pager btnSiguiente">
-                                <a id="#tab_step3-tab" data-toggle="pill" href="#tab_step3" role="tab"
-                                  aria-controls="#tab_step3" aria-selected="false">
-                                  <button (click)="validarRespuestas()" data-direction="next"
-                                    class="btn btn-default steps_btn " (click)="change('two','three')">
-                                    Siguiente <i class="fas fa-arrow-right"></i>
-                                  </button>
-                                </a>
+                        <div *ngIf="pregunta.tipo?.nombre === 'abierta'">
+                          <div class="ques_title">
+                            <span>Pregunta {{ i + 1 }}:- </span>
+                            {{ pregunta?.contenido }}
+                          </div>
+                          <div class="ui search focus mt-15">
+                            <div class="ui form swdh30">
+                              <div class="field">
+                                <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
+                                  required></textarea>
                               </div>
-                          
-                          
-                        
-                      
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+                      <div class="step-footer step-tab-pager btnSiguiente">
+                        <a id="#tab_step3-tab" data-toggle="pill" href="#tab_step3" role="tab"
+                          aria-controls="#tab_step3" aria-selected="false">
+                          <button (click)="validarRespuestas()" data-direction="next" class="btn btn-default steps_btn "
+                            (click)="change('two','three')">
+                            Siguiente <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </a>
+                      </div>
+
+
+
+
                     </div>
                   </div>
                 </div>
@@ -146,7 +147,7 @@
                           <div class="row">
                             <div class="col-lg-12">
                               <div class=" title-icon titleResult">
-                                <h3 class="title">Resultados</h3>
+                                <h3 class="title"><i class="fas fa-poll"></i>Resultados</h3>
                               </div>
                             </div>
                           </div>
@@ -214,7 +215,7 @@
                                             <div class="grouped fields">
                                               <div class="field fltr-radio"
                                                 *ngFor=" let respuesta of pregunta.respuestas">
-                                                <div class="ui radio checkbox checkColor" *ngIf="
+                                                <div class="ui radio checkbox " *ngIf="
                                                   respuesta.id === this.response.resUser [i] &&
                                                     this.response.resUser[ i ] !== pregunta.respuestaCorrecta;
                                                   else elseBlock ">
@@ -249,12 +250,14 @@
                                                     </div>
                                                   </ng-template>
                                                 </ng-template>
-                                                
+
                                                 <!--retroalimentacion-->
-                                                <div *ngIf="respuesta.retroalimentacion" class="alert alert-warning" role="alert">
-                                                  <i class="fas fa-star"></i> - <span [innerHTML]="respuesta?.retroalimentacion"></span>
+                                                <div *ngIf="respuesta.retroalimentacion" class="alert alert-warning"
+                                                  role="alert">
+                                                  <i class="fas fa-star"></i> - <span
+                                                    [innerHTML]="respuesta?.retroalimentacion"></span>
                                                 </div>
-                                              </div> 
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -281,7 +284,8 @@
                                       <div class="step-footer step-tab-pager btnSiguiente">
                                         <a id="#tab_step4-tab" data-toggle="pill" href="#tab_step4" role="tab"
                                           aria-controls="#tab_step4" aria-selected="false">
-                                          <button data-direction="next" class="btn btn-default steps_btn " (click)="change('three','fourt')">
+                                          <button data-direction="next" class="btn btn-default steps_btn "
+                                            (click)="change('three','fourt')">
                                             Siguiente <i class="fas fa-arrow-right"></i>
                                           </button>
                                         </a>
@@ -291,9 +295,6 @@
                                 </div>
                               </div>
                             </div>
-
-
-
 
                           </div>
                         </div>
@@ -308,7 +309,7 @@
                   <div class="tab-from-content">
                     <div class="title-icon">
                       <h3 class="title">
-                        Aplicar
+                        <i class="fas fa-laptop-code"></i>Aplicar
                       </h3>
                     </div>
                     <div class="

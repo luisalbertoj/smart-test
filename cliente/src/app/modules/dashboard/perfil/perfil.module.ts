@@ -5,6 +5,9 @@ import { PerfilRoutingModule } from './perfil-routing.module';
 import { PerfilComponent } from './perfil/perfil.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClipboardModule } from 'ngx-clipboard';
+
+
 
 
 @NgModule({
@@ -15,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PerfilRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClipboardModule
+
   ]
 })
 export class PerfilModule { }

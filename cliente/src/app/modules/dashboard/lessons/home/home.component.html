@@ -39,16 +39,14 @@
               </div>
               <div class="tutor_content_dt">
                 <div class="tutor150">
-                  <a href="#" class="tutor_name">{{
-                    this.leccion.docente.nombre
-                    }}</a>
+                  <a href="#" class="tutor_name">
+                    {{this.leccion.docente.nombre}}</a>
                   <div class="mef78" title="Verify">
                     <i class="uil uil-check-circle"></i>
                   </div>
                 </div>
                 <div class="tutor_cate">
-                  {{ this.leccion.docente.rol.nombre }}
-                  
+                
                 </div>
                 <div class="tut1250">
                   <span class="vdt15">0 Estudiantes</span>
@@ -63,8 +61,10 @@
       <hr />
       <div class="row">
         <div class="col-sm-12">
-          <button class="part_btn_save prt-sv btn-plantilla btnvercomp" (click)="modo = !modo">
-            Ver por competencias
+      
+          <button class="btn btn-plantilla btnvercomp" (click)="modo = !modo">
+           <h3 *ngIf="!modo">Ver por competencias</h3> 
+           <h3 *ngIf="modo">Ver lecciones</h3> 
           </button>
           <div *ngIf="!modo">
             <br />
@@ -102,7 +102,11 @@
                     Creada por: <a href="#">{{ factory.user.nombre }}</a>
                   </p>
                   <div class="prce142">
-                    <button (click)="iniciar(leccion.slug)" class="part_btn_save btn-plantilla" type="button">
+
+                    <a [routerLink]="['/dashboard/lesson/lesson-editar', this.leccion.slug]" routerLinkActive="router-link-active"  class="btn btn-plantilla btnEditar" type="button">
+                      Editar
+                    </a> 
+                    <button (click)="iniciar(leccion.slug)" class="btn btn-plantilla" type="button">
                       Iniciar
                     </button>
                   </div>
@@ -178,7 +182,10 @@
                           Creada por: <a href="#">{{ factory.user.nombre }}</a>
                         </p>
                         <div class="prce142">
-                          <button (click)="iniciar(leccion.slug)" class="part_btn_save btn-plantilla" type="button">
+                          <a [routerLink]="['/dashboard/lesson/lesson-editar', this.leccion.slug]" routerLinkActive="router-link-active"  class="btn btn-plantilla btnEditar" type="button">
+                            Editar
+                          </a> 
+                          <button (click)="iniciar(leccion.slug)" class="btn btn-plantilla" type="button">
                             Iniciar
                           </button>
                         </div>
