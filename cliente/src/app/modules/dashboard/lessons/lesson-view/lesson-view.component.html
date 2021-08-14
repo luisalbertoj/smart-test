@@ -64,13 +64,12 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="step-tab-panel step-tab-gallery" id="pills-contact" role="tabpanel"
                   aria-labelledby="pills-contact-tab">
                   <div class="tab-from-content">
                     <div class="title-icon">
                       <h3 class="title">
-                        <i class="fas fa-laptop"></i>  Practicar
+                        <i class="fas fa-laptop"></i> Practicar
                       </h3>
                     </div>
                     <div class="practicaContent">
@@ -96,14 +95,12 @@
                                 <div class="ui radio checkbox">
                                   <input type="radio" name="{{i}}" tabindex="0"
                                     (click)="respuestaSeleccionada(i,respuesta.id)" required>
-
                                   <label [innerHTML]="respuesta?.contenido"></label>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-
                         <div *ngIf="pregunta.tipo?.nombre === 'abierta'">
                           <div class="ques_title">
                             <span>Pregunta {{ i + 1 }}:- </span>
@@ -118,10 +115,7 @@
                             </div>
                           </div>
                         </div>
-
                       </div>
-
-
                       <div class="step-footer step-tab-pager btnSiguiente">
                         <a id="#tab_step3-tab" data-toggle="pill" href="#tab_step3" role="tab"
                           aria-controls="#tab_step3" aria-selected="false">
@@ -131,10 +125,6 @@
                           </button>
                         </a>
                       </div>
-
-
-
-
                     </div>
                   </div>
                 </div>
@@ -159,7 +149,6 @@
                             <div class="col-md-6 resultGrafits">
                               <div class="certi_form rght1528">
                                 <div class="test_result_bg ">
-
                                   <ul class="test_result_left">
                                     <li>
                                       <div class="result_dt">
@@ -183,16 +172,11 @@
                                   </ul>
                                   <div class="result_content">
                                     <h2>Buen trabajo!</h2>
-
                                   </div>
                                 </div>
-
                                 <!-- Body Start -->
-
                               </div>
                             </div>
-
-
                             <div class="wrapper _bg4586 _new89">
                               <div class="faq1256">
                                 <div class="container">
@@ -210,7 +194,6 @@
                                             <span>Pregunta {{ i + 1 }} : </span>
                                             <span [innerHTML]="pregunta?.contenido"></span>
                                           </div>
-
                                           <div class="ui form">
                                             <div class="grouped fields">
                                               <div class="field fltr-radio"
@@ -224,7 +207,6 @@
                                                     respuesta?.contenido
                                                   "></label> </p>
                                                 </div>
-
                                                 <ng-template #elseBlock>
                                                   <div class="ui radio checkbox checkColor2" *ngIf="
                                                     respuesta.id ===
@@ -262,24 +244,24 @@
                                           </div>
                                         </div>
 
-                                        <div *ngIf="
-                                          pregunta.tipo?.nombre ===
-                                          'abierta'
-                                        ">
+                                        <div *ngIf="pregunta?.tipo?.nombre === 'abierta'">
                                           <div class="ques_title">
-                                            <span>Pregunta {{ i + 1 }}:-
-                                            </span>
+                                            <span>Pregunta {{ i + 1 }}:- </span>
                                             {{ pregunta?.contenido }}
                                           </div>
                                           <div class="ui search focus mt-15">
                                             <div class="ui form swdh30">
                                               <div class="field">
-                                                <textarea rows="5" name="answer" id="id_answer"
-                                                  placeholder="Pls explain" required></textarea>
+                                                <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
+                                                  required></textarea>
                                               </div>
                                             </div>
                                           </div>
+                                          <div *ngIf="pregunta.retroalimentacion" class="alert alert-warning" role="alert">
+                                            {{ pregunta?.retroalimentacion}}
+                                          </div>
                                         </div>
+            
                                       </div>
                                       <div class="step-footer step-tab-pager btnSiguiente">
                                         <a id="#tab_step4-tab" data-toggle="pill" href="#tab_step4" role="tab"

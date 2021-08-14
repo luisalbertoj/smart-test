@@ -20,6 +20,7 @@ export class TestResultComponent implements OnInit {
   
   cargarDatos () {
     this.result = JSON.parse(localStorage.getItem('result'));
+    if(!this.result) this.router.navigate(['dashboard/test']);
     console.log(this.result);
 
   }

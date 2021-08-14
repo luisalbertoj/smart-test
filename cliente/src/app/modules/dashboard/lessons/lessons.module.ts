@@ -13,12 +13,13 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonViewComponent } from './lesson-view/lesson-view.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DashboardModule } from '../dashboard.module';
+import { ResultComponent } from './result/result.component';
 
 
 
 
 @NgModule({
-  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent],
+  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent, ResultComponent],
   imports: [
     CommonModule,
     HttpClientModule,

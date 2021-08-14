@@ -16,7 +16,10 @@ module.exports = {
     try {
       for await (let [key, pregunta] of parametros.preguntas.entries()) {
         pregunta.tipo = (await TipoPregunta.findOne({nombre: pregunta.tipo})).id;
-        leccion.preguntas.push(await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());
+        leccion.preguntas.push(
+        pregunta.retroalimentacion != ''?
+        await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion }).fetch():
+        await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());        
         preguntas.push(leccion.preguntas[key].id);
         if(parametros.respuestas[key]) {
           for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
@@ -66,7 +69,7 @@ module.exports = {
     console.log(parametros);
     var leccion;
     try {
-      leccion = await Leccion.findOne(parametros).populate('practicar');
+      leccion = await Leccion.findOne(parametros).populate('practicar').populate('preconceptos').populate('competencias');
       if(!leccion) {return res.badRequest('La leccion no se encontro');}
       if (leccion.practicar.length === 0) {
         return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });

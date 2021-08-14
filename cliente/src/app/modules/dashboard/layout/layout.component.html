@@ -26,6 +26,10 @@
               <a [routerLink]="['/dashboard/lesson/new']" routerLinkActive="router-link-active"
                 class="sub_menu--link">Crear Lección</a>
             </li>
+            <li class="sub_menu--item">
+              <a [routerLink]="['/dashboard/lesson/result']" routerLinkActive="router-link-active"
+                class="sub_menu--link">Resultados</a>
+            </li>
           </ul>
         </li>
         <li class="menu--item menu--item__has_sub_menu">
@@ -35,8 +39,7 @@
           </label>
           <ul class="sub_menu">
             <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/test']" routerLinkActive="router-link-active" class="sub_menu--link">Mis
-                Pruebas</a>
+              <a [routerLink]="['/dashboard/test']" routerLinkActive="router-link-active" class="sub_menu--link">Mis Pruebas</a>
             </li>
           </ul>
           <ul class="sub_menu">
@@ -46,7 +49,11 @@
                 class="sub_menu--link">Crear prueba</a>
             </li>
           </ul>
-      
+          <ul class="sub_menu">
+            <li class="sub_menu--item">
+              <a [routerLink]="['/dashboard/test/view-result']" routerLinkActive="router-link-active" class="sub_menu--link">Resultados</a>
+            </li>
+          </ul>
         </li>
         <li class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">

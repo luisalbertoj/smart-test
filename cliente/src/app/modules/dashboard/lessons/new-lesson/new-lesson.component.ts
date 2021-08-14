@@ -7,7 +7,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import Swal from 'sweetalert2';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-new-lesson',
@@ -16,19 +16,19 @@ declare var $:any;
 })
 export class NewLessonComponent implements OnInit {
   tablaCompetencias: any = {
-    header: [{ name: '#' }, { name: 'Competencia' }, { name: 'Autor' }, { name: 'Acciones'}],
+    header: [{ name: '#' }, { name: 'Competencia' }, { name: 'Autor' }, { name: 'Acciones' }],
 
-    body: [{ name: 'id' }, { name: 'nombre' }, { name: 'creador', attribute: 'nombre'}],
+    body: [{ name: 'id' }, { name: 'nombre' }, { name: 'creador', attribute: 'nombre' }],
   };
 
   tablaPreconceptos: any = {
-    header: [{ name: '#' }, { name: 'Preconcepto' },  { name: 'Definición' }, { name: 'Acciones'}],
+    header: [{ name: '#' }, { name: 'Preconcepto' }, { name: 'Definición' }, { name: 'Acciones' }],
 
     body: [{ name: 'id' }, { name: 'titulo' }, { name: 'concepto' }],
   };
 
   tablaPreguntas: any = {
-    header: [{ name: '#' }, { name: 'Pregunta' },  { name: 'Acciones'}],
+    header: [{ name: '#' }, { name: 'Pregunta' }, { name: 'Acciones' }],
 
     body: [{ name: 'id' }, { name: 'contenido' }],
   };
@@ -97,7 +97,7 @@ export class NewLessonComponent implements OnInit {
   public itemsCompetencia: any = [];
   public preguntas: any = [];
   public respuestas: any = [];
-  public iconStatus = [false,false,false,false];
+  public iconStatus = [false, false, false, false];
 
   constructor(
     public factory: FactoryService,
@@ -106,49 +106,69 @@ export class NewLessonComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private activateRouter: ActivatedRoute
   ) {
-    
+
   }
 
   ngOnInit(): void {
+    const slug = this.activateRouter.snapshot.paramMap.get('slug');
+    if (slug) this.loadLeccion(slug);
     $('[data-toggle="tooltip"]').tooltip();
     this.cargarCompetencias();
     this.cargarPreconceptos();
     this.cargarTipos();
     this.cargarObjetivos();
-
-    this.factory.returnAsObservable().subscribe((subs) => {
-      subs === true ? this.spinner.hide() : this.spinner.show();
-    });
-    const slug = this.activateRouter.snapshot.paramMap.get('slug');
-    this.loadLeccion(slug);
   }
 
   loadLeccion(slug) {
+    this.spinner.show();
     this.factory
       .get('getleccion', slug)
       .subscribe((response: any) => {
         if (response.status === 500) {
           Swal.fire('Ops', response.data, 'info');
         } else {
-          this.leccion = response.data;
-          console.log("carga de leccion a actualizar", this.leccion);
-
+          this.renderData(response);
         }
       });
+
+  }
+  renderData(response: any) {
+    this.leccion = response.data;
+    this.leccion.preconceptos.forEach((element, i) => {
+      this.leccion.preconceptos[i] = element.slug;
+    });
+    this.leccion.competencias.forEach((element, i) => {
+      this.leccion.competencias[i] = element.slug;
+    });
+    this.leccion.practicar.forEach((pregunta, i) => {
+      pregunta.showbody = true;
+      pregunta.accordianclass = 'collapseAccordion';
+      pregunta.tipo = pregunta.tipo.slug;
+      this.preguntas.push(pregunta);
+      if (pregunta.respuestas.length > 0) {
+        pregunta.respuestas.forEach(respuesta => {
+          if (respuesta.retroalimentacion !== '') respuesta.addRetro = true;
+        });
+        this.respuestas.push(pregunta.respuestas);
+      } else {
+        this.respuestas.push([]);
+      }
+    });
+    this.tipoSelect = 'estudio';
+    setInterval(() => {
+      this.spinner.hide();
+    }, 400);
   }
 
   selectCompetencias(dato) {
-    console.log(dato);
     this.leccion.competencias = dato;
   }
 
   selectPreconceptos(dato) {
-    console.log(dato);
     this.leccion.preconceptos = dato;
   }
 
   selectPreguntas(dato) {
-    console.log(dato);
     this.leccion.preguntas = dato;
   }
 
@@ -237,24 +257,24 @@ export class NewLessonComponent implements OnInit {
         showbody: false,
         accordianclass: 'collapseAccordion',
       });
-      this.respuestas.push([]);
     }
     if (this.tipoSelect === 'abierta') {
       this.preguntas.push({ tipo: 'abierta', contenido: '' });
     }
+    this.respuestas.push([]);
   }
 
   eliminarPregunta(indice: any) {
 
     let temporal = [];
     for (let index = 0; index < this.preguntas.length; index++) {
-      if (index!==indice) {
+      if (index !== indice) {
         temporal.push(this.preguntas[index])
-      }      
+      }
     }
 
-    this.preguntas=temporal;
-  
+    this.preguntas = temporal;
+
   }
 
   agregarRespuesta(indice: any) {
@@ -267,12 +287,15 @@ export class NewLessonComponent implements OnInit {
     });
   }
 
-  eliminarRespuesta(indice: any) {
-    this.respuestas.splice(indice);
+  eliminarRespuesta(hijo: any, padre: any) {
+    let temporal = [];
+    this.respuestas[padre].forEach((element, i) => {
+      if (i !== hijo) temporal.push(element);
+    });
+    this.respuestas[padre] = temporal;
   }
 
   aplicarSelect() {
-    console.log(this.tipoSelect);
   }
 
   crearLeccion() {
@@ -290,8 +313,11 @@ export class NewLessonComponent implements OnInit {
       return this.toast.error('Debes llenar el practicar', 'error');
     if (this.leccion.aplicar === '')
       return this.toast.error('Debes llenar el aplicar', 'error');
-    console.log(this.leccion);
     this.spinner.show();
+    if(this.leccion.slug !== '') return this.actualizar();
+    this.crear();
+  }
+  crear() {
     this.factory
       .post('leccion/createlesson', {
         leccion: this.leccion,
@@ -313,6 +339,8 @@ export class NewLessonComponent implements OnInit {
         }
       );
   }
+  actualizar() {
+    this.toast.info('incoming')
+  }
 
-  
 }
