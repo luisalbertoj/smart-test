@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="sa4d25">
     <div class="container-fluid">
-      <h2>Test terminado</h2>
+      <h2><i class="fas fa-poll"></i> Test terminado</h2>
       <div class="card">
         <div class="row justify-content-md-center">
           <div class="col-sm-6 col-md-6 resultGrafits ">
@@ -39,7 +39,6 @@
               </div>
             </div>
           </div>
-
           <div class="wrapper _bg4586 _new89">
             <div class="faq1256">
               <div class="container">
@@ -49,10 +48,9 @@
                     <div class="certi_form">
                       <form>
                         <div class="all_ques_lest">
-                          <div *ngFor="  let pregunta of result.test.preguntas;   index as i
-                              " class="ques_item">
-
-                            <div *ngIf="  pregunta.respuestas?.length > 0 && pregunta?.tipo?.nombre === 'multiple'  ">
+                          <div *ngFor="let pregunta of result?.test?.preguntas;  index as i" class="ques_item">
+                            <div *ngIf="pregunta.respuestas?.length > 0 && pregunta?.tipo?.nombre 
+                              ==='multiple'">
                               <div class="">
                                 <span>Pregunta {{ i + 1 }}: </span>
                                 <span [innerHTML]="pregunta?.contenido"></span>
@@ -89,15 +87,13 @@
                                       </ng-template>
                                     </ng-template>
                                     <!--retroalimentacion-->
-
                                     <div *ngIf="respuesta.retroalimentacion" class="alert alert-warning" role="alert">
-                                      <i class="fas fa-star"></i> {{ respuesta?.retroalimentacion}}
+                                      <i class="fas fa-star"></i> - {{ respuesta?.retroalimentacion}}
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-
                             <div *ngIf="pregunta?.tipo?.nombre === 'abierta'">
                               <div class="ques_title">
                                 <span>Pregunta {{ i + 1 }}:- </span>
@@ -106,37 +102,27 @@
                               <div class="ui search focus mt-15">
                                 <div class="ui form swdh30">
                                   <div class="field">
-                                    <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
+                                    <textarea rows="5" name="answer" id="id_answer" placeholder=""
                                       required></textarea>
                                   </div>
                                 </div>
                               </div>
+                              <br>
                               <div *ngIf="pregunta.retroalimentacion" class="alert alert-warning" role="alert">
-                                {{ pregunta?.retroalimentacion}}
+                                <i class="fas fa-star"></i> -  {{ pregunta?.retroalimentacion}}
                               </div>
                             </div>
-
-
-
                           </div>
                         </div>
                       </form>
                     </div>
+                    <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" class="btn btn-plantilla justify-content-center text-center">Volver al inicio</a>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="result_content">
-
-            <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" class="download_btn">Volver al
-              inicio</a>
-          </div>
-
-
+          </div>          
         </div>
-
       </div>
     </div>
   </div>

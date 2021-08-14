@@ -68,6 +68,8 @@ export class LessonViewComponent implements OnInit {
     
   }
 
+  
+
   respuestaSeleccionada(index, respuesta) {
     this.respuestas[index] = respuesta;
   }
