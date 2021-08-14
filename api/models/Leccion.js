@@ -22,7 +22,7 @@ module.exports = {
       required: true
     },
 
-    observaciones: {
+    referencias: {
       type: 'string',
       columnType: 'longtext'
     },
