@@ -6,6 +6,7 @@ import { ImportLessonsComponent } from './import-lessons/import-lessons.componen
 import {ProgressComponent} from './progress/progress.component';
 import { DndDirective } from './dnd.directive';
 import { ImportPreconceptosComponent } from './import-preconceptos/import-preconceptos.component';
+import { DashboardModule } from '../../dashboard.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ImportPreconceptosComponent } from './import-preconceptos/import-precon
   ],
   imports: [
     CommonModule,
+    DashboardModule,
     ImportExportRoutingModule
   ]
 })
