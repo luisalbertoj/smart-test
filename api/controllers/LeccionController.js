@@ -5,7 +5,7 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-
+const _ = require('lodash');
 
 module.exports = {
   createlesson: async function (req, res) {
@@ -100,6 +100,59 @@ module.exports = {
     }
 
     return res.json({ status: 200, data: parametros, msg: 'Leccion registrada traidas' });
+  },
+  updatelesson:async ( req, res ) => {
+    let params = req.allParams();
+    let resultado = Object();
+    // Leccion actualizar 
+    let data = {
+      titulo: params.leccion.titulo,
+      introduccion: params.leccion.introduccion,
+      referencias: params.leccion.referencias,
+      conclusiones: params.leccion.conclusiones,
+      aprender: params.leccion.aprender,
+      aplicar: params.leccion.aplicar,
+      slug: params.leccion.slug,
+      creador: params.leccion.creador,
+      objetivo: params.leccion.objetivo
+    };
+    if( data.objetivo == "" ) delete data.objetivo;
+    data = _.omitBy(data, _.isNull);
+    resultado = await Leccion.update( { id: params.id }, data );
+
+    // Pregunta actualizar
+
+    for( let row of params.preguntas ){
+      data = {
+        contenido: row.contenido,
+        retroalimentacion: row.retroalimentacion,
+        estado: row.estado,
+        //tipo: row.tipo,
+        id: row.id,
+        respuestaCorrecta: row.respuestaCorrecta,
+  
+      };
+      if( data.retroalimentacion == "" ) delete data.retroalimentacion;
+      data = _.omitBy(data, _.isNull);
+      resultado = await Pregunta.update( { id: data.id }, data );
+    }
+
+
+    // Respues actualizar
+
+    for( let row of params.respuestas ){
+      data = {
+        contenido: row.contenido,
+        retroalimentacion: row.retroalimentacion,
+        estado: row.estado,
+        id: row.id
+      };
+      if( data.retroalimentacion == "" ) delete data.retroalimentacion;
+      data = _.omitBy(data, _.isNull);
+      resultado = await Respuesta.update( { id: data.id }, data );
+    }
+
+    return res.json({ status: 200,  msg: 'actualizado correcto' });
   }
 
 };

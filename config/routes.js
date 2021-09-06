@@ -30,7 +30,8 @@ module.exports.routes = {
   'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
   'POST /leccion/createlesson': {action: 'leccion/createlesson'},
   'POST /leccion/registrarleccion': {action: 'leccion/registrarleccion'},
-  'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'}
+  'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
+  'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
 
 
 

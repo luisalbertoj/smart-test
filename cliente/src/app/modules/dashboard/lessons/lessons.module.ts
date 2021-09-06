@@ -14,12 +14,13 @@ import { LessonViewComponent } from './lesson-view/lesson-view.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DashboardModule } from '../dashboard.module';
 import { ResultComponent } from './result/result.component';
+import { VercalificarComponent } from './vercalificar/vercalificar.component';
 
 
 
 
 @NgModule({
-  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent, ResultComponent],
+  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent, ResultComponent, VercalificarComponent],
   imports: [
     CommonModule,
     HttpClientModule,
