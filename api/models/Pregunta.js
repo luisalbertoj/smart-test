@@ -49,7 +49,11 @@ module.exports = {
       collection: 'respuesta',
       via: 'preguntas'
     },
-
+    slug: {
+      type: 'slug',
+      from: 'contenido',
+      blacklist: ['search']
+    },
     pruebas: {
       collection: 'pruebaconocimiento',
       via: 'pregunta',

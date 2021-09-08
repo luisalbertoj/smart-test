@@ -4,103 +4,178 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-
-
-
-module.exports = {
-  createlesson: async function (req, res) {
-    const parametros = req.allParams();
-    console.log(parametros);
-    var leccion = {preguntas: []};
-    var preguntas = [];
-    try {
-      for await (let [key, pregunta] of parametros.preguntas.entries()) {
-        pregunta.tipo = (await TipoPregunta.findOne({nombre: pregunta.tipo})).id;
-        leccion.preguntas.push(
-        pregunta.retroalimentacion != ''?
-        await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion }).fetch():
-        await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());        
-        preguntas.push(leccion.preguntas[key].id);
-        if(parametros.respuestas[key]) {
-          for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
-            leccion.preguntas[key].respuestas = [];
-            leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [leccion.preguntas[key].id]}).fetch());
-            if(respuesta.correcta && leccion.preguntas[key] && leccion.preguntas[key].respuestas[key2]) {
-              console.log(leccion.preguntas[key].id,leccion.preguntas[key].respuestas[key2].id);
-              leccion.preguntas[key].respuestaCorrecta  =
-              await Pregunta.updateOne({id: leccion.preguntas[key].id})
-              .set({respuestaCorrecta: leccion.preguntas[key].respuestas[key2].id});
-            }
+const slug = require('slug');
+const createlesson = async (req, res) => {
+  const parametros = req.allParams();
+  var leccion = { preguntas: [] };
+  var preguntas = [];
+  try {
+    for await (let [key, pregunta] of parametros.preguntas.entries()) {
+      pregunta.tipo = (await TipoPregunta.findOne({ slug: slug(pregunta.tipo.toLowerCase()) })).id;
+      leccion.preguntas.push(
+        pregunta.retroalimentacion !== '' ?
+          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion }).fetch() :
+          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());
+      preguntas.push(leccion.preguntas[key].id);
+      if (parametros.respuestas[key]) {
+        for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
+          leccion.preguntas[key].respuestas = [];
+          leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [leccion.preguntas[key].id] }).fetch());
+          if (respuesta.correcta && leccion.preguntas[key] && leccion.preguntas[key].respuestas[key2]) {
+            console.log(leccion.preguntas[key].id, leccion.preguntas[key].respuestas[key2].id);
+            leccion.preguntas[key].respuestaCorrecta =
+              await Pregunta.updateOne({ id: leccion.preguntas[key].id })
+                .set({ respuestaCorrecta: leccion.preguntas[key].respuestas[key2].id });
           }
         }
       }
-      for (let [key, preconcepto] of parametros.leccion.preconceptos.entries()) {
-        parametros.leccion.preconceptos[key] = preconcepto.value.split('⌂')[0];
-      }
-
-      for (let [key, competencia] of parametros.leccion.competencias.entries()) {
-        parametros.leccion.competencias[key] = competencia.value.split('⌂')[0];
-      }
-
-      leccion = await Leccion.create({
-        titulo: parametros.leccion.titulo,
-        introduccion: parametros.leccion.introduccion,
-        observaciones: parametros.leccion.observaciones,
-        conclusiones: parametros.leccion.conclusiones,
-        aprender: parametros.leccion.aprender,
-        practicar: preguntas,
-        aplicar: parametros.leccion.aplicar,
-        creador: parametros.leccion.creador || 1,
-        competencias: parametros.leccion.competencias,
-        preconceptos: parametros.leccion.preconceptos,
-        objetivo: parametros.leccion.objetivo
-      }).fetch();
-
-    } catch (err) {
-      switch (err.name) {
-        case 'UsageError': return res.badRequest(err);
-        default: throw err;
-      }
     }
-    return res.json({ status: 200, data: leccion, msg: 'Leccion creada' });
-  },
-  getleccion: async function (req, res) {
-    const parametros = req.allParams();
-    console.log(parametros);
-    var leccion;
-    try {
-      leccion = await Leccion.findOne(parametros).populate('practicar').populate('preconceptos').populate('competencias');
-      if(!leccion) {return res.badRequest('La leccion no se encontro');}
-      if (leccion.practicar.length === 0) {
-        return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });
-      } else {
-        for await (let [key, pregunta] of leccion.practicar.entries()) {
-          leccion.practicar[key] = await Pregunta.findOne({ id: pregunta.id }).populate('respuestas').populate('tipo');
-        }
-      }
-    } catch (err) {
-      switch (err.name) {
-        case 'UsageError': return res.badRequest(err);
-        default: throw err;
-      }
+    for (let [key, preconcepto] of parametros.leccion.preconceptos.entries()) {
+      parametros.leccion.preconceptos[key] = preconcepto.value.split('⌂')[0];
     }
 
-    return res.json({ status: 200, data: leccion, msg: 'Preguntas traidas' });
-
-  },
-  registrarleccion: async function (req, res) {
-    const parametros = req.allParams();
-    console.log(parametros);
-    try {
-    } catch (err) {
-      switch (err.name) {
-        case 'UsageError': return res.badRequest(err);
-        default: throw err;
-      }
+    for (let [key, competencia] of parametros.leccion.competencias.entries()) {
+      parametros.leccion.competencias[key] = competencia.value.split('⌂')[0];
     }
 
-    return res.json({ status: 200, data: parametros, msg: 'Leccion registrada traidas' });
+    leccion = await Leccion.create({
+      titulo: parametros.leccion.titulo,
+      introduccion: parametros.leccion.introduccion,
+      observaciones: parametros.leccion.observaciones,
+      conclusiones: parametros.leccion.conclusiones,
+      aprender: parametros.leccion.aprender,
+      practicar: preguntas,
+      aplicar: parametros.leccion.aplicar,
+      creador: parametros.leccion.creador || 1,
+      competencias: parametros.leccion.competencias,
+      preconceptos: parametros.leccion.preconceptos,
+      objetivo: parametros.leccion.objetivo
+    }).fetch();
+
+  } catch (err) {
+    return res.badRequest(err);
+  }
+  return res.json({ status: 200, data: leccion, msg: 'Leccion creada' });
+};
+const getleccion = async (req, res) => {
+  const parametros = req.allParams();
+  console.log(parametros);
+  var leccion;
+  try {
+    leccion = await Leccion.findOne(parametros).populate('practicar').populate('preconceptos').populate('competencias');
+    if (!leccion) { return res.badRequest('La leccion no se encontro'); }
+    if (leccion.practicar.length === 0) {
+      return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });
+    } else {
+      for await (let [key, pregunta] of leccion.practicar.entries()) {
+        leccion.practicar[key] = await Pregunta.findOne({ id: pregunta.id }).populate('respuestas').populate('tipo');
+      }
+    }
+  } catch (err) {
+    return res.badRequest(err);
   }
 
+  return res.json({ status: 200, data: leccion, msg: 'Preguntas traidas' });
+
+};
+const registrarleccion = async (req, res) => {
+  const parametros = req.allParams();
+  console.log(parametros);
+  return res.json({ status: 200, data: parametros, msg: 'Leccion registrada traidas' });
+};
+const processCompetencias = async (item) => {
+  let competencia1 = await Competencia.find().where({ slug: slug((item[2] ? item[2] : '').toLowerCase()) });
+  let competencia2 = await Competencia.find().where({ slug: slug((item[3] ? item[3] : '').toLowerCase()) });
+  if (competencia1.length > 0 || competencia2.length > 0) {
+    competencia1 = competencia1[0];
+    competencia2 = competencia2[0];
+  } else {
+    if (item[2]) {
+      competencia1 = await Competencia.create({ nombre: item[2], observaciones: ' ', creador: 1 }).fetch();
+    } else {
+      return;
+    }
+    if (item[3] !== '' && item[3]) {
+      competencia2 = await Competencia.create({ nombre: item[3], observaciones: ' ', creador: 1 }).fetch();
+    }
+  }
+
+  if (competencia2) { competencia2 = competencia2.length > 0 ? competencia2[0] : null; }
+  return (competencia1 && competencia2 && competencia1 !== undefined && competencia2 !== undefined) ?
+    [competencia1.id, competencia2.id] : [competencia1.id];
+};
+const importLessons = async (req, res) => {
+  const parametros = req.allParams();
+  let tipo = await TipoPregunta.findOrCreate({ slug: slug('multiple') },
+    { nombre: 'multiple' });
+  console.log('Tipo: ', tipo);
+  if (tipo) {
+    tipo = tipo.id;
+    let lecciones = [];
+    parametros.data.forEach(async (item, z) => {
+      if (item[0] !== 'titulo' && item[1] !== 'objetivo') {
+        let leccion = {};
+        leccion.titulo = item[0];
+        leccion.objetivo = await Objetivo.findOrCreate({ slug: slug(item[1].toLowerCase()) },
+          { titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).id;
+        leccion.competencias = await processCompetencias(item);
+        const preconceptos = item[4].split('/');
+        let ids = [];
+        for await (let preconcepto of preconceptos) {
+          let temp = await Preconcepto.find().where({ slug: slug(preconcepto.toLowerCase()) });
+          if (temp.length > 0) { ids.push(temp[0].id); }
+        }
+        leccion.preconceptos = ids;
+        leccion.introduccion = item[5];
+        leccion.observaciones = item[6];
+        leccion.conclusiones = item[7];
+        leccion.aprender = item[8];
+        let indice = 9;
+
+        let preguntas = [];
+        for (let m = 0; m < 4; m++) {
+          /* console.log('Pregunta', item[indice]); */
+          let preguntaTemp = await Pregunta.create({ contenido: item[indice], tipo: tipo }).fetch();
+          let pregunta = null;
+          if (preguntaTemp) {
+            pregunta = preguntaTemp.id;
+            let respuestaCorrecta = item[indice + 1];
+            for (let i = indice + 2; i < indice + 5; i++) {
+              if (item[i] !== null && item[i] !== undefined) {
+                await Respuesta.create({ contenido: item[i], preguntas: [pregunta] });
+                /* console.log('respuesta', item[i]); */
+              }
+            }
+            respuestaCorrecta = await Respuesta.find().where({ slug: slug((respuestaCorrecta + '').toLowerCase()) });
+            if (respuestaCorrecta > 0) {
+              await Pregunta.updateOne({ id: pregunta })
+                .set({ respuestaCorrecta: respuestaCorrecta[0].id });
+            }
+            preguntas.push(pregunta);
+          }
+          indice += 5;
+          /* console.log('Siguiente pregunta'); */
+        }
+        leccion.aplicar = item[29];
+        leccion = await Leccion.create({
+          titulo: leccion.titulo,
+          introduccion: leccion.introduccion,
+          observaciones: leccion.observaciones,
+          conclusiones: leccion.conclusiones,
+          aprender: leccion.aprender,
+          practicar: preguntas,
+          aplicar: leccion.aplicar,
+          creador: 1,
+          competencias: leccion.competencias,
+          preconceptos: leccion.preconceptos,
+          objetivo: leccion.objetivo
+        }).fetch();
+        lecciones.push(leccion);
+      }
+    });
+    return res.ok({ message: 'Lecciones creadas', data: lecciones });
+  }
+  res.badRequest({ message: 'Datos incompletos' });
 };
 
+module.exports = { createlesson, getleccion, registrarleccion, importLessons };

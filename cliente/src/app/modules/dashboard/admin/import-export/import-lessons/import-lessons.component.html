@@ -20,7 +20,7 @@
 
               <div class="container" appDnd (fileDropped)="onFileDropped($event)">
                 <input type="file" #fileDropRef id="fileDropRef" multiple
-                  (change)="fileBrowseHandler($event.target.files)" />
+                    (change)="onFileChange($event)" />
                 <img src="assets/images/dnd/ic-upload-file.svg" alt="">
                 <h3>Arrastra y suelta el archivo aqui o</h3>
                 <label for="fileDropRef">Buscar archivo</label>

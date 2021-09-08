@@ -19,7 +19,8 @@
     "sails-hook-slugs": "^4.0.1-beta.1",
     "sails-hook-sockets": "^2.0.0",
     "sails-mysql": "^1.0.1",
-    "scrollreveal": "^4.0.9"
+    "scrollreveal": "^4.0.9",
+    "slug": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "5.16.0"

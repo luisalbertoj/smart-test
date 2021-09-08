@@ -1,16 +1,12 @@
 {
-    "hosting": {
-      "public": "dist/cliente/",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/dist/cliente/"
-        }
-      ]
-    }
+  "hosting": {
+    "public": "dist/client/",
+    "ignore": ["firebase.json", "*/.", "*/node_modules/*"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/dist/cliente/"
+      }
+    ]
   }
+}
