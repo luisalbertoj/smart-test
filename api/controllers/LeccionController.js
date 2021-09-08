@@ -5,6 +5,7 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 const slug = require('slug');
+const _ = require('lodash');
 const createlesson = async (req, res) => {
   const parametros = req.allParams();
   var leccion = { preguntas: [] };

@@ -603,8 +603,11 @@
                 </div>
               </div>
               <hr class="hr">
-              <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar" type="button">
+              <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="!id">
                 Guardar
+              </button>
+              <button (click)="editarLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="id">
+                Editar
               </button>
             </div>
 

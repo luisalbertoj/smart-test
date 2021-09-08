@@ -98,6 +98,9 @@ export class NewLessonComponent implements OnInit {
   public preguntas: any = [];
   public respuestas: any = [];
   public iconStatus = [false, false, false, false];
+  
+  id:any;
+  disableBtn:boolean = false;
 
   constructor(
     public factory: FactoryService,
@@ -112,6 +115,7 @@ export class NewLessonComponent implements OnInit {
   ngOnInit(): void {
     const slug = this.activateRouter.snapshot.paramMap.get('slug');
     if (slug) this.loadLeccion(slug);
+    this.id = slug;
     $('[data-toggle="tooltip"]').tooltip();
     this.cargarCompetencias();
     this.cargarPreconceptos();
@@ -165,6 +169,7 @@ export class NewLessonComponent implements OnInit {
   }
 
   selectPreconceptos(dato) {
+    console.log( this.tablaPreconceptos.header, this.tablaPreconceptos.body, dato )
     this.leccion.preconceptos = dato;
   }
 
@@ -339,6 +344,30 @@ export class NewLessonComponent implements OnInit {
         }
       );
   }
+
+  editarLeccion(){
+    if ( this.disableBtn ) return false;
+    this.disableBtn = true;
+    this.factory
+      .post('leccion/updatelesson',{ 
+        id: this.leccion.id,
+        leccion: this.leccion,
+        preguntas: this.preguntas,
+        respuestas: this.respuestas
+      }).subscribe( ( res:any )=>{
+        console.log( res )
+        this.spinner.hide();
+          this.toast.success('Leccion Actualizada', 'Ok');
+          this.disableBtn = false;
+      },(error: any) => {
+        console.log( error );
+        this.spinner.hide();
+        this.disableBtn = false;
+        return this.toast.error(error.message, 'Problema en el servidor');
+      }
+    );
+  }
+
   actualizar() {
     this.toast.info('incoming')
   }
