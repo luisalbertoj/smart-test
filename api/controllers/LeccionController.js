@@ -17,7 +17,7 @@ module.exports = {
       for await (let [key, pregunta] of parametros.preguntas.entries()) {
         pregunta.tipo = (await TipoPregunta.findOne({nombre: pregunta.tipo})).id;
         leccion.preguntas.push(
-        pregunta.retroalimentacion != ''?
+        pregunta.retroalimentacion !== ''?
         await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion }).fetch():
         await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());        
         preguntas.push(leccion.preguntas[key].id);
@@ -147,7 +147,7 @@ module.exports = {
         estado: row.estado,
         id: row.id
       };
-      if( data.retroalimentacion == "" ) delete data.retroalimentacion;
+      if( data.retroalimentacion === '' ) delete data.retroalimentacion;
       data = _.omitBy(data, _.isNull);
       resultado = await Respuesta.update( { id: data.id }, data );
     }
