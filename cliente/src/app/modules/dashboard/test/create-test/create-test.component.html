@@ -280,7 +280,7 @@
                         <div class="row">
                       
                           <button
-                            (click)="eliminarRespuesta(b)"
+                            (click)="eliminarRespuesta( pregunta, i )"
                             class="part_btn_save prt-sv btn-plantilla"
                             type="button"
                           >
@@ -434,10 +434,18 @@
             <div class="row">
             <div class="col-sm-12 col-md-12 justify-content-end d-flex btnCrear">
             <button
+              *ngIf="!id"
               (click)="crearTest()"
               class="part_btn_save prt-sv btn-plantilla "
               type="button">
               Guardar
+            </button>
+            <button
+              *ngIf="id"
+              (click)="editarTest()"
+              class="part_btn_save prt-sv btn-plantilla "
+              type="button">
+              Editar
             </button>
             </div>
           </div>

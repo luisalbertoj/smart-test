@@ -76,6 +76,30 @@ module.exports = {
       }
     }
     return res.json({ status: 200, data: test, msg: 'Test creado' });
+  },
+
+  updatetest: async ( req, res )=>{
+    let params = req.allParams();
+    let resultado = Object();
+
+
+    // test
+    await PruebaConocimiento.update({ id: params.id },{
+      nombre: params.test.nombre,
+      observaciones: params.test.observaciones,
+      contenido: params.test.contenido,
+      inicio: params.test.inicio,
+      cierre: params.test.cierre,
+      duracion: params.test.duracion,
+      creador: params.test.creador || 1,
+      grupo: params.test.grupo
+    });
+
+
+    
+
+    return res.json({ status: 200, data: resultado, msg: 'Test creado' });
+
   }
 
 };

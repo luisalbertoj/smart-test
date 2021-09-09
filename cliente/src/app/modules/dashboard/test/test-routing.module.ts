@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'result', component: TestResultComponent},
   {path: ':id', component: ViewTestComponent},
+  {path: 'create-test/:slug', component: CreateTestComponent},
   
  
 ];
