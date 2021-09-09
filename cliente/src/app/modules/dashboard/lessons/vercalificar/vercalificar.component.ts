@@ -9,7 +9,6 @@ import { FactoryService } from 'src/app/services/factory.service';
   styleUrls: ['./vercalificar.component.css']
 })
 export class VercalificarComponent implements OnInit {
-  
   public lecciones: any = [];
 
   constructor(
@@ -25,13 +24,13 @@ export class VercalificarComponent implements OnInit {
     this.loadLecciones();
   }
 
-  loadLecciones() {
+  loadLecciones(): void {
     this.factory.query('leccion/querys', { where: { } } ).subscribe(
       (response: any) => {
         console.log(response);
         this.lecciones = response.data;
         this.toast.success('Lecciones cargadas');
-        console.log( this.lecciones )
+        console.log( this.lecciones );
       },
       (error: any) => {
         console.log(error);

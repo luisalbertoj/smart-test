@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class LessonViewComponent implements OnInit {
 
-  @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
+  @ViewChild('fileDropRef', { static: false }) fileDropEl: ElementRef;
 
   classStep = {
     one: 'active',
@@ -21,7 +21,7 @@ export class LessonViewComponent implements OnInit {
     fourt: ''
   };
 
-  
+
   files: any[] = [];
   public leccion: any = [];
   public respuestas: any = [];
@@ -48,7 +48,7 @@ export class LessonViewComponent implements OnInit {
     const slug = this.activateRouter.snapshot.paramMap.get('slug');
     this.loadLeccion(slug);
   }
-  loadLeccion(slug) {
+  loadLeccion(slug): void {
     this.factory
       .get('getleccion', slug)
       .subscribe((response: any) => {
@@ -62,19 +62,16 @@ export class LessonViewComponent implements OnInit {
       });
   }
 
-  change(prev, step){
+  change(prev, step): void {
     this.classStep[step] = 'active';
     this.classStep[prev] = 'done';
-    
   }
 
-  
-
-  respuestaSeleccionada(index, respuesta) {
+  respuestaSeleccionada(index, respuesta): void {
     this.respuestas[index] = respuesta;
   }
 
-  validarRespuestas() {
+  validarRespuestas(): void {
     this.response = {
       correctas: [],
       totales: this.leccion.practicar.length,
@@ -114,29 +111,37 @@ export class LessonViewComponent implements OnInit {
     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:150%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style="font-size:16px;line-height:150%;color:#0070C0;">&lt;&lt;Elaborar una planificaci&oacute;n que responda a la forma de solucionar los problemas principales, debe mantener relaci&oacute;n con los objetivos planteados y tomando en cuenta la viabilidad analizada&gt;&gt;</span></p>
     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:16px;line-height:107%;color:#0070C0;">&nbsp;</span></p>`;
   }
-  finalizarLeccion() {
-    this.factory.post('leccion/registrarleccion', {
-      leccion: this.leccion,
-      respuestas: this.respuestas,
-      response: this.response
-    }).subscribe(
+  finalizarLeccion(): void {
+    console.log(this.response);
+    const formData: FormData = new FormData();
+    formData.append('leccion', this.response.leccion.id);
+    formData.append('aplica', this.response.aplica);
+    formData.append('correctas', JSON.stringify(this.response.correctas));
+    formData.append('resUser', JSON.stringify(this.response.resUser));
+    formData.append('totales', this.response.totales);
+    formData.append('estudiante', this.factory.user.id);
+    for (let i = 0; i < this.files.length; i++) {
+      const file: File = this.files[i];
+      formData.append('file' + i, file, file.name);
+    }
+    this.factory.post('leccion/registrarleccion', formData).subscribe(
       (response: any) => {
       this.toast.success(response.msg);
-      this.router.navigate(['/dashboard/lesson/home']);
+      /* this.router.navigate(['/dashboard/lesson/home']); */
     },
     (error: any) => {
       this.toast.error('Prblema al registrar la leccion');
       console.log(error);
     });
   }
-  onFileDropped($event) {
+  onFileDropped($event): void {
     this.prepareFilesList($event);
   }
 
   /**
    * handle file from browsing
    */
-  fileBrowseHandler(files) {
+  fileBrowseHandler(files): void {
     this.prepareFilesList(files);
   }
 
@@ -144,9 +149,9 @@ export class LessonViewComponent implements OnInit {
    * Delete file from files list
    * @param index (File index)
    */
-  deleteFile(index: number) {
+  deleteFile(index: number): void {
     if (this.files[index].progress < 100) {
-      console.log("Upload in progress.");
+      console.log('Upload in progress.');
       return;
     }
     this.files.splice(index, 1);
@@ -155,7 +160,7 @@ export class LessonViewComponent implements OnInit {
   /**
    * Simulate the upload process
    */
-  uploadFilesSimulator(index: number) {
+  uploadFilesSimulator(index: number): void {
     setTimeout(() => {
       if (index === this.files.length) {
         return;
@@ -189,12 +194,12 @@ export class LessonViewComponent implements OnInit {
    * Convert Files list to normal array list
    * @param files (Files List)
    */
-  prepareFilesList(files: Array<any>) {
+  prepareFilesList(files: Array<any>): void {
     for (const item of files) {
       item.progress = 0;
       this.files.push(item);
     }
-    this.fileDropEl.nativeElement.value = "";
+    this.fileDropEl.nativeElement.value = '';
     this.uploadFilesSimulator(0);
   }
 
@@ -203,14 +208,14 @@ export class LessonViewComponent implements OnInit {
    * @param bytes (File size in bytes)
    * @param decimals (Decimals point)
    */
-  formatBytes(bytes, decimals = 2) {
+  formatBytes(bytes, decimals = 2): any {
     if (bytes === 0) {
-      return "0 Bytes";
+      return '0 Bytes';
     }
     const k = 1024;
     const dm = decimals <= 0 ? 0 : decimals;
-    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 }

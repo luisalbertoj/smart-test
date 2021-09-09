@@ -79,11 +79,7 @@ const getleccion = async (req, res) => {
   return res.json({ status: 200, data: leccion, msg: 'Preguntas traidas' });
 
 };
-const registrarleccion = async (req, res) => {
-  const parametros = req.allParams();
-  console.log(parametros);
-  return res.json({ status: 200, data: parametros, msg: 'Leccion registrada traidas' });
-};
+
 const processCompetencias = async (item) => {
   let competencia1 = await Competencia.find().where({ slug: slug((item[2] ? item[2] : '').toLowerCase()) });
   let competencia2 = await Competencia.find().where({ slug: slug((item[3] ? item[3] : '').toLowerCase()) });
@@ -109,7 +105,6 @@ const importLessons = async (req, res) => {
   const parametros = req.allParams();
   let tipo = await TipoPregunta.findOrCreate({ slug: slug('multiple') },
     { nombre: 'multiple' });
-  console.log('Tipo: ', tipo);
   if (tipo) {
     tipo = tipo.id;
     let lecciones = [];
@@ -117,8 +112,11 @@ const importLessons = async (req, res) => {
       if (item[0] !== 'titulo' && item[1] !== 'objetivo') {
         let leccion = {};
         leccion.titulo = item[0];
-        leccion.objetivo = await Objetivo.findOrCreate({ slug: slug(item[1].toLowerCase()) },
-          { titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).id;
+        /* leccion.objetivo = await Objetivo.findOrCreate({ slug: slug(item[1].toLowerCase()) },
+          { titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).id; */
+        const objetivo = await Objetivo.create({ titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).fetch().catch((err) => {console.log(err);});
+
+        if(objetivo) { leccion.objetivo = objetivo.id; }
         leccion.competencias = await processCompetencias(item);
         const preconceptos = item[4].split('/');
         let ids = [];
@@ -140,18 +138,19 @@ const importLessons = async (req, res) => {
           let pregunta = null;
           if (preguntaTemp) {
             pregunta = preguntaTemp.id;
-            let respuestaCorrecta = item[indice + 1];
+            const respuestaCorrectaPos = item[indice + 1];
             for (let i = indice + 2; i < indice + 5; i++) {
               if (item[i] !== null && item[i] !== undefined) {
                 await Respuesta.create({ contenido: item[i], preguntas: [pregunta] });
                 /* console.log('respuesta', item[i]); */
               }
             }
-            respuestaCorrecta = await Respuesta.find().where({ slug: slug((respuestaCorrecta + '').toLowerCase()) });
-            if (respuestaCorrecta > 0) {
-              await Pregunta.updateOne({ id: pregunta })
-                .set({ respuestaCorrecta: respuestaCorrecta[0].id });
-            }
+            const respuestaCorrecta = await Respuesta.find().where({ slug: slug((respuestaCorrectaPos + '').toLowerCase()) });
+              const preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
+                .set({ respuestaCorrecta: respuestaCorrecta[0].id }).catch((err) => {console.log(err);});
+              if(!preguntaUpdate) { console.log('No pregunta update');}
+            console.log('respuesta correcta', respuestaCorrecta);
+            console.log('pregunta', pregunta);
             preguntas.push(pregunta);
           }
           indice += 5;
@@ -170,7 +169,7 @@ const importLessons = async (req, res) => {
           competencias: leccion.competencias,
           preconceptos: leccion.preconceptos,
           objetivo: leccion.objetivo
-        }).fetch();
+        });
         lecciones.push(leccion);
       }
     });
@@ -178,5 +177,65 @@ const importLessons = async (req, res) => {
   }
   res.badRequest({ message: 'Datos incompletos' });
 };
+const updatelesson = async ( req, res ) => {
+  let params = req.allParams();
+  let resultado = Object();
+  // Leccion actualizar 
+  let data = {
+    titulo: params.leccion.titulo,
+    introduccion: params.leccion.introduccion,
+    referencias: params.leccion.referencias,
+    conclusiones: params.leccion.conclusiones,
+    aprender: params.leccion.aprender,
+    aplicar: params.leccion.aplicar,
+    slug: params.leccion.slug,
+    creador: params.leccion.creador,
+    objetivo: params.leccion.objetivo
+  };
+  if( data.objetivo === '' ) delete data.objetivo;
+  data = _.omitBy(data, _.isNull);
+  resultado = await Leccion.update( { id: params.id }, data );
 
-module.exports = { createlesson, getleccion, registrarleccion, importLessons };
+  // Pregunta actualizar
+
+  for( let row of params.preguntas ){
+    data = {
+      contenido: row.contenido,
+      retroalimentacion: row.retroalimentacion,
+      estado: row.estado,
+      //tipo: row.tipo,
+      id: row.id,
+      respuestaCorrecta: row.respuestaCorrecta,
+
+    };
+    if( data.retroalimentacion === '' ) delete data.retroalimentacion;
+    data = _.omitBy(data, _.isNull);
+    resultado = await Pregunta.update( { id: data.id }, data );
+  }
+
+
+  // Respues actualizar
+
+  for( let row of params.respuestas ){
+    data = {
+      contenido: row.contenido,
+      retroalimentacion: row.retroalimentacion,
+      estado: row.estado,
+      id: row.id
+    };
+    if( data.retroalimentacion === '' ) delete data.retroalimentacion;
+    data = _.omitBy(data, _.isNull);
+    resultado = await Respuesta.update( { id: data.id }, data );
+  }
+
+  return res.json({ status: 200,  msg: 'actualizado correcto' });
+};
+
+const querys = async ( req, res )=>{
+  let params = req.allParams();
+  let resultado = Object();
+  resultado = await Leccion.find( { where: params.where || {} , sort: params.sort || 'createdAt DESC' } ).paginate(params.skip || 0, params.limit || 10 );
+  return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
+};
+
+module.exports = { createlesson, getleccion, importLessons, updatelesson, querys };
