@@ -208,6 +208,7 @@ const updatelesson = async ( req, res ) => {
       respuestaCorrecta: row.respuestaCorrecta,
 
     };
+    //console.log( "***", data, row)
     if( data.retroalimentacion === '' ) delete data.retroalimentacion;
     data = _.omitBy(data, _.isNull);
     resultado = await Pregunta.update( { id: data.id }, data );
