@@ -150,9 +150,11 @@ export class NewLessonComponent implements OnInit {
       pregunta.tipo = pregunta.tipo.slug;
       this.preguntas.push(pregunta);
       if (pregunta.respuestas.length > 0) {
-        pregunta.respuestas.forEach(respuesta => {
+        pregunta.respuestas.forEach(respuesta => { 
           if (respuesta.retroalimentacion !== '') respuesta.addRetro = true;
         });
+        console.log( pregunta.respuestas )
+        for( let key of pregunta.respuestas ) if( key.contenido == 'true' ) key.correcta = key.contenido;
         this.respuestas.push(pregunta.respuestas);
       } else {
         this.respuestas.push([]);

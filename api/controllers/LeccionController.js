@@ -216,16 +216,20 @@ const updatelesson = async ( req, res ) => {
 
   // Respues actualizar
 
-  for( let row of params.respuestas ){
-    data = {
-      contenido: row.contenido,
-      retroalimentacion: row.retroalimentacion,
-      estado: row.estado,
-      id: row.id
-    };
-    if( data.retroalimentacion === '' ) delete data.retroalimentacion;
-    data = _.omitBy(data, _.isNull);
-    resultado = await Respuesta.update( { id: data.id }, data );
+  for( let key of params.respuestas ){
+    for( let row of key ){
+      data = {
+        contenido: row.contenido,
+        //correcta: String( row.correcta || 'false' ),
+        retroalimentacion: row.retroalimentacion,
+        estado: row.estado,
+        id: row.id
+      };
+      //console.log("***Params", params, "**DATA", data)
+      if( data.retroalimentacion === '' ) delete data.retroalimentacion;
+      data = _.omitBy(data, _.isNull);
+      resultado = await Respuesta.update( { id: data.id }, data );
+    }
   }
 
   return res.json({ status: 200,  msg: 'actualizado correcto' });
