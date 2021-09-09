@@ -20,6 +20,11 @@ module.exports = {
       collection: 'tags',
       via: 'respuestas'
     },
+    slug: {
+      type: 'slug',
+      from: 'contenido',
+      blacklist: ['search']
+    },
     preguntas: {
       collection: 'pregunta',
       via: 'respuestas'

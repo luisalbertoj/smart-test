@@ -22,8 +22,7 @@ module.exports = {
       required: true
     },
     fuente: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
 
     slug: {
