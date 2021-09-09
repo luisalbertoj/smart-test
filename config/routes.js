@@ -31,6 +31,8 @@ module.exports.routes = {
   'POST /leccion/createlesson': {action: 'leccion/createlesson'},
   'POST /leccion/registrarleccion': {action: 'leccion/registrarleccion'},
   'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
+  'POST /pruebaconocimiento/getprueba' : {action: 'pruebaConocimiento/getprueba'},
+  'POST /pruebaconocimiento/updatetest': {action: 'pruebaconocimiento/updatetest'},
   'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
   'POST /leccion/querys': {action: 'leccion/querys'},
 
