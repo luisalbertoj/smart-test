@@ -112,14 +112,22 @@ export class LessonViewComponent implements OnInit {
     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:16px;line-height:107%;color:#0070C0;">&nbsp;</span></p>`;
   }
   finalizarLeccion(): void {
-    this.factory.post('leccion/registrarleccion', {
-      leccion: this.leccion,
-      respuestas: this.respuestas,
-      response: this.response
-    }).subscribe(
+    console.log(this.response);
+    const formData: FormData = new FormData();
+    formData.append('leccion', this.response.leccion.id);
+    formData.append('aplica', this.response.aplica);
+    formData.append('correctas', JSON.stringify(this.response.correctas));
+    formData.append('resUser', JSON.stringify(this.response.resUser));
+    formData.append('totales', this.response.totales);
+    formData.append('estudiante', this.factory.user.id);
+    for (let i = 0; i < this.files.length; i++) {
+      const file: File = this.files[i];
+      formData.append('file' + i, file, file.name);
+    }
+    this.factory.post('leccion/registrarleccion', formData).subscribe(
       (response: any) => {
       this.toast.success(response.msg);
-      this.router.navigate(['/dashboard/lesson/home']);
+      /* this.router.navigate(['/dashboard/lesson/home']); */
     },
     (error: any) => {
       this.toast.error('Prblema al registrar la leccion');

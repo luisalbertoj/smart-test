@@ -29,9 +29,12 @@ module.exports.routes = {
   'POST /persona/login' : {action: 'persona/login'},
   'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
   'POST /leccion/createlesson': {action: 'leccion/createlesson'},
-  'POST /leccion/registrarleccion': {action: 'leccion/registrarleccion'},
+  'POST /leccion/registrarleccion': {action: 'resultLessonStudent/registrarleccion'},
   'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
+  'POST /preconcepto/uploadFiles': {action: 'preconcepto/uploadFiles'},
+  'POST /lesson/importLessons': {action: 'leccion/importLessons'},
   'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
+  'POST /leccion/querys': {action: 'leccion/querys'},
 
 
 

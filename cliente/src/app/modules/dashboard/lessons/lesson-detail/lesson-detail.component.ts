@@ -29,7 +29,7 @@ export class LessonDetailComponent implements OnInit {
     const slug = this.activateRouter.snapshot.paramMap.get('slug');
     this.loadLeccion(slug);
   }
-  loadLeccion(slug) {
+  loadLeccion(slug): void {
     this.factory.get('leccion', slug, 'slug').subscribe(
       (response: any) => {
         if (response.length > 0) {
