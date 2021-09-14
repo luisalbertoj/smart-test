@@ -114,9 +114,9 @@ const importLessons = async (req, res) => {
         leccion.titulo = item[0];
         /* leccion.objetivo = await Objetivo.findOrCreate({ slug: slug(item[1].toLowerCase()) },
           { titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).id; */
-        const objetivo = await Objetivo.create({ titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).fetch().catch((err) => {console.log(err);});
+        const objetivo = await Objetivo.create({ titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).fetch().catch((err) => { console.log(err); });
 
-        if(objetivo) { leccion.objetivo = objetivo.id; }
+        if (objetivo) { leccion.objetivo = objetivo.id; }
         leccion.competencias = await processCompetencias(item);
         const preconceptos = item[4].split('/');
         let ids = [];
@@ -146,9 +146,9 @@ const importLessons = async (req, res) => {
               }
             }
             const respuestaCorrecta = await Respuesta.find().where({ slug: slug((respuestaCorrectaPos + '').toLowerCase()) });
-              const preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
-                .set({ respuestaCorrecta: respuestaCorrecta[0].id }).catch((err) => {console.log(err);});
-              if(!preguntaUpdate) { console.log('No pregunta update');}
+            const preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
+              .set({ respuestaCorrecta: respuestaCorrecta[0].id }).catch((err) => { console.log(err); });
+            if (!preguntaUpdate) { console.log('No pregunta update'); }
             console.log('respuesta correcta', respuestaCorrecta);
             console.log('pregunta', pregunta);
             preguntas.push(pregunta);
@@ -177,7 +177,7 @@ const importLessons = async (req, res) => {
   }
   res.badRequest({ message: 'Datos incompletos' });
 };
-const updatelesson = async ( req, res ) => {
+const updatelesson = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
   // Leccion actualizar 
@@ -192,13 +192,13 @@ const updatelesson = async ( req, res ) => {
     creador: params.leccion.creador,
     objetivo: params.leccion.objetivo
   };
-  if( data.objetivo === '' ) delete data.objetivo;
+  if (data.objetivo === '') delete data.objetivo;
   data = _.omitBy(data, _.isNull);
-  resultado = await Leccion.update( { id: params.id }, data );
+  resultado = await Leccion.update({ id: params.id }, data);
 
   // Pregunta actualizar
 
-  for( let row of params.preguntas ){
+  for (let row of params.preguntas) {
     data = {
       contenido: row.contenido,
       retroalimentacion: row.retroalimentacion,
@@ -208,34 +208,38 @@ const updatelesson = async ( req, res ) => {
       respuestaCorrecta: row.respuestaCorrecta,
       valor: row.valor
     };
-    if( data.retroalimentacion === '' ) delete data.retroalimentacion;
+    //console.log( "***", data, row)
+    if (data.retroalimentacion === '') delete data.retroalimentacion;
     data = _.omitBy(data, _.isNull);
-    resultado = await Pregunta.update( { id: data.id }, data );
+    resultado = await Pregunta.update({ id: data.id }, data);
   }
 
 
   // Respues actualizar
 
-  for( let row of params.respuestas ){
-    data = {
-      contenido: row.contenido,
-      retroalimentacion: row.retroalimentacion,
-      estado: row.estado,
-      id: row.id,
-      valor: row.valor
-    };
-    if( data.retroalimentacion === '' ) delete data.retroalimentacion;
-    data = _.omitBy(data, _.isNull);
-    resultado = await Respuesta.update( { id: data.id }, data );
+  for (let key of params.respuestas) {
+    for (let row of key) {
+      data = {
+        contenido: row.contenido,
+        //correcta: String( row.correcta || 'false' ),
+        retroalimentacion: row.retroalimentacion,
+        estado: row.estado,
+        id: row.id
+      };
+      //console.log("***Params", params, "**DATA", data)
+      if (data.retroalimentacion === '') delete data.retroalimentacion;
+      data = _.omitBy(data, _.isNull);
+      resultado = await Respuesta.update({ id: data.id }, data);
+    }
   }
 
-  return res.json({ status: 200,  msg: 'actualizado correcto' });
+  return res.json({ status: 200, msg: 'actualizado correcto' });
 };
 
-const querys = async ( req, res )=>{
+const querys = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
-  resultado = await Leccion.find( { where: params.where || {} , sort: params.sort || 'createdAt DESC' } ).paginate(params.skip || 0, params.limit || 10 );
+  resultado = await Leccion.find({ where: params.where || {}, sort: params.sort || 'createdAt DESC' }).paginate(params.skip || 0, params.limit || 10);
   return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
 };
 

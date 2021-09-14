@@ -98,7 +98,7 @@ module.exports = {
 
     
 
-    return res.json({ status: 200, data: resultado, msg: 'Test creado' });
+    return res.json({ status: 200, data: resultado, msg: 'Test Actualizado' });
 
   }
 

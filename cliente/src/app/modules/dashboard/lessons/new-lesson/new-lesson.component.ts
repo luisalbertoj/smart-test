@@ -166,6 +166,10 @@ export class NewLessonComponent implements OnInit {
             respuesta.addRetro = true;
           }
         });
+        console.log(pregunta.respuestas);
+        for (const key of pregunta.respuestas) {
+          if (key.contenido === 'true') { key.correcta = key.contenido; }
+        }
         this.respuestas.push(pregunta.respuestas);
       } else {
         this.respuestas.push([]);
