@@ -11,6 +11,10 @@ import { FactoryService } from 'src/app/services/factory.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  plantilla: any = {
+    imgBanner: 'assets/images/imgLaboratorio.png',
+    tituloBanner: 'Lecciones ',
+  };
   public leccion: any = this.course.get();
   public lecciones: any = [];
   public competencias: any = [];
@@ -49,11 +53,13 @@ export class HomeComponent implements OnInit {
     );
   }
   loadLecciones() {
+    this.spinner.show();
     this.factory.getAll('leccion').subscribe(
       (response: any) => {
         console.log(response);
         this.lecciones = response;
         this.toast.success('Lecciones cargadas');
+        this.spinner.hide();
       },
       (error: any) => {
         console.log(error);

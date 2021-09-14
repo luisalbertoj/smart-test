@@ -15,13 +15,13 @@ const createlesson = async (req, res) => {
       pregunta.tipo = (await TipoPregunta.findOne({ slug: slug(pregunta.tipo.toLowerCase()) })).id;
       leccion.preguntas.push(
         pregunta.retroalimentacion !== '' ?
-          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion }).fetch() :
-          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());
+          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion, valor: pregunta.valor }).fetch() :
+          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, valor: pregunta.valor }).fetch());
       preguntas.push(leccion.preguntas[key].id);
       if (parametros.respuestas[key]) {
         for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
           leccion.preguntas[key].respuestas = [];
-          leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [leccion.preguntas[key].id] }).fetch());
+          leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [leccion.preguntas[key].id], valor: respuesta.valor }).fetch());
           if (respuesta.correcta && leccion.preguntas[key] && leccion.preguntas[key].respuestas[key2]) {
             console.log(leccion.preguntas[key].id, leccion.preguntas[key].respuestas[key2].id);
             leccion.preguntas[key].respuestaCorrecta =
@@ -206,7 +206,7 @@ const updatelesson = async ( req, res ) => {
       //tipo: row.tipo,
       id: row.id,
       respuestaCorrecta: row.respuestaCorrecta,
-
+      valor: row.valor
     };
     if( data.retroalimentacion === '' ) delete data.retroalimentacion;
     data = _.omitBy(data, _.isNull);
@@ -221,7 +221,8 @@ const updatelesson = async ( req, res ) => {
       contenido: row.contenido,
       retroalimentacion: row.retroalimentacion,
       estado: row.estado,
-      id: row.id
+      id: row.id,
+      valor: row.valor
     };
     if( data.retroalimentacion === '' ) delete data.retroalimentacion;
     data = _.omitBy(data, _.isNull);

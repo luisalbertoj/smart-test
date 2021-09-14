@@ -8,9 +8,7 @@ import { FactoryService } from 'src/app/services/factory.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  constructor(
-    private router: Router,
-    public factory: FactoryService) {}
+  constructor(private router: Router, public factory: FactoryService) {}
 
   ngOnInit(): void {
     this.factory.loadUser();
@@ -18,7 +16,7 @@ export class LayoutComponent implements OnInit {
     console.log(this.factory.user);
   }
 
-  menu() {
+  menu(): any {
     /*
 ==========================
 Vertical Responsive Menu
@@ -77,7 +75,6 @@ Vertical Responsive Menu
       }
     }, 100);
   }
-
 
   salir() {
     localStorage.removeItem('user');

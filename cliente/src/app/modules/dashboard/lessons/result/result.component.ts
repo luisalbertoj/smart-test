@@ -45,7 +45,8 @@ export class ResultComponent implements OnInit {
   guardarCalificacion(): void {
     this.spinner.show();
     this.factory.put('resultLessonStudent', this.leccionCalificar.id, {
-      calificacionAplica: this.leccionCalificar.calificacionAplica
+      calificacionAplica: this.leccionCalificar.calificacionAplica,
+      estado: 1
     }).subscribe(
       (res: any) => {
         this.toast.success('Nota registrada');

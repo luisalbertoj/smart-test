@@ -303,7 +303,7 @@
                           </div>
                           <div class="col-lg-12 col-md-12">
                             <div class="course_des_textarea mt-30 lbel25">
-                              <label>Eres el líder de un proyecto estás
+                              <label><!-- Eres el líder de un proyecto estás
                                 desarrollando una tienda virtual y quieres
                                 probar la funcionalidad de carrito de compras.
                                 Intenta formular el caso de uso, detallando los
@@ -311,7 +311,8 @@
                                 realizar la acción posteriormente define el caso
                                 de prueba como los ejemplificados durante la
                                 lección detallando contexto, acción y resultado
-                                esperado.
+                                esperado. -->
+                                <span [innerHTML]="this.leccion.aplicar"></span>
                               </label>
                               <angular-editor [placeholder]="" [(ngModel)]="response.aplica" name="response.aplica">
 

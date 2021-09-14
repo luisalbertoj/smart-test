@@ -35,6 +35,10 @@ module.exports = {
     calificacionAplica: {
       type: 'string',
     },
+    estado: {
+      type: 'string',
+      defaultsTo: '0'
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

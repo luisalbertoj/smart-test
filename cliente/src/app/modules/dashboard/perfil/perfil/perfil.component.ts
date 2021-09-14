@@ -6,16 +6,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { ClipboardService } from 'ngx-clipboard';
 
-
-
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  styleUrls: ['./perfil.component.css'],
 })
 export class PerfilComponent implements OnInit {
-  
-
   data: any = {
     lecciones: '10',
     tests: '4',
@@ -38,31 +34,32 @@ export class PerfilComponent implements OnInit {
     codigo: '',
     username: '',
     password: '',
-    photo: ''
+    photo: '',
   };
-
-
 
   readonly = true;
   public env = environment.urlMedia;
 
   content = 'Hello, i am tiny text and copied from somewhere else';
-  
-  constructor(public factory: FactoryService, private toast: ToastrService,
+  newGrupo: any = {};
+  constructor(
+    public factory: FactoryService,
+    private toast: ToastrService,
     private spinner: NgxSpinnerService,
-    private router: Router,  private clipboardApi: ClipboardService) { }
+    private router: Router,
+    private clipboardApi: ClipboardService
+  ) {}
 
   ngOnInit(): void {
     this.loadGrupos();
     this.persona = this.factory.user;
   }
 
-  copyText() {
-    this.clipboardApi.copyFromContent(this.content)
+  copyText(): any {
+    this.clipboardApi.copyFromContent(this.content);
   }
 
-
-  loadGrupos() {
+  loadGrupos(): any {
     this.factory.getAll('grupo').subscribe(
       (response: any) => {
         this.grupos = response;
@@ -74,23 +71,15 @@ export class PerfilComponent implements OnInit {
     );
   }
 
-  habilitar() {
-
-    //habilitar
+  habilitar(): any {
     this.readonly = false;
   }
 
-  desabilitar() {
-
-    //deshabilitar
+  desabilitar(): any {
     this.readonly = true;
   }
 
-
-
-
-  actualizarUser() {
-
+  actualizarUser(): any {
     this.spinner.show();
     this.factory
       .put('persona', this.factory.user.id, {
@@ -101,7 +90,7 @@ export class PerfilComponent implements OnInit {
       })
       .subscribe(
         (response: any) => {
-        localStorage.setItem('user', JSON.stringify(response));
+          localStorage.setItem('user', JSON.stringify(response));
           this.factory.loadUser();
           this.spinner.hide();
           this.toast.success('Usuario actulizado', 'Ok');
@@ -113,9 +102,23 @@ export class PerfilComponent implements OnInit {
         }
       );
   }
-  selectGrupo() {
-    this.codeEncrypt = this.factory.encryptData(this.consulta.grupo, 5, 11);
+  selectGrupo(): any {
+    this.codeEncrypt = this.factory.encryptData(this.consulta.grupo);
+  }
+  crearGrupo(): any {
+    this.spinner.show();
+    this.factory.post('grupo', this.newGrupo).subscribe(
+      (res: any) => {
+        console.log('Nuevo grupo', res);
+        this.toast.success('Se creo el nuevo grupo');
+        this.loadGrupos();
+        this.spinner.hide();
+      },
+      (err: any) => {
+        console.log('Error al crear el grupo', err);
+        this.toast.success('El grupo ya existe');
+        this.spinner.hide();
+      }
+    );
   }
 }
-
-

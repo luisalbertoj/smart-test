@@ -5,7 +5,8 @@
         <div class="col-sm-12 col-md-12">
           <img src="{{ plantilla.imgBanner }}" class="card-img-top" alt="..." />
         </div>
-        <div class="row">
+      </div>
+      <!-- <div class="row">
           <div class="col-12">
             <div *ngFor="let item of resultLesson; index as i" class="fcrse_1">
               <a [routerLink]="[
@@ -16,7 +17,6 @@
                               item.portada || 'assets/images/courses/portada-base.png'
                             }}" alt="Portada de la item{{ i }}" />
                 <div class="course-overlay overlay-peque">
-                  <!-- <div class="badge_seller">item pendiente</div> -->
                   <div class="crse_reviews">
                     <i class="uil uil-star"></i> {{ item.leccion.titulo }}
                   </div>
@@ -26,15 +26,16 @@
               </a>
               <div class="hs_content">
 
-                <a [routerLink]="[
-                              '/dashboard/lesson/lesson-detail',
-                              this.item.leccion.slug
-                            ]" routerLinkActive="router-link-active" class="crse14s title900">
+                <a class="crse14s title900">
                   <strong><i class="fas fa-bullseye color-secondary"></i> Estudiante:
                   </strong>
                   {{ item.estudiante.nombre }}
                 </a>
-                <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
+                <a class="crse14s title900">
+                  <strong><i class="fas fa-bullseye color-secondary"></i> Codigo:
+                  </strong>
+                  {{ item.estudiante.codigo }}
+                </a>
                 <div class="auth1lnkprce">
                   <p class="cr1fot">
                     Practica: {{ item.respuestasCorrectas }} respuestas correctas de {{ item.preguntasTotales }}
@@ -58,23 +59,209 @@
               </div>
             </div>
           </div>
+        </div> -->
+      <div class="row">
+        <div class="col-sm-12">
+          <br>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Estudiante</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Nota</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of resultLesson">
+                <th scope="row">
+                  <span> {{ item.estudiante.nombre}} {{item.estudiante.apellido }} </span>
+                </th>
+                <td>
+                  <span>{{ item.estudiante.codigo}}</span>
+                </td>
+                <td>
+                  <span class="bg-danger estado-sin" *ngIf="item.estado === '0'">
+                    Sin calificar
+                  </span>
+                  <span class="bg-success estado-cal" *ngIf="item.estado === '1'">
+                    Calificado
+                  </span>
+                </td>
+                <td>
+                  {{item.calificacionAplica}}
+                </td>
+                <td>
+                  <button type="button" (click)="calificarSelected(item)" class="btn btn-primary" data-toggle="modal"
+                    data-target="#exampleModal">
+                    Ver y calificar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+      <!-- Modal -->
+      <!-- <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Ver y calificar</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h2>Informacion del estudiante</h2>
+                        <strong>Nombres: </strong> {{pruebaCalificar?.estudiante?.nombre}}
+                        <br>
+                        <strong>Apellido: </strong> {{pruebaCalificar?.estudiante?.apellido}}
+                        <br>
+                        <strong>Codigo: </strong> {{pruebaCalificar?.estudiante?.codigo}}
+                        <hr>
+                      </div>
+                      <div class="col-sm-6">
+                        <h2>Resumen</h2>
+                        <ul class="test_result_left">
+                          <li>
+                            <div class="result_dt">
+                              <i class="uil uil-check right_ans"></i>
+                              <p>Correcto<span></span></p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="result_dt">
+                              <i class="uil uil-times wrong_ans"></i>
+                              <p>Incorrecto<span></span></p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="result_dt">
+                              <h4></h4>
+                              <p>Total </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="alert alert-info" role="alert">
+                        Selecciona la pregunta a calificar.
+                      </div>
+                      <h2>Preguntas</h2>
+                      <nav class="nav">
+                        <a *ngFor="let respuestaEstu of pruebaCalificar?.respuestasEstudiante; index as i"
+                          class="nav-link active">
+                          <button *ngIf="respuestaEstu.calificacion !== ''"
+                            (click)="seleccionarPregunta(respuestaEstu.pregunta, i, respuestaEstu)" type="button"
+                            class="btn btn-info" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+                            aria-controls="collapse">
+                            {{i + 1}}
+                            <i class="far fa-flag"></i>
+                          </button>
+                          <button *ngIf="respuestaEstu.calificacion === ''"
+                            (click)="seleccionarPregunta(respuestaEstu.pregunta, i, respuestaEstu)" type="button"
+                            class="btn btn-light" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+                            aria-controls="collapse">
+                            {{i + 1}}
+                            <i class="far fa-flag"></i>
+                          </button>
+                        </a>
+                      </nav>
+                      <div class="container">
+                        <div class="row">
+  
+                          <div class="col-sm-12" class="collapse multi-collapse" id="collapse">
+                            <div class="card card-body">
+                              <h3>Pregunta: {{preguntaSeleccionada?.indice + 1}}</h3>
+                              <strong>Pregunta: </strong>
+                              <span [innerHTML]="preguntaSeleccionada?.contenido"></span>
+  
+                              <div *ngIf="preguntaSeleccionada?.tipo?.nombre === 'abierta'">
+                                <div class="form-group">
+                                  <label for="exampleFormControlTextarea1">
+                                    <strong>Respuesta Estudiante: </strong>
+                                  </label>
+                                  <textarea disabled [(ngModel)]="respuestaSeleccionada.respuesta"
+                                    name="respuestaSeleccionada.respuesta" class="form-control"
+                                    id="exampleFormControlTextarea1" rows="3">
+                                  </textarea>
+                                  <strong>Valor: </strong> {{respuestaSeleccionada?.pregunta?.valor}}
+                                  <br>
+                                  <label for="exampleFormControlTextarea1">
+                                    <strong>Calificacion: </strong>
+                                  </label>
+                                  <input class="form-control" type="number"
+                                    max="{{respuestaSeleccionada?.pregunta?.valor}}" min="1" step="0.01"
+                                    [(ngModel)]="respuestaSeleccionada.calificacion"
+                                    name="respuestaSeleccionada.calificacion" required>
+                                  <label for="exampleFormControlTextarea1">
+                                    <strong>Retroalimentacion: </strong>
+                                  </label>
+                                  <angular-editor [placeholder]="" [(ngModel)]="respuestaSeleccionada.retroalimentacion"
+                                    name="respuestaSeleccionada.retroalimentacion">
+                                  </angular-editor>
+                                  <button (click)="guardarCalificacion()" type="button" class="btn btn-success">Guardar</button>
+                                </div>
+                              </div>
+                              <div *ngIf="preguntaSeleccionada?.tipo?.nombre === 'multiple'">
+                                <label for="exampleFormControlTextarea1">
+                                  <strong>Respuesta Estudiante: </strong>
+                                </label>
+                                <textarea disabled [(ngModel)]="respuestaSeleccionada.respuestas.contenido"
+                                  name="respuestaSeleccionada.respuesta" class="form-control"
+                                  id="exampleFormControlTextarea1" rows="3">
+                                </textarea>
+                                <strong>Calificacion: </strong> {{respuestaSeleccionada?.calificacion}}
+                              </div>
+                              <br>
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
     </div>
   </div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ver y calificar</h5>
+        <h1 class="modal-title" id="exampleModalLabel">Ver y calificar</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <h2>Informacion del estudiante</h2>
+        <strong>Nombres: </strong> {{leccionCalificar?.estudiante?.nombre}}
+        <br>
+        <strong>Apellido: </strong> {{leccionCalificar?.estudiante?.apellido}}
+        <br>
+        <strong>Codigo: </strong> {{leccionCalificar?.estudiante?.codigo}}
+        <hr>
         <h2>Practica</h2>
         <ul class="test_result_left">
           <li>
@@ -97,21 +284,28 @@
             </div>
           </li>
         </ul>
+        <hr>
         <h2>Aplica</h2>
+        <hr>
+        <label for="exampleFormControlTextarea1">
+          <strong>Respuesta Estudiante: </strong>
+        </label>
         <angular-editor disabled [placeholder]="" [(ngModel)]="leccionCalificar.aplicaEstudiante"
           name="leccionCalificar.aplicaEstudiante">
         </angular-editor>
-        <h2>Aplica files</h2>
+        <hr>
+        <h2>Archivos cargados</h2>
         <a href="{{environment.urlMedia + 'aplica/' + leccionCalificar.aplicaFile }}" target="_blank">
           <i class="fas fa-eye"></i>
         </a>
         <h2>Calificacion</h2>
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-flag"></i></span>
-            </div>
-            <input class="form-control" type="number" max="10" min="1" step="0.01" [(ngModel)]="leccionCalificar.calificacionAplica" name="leccionCalificar.calificacionAplica" required>
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-flag"></i></span>
           </div>
+          <input class="form-control" type="number" max="10" min="1" step="0.01"
+            [(ngModel)]="leccionCalificar.calificacionAplica" name="leccionCalificar.calificacionAplica" required>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

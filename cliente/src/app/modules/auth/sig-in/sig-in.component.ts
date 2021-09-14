@@ -24,22 +24,25 @@ export class SigInComponent implements OnInit {
 
   ngOnInit(): void {
     this.factory.loadUser();
-    this.factory.user? this.router.navigate(['dashboard']): 0 ;
+    this.factory.user ? this.router.navigate(['dashboard']) : 0;
     this.factory.returnAsObservable().subscribe((subs) => {
-      subs===true?this.spinner.hide():this.spinner.show();
+      subs === true ? this.spinner.hide() : this.spinner.show();
     });
   }
 
-  login() {
+  login(): void {
+    this.spinner.show();
     this.factory.post('persona/login', this.persona).subscribe(
       (response: any) => {
         localStorage.setItem('user', JSON.stringify(response.data));
         this.factory.loadUser();
+        this.spinner.hide();
         this.router.navigate(['dashboard']);
       },
       (error: any) => {
         this.toastr.warning('Usuario o contraseña  incorrectos!', 'Error!');
         console.log(error);
+        this.spinner.hide();
       }
     );
   }

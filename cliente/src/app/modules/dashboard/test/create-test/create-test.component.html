@@ -145,12 +145,13 @@
                 </div>
               </div>
               <div class="col-sm-12 col-md-9">
-                <angular-editor
+                <input
                   [(ngModel)]="test.duracion"
                   name="test.duracion"
-                  [placeholder]="'Duración...'"
-                >
-                </angular-editor>
+                  placeholder="Duracion..."
+                  type="number"
+                  class="form-control"
+                />
               </div>
             </div>
 

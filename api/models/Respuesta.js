@@ -29,6 +29,10 @@ module.exports = {
       collection: 'pregunta',
       via: 'respuestas'
     },
+    respuestasEstudiante: {
+      collection: 'respuestasEstudiante',
+      via: 'respuestas'
+    },
     retroalimentacion: {
       type: 'string',
       columnType: 'longtext'
@@ -36,8 +40,12 @@ module.exports = {
     estado: {
       type: 'string',
       defaultsTo: '1'
-    }
-
+    },
+    valor: {
+      type: 'string',
+      defaultsTo: '0'
+    },
+    
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
