@@ -33,6 +33,9 @@ export class PlanPruebasComponent implements OnInit {
     resultadosReales: '',
     error: '',
     responsables: '',
+    riesgo: '',
+    impacto: '',
+    responsabilidades: '',
   }
   constructor(
     private spinner: NgxSpinnerService

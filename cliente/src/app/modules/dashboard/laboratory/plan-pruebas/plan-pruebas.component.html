@@ -619,7 +619,7 @@
                 </div>
                 <textarea [(ngModel)]="plan.responsables" name="plan.responsables"class="form-control" aria-label="With textarea"></textarea>
               </div>
-          <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
+                <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>8.<span
                   style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>RIESGOS</span></b></p>
@@ -646,6 +646,10 @@
                 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
         line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
         color:#0070C0'>&lt;Describa el riesgo&gt;</span></p>
+        <div class="input-group">
+          
+          <textarea [(ngModel)]="plan.riesgo" name="plan.riesgo"class="form-control" aria-label="With textarea"></textarea>
+        </div>
               </td>
               <td width=320 valign=top style='width:240.3pt;border-top:none;border-left:
         none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -653,6 +657,10 @@
                 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
         line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
         color:#0070C0'>&lt;Alto, Medio o Bajo&gt;</span></p>
+        <div class="input-group">
+          
+          <textarea [(ngModel)]="plan.impacto" name="plan.impacto"class="form-control" aria-label="With textarea"></textarea>
+        </div>
               </td>
             </tr>
           </table>
@@ -669,10 +677,20 @@
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
       color:#0070C0'>&lt;Describa las responsabilidades de los funcionarios quienes
               realizarán las pruebas&gt;</span></p>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Responsabilidades</span>
+                </div>
+                <textarea [(ngModel)]="plan.responsabilidades" name="plan.responsabilidades"class="form-control" aria-label="With textarea"></textarea>
+              </div>
         </div>
+        <br>
       </div>
     </div>
+    <br>
+    <br>
     <div class="col-sm-12 justify-content-end d-flex">
+      <br>
       <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Vista previa</button>
       <span class="text-white"> - </span>
       <button class="btn btn-success">Guardar</button>
