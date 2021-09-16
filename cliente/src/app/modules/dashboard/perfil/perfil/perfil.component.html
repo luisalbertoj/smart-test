@@ -26,7 +26,7 @@
                                         <h2>{{this.factory.user?.nombre}} {{this.factory.user.apellido}}</h2>
                                         <span>{{this.factory.user?.idRol?.nombre}}</span>
                                         <br>
-                                        <span *ngIf="factory.user.idRol.nombre==='estudiante'">Grupo: 
+                                        <span *ngIf="factory.user.idRol.nombre==='estudiante'">Grupo:
                                             <ng-container *ngFor="let grupo of this.factory.user?.grupos">
                                                 {{grupo.codigo}}
                                             </ng-container>
@@ -36,7 +36,8 @@
 
                                 <ng-container
                                     *ngIf="factory.user.idRol.nombre==='docente' || factory.user.idRol.nombre==='administrador' ">
-                                    <button type="button" class="btn btn-plantilla" data-toggle="modal" data-target="#exampleModal">Generar código registro</button>
+                                    <button type="button" class="btn btn-plantilla" data-toggle="modal"
+                                        data-target="#exampleModal">Generar código registro</button>
                                     <!-- Modal -->
 
                                 </ng-container>
@@ -89,8 +90,8 @@
                             <div class="nav nav-tabs tab_crse" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab"
                                     href="#nav-about" role="tab" aria-selected="true">Mis datos</a>
-                                <a class="nav-item nav-link" id="nav-purchased-tab" data-toggle="tab"
-                                    href="#nav-purchased" role="tab" aria-selected="false">Mis lecciones</a>
+                                <!-- <a class="nav-item nav-link" id="nav-purchased-tab" data-toggle="tab"
+                                    href="#nav-purchased" role="tab" aria-selected="false">Mis lecciones</a> -->
                             </div>
                         </nav>
                     </div>
@@ -102,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 justify-content-end d-flex">
-                    <button class="btn btn-plantilla"  (click)="habilitar()"> Editar</button>
+                    <button class="btn btn-plantilla" (click)="habilitar()"> Editar</button>
                 </div>
 
             </div>
@@ -116,16 +117,18 @@
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 colDatos1">
                                                 <label>Nombre</label>
-                                                <input  [(ngModel)]="persona.nombre" name="persona.nombre"
+                                                <input [(ngModel)]="persona.nombre" name="persona.nombre"
                                                     class="form-control ng-untouched ng-pristine ng-valid" type="text"
-                                                    placeholder="" value="{{factory.user.nombre}}" [readonly]="readonly" />
+                                                    placeholder="" value="{{factory.user.nombre}}"
+                                                    [readonly]="readonly" />
                                             </div>
 
                                             <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Apellido</label>
                                                 <input name="apellido"
                                                     class="form-control ng-untouched ng-pristine ng-valid" type="text"
-                                                    placeholder="" value="{{factory.user.apellido}}" [readonly]="readonly" />
+                                                    placeholder="" value="{{factory.user.apellido}}"
+                                                    [readonly]="readonly" />
                                             </div>
                                         </div>
                                         <br>
@@ -134,13 +137,15 @@
                                                 <label>Cédula</label>
                                                 <input name="cedula"
                                                     class="form-control ng-untouched ng-pristine ng-valid" type="text"
-                                                    placeholder="" value="{{factory.user.cedula}}" [readonly]="readonly" />
+                                                    placeholder="" value="{{factory.user.cedula}}"
+                                                    [readonly]="readonly" />
                                             </div>
                                             <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Email</label>
                                                 <input name="email"
                                                     class="form-control ng-untouched ng-pristine ng-valid" type="text"
-                                                    placeholder="" value="{{factory.user.email}}" [readonly]="readonly" />
+                                                    placeholder="" value="{{factory.user.email}}"
+                                                    [readonly]="readonly" />
                                             </div>
                                         </div>
                                         <br>
@@ -149,21 +154,25 @@
                                                 <label>Código</label>
                                                 <input name="codigo"
                                                     class="form-control ng-untouched ng-pristine ng-valid" type="text"
-                                                    placeholder="" value="{{factory.user.codigo}}"  [readonly]="readonly"/>
+                                                    placeholder="" value="{{factory.user.codigo}}"
+                                                    [readonly]="readonly" />
                                             </div>
                                             <div class="col-sm-6 col-md-6 colDatos2">
                                                 <label>Username</label>
                                                 <input name="user.email"
                                                     class="form-control ng-untouched ng-pristine ng-valid" type="text"
-                                                    value="{{factory.user.username}}" id="input" [readonly]="readonly"/>
+                                                    value="{{factory.user.username}}" id="input"
+                                                    [readonly]="readonly" />
                                             </div>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
-                                        
+
                                         <div class="col-sm-12 col-md-12 justify-content-center d-flex">
-                                            <button class="btn btn-plantilla"   (click)="actualizarUser()" (click)="desabilitar()"> Guardar</button>
+                                            <button class="btn btn-plantilla" (click)="actualizarUser()"
+                                                (click)="desabilitar()">
+                                                Guardar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +185,7 @@
                                             <div class="col-md-9">
                                                 <div class="fcrse_1 mt-20">
                                                     <a href="course_detail_view.html" class="hf_img">
-                                                    
+
                                                         <div class="course-overlay">
                                                             <div class="badge_seller">Bestseller</div>
                                                             <div class="crse_reviews">
@@ -237,18 +246,32 @@
                 </button>
             </div>
             <div class="modal-body">
+                <h2>Nuevo grupo</h2>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nombre del grupo</label>
+                    <input type="text" [(ngModel)]="newGrupo.nombre" name="newGrupo.nombre" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Nombre del grupo">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">codigo del grupo</label>
+                    <input type="text" [(ngModel)]="newGrupo.codigo" name="newGrupo.codigo" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Codigo del grupo">
+                </div>
+                <button type="submit" (click)="crearGrupo()" class="btn btn-primary">Crear grupo</button>
+                
+                <hr>
                 <label for="consulta.grupo">
                     Grupos
-                    <select (click)="selectGrupo()" [(ngModel)]="consulta.grupo" class="custom-select" id="inputGroupSelect01">
-                    <option value="">Todos los grupos...</option>
-                      <option *ngFor="let grupo of grupos" value="{{grupo.codigo}}">
-                        {{grupo.codigo}} - {{grupo.nombre}}
-                    </option>
+                    <select (click)="selectGrupo()" [(ngModel)]="consulta.grupo" class="custom-select"
+                        id="inputGroupSelect01">
+                        <option value="">Todos los grupos...</option>
+                        <option *ngFor="let grupo of grupos" value="{{grupo.codigo}}">
+                            {{grupo.codigo}} - {{grupo.nombre}}
+                        </option>
                     </select>
                 </label>
-                <input  type="text" [(ngModel)]="codeEncrypt" 
-                    class="form-control ng-untouched ng-pristine ng-valid" #formInputText [readonly]="readonly"
-                    />
+                <input type="text" [(ngModel)]="codeEncrypt" class="form-control ng-untouched ng-pristine ng-valid"
+                    #formInputText [readonly]="readonly" />
             </div>
             <div class="modal-footer">
                 <i class="far fa-copy fa-2x color-secondary" [ngxClipboard]="formInputText"></i>

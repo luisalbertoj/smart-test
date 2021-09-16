@@ -15,13 +15,13 @@ const createlesson = async (req, res) => {
       pregunta.tipo = (await TipoPregunta.findOne({ slug: slug(pregunta.tipo.toLowerCase()) })).id;
       leccion.preguntas.push(
         pregunta.retroalimentacion !== '' ?
-          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion }).fetch() :
-          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo }).fetch());
+          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, retroalimentacion: pregunta.retroalimentacion, valor: pregunta.valor }).fetch() :
+          await Pregunta.create({ contenido: pregunta.contenido, tipo: pregunta.tipo, valor: pregunta.valor }).fetch());
       preguntas.push(leccion.preguntas[key].id);
       if (parametros.respuestas[key]) {
         for await (let [key2, respuesta] of parametros.respuestas[key].entries()) {
           leccion.preguntas[key].respuestas = [];
-          leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [leccion.preguntas[key].id] }).fetch());
+          leccion.preguntas[key].respuestas.push(await Respuesta.create({ contenido: respuesta.contenido, retroalimentacion: respuesta.retroalimentacion, preguntas: [leccion.preguntas[key].id], valor: respuesta.valor }).fetch());
           if (respuesta.correcta && leccion.preguntas[key] && leccion.preguntas[key].respuestas[key2]) {
             console.log(leccion.preguntas[key].id, leccion.preguntas[key].respuestas[key2].id);
             leccion.preguntas[key].respuestaCorrecta =
@@ -114,9 +114,9 @@ const importLessons = async (req, res) => {
         leccion.titulo = item[0];
         /* leccion.objetivo = await Objetivo.findOrCreate({ slug: slug(item[1].toLowerCase()) },
           { titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).id; */
-        const objetivo = await Objetivo.create({ titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).fetch().catch((err) => {console.log(err);});
+        const objetivo = await Objetivo.create({ titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).fetch().catch((err) => { console.log(err); });
 
-        if(objetivo) { leccion.objetivo = objetivo.id; }
+        if (objetivo) { leccion.objetivo = objetivo.id; }
         leccion.competencias = await processCompetencias(item);
         const preconceptos = item[4].split('/');
         let ids = [];
@@ -146,9 +146,9 @@ const importLessons = async (req, res) => {
               }
             }
             const respuestaCorrecta = await Respuesta.find().where({ slug: slug((respuestaCorrectaPos + '').toLowerCase()) });
-              const preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
-                .set({ respuestaCorrecta: respuestaCorrecta[0].id }).catch((err) => {console.log(err);});
-              if(!preguntaUpdate) { console.log('No pregunta update');}
+            const preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
+              .set({ respuestaCorrecta: respuestaCorrecta[0].id }).catch((err) => { console.log(err); });
+            if (!preguntaUpdate) { console.log('No pregunta update'); }
             console.log('respuesta correcta', respuestaCorrecta);
             console.log('pregunta', pregunta);
             preguntas.push(pregunta);
@@ -177,7 +177,7 @@ const importLessons = async (req, res) => {
   }
   res.badRequest({ message: 'Datos incompletos' });
 };
-const updatelesson = async ( req, res ) => {
+const updatelesson = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
   // Leccion actualizar 
@@ -192,13 +192,13 @@ const updatelesson = async ( req, res ) => {
     creador: params.leccion.creador,
     objetivo: params.leccion.objetivo
   };
-  if( data.objetivo === '' ) delete data.objetivo;
+  if (data.objetivo === '') delete data.objetivo;
   data = _.omitBy(data, _.isNull);
-  resultado = await Leccion.update( { id: params.id }, data );
+  resultado = await Leccion.update({ id: params.id }, data);
 
   // Pregunta actualizar
 
-  for( let row of params.preguntas ){
+  for (let row of params.preguntas) {
     data = {
       contenido: row.contenido,
       retroalimentacion: row.retroalimentacion,
@@ -206,19 +206,19 @@ const updatelesson = async ( req, res ) => {
       //tipo: row.tipo,
       id: row.id,
       respuestaCorrecta: row.respuestaCorrecta,
-
+      valor: row.valor
     };
     //console.log( "***", data, row)
-    if( data.retroalimentacion === '' ) delete data.retroalimentacion;
+    if (data.retroalimentacion === '') delete data.retroalimentacion;
     data = _.omitBy(data, _.isNull);
-    resultado = await Pregunta.update( { id: data.id }, data );
+    resultado = await Pregunta.update({ id: data.id }, data);
   }
 
 
   // Respues actualizar
 
-  for( let key of params.respuestas ){
-    for( let row of key ){
+  for (let key of params.respuestas) {
+    for (let row of key) {
       data = {
         contenido: row.contenido,
         //correcta: String( row.correcta || 'false' ),
@@ -227,19 +227,19 @@ const updatelesson = async ( req, res ) => {
         id: row.id
       };
       //console.log("***Params", params, "**DATA", data)
-      if( data.retroalimentacion === '' ) delete data.retroalimentacion;
+      if (data.retroalimentacion === '') delete data.retroalimentacion;
       data = _.omitBy(data, _.isNull);
-      resultado = await Respuesta.update( { id: data.id }, data );
+      resultado = await Respuesta.update({ id: data.id }, data);
     }
   }
 
-  return res.json({ status: 200,  msg: 'actualizado correcto' });
+  return res.json({ status: 200, msg: 'actualizado correcto' });
 };
 
-const querys = async ( req, res )=>{
+const querys = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
-  resultado = await Leccion.find( { where: params.where || {} , sort: params.sort || 'createdAt DESC' } ).paginate(params.skip || 0, params.limit || 10 );
+  resultado = await Leccion.find({ where: params.where || {}, sort: params.sort || 'createdAt DESC' }).paginate(params.skip || 0, params.limit || 10);
   return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
 };
 

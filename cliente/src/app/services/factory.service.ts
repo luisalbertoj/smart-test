@@ -13,40 +13,40 @@ export class FactoryService {
   constructor(private http: HttpClient) {
     this.loadUser();
   }
-  loadUser() {
+  loadUser(): any {
     try {
       this.user = JSON.parse(localStorage.getItem('user'));
     } catch (error) {
       localStorage.clear();
     }
   }
-  post(model: string, data: any) {
+  post(model: string, data: any): any {
     return this.http.post(environment.urlApi + model, data);
   }
 
-  put(model: string, id: string, data: any) {
+  put(model: string, id: string, data: any): any {
     return this.http.put(environment.urlApi + model + '/' + id, data);
   }
 
-  delete(model: string, id: number) {
+  delete(model: string, id: number): any {
     return this.http.delete(environment.urlApi + model + '/' + id);
   }
 
-  getAll(model: string) {
+  getAll(model: string): any {
     return this.http.get(environment.urlApi + model);
   }
 
-  get(model: string, id: number, att?: any) {
-    if(att) {
+  get(model: string, id: number, att?: any): any {
+    if (att) {
       return this.http.get(environment.urlApi + model + '?' + att + '=' + id);
     }
     return this.http.get(environment.urlApi + model + '/' + id);
   }
-  query(modelo: string, query: any) {
+  query(modelo: string, query: any): any {
     return this.http.post(environment.urlApi + modelo, query);
   }
-  fileUpload(endPoint: any, data: any, info: any) {
-    let formData: FormData = new FormData();
+  fileUpload(endPoint: any, data: any, info: any): any {
+    const formData: FormData = new FormData();
     formData.append('nombre', info.nombre);
     formData.append('contenido', info.contenido);
     formData.append('creador', info.creador);
@@ -54,29 +54,44 @@ export class FactoryService {
     for (let i = 0; i < data.length; i++) {
       console.log('for' + i);
       console.log(data[i]);
-      let file: File = data[i];
+      const file: File = data[i];
       formData.append('file' + i, file, file.name);
     }
     return this.http.post(environment.urlApi + endPoint, formData);
   }
-  returnAsObservable() {
+  returnAsObservable(): any {
     return this.sub.asObservable();
   }
-  showSpinner() {
-    
+  showSpinner(): any {
     this.sub.next(true);
   }
-  hideSpinner() {
+  hideSpinner(): any {
     this.sub.next(false);
   }
 
-  encryptData(data, inicio?, final?) {
+  encryptData(data, inicio?, final?): any {
     try {
-      const codigo = inicio && final ? CryptoJS.AES.encrypt((data), environment.secretKey ).toString().slice(inicio,final): CryptoJS.AES.encrypt((data), environment.secretKey ).toString();
+      const codigo =
+        inicio && final
+          ? CryptoJS.AES.encrypt(data, environment.secretKey)
+              .toString()
+              .slice(inicio, final)
+          : CryptoJS.AES.encrypt(data, environment.secretKey).toString();
       return codigo;
     } catch (e) {
       console.log(e);
       return '';
+    }
+  }
+  decryptData(data): any {
+    try {
+      const bytes = CryptoJS.AES.decrypt(data, environment.secretKey);
+      if (bytes.toString()) {
+        return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      }
+      return data;
+    } catch (e) {
+      console.log(e);
     }
   }
 }

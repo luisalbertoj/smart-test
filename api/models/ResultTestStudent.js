@@ -1,5 +1,5 @@
 /**
- * Pregunta.js
+ * ResultTestStudent.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,22 +12,12 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-    contenido: {
-      type: 'string',
-      required: true
-    },
-
-    retroalimentacion: {
-      type: 'string'
-    },
-    valor: {
-      type: 'string',
-      defaultsTo: '10'
-    },
     estado: {
       type: 'string',
-      defaultsTo: '1'
+    },
+
+    calificacion: {
+      type: 'string',
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -39,40 +29,17 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    tipo: {
-      model: 'tipoPregunta'
+    prueba: {
+      model: 'pruebaConocimiento'
     },
-
-    etiquetas: {
-      collection: 'tags',
-      via: 'preguntas'
+    respuestasEstudiante: {
+      collection: 'respuestasEstudiante',
+      via: 'resultTest'
     },
-
-    respuestas: {
-      collection: 'respuesta',
-      via: 'preguntas'
-    },
-    slug: {
-      type: 'slug',
-      from: 'contenido',
-      blacklist: ['search']
-    },
-    pruebas: {
-      collection: 'pruebaconocimiento',
-      via: 'pregunta',
-      through: 'pruebapregunta'
-    },
-    respuestaCorrecta: {
-      model: 'respuesta'
-    },
-    lecciones: {
-      collection: 'leccion',
-      via: 'practicar'
-    },
-    personaslecciones: {
-      collection: 'personaleccion',
-      via: 'correctas'
+    estudiante: {
+      model: 'persona'
     }
   },
 
 };
+

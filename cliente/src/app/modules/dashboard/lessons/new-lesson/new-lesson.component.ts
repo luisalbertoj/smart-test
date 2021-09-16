@@ -16,13 +16,27 @@ declare var $: any;
 })
 export class NewLessonComponent implements OnInit {
   tablaCompetencias: any = {
-    header: [{ name: '#' }, { name: 'Competencia' }, { name: 'Autor' }, { name: 'Acciones' }],
+    header: [
+      { name: '#' },
+      { name: 'Competencia' },
+      { name: 'Autor' },
+      { name: 'Acciones' },
+    ],
 
-    body: [{ name: 'id' }, { name: 'nombre' }, { name: 'creador', attribute: 'nombre' }],
+    body: [
+      { name: 'id' },
+      { name: 'nombre' },
+      { name: 'creador', attribute: 'nombre' },
+    ],
   };
 
   tablaPreconceptos: any = {
-    header: [{ name: '#' }, { name: 'Preconcepto' }, { name: 'Definición' }, { name: 'Acciones' }],
+    header: [
+      { name: '#' },
+      { name: 'Preconcepto' },
+      { name: 'Definición' },
+      { name: 'Acciones' },
+    ],
 
     body: [{ name: 'id' }, { name: 'titulo' }, { name: 'concepto' }],
   };
@@ -36,33 +50,33 @@ export class NewLessonComponent implements OnInit {
   newCompetencia: any = {
     arrayForm: [
       new FormControl('', Validators.required),
-      new FormControl('', Validators.required)
+      new FormControl('', Validators.required),
     ],
     labels: ['Nombre', 'Observaciones'],
     model: 'competencia',
-    title: 'Agregar Competencia'
-  }
+    title: 'Agregar Competencia',
+  };
 
   newPreconcepto: any = {
     arrayForm: [
       new FormControl('', Validators.required),
       new FormControl('', Validators.required),
-      new FormControl('', Validators.required)
+      new FormControl('', Validators.required),
     ],
     labels: ['Preconcepto', 'Defición', 'Fuente'],
     model: 'preconcepto',
-    title: 'Agregar Preconcepto'
-  }
+    title: 'Agregar Preconcepto',
+  };
 
   newObjetivo: any = {
     arrayForm: [
       new FormControl('', Validators.required),
-      new FormControl('', Validators.required)
+      new FormControl('', Validators.required),
     ],
     labels: ['Titulo', 'Objetivo'],
     model: 'objetivo',
-    title: 'Agregar Objetivo'
-  }
+    title: 'Agregar Objetivo',
+  };
 
   plantilla: any = {
     menuGeneral: 'Informacion general de la leccion',
@@ -98,9 +112,9 @@ export class NewLessonComponent implements OnInit {
   public preguntas: any = [];
   public respuestas: any = [];
   public iconStatus = [false, false, false, false];
-  
-  id:any;
-  disableBtn:boolean = false;
+
+  id: any;
+  disableBtn = false;
 
   constructor(
     public factory: FactoryService,
@@ -108,13 +122,13 @@ export class NewLessonComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService,
     private activateRouter: ActivatedRoute
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
     const slug = this.activateRouter.snapshot.paramMap.get('slug');
-    if (slug) this.loadLeccion(slug);
+    if (slug) {
+      this.loadLeccion(slug);
+    }
     this.id = slug;
     $('[data-toggle="tooltip"]').tooltip();
     this.cargarCompetencias();
@@ -123,20 +137,17 @@ export class NewLessonComponent implements OnInit {
     this.cargarObjetivos();
   }
 
-  loadLeccion(slug) {
+  loadLeccion(slug): void {
     this.spinner.show();
-    this.factory
-      .get('getleccion', slug)
-      .subscribe((response: any) => {
-        if (response.status === 500) {
-          Swal.fire('Ops', response.data, 'info');
-        } else {
-          this.renderData(response);
-        }
-      });
-
+    this.factory.get('getleccion', slug).subscribe((response: any) => {
+      if (response.status === 500) {
+        Swal.fire('Ops', response.data, 'info');
+      } else {
+        this.renderData(response);
+      }
+    });
   }
-  renderData(response: any) {
+  renderData(response: any): void {
     this.leccion = response.data;
     this.leccion.preconceptos.forEach((element, i) => {
       this.leccion.preconceptos[i] = element.slug;
@@ -150,11 +161,15 @@ export class NewLessonComponent implements OnInit {
       pregunta.tipo = pregunta.tipo.slug;
       this.preguntas.push(pregunta);
       if (pregunta.respuestas.length > 0) {
-        pregunta.respuestas.forEach(respuesta => { 
-          if (respuesta.retroalimentacion !== '') respuesta.addRetro = true;
+        pregunta.respuestas.forEach((respuesta) => {
+          if (respuesta.retroalimentacion !== '') {
+            respuesta.addRetro = true;
+          }
         });
-        console.log( pregunta.respuestas )
-        for( let key of pregunta.respuestas ) if( key.contenido == 'true' ) key.correcta = key.contenido;
+        console.log(pregunta.respuestas);
+        for (const key of pregunta.respuestas) {
+          if (key.contenido === 'true') { key.correcta = key.contenido; }
+        }
         this.respuestas.push(pregunta.respuestas);
       } else {
         this.respuestas.push([]);
@@ -166,20 +181,24 @@ export class NewLessonComponent implements OnInit {
     }, 400);
   }
 
-  selectCompetencias(dato) {
+  selectCompetencias(dato): void {
     this.leccion.competencias = dato;
   }
 
-  selectPreconceptos(dato) {
-    console.log( this.tablaPreconceptos.header, this.tablaPreconceptos.body, dato )
+  selectPreconceptos(dato): void {
+    console.log(
+      this.tablaPreconceptos.header,
+      this.tablaPreconceptos.body,
+      dato
+    );
     this.leccion.preconceptos = dato;
   }
 
-  selectPreguntas(dato) {
+  selectPreguntas(dato): void {
     this.leccion.preguntas = dato;
   }
 
-  cargarObjetivos(evt?) {
+  cargarObjetivos(evt?): void {
     this.factory.getAll('objetivo').subscribe(
       (response: any) => {
         this.objetivos = response;
@@ -191,7 +210,7 @@ export class NewLessonComponent implements OnInit {
         )
     );
   }
-  cargarTipos() {
+  cargarTipos(): void {
     this.factory.getAll('tipopregunta').subscribe(
       (response: any) => {
         this.tipoPregunta = response;
@@ -203,7 +222,7 @@ export class NewLessonComponent implements OnInit {
         )
     );
   }
-  cargarPreconceptos() {
+  cargarPreconceptos(): void {
     this.factory.getAll('preconcepto').subscribe(
       (response: any) => {
         this.preconceptos = response;
@@ -219,7 +238,7 @@ export class NewLessonComponent implements OnInit {
         )
     );
   }
-  cargarCompetencias(evento?) {
+  cargarCompetencias(evento?): void {
     this.factory.getAll('competencia').subscribe(
       (response: any) => {
         this.competencias = response;
@@ -235,7 +254,7 @@ export class NewLessonComponent implements OnInit {
         )
     );
   }
-  onClickAccordion(key, value) {
+  onClickAccordion(key, value): void {
     if (!value.showbody) {
       value.showbody = true;
 
@@ -247,7 +266,7 @@ export class NewLessonComponent implements OnInit {
     }
   }
 
-  agregarPregunta() {
+  agregarPregunta(): any {
     if (
       this.tipoSelect === '' ||
       this.tipoSelect === null ||
@@ -271,20 +290,18 @@ export class NewLessonComponent implements OnInit {
     this.respuestas.push([]);
   }
 
-  eliminarPregunta(indice: any) {
-
-    let temporal = [];
+  eliminarPregunta(indice: any): any {
+    const temporal = [];
     for (let index = 0; index < this.preguntas.length; index++) {
       if (index !== indice) {
-        temporal.push(this.preguntas[index])
+        temporal.push(this.preguntas[index]);
       }
     }
 
     this.preguntas = temporal;
-
   }
 
-  agregarRespuesta(indice: any) {
+  agregarRespuesta(indice: any): any {
     this.respuestas[indice].push({
       pregunta: indice,
       contenido: '',
@@ -294,37 +311,47 @@ export class NewLessonComponent implements OnInit {
     });
   }
 
-  eliminarRespuesta(hijo: any, padre: any) {
-    let temporal = [];
+  eliminarRespuesta(hijo: any, padre: any): any {
+    const temporal = [];
     this.respuestas[padre].forEach((element, i) => {
-      if (i !== hijo) temporal.push(element);
+      if (i !== hijo) {
+        temporal.push(element);
+      }
     });
     this.respuestas[padre] = temporal;
   }
 
-  aplicarSelect() {
-  }
+  aplicarSelect(): any {}
 
-  crearLeccion() {
-    if (this.leccion.titulo === '')
+  crearLeccion(): any {
+    if (this.leccion.titulo === '') {
       return this.toast.error('Debes llenar el titulo', 'error');
-    if (this.leccion.competencia === '')
+    }
+    if (this.leccion.competencia === '') {
       return this.toast.error('Debes elegir una competencia', 'error');
-    if (this.leccion.introduccion === '')
+    }
+    if (this.leccion.introduccion === '') {
       return this.toast.error('Debes llenar el introduccion', 'error');
-    if (this.leccion.conclusiones === '')
+    }
+    if (this.leccion.conclusiones === '') {
       return this.toast.error('Debes llenar el conclusiones', 'error');
-    if (this.leccion.aprender === '')
+    }
+    if (this.leccion.aprender === '') {
       return this.toast.error('Debes llenar el aprender', 'error');
-    if (this.preguntas?.length === 0)
+    }
+    if (this.preguntas?.length === 0) {
       return this.toast.error('Debes llenar el practicar', 'error');
-    if (this.leccion.aplicar === '')
+    }
+    if (this.leccion.aplicar === '') {
       return this.toast.error('Debes llenar el aplicar', 'error');
+    }
     this.spinner.show();
-    if(this.leccion.slug !== '') return this.actualizar();
+    if (this.leccion.slug !== '') {
+      return this.actualizar();
+    }
     this.crear();
   }
-  crear() {
+  crear(): any {
     this.factory
       .post('leccion/createlesson', {
         leccion: this.leccion,
@@ -347,31 +374,35 @@ export class NewLessonComponent implements OnInit {
       );
   }
 
-  editarLeccion(){
-    if ( this.disableBtn ) return false;
+  editarLeccion(): any {
+    if (this.disableBtn) {
+      return false;
+    }
     this.disableBtn = true;
     this.factory
-      .post('leccion/updatelesson',{ 
+      .post('leccion/updatelesson', {
         id: this.leccion.id,
         leccion: this.leccion,
         preguntas: this.preguntas,
-        respuestas: this.respuestas
-      }).subscribe( ( res:any )=>{
-        console.log( res )
-        this.spinner.hide();
+        respuestas: this.respuestas,
+      })
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+          this.spinner.hide();
           this.toast.success('Leccion Actualizada', 'Ok');
           this.disableBtn = false;
-      },(error: any) => {
-        console.log( error );
-        this.spinner.hide();
-        this.disableBtn = false;
-        return this.toast.error(error.message, 'Problema en el servidor');
-      }
-    );
+        },
+        (error: any) => {
+          console.log(error);
+          this.spinner.hide();
+          this.disableBtn = false;
+          return this.toast.error(error.message, 'Problema en el servidor');
+        }
+      );
   }
 
-  actualizar() {
-    this.toast.info('incoming')
+  actualizar(): any {
+    this.toast.info('incoming');
   }
-
 }
