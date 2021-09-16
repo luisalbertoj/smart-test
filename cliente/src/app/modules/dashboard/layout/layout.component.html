@@ -26,7 +26,8 @@
               <a [routerLink]="['/dashboard/lesson/new']" routerLinkActive="router-link-active"
                 class="sub_menu--link">Crear Lección</a>
             </li>
-            <li class="sub_menu--item">
+            <li class="sub_menu--item"
+            *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
               <a [routerLink]="['/dashboard/lesson/result']" routerLinkActive="router-link-active"
                 class="sub_menu--link">Resultados</a>
             </li>
@@ -54,7 +55,8 @@
             </li>
           </ul>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
+            <li class="sub_menu--item"
+            *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
               <a [routerLink]="['/dashboard/test/view-result']" routerLinkActive="router-link-active" class="sub_menu--link">Resultados</a>
             </li>
           </ul>

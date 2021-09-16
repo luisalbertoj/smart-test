@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
@@ -9,7 +9,7 @@ import { FactoryService } from 'src/app/services/factory.service';
   styleUrls: ['./upload-file.component.css']
 })
 export class UploadFileComponent implements OnInit {
-
+  @Output() newItemEvent = new EventEmitter<string>();
   files: any[] = [];
   constructor(
     private toast: ToastrService,
@@ -18,20 +18,20 @@ export class UploadFileComponent implements OnInit {
   ) {
 
   }
-  ngOnInit() {
+  ngOnInit(): any {
 
   }
   /**
    * on file drop handler
    */
-  onFileDropped($event) {
+  onFileDropped($event): void {
     this.prepareFilesList($event);
   }
 
   /**
    * handle file from browsing
    */
-  fileBrowseHandler(files) {
+  fileBrowseHandler(files): void {
     this.prepareFilesList(files);
   }
 
@@ -39,14 +39,14 @@ export class UploadFileComponent implements OnInit {
    * Delete file from files list
    * @param index (File index)
    */
-  deleteFile(index: number) {
+  deleteFile(index: number): void {
     this.files.splice(index, 1);
   }
 
   /**
    * Simulate the upload process
    */
-  uploadFilesSimulator(index: number) {
+  uploadFilesSimulator(index: number): void {
     setTimeout(() => {
       if (index === this.files.length) {
         return;
@@ -67,7 +67,7 @@ export class UploadFileComponent implements OnInit {
    * Convert Files list to normal array list
    * @param files (Files List)
    */
-  prepareFilesList(files: Array<any>) {
+  prepareFilesList(files: Array<any>): void {
     for (const item of files) {
       item.progress = 0;
       this.files.push(item);
@@ -80,7 +80,7 @@ export class UploadFileComponent implements OnInit {
    * @param bytes (File size in bytes)
    * @param decimals (Decimals point)
    */
-  formatBytes(bytes, decimals) {
+  formatBytes(bytes, decimals): any {
     if (bytes === 0) {
       return '0 Bytes';
     }
@@ -91,10 +91,11 @@ export class UploadFileComponent implements OnInit {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  upload() {
+  upload(): any {
     console.log(this.files);
-    this.files[0].type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'?
-    this.toast.error('Solo se permiten archivos xlsx'): 0;
-
+    this.addNewItem(this.files);
+  }
+  addNewItem(value: any): void {
+    this.newItemEvent.emit(value);
   }
 }

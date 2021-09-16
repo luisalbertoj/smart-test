@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     username: '',
     password: '',
-    idRol: '3',
+    idRol: '2',
     grupos: '',
   };
 

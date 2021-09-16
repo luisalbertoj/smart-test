@@ -62,7 +62,7 @@
                   <a href="https://drive.google.com/drive/folders/1x3Jatpg-JyqYwr8PdUTMrYBqZxzsF3h0?usp=sharing" target="_blank">AQUI.</a> <br>
                   te recomendamos mantener la estructura de carpetas.
                   cuando termines de crear tus clases y tus test files carga el proyecto.
-                  <app-upload-file></app-upload-file>
+                  <app-upload-file (newItemEvent)="addItem($event)"></app-upload-file>
                 </p>
               </div>
               <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">

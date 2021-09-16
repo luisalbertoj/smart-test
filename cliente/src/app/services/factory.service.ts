@@ -87,7 +87,7 @@ export class FactoryService {
     try {
       const bytes = CryptoJS.AES.decrypt(data, environment.secretKey);
       if (bytes.toString()) {
-        return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        return (bytes.toString(CryptoJS.enc.Utf8));
       }
       return data;
     } catch (e) {

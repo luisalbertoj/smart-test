@@ -37,6 +37,7 @@ module.exports.routes = {
   'POST /lesson/importLessons': {action: 'leccion/importLessons'},
   'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
   'POST /leccion/querys': {action: 'leccion/querys'},
+  'POST /proyect/upload': {action: 'proyect/upload'},
 
 
 
