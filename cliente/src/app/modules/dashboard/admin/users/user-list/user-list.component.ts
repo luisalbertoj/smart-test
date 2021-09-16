@@ -83,28 +83,30 @@ export class UserListComponent implements OnInit {
     )
   }
   config() {
-    $('#datatables').DataTable({
-      "pagingType": "full_numbers",
-      "lengthMenu": [
-        [10, 25, 50, -1],
-        [10, 25, 50, "All"]
-      ],
-      responsive: true,
-      language: {
-        search: "_INPUT_",
-        searchPlaceholder: "Buscar",
-      }
-
-    });
-
-    const table = $('#datatables').DataTable();
-
-    table.on('click', '.like', function (e) {
-      alert('You clicked on Like button');
-      e.preventDefault();
-    });
-
-    $('.card .material-datatables label').addClass('form-group');
+    try {
+      $('#datatables').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+          [10, 25, 50, -1],
+          [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: "Buscar",
+        }
+  
+      });
+  
+      const table = $('#datatables').DataTable();
+  
+      table.on('click', '.like', function (e) {
+        alert('You clicked on Like button');
+        e.preventDefault();
+      });
+  
+      $('.card .material-datatables label').addClass('form-group');
+    } catch (error) {}
   }
   seleccion(row: any) {
     this.usuarioSeleccionado = row;
@@ -172,13 +174,13 @@ export class UserListComponent implements OnInit {
   }
 
   actualizarDatos() {
-    if (this.contrasenaNueva.trim() !== '') {
+    if ( this.contrasenaNueva.trim() !== '' && this.contrasenaNueva != '' ) {
       this.usuarioSeleccionado.password = this.contrasenaNueva;
     }
-    if (this.correoNuevo.trim() !== '') {
+    if ( this.correoNuevo.trim() !== '' && this.correoNuevo != '' ) {
       this.usuarioSeleccionado.email = this.correoNuevo;
     }
-    console.log(this.usuarioSeleccionado);
+    //console.log(this.correoNuevo);
     let persona = this.usuarioSeleccionado;
     persona.idRol = this.usuarioSeleccionado.idRol.id;
     console.log("actualizar");
