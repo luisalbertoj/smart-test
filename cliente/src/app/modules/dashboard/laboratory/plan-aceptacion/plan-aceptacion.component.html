@@ -10,66 +10,9 @@
 
           <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
             font-family:"Calibri Light",sans-serif;color:#0070C0'>&lt;Nombre del proyecto&gt;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
+          <div class="input-group">
+            <textarea [(ngModel)]="plan.title" name="plan.title"class="form-control" aria-label="With textarea"></textarea>
+          </div>
 
           <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
             font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
@@ -89,11 +32,13 @@
               background:#E6E6E6;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
                   <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
               "Calibri Light",sans-serif'>Organismo</span></b></p>
+                  
                 </td>
                 <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
               padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents><span lang=ES style='font-size:11.0pt;font-family:
-              "Calibri",sans-serif'>&nbsp;</span></p>
+                <div class="input-group">
+                  <textarea [(ngModel)]="plan.organismo" name="plan.organismo"class="form-control" aria-label="With textarea"></textarea>
+                </div>
                 </td>
               </tr>
               <tr style='height:34.0pt'>
@@ -105,7 +50,10 @@
                 </td>
                 <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
               border-top:none;padding:2.75pt 2.75pt 2.75pt 2.75pt;height:34.0pt'>
-                  <p class=MsoNormal><span style='line-height:107%'>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.proyecto" name="plan.proyecto"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
+        
                 </td>
               </tr>
               <tr>
@@ -120,6 +68,9 @@
                   <p class=TableContents><span lang=ES
                       style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#0070C0'>Plan
                       de Pruebas de Aceptación</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.entregable" name="plan.entregable"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr>
@@ -131,8 +82,9 @@
                 </td>
                 <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
               border-top:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents><span lang=ES style='font-size:11.0pt;font-family:
-              "Calibri",sans-serif'>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.autor" name="plan.autor"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -144,8 +96,9 @@
                 </td>
                 <td width=200 style='width:150.1pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents><span lang=ES style='font-size:11.0pt;font-family:
-              "Calibri",sans-serif'>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.version" name="plan.version"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
                 <td width=147 style='width:109.95pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
@@ -154,8 +107,9 @@
                 </td>
                 <td width=111 style='width:83.1pt;border:solid gray 1.0pt;border-top:none;
               padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents align=center style='text-align:center'><span lang=ES
-                      style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#0070C0'>00/00/000</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.fechaV" name="plan.fechaV"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -167,8 +121,9 @@
                 </td>
                 <td width=200 style='width:150.1pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents><span lang=ES style='font-size:11.0pt;font-family:
-              "Calibri",sans-serif'>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.aprobado" name="plan.aprobado"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
                 <td width=147 style='width:109.95pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
@@ -177,8 +132,9 @@
                 </td>
                 <td width=111 style='width:83.1pt;border:solid gray 1.0pt;border-top:none;
               padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents align=center style='text-align:center'><span lang=ES
-                      style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#0070C0'>00/00/0000</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.fechaA" name="plan.fechaA"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
               </tr>
             </table>
@@ -224,100 +180,35 @@
               <tr>
                 <td width=82 style='width:61.15pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents align=center style='text-align:center'><span lang=ES>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.versionDoc" name="plan.versionDoc"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
                 <td width=169 style='width:126.65pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents align=center style='text-align:center'><span lang=ES>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.causa" name="plan.causa"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
                 <td width=222 style='width:166.35pt;border-top:none;border-left:solid gray 1.0pt;
               border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents align=center style='text-align:center'><span lang=ES>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.responsableCambio" name="plan.responsableCambio"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
                 <td width=133 style='width:99.4pt;border:solid gray 1.0pt;border-top:none;
               padding:2.75pt 2.75pt 2.75pt 2.75pt'>
-                  <p class=TableContents align=center style='text-align:center'><span lang=ES>&nbsp;</span></p>
+                  <div class="input-group">
+                    <textarea [(ngModel)]="plan.fechaC" name="plan.fechaC"class="form-control" aria-label="With textarea"></textarea>
+                  </div>
                 </td>
               </tr>
             </table>
-
           </div>
-
           <p class=MsoListParagraphCxSpFirst><b><span lang=ES style='font-size:12.0pt;
             line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
           <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
             line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
-          <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
-            line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
-
           <p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.<span
                   style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
@@ -335,6 +226,10 @@
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
             color:#0070C0'>&lt;Objetivo del plan de pruebas de aceptación&gt;</span></p>
 
+          <div class="input-group">
+            <textarea [(ngModel)]="plan.objeto" name="plan.objeto"class="form-control" aria-label="With textarea"></textarea>
+          </div>
+
           <p class=MsoListParagraph style='margin-left:55.5pt;text-indent:-19.5pt'><b><span lang=ES
                 style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.2<span
                   style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></b><b><span lang=ES
@@ -342,6 +237,9 @@
 
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
             color:#0070C0'>&lt;Alcance del plan de pruebas de aceptación&gt;</span></p>
+          <div class="input-group">
+            <textarea [(ngModel)]="plan.alcance" name="plan.alcance"class="form-control" aria-label="With textarea"></textarea>
+          </div>
 
           <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
             color:#0070C0'>&nbsp;</span></p>
@@ -388,6 +286,9 @@
                   <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
               line-height:normal'><b><span style='font-family:"Calibri Light",sans-serif;
               color:#0070C0'>Nombre del proyecto</span></b></p>
+              <div class="input-group">
+                <textarea [(ngModel)]="plan.nombreProyect" name="plan.nombreProyect"class="form-control" aria-label="With textarea"></textarea>
+              </div>
                 </td>
                 <td width=141 style='width:105.5pt;border-top:none;border-left:none;
               border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -421,11 +322,13 @@
               none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
               padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='color:#0070C0'>CP
-                      - &lt;Número</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='color:#0070C0'>de
+                      - &lt;Número de
                       identificación</span></p>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>del CP&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.identificacion" name="plan.identificacion"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
                 <td width=80 valign=top style='width:59.65pt;border-top:none;border-left:
               none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -437,9 +340,10 @@
               border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
               padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>&lt;&lt;Número de versión del</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>CP&gt;&gt;</span></p>
+                      style='color:#0070C0'>&lt;&lt;Número de versión del CP&gt;&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.versionCP" name="plan.versionCP"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:21.4pt'>
@@ -454,6 +358,9 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Nombre del funcionario que realiza la
                       prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.responsableCP" name="plan.responsableCP"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.25pt'>
@@ -467,6 +374,9 @@
               padding:0cm 5.4pt 0cm 5.4pt;height:20.25pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba el nombre del caso de prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.nombreCP" name="plan.nombreCP"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:21.5pt'>
@@ -486,17 +396,19 @@
               border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el módulo al cual se realiza
-                      la</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>prueba&gt;</span></p>
+                      la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.modulo" name="plan.modulo"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
                 <td width=312 colspan=3 valign=top style='width:234.15pt;border-top:none;
               border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
               padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>&lt;Escriba aquí el submódulo al cual se</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>realiza la prueba&gt;</span></p>
+                      style='color:#0070C0'>&lt;Escriba aquí el submódulo al cual se realiza la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.submodulo" name="plan.submodulo"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.65pt'>
@@ -512,13 +424,16 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el formulario en el cual se
                       realiza la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.formulario" name="plan.formulario"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
               border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Descripción de la
-                        prueba</span></b></p>
+                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Descripción de la  prueba</span></b></p>
+                 
                 </td>
               </tr>
               <tr style='height:21.6pt'>
@@ -527,6 +442,9 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba el procedimiento (pasos) en detalle
                       de la prueba que va a realizar&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.descripcion" name="plan.descripcion"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:19.8pt'>
@@ -541,6 +459,9 @@
               border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el resultado ideal de la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.resultesperados" name="plan.resultesperados"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.4pt'>
@@ -556,6 +477,9 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Escriba aquí el resultado real de la prueba
                       realizada&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.resultreales" name="plan.resultreales"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.95pt'>
@@ -570,6 +494,9 @@
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
                       style='color:#0070C0'>&lt;Describa el error que se encontró luego de
                       realizar la prueba&gt;</span></p>
+                      <div class="input-group">
+                        <textarea [(ngModel)]="plan.error" name="plan.error"class="form-control" aria-label="With textarea"></textarea>
+                      </div>
                 </td>
               </tr>
               <tr style='height:20.6pt'>
@@ -600,119 +527,6 @@
 
           <p class=MsoNormal><b><span lang=ES style='font-size:12.0pt;line-height:107%;
             font-family:"Calibri Light",sans-serif;color:black'>&nbsp;</span></b></p>
-
-          <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
-            font-family:"Calibri Light",sans-serif;color:black'>Resultados posibles de las pruebas</span></b></p>
-
-          <div align=center>
-
-            <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>
-              <tr style='height:19.2pt'>
-                <td width=240 valign=top style='width:179.8pt;border:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt;height:19.2pt'>
-                  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-              line-height:normal'><b><span lang=ES style='font-size:12.0pt;font-family:
-              "Calibri Light",sans-serif;color:black'>Nombre del resultado de la prueba</span></b></p>
-                </td>
-                <td width=240 valign=top style='width:179.85pt;border:solid windowtext 1.0pt;
-              border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.2pt'>
-                  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-              line-height:normal'><b><span lang=ES style='font-size:12.0pt;font-family:
-              "Calibri Light",sans-serif;color:black'>Descripción</span></b></p>
-                </td>
-                <td width=163 valign=top style='width:122.05pt;border:solid windowtext 1.0pt;
-              border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.2pt'>
-                  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-              line-height:normal'><b><span lang=ES style='font-size:12.0pt;font-family:
-              "Calibri Light",sans-serif;color:black'>Impacto</span></b></p>
-                </td>
-              </tr>
-              <tr>
-                <td width=240 valign=top style='width:179.8pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
-              color:black'>Correcta o superada</span></p>
-                </td>
-                <td width=240 valign=top style='width:179.85pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>El sistema
-                    funciona de acuerdo con lo solicitado en los requerimientos iniciales.</p>
-                </td>
-                <td width=163 valign=top style='width:122.05pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:black'>Medio</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td width=240 valign=top style='width:179.8pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>Con no
-                    conformidades de diseño</p>
-                </td>
-                <td width=240 valign=top style='width:179.85pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>El sistema
-                    presenta inconsistencias en el diseño del formulario y/o informes. P.eje.
-                    ubicación de un campo, líneas, sombreados, tamaño de la letra, etc.</p>
-                </td>
-                <td width=163 valign=top style='width:122.05pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='font-size:12.0pt;color:black'>Medio</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td width=240 valign=top style='width:179.8pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>Con no
-                    conformidades de lógica</p>
-                </td>
-                <td width=240 valign=top style='width:179.85pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
-              color:black'>El sistema no funciona como se</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
-              color:black'>especificó en los requerimientos</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
-              color:black'>iniciales del sistema.</span></p>
-                </td>
-                <td width=163 valign=top style='width:122.05pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='font-size:12.0pt;color:black'>Alto</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td width=240 valign=top style='width:179.8pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>Requerimientos
-                    nuevos</p>
-                </td>
-                <td width=240 valign=top style='width:179.85pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
-              color:black'>Requerimientos nunca solicitados al proveedor, que afectan el</span></p>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES style='font-size:12.0pt;font-family:"Calibri Light",sans-serif;
-              color:black'>funcionamiento del sistema.</span></p>
-                </td>
-                <td width=163 valign=top style='width:122.05pt;border-top:none;border-left:
-              none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-              padding:0cm 5.4pt 0cm 5.4pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='font-size:12.0pt;color:black'>Alto</span></p>
-                </td>
-              </tr>
-            </table>
-
-          </div>
 
           <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
             font-family:"Calibri Light",sans-serif;color:black'>&nbsp;</span></b></p>

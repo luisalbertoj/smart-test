@@ -7,6 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanAceptacionComponent implements OnInit {
 
+  plan: any = {
+    title:'',
+    proyecto: '',
+    organismo:'',
+    entregable: '',
+    autor:'',
+    version:'',
+    fechaV:'',
+    aprobado:'',
+    fechaA:'',
+    versionDoc:'',
+    causa:'',
+    responsableCambio:'',
+    fechaC:'',
+    objeto:'',
+    alcance:'',
+    nombreProyect:'',
+    identificacion:'',
+    versionCP:'',
+    responsableCP:'',
+    nombreCP:'',
+    modulo: '',
+    submodulo: '',
+    formulario: '',
+    descripcion: '',
+    resultesperados: '',
+    resultreales: '',
+    error: '',
+  
+  }
+
   constructor() { }
 
   ngOnInit(): void {
