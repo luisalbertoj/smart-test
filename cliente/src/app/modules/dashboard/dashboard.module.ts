@@ -16,6 +16,7 @@ import { DndDirective } from './dnd.directive';
 import { ProgressComponent } from './components/progress/progress.component';
 import { EmailComponent } from './components/email/email.component';
 import { EmailService } from 'src/app/services/email.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -29,7 +30,8 @@ import { EmailService } from 'src/app/services/email.service';
     NgCircleProgressModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   exports: [
     UploadFileComponent,
