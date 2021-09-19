@@ -16,6 +16,7 @@ export class SearchElementComponent implements OnInit, DoCheck {
   @Input() bodyTable: any = [];
   @Output() selectElementos = new EventEmitter<[]>();
 
+  public pageActual: number = 1;
   modelItems: any = [];
 
   memo: string = '';

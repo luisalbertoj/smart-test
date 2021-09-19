@@ -407,7 +407,8 @@
                                     ">
                               <i class="fas fa-plus"></i>
                             </button>
-                            <button type="button" class="
+                           
+                            <button type="button" (click)="searchPregunta.cargarModel()" class="
                                             btn btn-plantilla
                                             btnaddpreg
                                             btn-primary
@@ -415,9 +416,7 @@
                               <i class="fas fa-search"></i>
                             </button>
                             <app-search-element [title]="'Banco de preguntas'" [model]="'pregunta'"
-                              [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body" (selectElementos)="
-                                            selectPreguntas($event)
-                                          "></app-search-element>
+                              [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body" (selectElementos)="selectPreguntas($event) " #searchPregunta></app-search-element>
                           </div>
                         </div>
                       </div>
@@ -437,6 +436,8 @@
                                     <label class="title">
                                       <i *ngIf="!this.iconStatus[2]" class="fas fa-angle-right"> </i>
                                       <i *ngIf="this.iconStatus[2]" class="fas fa-angle-down"> </i> Pregunta {{ i + 1 }}
+                                      <br>
+                                      <br>
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">Valor pregunta: </span>

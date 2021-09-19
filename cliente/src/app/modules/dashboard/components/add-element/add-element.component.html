@@ -2,7 +2,7 @@
 <div class="modal fade" id="add{{model}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header back-primary text-white">
+      <div class="modal-header title back-primary text-white">
         <h2 class="modal-title text-center" id="exampleModalLabel">{{ title}}</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -13,16 +13,20 @@
         <form [formGroup]="elementsModel">
           <ng-container formArrayName="arrayModel">
             <ng-container *ngFor="let _ of arrayModel.controls; index as i">
-              <label> {{labels[i]}}
-                <input [formControlName]="i" />
-              </label>
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <label> {{labels[i]}}  </label>
+                    <input class="inputModal" [formControlName]="i" />
+                </div>
+              </div>
+              
             </ng-container>
           </ng-container>
-          <button (click)="create()" type="button" class="btn btn-plantilla">Guardar registro</button>
         </form>
 
       </div>
       <div class="modal-footer">
+        <button (click)="create()" type="button" class="btn btn-plantilla btn-guardar">Guardar registro</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Cerrar
         </button>

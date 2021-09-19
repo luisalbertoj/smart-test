@@ -9,6 +9,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -18,6 +19,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
@@ -26,7 +28,6 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ToastrModule.forRoot(),
     MaterialModule,
     NgCircleProgressModule.forRoot()
-    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

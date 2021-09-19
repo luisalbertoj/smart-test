@@ -26,7 +26,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of modelItems">
+                        <tr *ngFor="let item of modelItems | paginate: {itemsPerPage: 7, currentPage: pageActual}
+                            ">
                             <td *ngFor="let value of bodyTable">
                                 {{
                                 value?.attribute
@@ -42,6 +43,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls  (pageChange)="pageActual = $event" previousLabel="Antes"
+                nextLabel="Siguiente"
+                ></pagination-controls>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
