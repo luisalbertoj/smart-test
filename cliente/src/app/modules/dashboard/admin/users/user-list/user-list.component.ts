@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FactoryService } from 'src/app/services/factory.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2'
 declare const $: any;
 
@@ -15,7 +16,7 @@ declare interface DataTable {
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
+  env: any = environment.urlMedia;
   plantilla: any = {
     imgBanner: 'assets/images/banneruser.png'
   };

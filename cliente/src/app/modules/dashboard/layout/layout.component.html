@@ -11,122 +11,75 @@
           </label>
         </li>
 
-        <li class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="lecciones.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Lecciones</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/lesson']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Lecciones</a>
+            <li class="sub_menu--item" *ngFor="let item of lecciones">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
             </li>
-            <li class="sub_menu--item"
-              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a [routerLink]="['/dashboard/lesson/new']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Crear Lección</a>
-            </li>
-            <li class="sub_menu--item"
-            *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a [routerLink]="['/dashboard/lesson/result']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Resultados</a>
-            </li>
-            <!-- <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/lesson/vercalificar']" routerLinkActive="router-link-active" *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'"
-                class="sub_menu--link">Ver y Calificar</a>
-            </li> -->
           </ul>
         </li>
-        <li class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="pruebas.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-tasks menu--icon iconos"></i>
             <span class="menu--label">Test de conocimiento</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/test']" routerLinkActive="router-link-active" class="sub_menu--link">Mis Pruebas</a>
-            </li>
-          </ul>
-          <ul class="sub_menu">
-            <li class="sub_menu--item"
-              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a [routerLink]="['/dashboard/test/create-test']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Crear prueba</a>
-            </li>
-          </ul>
-          <ul class="sub_menu">
-            <li class="sub_menu--item"
-            *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a [routerLink]="['/dashboard/test/view-result']" routerLinkActive="router-link-active" class="sub_menu--link">Resultados</a>
+            <li class="sub_menu--item" *ngFor="let item of pruebas">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="recursos.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="far fa-file-video menu--icon iconos"></i>
             <span class="menu--label">Recursos educativos </span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/resources']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Ver recursos</a>
-            </li>
-            <li class="sub_menu--item"
-              *ngIf="factory?.user?.idRol?.nombre === 'administrador' || factory?.user?.idRol?.nombre === 'docente'">
-              <a [routerLink]="['/dashboard/resources/create-resoruce']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Nuevo recurso</a>
+            <li class="sub_menu--item" *ngFor="let item of recursos">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="laboratorios.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="far fa-file-video menu--icon iconos"></i>
             <span class="menu--label">Laboratorio </span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/laboratory']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Mis laboratorios</a>
+            <li class="sub_menu--item" *ngFor="let item of laboratorios">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="reportes.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Reportes</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/reportes/']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Ver reportes</a>
+            <li class="sub_menu--item" *ngFor="let item of reportes">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li class="menu--item menu--item__has_sub_menu" *ngIf="factory?.user?.idRol?.nombre === 'administrador'">
+        <li *ngIf="admin.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-user-friends menu--icon iconos"></i>
             <span class="menu--label">Administrador</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/admin/user-list']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Usuarios</a>
-            </li>
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/admin/user']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Nuevo usuario</a>
-            </li>
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/admin/privilegios']" routerLinkActive="router-link-active"
-                class="sub_menu--link">Privilegios</a>
-            </li>
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/admin/import-export/lessons']" routerLinkActive="router-link-active"
-                class="sub_menu--link">IE Lessons</a>
-            </li>
-            <li class="sub_menu--item">
-              <a [routerLink]="['/dashboard/admin/import-export/preconceptos']" routerLinkActive="router-link-active"
-                class="sub_menu--link">IE Preconceptos</a>
+            <li class="sub_menu--item" *ngFor="let item of admin">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
@@ -140,10 +93,6 @@
         </li>
       </ul>
     </div>
-
-    <!--  <div class="left_footer_content">
-            <p>© 2020 <strong>Edututs+</strong>. Reservados todos los derechos.</p>
-        </div> -->
   </div>
 </nav>
 <!-- Left Sidebar End -->

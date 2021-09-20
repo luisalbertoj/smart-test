@@ -10,12 +10,23 @@ export class FactoryService {
   public user: any = {};
   public apiMedia = environment.urlMedia;
   private sub = new BehaviorSubject<boolean>(false);
+  lecciones: any = [];
+  pruebas: any = [];
+  recursos: any = [];
+  laboratorios: any = [];
+  reportes: any = [];
+  admin: any = [];
   constructor(private http: HttpClient) {
     this.loadUser();
   }
   loadUser(): any {
     try {
       this.user = JSON.parse(localStorage.getItem('user'));
+      this.getAll('rol/' + this.user.idRol.id).subscribe(
+        (res: any) => {
+          this.user.idRol = res;
+        }
+      );
     } catch (error) {
       localStorage.clear();
     }

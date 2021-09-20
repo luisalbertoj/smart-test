@@ -8,14 +8,115 @@ import { FactoryService } from 'src/app/services/factory.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
+  lecciones: any = [];
+  pruebas: any = [];
+  recursos: any = [];
+  laboratorios: any = [];
+  reportes: any = [];
+  admin: any = [];
+
   constructor(private router: Router, public factory: FactoryService) {}
 
   ngOnInit(): void {
     this.factory.loadUser();
+    this.cargarPrivilegios();
     this.menu();
     console.log(this.factory.user);
   }
-
+  cargarPrivilegios(): void {
+    this.factory.user.idRol.privilegios.forEach((priv: any) => {
+      if (priv.nombre === 'lecciones') {
+        this.lecciones.push({
+          nombre: priv.nombre,
+          path: '/dashboard/lesson',
+        });
+      }
+      if (priv.nombre === 'Crear lecciones') {
+        this.lecciones.push({
+          nombre: priv.nombre,
+          path: '/dashboard/lesson/new',
+        });
+      }
+      if (priv.nombre === 'Resultados lecciones') {
+        this.lecciones.push({
+          nombre: priv.nombre,
+          path: '/dashboard/lesson/result',
+        });
+      }
+      if (priv.nombre === 'Mis pruebas') {
+        this.pruebas.push({
+          nombre: priv.nombre,
+          path: '/dashboard/test',
+        });
+      }
+      if (priv.nombre === 'Crear pruebas') {
+        this.pruebas.push({
+          nombre: priv.nombre,
+          path: '/dashboard/test/create-test',
+        });
+      }
+      if (priv.nombre === 'Resultados conocimiento') {
+        this.pruebas.push({
+          nombre: priv.nombre,
+          path: '/dashboard/test/view-result',
+        });
+      }
+      if (priv.nombre === 'Ver recurso') {
+        this.recursos.push({
+          nombre: priv.nombre,
+          path: '/dashboard/resources',
+        });
+      }
+      if (priv.nombre === 'Nuevo recurso') {
+        this.recursos.push({
+          nombre: priv.nombre,
+          path: '/dashboard/resources/create-resoruce',
+        });
+      }
+      if (priv.nombre === 'Mis laboratorios') {
+        this.laboratorios.push({
+          nombre: priv.nombre,
+          path: '/dashboard/laboratory',
+        });
+      }
+      if (priv.nombre === 'Ver reporte') {
+        this.reportes.push({
+          nombre: priv.nombre,
+          path: '/dashboard/reportes/',
+        });
+      }
+      if (priv.nombre === 'Admin usuario') {
+        this.admin.push({
+          nombre: priv.nombre,
+          path: '/dashboard/admin/user-list',
+        });
+      }
+      if (priv.nombre === 'Admin nuevo usuario') {
+        this.admin.push({
+          nombre: priv.nombre,
+          path: '/dashboard/admin/user',
+        });
+      }
+      if (priv.nombre === 'Admin privilegios') {
+        this.admin.push({
+          nombre: priv.nombre,
+          path: '/dashboard/admin/privilegios',
+        });
+      }
+      if (priv.nombre === 'Admin IE lessons') {
+        this.admin.push({
+          nombre: priv.nombre,
+          path: '/dashboard/admin/import-export/lessons',
+        });
+      }
+      if (priv.nombre === 'Admin IE preconceptos') {
+        this.admin.push({
+          nombre: priv.nombre,
+          path: '/dashboard/admin/import-export/preconceptos',
+        });
+      }
+    });
+  }
   menu(): any {
     /*
 ==========================

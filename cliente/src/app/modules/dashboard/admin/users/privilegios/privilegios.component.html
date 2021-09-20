@@ -39,13 +39,17 @@
                     </div>
                   </div>
                 </div>
-                <mat-slide-toggle *ngFor="let item of privilegios" id="{{item.nombre}}" (click)="cambiarEstado(item)"
-                  checked="{{item.checked}}">
-                  {{item.nombre}}
+                <ng-container *ngIf="rolSeleccionado !== 'Seleccione un rol'">
+                  <mat-slide-toggle *ngFor="let item of privilegios" id="{{item.id}}"
+                  [(ngModel)]="item.checked" name="item.id">
+                  {{ item.nombre | titlecase }}
                 </mat-slide-toggle>
                 <div class="text-center">
                   <a (click)="guardarPrivilegios()" class="btn btn-primary btn-round mt-4">Guardar Cambios</a>
                 </div>
+                </ng-container>
+                
+                
               </div>
             </div>
 
