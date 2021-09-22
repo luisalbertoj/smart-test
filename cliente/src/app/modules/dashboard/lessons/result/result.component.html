@@ -66,38 +66,38 @@
           <table class="table">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Estudiante</th>
+                <th scope="col" style="width: 350px;" >Estudiante</th>
                 <th scope="col">Codigo</th>
-                <th scope="col">Estado</th>
+                <th scope="col"  style="width: 200px;">Estado</th>
                 <th scope="col">Nota</th>
-                <th scope="col">Acciones</th>
+                <th scope="col" style="width: 220px;" >Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of resultLesson">
-                <th scope="row">
+                <td scope="row">
                   <span> {{ item.estudiante.nombre}} {{item.estudiante.apellido }} </span>
-                </th>
+                </td>
                 <td>
                   <span>{{ item.estudiante.codigo}}</span>
                 </td>
-                <td>
+                <th class="btnth">
                   <span class="bg-danger estado-sin" *ngIf="item.estado === '0'">
                     Sin calificar
                   </span>
                   <span class="bg-success estado-cal" *ngIf="item.estado === '1'">
                     Calificado
                   </span>
-                </td>
-                <td>
+                </th>
+                <th>
                   {{item.calificacionAplica}}
-                </td>
-                <td>
-                  <button type="button" (click)="calificarSelected(item)" class="btn btn-primary" data-toggle="modal"
+                </th>
+                <th>
+                  <button type="button" (click)="calificarSelected(item)" class="btn btn-primary btn-ver" data-toggle="modal"
                     data-target="#exampleModal">
                     Ver y calificar
                   </button>
-                </td>
+                </th>
               </tr>
             </tbody>
           </table>
@@ -255,15 +255,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <h2>Informacion del estudiante</h2>
+        <h2>Información del estudiante</h2>
         <strong>Nombres: </strong> {{leccionCalificar?.estudiante?.nombre}}
-        <br>
-        <strong>Apellido: </strong> {{leccionCalificar?.estudiante?.apellido}}
-        <br>
-        <strong>Codigo: </strong> {{leccionCalificar?.estudiante?.codigo}}
+      
+        <strong class="info">Apellidos: </strong> {{leccionCalificar?.estudiante?.apellido}}
+      
+        <strong class="info">Código: </strong> {{leccionCalificar?.estudiante?.codigo}}
         <hr>
         <h2>Practica</h2>
-        <ul class="test_result_left">
+        <ul class="test_result_left ulCircle">
           <li>
             <div class="result_dt">
               <i class="uil uil-check right_ans"></i>
@@ -298,7 +298,7 @@
         <a href="{{environment.urlMedia + 'aplica/' + leccionCalificar.aplicaFile }}" target="_blank">
           <i class="fas fa-eye"></i>
         </a>
-        <h2>Calificacion</h2>
+        <h2>Calificación</h2>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-flag"></i></span>

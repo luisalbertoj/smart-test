@@ -17,6 +17,7 @@
     border-radius:  25px;
     border: none;
     width: 50px;
+    height: 38px;
   }
 
   .btn-tooltip{
@@ -47,4 +48,8 @@
 
   .titlePreguntas{
     color: black;
+  }
+
+  .valorInput{
+    width: 300px;
   }

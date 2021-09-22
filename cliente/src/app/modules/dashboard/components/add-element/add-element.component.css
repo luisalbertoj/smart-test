@@ -7,10 +7,11 @@
     height: 60px;
 }
 
-.inputModal{
-    margin-left: 100px;
+.rowModal{
+    width: 300px;
 }
 
-label{
-    
+
+.modalGeneral{
+    width: 400px;
 }

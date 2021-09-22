@@ -8,45 +8,48 @@
       </div>
 
       <div class="row">
+        <div class="col-sm-12 col-md-12">
         <br>
+
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Estudiante</th>
+              <th scope="col" style="width: 350px;" >Estudiante</th>
               <th scope="col">Codigo</th>
-              <th scope="col">Estado</th>
+              <th scope="col" style="width: 200px;">Estado</th>
               <th scope="col">Nota</th>
-              <th scope="col">Acciones</th>
+              <th scope="col" style="width: 220px;">Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of result">
-              <th scope="row">
+              <td scope="row">
                 <span> {{ item.estudiante.nombre}} {{item.estudiante.apellido }} </span>
-              </th>
+              </td>
               <td>
                 <span>{{ item.estudiante.codigo}}</span>
               </td>
-              <td>
+              <th class="btnth">
                 <span class="bg-danger estado-sin" *ngIf="item.estado === '0'">
                   Sin calificar
                 </span>
                 <span class="bg-success estado-cal" *ngIf="item.estado === '1'">
                   Calificado
                 </span>
-              </td>
-              <td>
+              </th>
+              <th>
                 {{item.calificacion}}
-              </td>
-              <td>
-                <button type="button" (click)="calificarSelected(item)" class="btn btn-primary" data-toggle="modal"
+              </th>
+              <th>
+                <button type="button" (click)="calificarSelected(item)" class="btn btn-primary btn-ver" data-toggle="modal"
                   data-target="#exampleModal">
                   Ver y calificar
                 </button>
-              </td>
+              </th>
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
       <!-- Modal -->
       <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -59,19 +62,18 @@
               </button>
             </div>
             <div class="modal-body">
-              <div class="container-fluid">
-                <div class="container">
+              
                   <div class="row">
-                    <div class="col-sm-6">
-                      <h2>Informacion del estudiante</h2>
+                    <div class="col-sm-12">
+                      <h2>Información del estudiante</h2>
                       <strong>Nombres: </strong> {{pruebaCalificar?.estudiante?.nombre}}
-                      <br>
-                      <strong>Apellido: </strong> {{pruebaCalificar?.estudiante?.apellido}}
-                      <br>
-                      <strong>Codigo: </strong> {{pruebaCalificar?.estudiante?.codigo}}
+                      
+                      <strong class="info">Apellido: </strong> {{pruebaCalificar?.estudiante?.apellido}}
+                      
+                      <strong class="info">Codigo: </strong> {{pruebaCalificar?.estudiante?.codigo}}
                       <hr>
-                    </div>
-                    <div class="col-sm-6">
+                    
+                    
                       <h2>Resumen</h2>
                       <ul class="test_result_left">
                         <li>
@@ -95,7 +97,7 @@
                       </ul>
                     </div>
                   </div>
-                </div>
+                
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="alert alert-info" role="alert">
@@ -175,9 +177,6 @@
                     </div>
                   </div>
                 </div>
-
-                
-              </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
               </div>

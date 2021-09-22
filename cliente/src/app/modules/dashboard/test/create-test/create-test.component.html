@@ -239,7 +239,6 @@
                   </div>
                 </div>
               
-
               <div
                 *ngFor="let pregunta of preguntas; index as i"
                 class="card-body"
@@ -248,8 +247,24 @@
                   *ngIf="pregunta.tipo == 'multiple'"
                   class="col-lg-12 col-md-12"
                 >
+
+                <div class="row">
+                  <div class="col-md-11 col-sm-11">
+                    <div class="input-group mb-3 valorInput">
+                      <div class="input-group-prepend ">
+                        <span class="input-group-text">Valor pregunta: </span>
+                      </div>
+                      <input type="number" class="form-control " [(ngModel)]="pregunta.valor" required>
+                    </div> 
+                  </div>
+                  <div class="col-md-1 col-sm-1">
+                    
+                      <i class="far fa-trash-alt text-danger fa-2x" (click)="eliminarPregunta(i)"></i>
+                  
+                  </div>
+              </div>
+
                   <div class="course_des_textarea mt-30 lbel25">
-                    <label>Pregunta*</label>
                     <angular-editor
                       [(ngModel)]="pregunta.contenido"
                       name="pregunta.contenido"
@@ -261,40 +276,15 @@
                   <button
                     (click)="agregarRespuesta(i, pregunta)"
                     type="button"
-                    class="btn btn-primary"
+                    class="btn btn-plantilla"
                   >
                     Agregar respuesta
                   </button>
                   <hr />
 
                   <div
-                    class="card-header"
-                    role="tab"
-                    [ngClass]="respuesta?.accordianclass"
-                    role="tab"
-                    (click)="
-                      onClickAccordion(i, pregunta, (pregunta.showbody = true))
-                    "
-                  >
-                    <h3>
-                      <button class="btn btn-block text-left" type="button">
-                        <div class="row">
-                      
-                          <button
-                            (click)="eliminarRespuesta( pregunta, i )"
-                            class="part_btn_save prt-sv btn-plantilla"
-                            type="button"
-                          >
-                            Eliminar
-                          </button>
-                        </div>
-                      </button>
-                    </h3>
-                  </div>
-                  <div
                     id="collapseOne"
-                    class="collapse show"
-                    aria-labelledby="headingOne"
+                    class="collapse show"  aria-labelledby="headingOne"
                     data-parent="#accordionExample"
                     *ngIf="pregunta.showbody"
                   >
@@ -364,13 +354,16 @@
                                           'Escribe aqui la respuesta ..'
                                         "
                                       ></angular-editor>
+                                      <br>
                                       <button
                                         (click)="respuesta.addRetro = true"
                                         type="button"
-                                        class="btn btn-primary"
+                                        class="btn btn-plantilla"
                                       >
-                                        Agregar retroalimentacion
+                                        Agregar retroalimentación
                                       </button>
+                                      <br>
+                                      <br>
                                       <div *ngIf="respuesta.addRetro">
                                         <angular-editor
                                           [(ngModel)]="
