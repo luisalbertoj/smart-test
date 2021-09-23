@@ -70,19 +70,7 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">
-                            Seleccione un Rol
-                          </label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                          <option *ngFor="let item of roles" (click)="cambiarRol(item)">{{item['nombre']}}</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
+                      
                       <div class="dropdown">
                         <button href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
                           aria-expanded="true">

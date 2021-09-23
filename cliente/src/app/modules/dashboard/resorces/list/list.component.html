@@ -19,6 +19,17 @@
                 <h2 class="card-title">Lista de Recursos Educativos</h2>
               </div>
               <div class="card-body">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Competencias</label>
+                  </div>
+                  <select (click)="selectCompetencia()" [(ngModel)]="competenciaSelect" class="custom-select" id="inputGroupSelect01">
+                    <option value="0" selected>Todas las competencias</option>
+                    <option *ngFor="let competencia of competencias" value="{{competencia?.id}}">
+                      {{competencia?.nombre}}
+                    </option>
+                  </select>
+                </div>
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -26,7 +37,7 @@
                         <th class="text-center">Titulo</th>
                         <th>Descripcion</th>
                         <th>Creado por</th>
-                        <th>Leccion</th>
+                        <th>Competencia</th>
                         <th class="text-center">Acciones</th>
                       </tr>
                     </thead>
@@ -37,7 +48,7 @@
                         <td>
                           {{ item.creador.nombre }} - {{ item.creador.apellido }}
                         </td>
-                        <td>{{ item.leccion.nombre }}</td>
+                        <td>{{ item?.competencia?.nombre }}</td>
                         <td class="td-actions text-center">
                           <button type="button" rel="tooltip" class="btn btn-info">
                             <a href="{{ factory.apiMedia + '/' + item.link }}" target="_blank">
@@ -45,9 +56,9 @@
                             </a>
                           </button>
                           
-                          <button type="button" rel="tooltip" class="btn btn-success btnMedio" (click)="viewer(item.link)">
+                          <!-- <button type="button" rel="tooltip" class="btn btn-success btnMedio" (click)="viewer(item.link)">
                             <i class="far fa-eye"></i>
-                          </button>
+                          </button> -->
 
                           <button type="button" rel="tooltip" class="btn btn-danger" (click)="delete(item.id)">
                             <i class="fas fa-trash-alt"></i>

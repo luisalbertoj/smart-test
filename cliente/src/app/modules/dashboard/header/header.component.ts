@@ -6,31 +6,27 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  classperfil = "menu dropdown_account";
+  classperfil = 'menu dropdown_account';
   public env = environment.urlMedia;
 
-  constructor(public factory: FactoryService, private router: Router) {
-    
-  
-  }
-
-
+  constructor(public factory: FactoryService, private router: Router) {}
 
   ngOnInit(): void {
+    this.factory.loadUser();
   }
 
-  abrirPerfil(){
-    this.classperfil = this.classperfil == "menu dropdown_account left transition visible"?
-    "menu dropdown_account": "menu dropdown_account left transition visible";
+  abrirPerfil(): void {
+    this.classperfil =
+      this.classperfil === 'menu dropdown_account left transition visible'
+        ? 'menu dropdown_account'
+        : 'menu dropdown_account left transition visible';
   }
 
-  salir() {
+  salir(): void {
     localStorage.removeItem('user');
     this.router.navigate(['/']);
   }
-
 }

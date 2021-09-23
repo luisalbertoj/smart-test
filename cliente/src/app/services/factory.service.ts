@@ -61,7 +61,7 @@ export class FactoryService {
     formData.append('nombre', info.nombre);
     formData.append('contenido', info.contenido);
     formData.append('creador', info.creador);
-    formData.append('leccion', info.leccionId);
+    formData.append('competencia', info.competencia);
     for (let i = 0; i < data.length; i++) {
       console.log('for' + i);
       console.log(data[i]);

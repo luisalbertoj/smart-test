@@ -19,7 +19,7 @@ const upload = async (req, res) => {
     console.log('filenamecompleto:', files);
     var fileName = fileNameArray[fileNameArray.length - 1];
     console.log('fileName: ', fileName);
-    let recurso = { link: fileName, nombre: params.nombre, contenido: params.contenido, creador: params.creador, leccion: params.leccion };
+    let recurso = { link: fileName, nombre: params.nombre, contenido: params.contenido, creador: params.creador, competencia: params.competencia };
     RecursoEducativo
       .create(recurso)
       .fetch()

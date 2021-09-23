@@ -26,6 +26,9 @@ module.exports = {
     },
     leccion: {
       model: 'leccion'
+    },
+    competencia: {
+      model: 'competencia'
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
