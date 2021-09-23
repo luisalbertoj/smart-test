@@ -38,6 +38,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SearchElementComponent,
     AddElementComponent,
     EmailComponent,
+    NgxPaginationModule
   ],
   providers: [
     EmailService

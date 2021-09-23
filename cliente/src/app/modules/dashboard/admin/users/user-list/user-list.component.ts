@@ -21,6 +21,8 @@ export class UserListComponent implements OnInit {
     imgBanner: 'assets/images/banneruser.png'
   };
 
+  public pageActual: number = 1;
+
   public dataTable: DataTable;
   public usuarioSeleccionado: any = {
     nombre: '',

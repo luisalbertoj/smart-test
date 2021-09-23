@@ -7,6 +7,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserComponent } from './user/user.component';
 import { PrivilegiosComponent } from './privilegios/privilegios.component';
 import { MaterialModule } from './../../../../material.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MaterialModule } from './../../../../material.module';
     UsersRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxPaginationModule
   ]
 })
 export class UsersModule { }
