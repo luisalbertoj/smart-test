@@ -23,6 +23,8 @@ module.exports.routes = {
   'POST /persona/search' : {action: 'persona/search'},
   'POST /persona/registrar' : {action: 'persona/registrar'},
   'POST /persona/actualizar' : {action: 'persona/actualizar'},
+  'POST /persona/querys' : {action: 'persona/querys'},
+  
   'POST /privilegio/cambiarprivilegios' : {action: 'privilegio/cambiarPrivilegios'},
   'GET /getprueba/:id' : {action: 'pruebaConocimiento/getprueba'},
   'GET /getleccion/:slug' : {action: 'leccion/getleccion'},
@@ -30,13 +32,15 @@ module.exports.routes = {
   'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
   'POST /leccion/createlesson': {action: 'leccion/createlesson'},
   'POST /leccion/registrarleccion': {action: 'resultLessonStudent/registrarleccion'},
+  'POST /lesson/importLessons': {action: 'leccion/importLessons'},
+  'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
+  'POST /leccion/querys': {action: 'leccion/querys'},
+  
   'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
   'POST /pruebaconocimiento/getprueba' : {action: 'pruebaConocimiento/getprueba'},
   'POST /pruebaconocimiento/updatetest': {action: 'pruebaconocimiento/updatetest'},
   'POST /preconcepto/uploadFiles': {action: 'preconcepto/uploadFiles'},
-  'POST /lesson/importLessons': {action: 'leccion/importLessons'},
-  'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
-  'POST /leccion/querys': {action: 'leccion/querys'},
+  
   'POST /proyect/upload': {action: 'proyect/upload'},
 
 

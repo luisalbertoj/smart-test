@@ -90,8 +90,6 @@ const login = async (req, res) => {
       Persona.findOne({ username: params.username }).populate('grupos')
         .then((persona) => {
           if (persona) {
-            console.log(params.password);
-            console.log(persona.password);
             if (persona.password === params.password) {
               Rol.findOne({ id: persona.idRol }).populate('privilegios').then(
                 (rol) => {
@@ -165,4 +163,10 @@ const actualizar = async (req, res) => {
     }
   });
 };
-module.exports = { search, login, registrar, actualizar};
+const querys = async (req, res) => {
+  let params = req.allParams();
+  let resultado = Object();
+  resultado = await Preconcepto.find({ where: params.where || {}, sort: params.sort || 'createdAt DESC' }).paginate(params.skip || 0, params.limit || 10).populate(params.populate || []);
+  return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
+};
+module.exports = { search, login, registrar, actualizar, querys};
