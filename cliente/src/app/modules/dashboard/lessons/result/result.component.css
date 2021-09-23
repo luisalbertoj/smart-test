@@ -1,10 +1,37 @@
 .estado-cal {
     color: #fff;
     padding: 0.5em;
-    border-radius: 15px;
+    border-radius: 3px;
+
 }
 .estado-sin {
     color: #fff;
     padding: 0.5em;
-    border-radius: 15px;
+    border-radius: 3px;
+
+}
+
+th{
+    text-align: center;
+}
+
+.btn-ver{
+    background-color: #2671c3;
+}
+
+.btnth{
+    padding-top: 20px;
+}
+
+.modal-body{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.ulCircle{
+    margin-top: 20px;
+}
+
+.info{
+    margin-left: 20px;
 }
