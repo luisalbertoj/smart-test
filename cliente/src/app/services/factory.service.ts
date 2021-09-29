@@ -25,6 +25,7 @@ export class FactoryService {
       this.getAll('rol/' + this.user.idRol.id).subscribe(
         (res: any) => {
           this.user.idRol = res;
+          this.user = this.user;
         }
       );
     } catch (error) {

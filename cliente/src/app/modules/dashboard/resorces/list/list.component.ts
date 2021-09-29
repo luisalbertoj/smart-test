@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
   plantilla: any = {
     imgBanner: 'assets/images/bannerre.png',
   };
-
+  deleteable = false;
   recursosEducativos: any = [];
   item: any = '0a6b164c-9a42-48ae-9727-6866279244d4.docx';
   doc = this.factory.apiMedia + '/' + this.item;
@@ -24,6 +24,16 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.loadResources();
     this.loadCompetencias();
+    this.loadPrivilegios();
+  }
+  loadPrivilegios(): void {
+    this.factory.user.idRol.privilegios.forEach((privilegio: any) => {
+      console.log('Privilegios', privilegio);
+      if (privilegio.nombre === 'Eliminar recursos') {
+        this.deleteable = true;
+        console.log('Permiso de eliminar', this.deleteable);
+      }
+    });
   }
   loadCompetencias(): any {
     this.factory.getAll('competencia').subscribe((res: any) => {
@@ -34,13 +44,15 @@ export class ListComponent implements OnInit {
   selectCompetencia(): any {
     console.log('Competencia seleccionada:', this.competenciaSelect);
     if (this.competenciaSelect !== '0') {
-      this.factory.getAll('recursoEducativo?competencia=' + this.competenciaSelect).subscribe(
-        (response: any) => {
-          console.log(response);
-          this.recursosEducativos = response;
-        },
-        (error: any) => console.log(error)
-      );
+      this.factory
+        .getAll('recursoEducativo?competencia=' + this.competenciaSelect)
+        .subscribe(
+          (response: any) => {
+            console.log(response);
+            this.recursosEducativos = response;
+          },
+          (error: any) => console.log(error)
+        );
     } else if (this.competenciaSelect === '0') {
       console.log('Entro');
       this.loadResources();

@@ -35,13 +35,16 @@ module.exports.routes = {
   'POST /lesson/importLessons': {action: 'leccion/importLessons'},
   'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
   'POST /leccion/querys': {action: 'leccion/querys'},
-  
+  'POST /leccion/reportes': {action: 'leccion/reportes'},
+    
   'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
   'POST /pruebaconocimiento/getprueba' : {action: 'pruebaConocimiento/getprueba'},
   'POST /pruebaconocimiento/updatetest': {action: 'pruebaconocimiento/updatetest'},
   'POST /preconcepto/uploadFiles': {action: 'preconcepto/uploadFiles'},
   
   'POST /proyect/upload': {action: 'proyect/upload'},
+
+  
 
 
 

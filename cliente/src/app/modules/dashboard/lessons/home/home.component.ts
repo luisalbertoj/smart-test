@@ -29,31 +29,32 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.factory.returnAsObservable().subscribe((subs) => {
-      subs === true ? this.spinner.hide() : this.spinner.show();
-    });
+    this.spinner.show();
     this.loadLecciones();
     this.cargarCompetencias();
   }
-  cargarCompetencias() {
+  cargarCompetencias(): any {
     this.factory.getAll('competencia').subscribe(
       (response: any) => {
         this.competencias = response;
-        for (let competencia of this.competencias) {
+        for (const competencia of this.competencias) {
           competencia.showbody = false;
           competencia.accordianclass = 'collapseAccordion';
         }
         console.log(this.competencias);
+        this.spinner.hide();
       },
-      (error: any) =>
+      (error: any) => {
         this.toast.error(
           'Problema al cargar las Competencias revisa la conexion',
           'Error de conexion'
-        )
+        );
+        console.log('Error cargar competencias', error);
+        this.spinner.hide();
+      }
     );
   }
-  loadLecciones() {
-    this.spinner.show();
+  loadLecciones(): any {
     this.factory.getAll('leccion').subscribe(
       (response: any) => {
         console.log(response);
@@ -64,14 +65,15 @@ export class HomeComponent implements OnInit {
       (error: any) => {
         console.log(error);
         this.toast.error('Problema en la red');
+        this.spinner.hide();
       }
     );
   }
 
-  iniciar(slug: any) {
+  iniciar(slug: any): any {
     this.router.navigate(['dashboard/lesson/lesson-detail', slug]);
   }
-  onClickAccordion(key, value) {
+  onClickAccordion(key, value): any {
     if (!value.showbody) {
       value.showbody = true;
 

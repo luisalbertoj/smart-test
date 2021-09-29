@@ -38,7 +38,7 @@
                 </span>
               </th>
               <th>
-                {{item.calificacion}}
+                {{item.calificacion ||  'Sin nota'}}
               </th>
               <th>
                 <button type="button" (click)="calificarSelected(item)" class="btn btn-primary btn-ver" data-toggle="modal"

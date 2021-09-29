@@ -43,8 +43,19 @@
                           Grupos
                           <select [(ngModel)]="consulta.grupo" class="custom-select" id="inputGroupSelect01">
                             <option value="">Todos los grupos...</option>
-                            <option *ngFor="let grupo of grupos" value="grupo.id">
+                            <option *ngFor="let grupo of grupos" value="{{grupo.id}}">
                               {{grupo.codigo}} - {{grupo.nombre}}
+                            </option>
+                          </select>
+                        </label>
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                        <label for="consulta.grupo">
+                          Competencias
+                          <select [(ngModel)]="consulta.competencia" class="custom-select" id="inputGroupSelect01">
+                            <option value="">Todas las competencias...</option>
+                            <option *ngFor="let competencia of competencias" value="{{competencia.id}}">
+                              {{competencia.nombre}}
                             </option>
                           </select>
                         </label>

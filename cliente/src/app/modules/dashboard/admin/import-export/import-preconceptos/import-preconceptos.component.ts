@@ -17,11 +17,13 @@ export class ImportPreconceptosComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onFileChange(evt: any) {
+  onFileChange(evt: any): any {
     /* wire up file reader */
     this.spinner.show();
-    const target: DataTransfer = <DataTransfer>evt.target;
-    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const target: DataTransfer = evt.target as DataTransfer;
+    if (target.files.length !== 1) {
+      throw new Error('Cannot use multiple files');
+    }
     const reader: FileReader = new FileReader();
     reader.onload = (e: any) => {
       /* read workbook */

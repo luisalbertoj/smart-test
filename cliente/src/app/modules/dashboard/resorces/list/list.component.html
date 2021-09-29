@@ -60,7 +60,9 @@
                             <i class="far fa-eye"></i>
                           </button> -->
 
-                          <button type="button" rel="tooltip" class="btn btn-danger" (click)="delete(item.id)">
+                          <button 
+                          *ngIf="deleteable === true"
+                          type="button" rel="tooltip" class="btn btn-danger" (click)="delete(item.id)">
                             <i class="fas fa-trash-alt"></i>
                           </button>
                         </td>

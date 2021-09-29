@@ -34,14 +34,14 @@ Chart.register(
   styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
-  @ViewChild('htmlData') htmlData:ElementRef;
+  @ViewChild('htmlData') htmlData: ElementRef;
   fileName = 'ExcelSheet.xlsx';
   plantilla: any = {
     imgBanner: 'assets/images/bannerReportes.png',
-    tituloBanner: ''
-    
+    tituloBanner: '',
   };
   grupos: any = [];
+  competencias: any = [];
   consulta: any = {
     tipoReporte: '',
     fechaInicio: '',
@@ -61,9 +61,10 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadGrupos();
+    this.loadCompetencias();
   }
 
-  loadGrupos() {
+  loadGrupos(): void {
     this.factory.getAll('grupo').subscribe(
       (response: any) => {
         this.grupos = response;
@@ -74,9 +75,29 @@ export class ViewComponent implements OnInit {
       }
     );
   }
+  loadCompetencias(): void {
+    this.factory.getAll('competencia').subscribe(
+      (response: any) => {
+        this.competencias = response;
+      },
+      (error: any) => {
+        this.toast.error(error.message);
+        console.log(error);
+      }
+    );
+  }
 
-  generarReporte() {
+  generarReporte(): void {
     this.spinner.show();
+    console.log('Datos prev', this.consulta);
+    this.factory.post('leccion/reportes',
+    {
+      grupo: this.consulta.grupo,
+      tipoReporte: this.consulta.tipoReporte
+    }
+    ).subscribe(
+      (res: any) => console.log('Reporte', res)
+    );
     this.reporte = {
       activo: true,
       data: {
@@ -138,8 +159,8 @@ export class ViewComponent implements OnInit {
       this.spinner.hide();
     }, 400);
   }
-  graficar() {
-    let myChart = new Chart('myChart', {
+  graficar(): void {
+    const myChart = new Chart('myChart', {
       type: 'bar',
       data: {
         labels: [
@@ -183,11 +204,16 @@ export class ViewComponent implements OnInit {
       },
     });
   }
-  generarExcel() {
+  generarExcel(): void {
     this.spinner.show();
-    this.fileName = this.consulta.tipoReporte + this.consulta.fechaInicio + '&&' + this.consulta.fechaFin + '.xlsx'; 
+    this.fileName =
+      this.consulta.tipoReporte +
+      this.consulta.fechaInicio +
+      '&&' +
+      this.consulta.fechaFin +
+      '.xlsx';
     /* table id is passed over here */
-    let element = document.getElementById('htmlData');
+    const element = document.getElementById('htmlData');
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
     /* generate workbook and add the worksheet */
@@ -201,25 +227,29 @@ export class ViewComponent implements OnInit {
     }, 400);
   }
 
-  public generarPdf():void {
+  public generarPdf(): void {
     this.spinner.show();
-    this.fileName = this.consulta.tipoReporte + this.consulta.fechaInicio + '&&' + this.consulta.fechaFin + '.pdf';
-    let DATA = document.getElementById('htmlData');
-      
-    html2canvas(DATA).then(canvas => {
-        
-        let fileWidth = 208;
-        let fileHeight = canvas.height * fileWidth / canvas.width;
-        
-        const FILEURI = canvas.toDataURL('image/png')
-        let PDF = new jsPDF('p', 'mm', 'a4');
-        let position = 0;
-        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
-        
-        PDF.save(this.fileName);
-        setTimeout(() => {
-          this.spinner.hide();
-        }, 200);
-    });     
+    this.fileName =
+      this.consulta.tipoReporte +
+      this.consulta.fechaInicio +
+      '&&' +
+      this.consulta.fechaFin +
+      '.pdf';
+    const DATA = document.getElementById('htmlData');
+
+    html2canvas(DATA).then((canvas) => {
+      const fileWidth = 208;
+      const fileHeight = (canvas.height * fileWidth) / canvas.width;
+
+      const FILEURI = canvas.toDataURL('image/png');
+      const PDF = new jsPDF('p', 'mm', 'a4');
+      const position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+
+      PDF.save(this.fileName);
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 200);
+    });
   }
 }

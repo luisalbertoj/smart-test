@@ -242,5 +242,10 @@ const querys = async (req, res) => {
   resultado = await Leccion.find({ where: params.where || {}, sort: params.sort || 'createdAt DESC' }).paginate(params.skip || 0, params.limit || 10);
   return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
 };
-
-module.exports = { createlesson, getleccion, importLessons, updatelesson, querys };
+const reportes = async (req, res) => {
+  let params = req.allParams();
+  let resultado = Object();
+  console.log(params);
+  res.ok();
+};
+module.exports = { createlesson, getleccion, importLessons, updatelesson, querys, reportes };

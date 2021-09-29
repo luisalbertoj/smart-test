@@ -15,6 +15,7 @@ export class ViewTestComponent implements OnInit {
   public test = null;
   public respuestas = [];
   public duracion: any = 0;
+
   MILLISECONDS_OF_A_SECOND = 1000;
   MILLISECONDS_OF_A_MINUTE = this.MILLISECONDS_OF_A_SECOND * 60;
   MILLISECONDS_OF_A_HOUR = this.MILLISECONDS_OF_A_MINUTE * 60;
@@ -49,6 +50,13 @@ export class ViewTestComponent implements OnInit {
         } else {
           this.test = response.data;
           console.log(this.test);
+          setInterval(() => {
+            this.test.duracion--;
+            if (this.test.duracion === 0) {
+              this.validarRespuestas();
+            }
+          }, 1 * 60000);
+          return 0;
           const end: any = moment(this.test.cierre, 'YYYY/MM/DD HH:mm:ss');
           const startTime: any = moment(
             this.test.inicio,
