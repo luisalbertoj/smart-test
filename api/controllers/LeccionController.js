@@ -246,6 +246,7 @@ const reportes = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
   console.log(params);
+  
   res.ok();
 };
 module.exports = { createlesson, getleccion, importLessons, updatelesson, querys, reportes };

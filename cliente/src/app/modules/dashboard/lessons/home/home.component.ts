@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/services/course.service';
 import { FactoryService } from 'src/app/services/factory.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,11 @@ export class HomeComponent implements OnInit {
   public lecciones: any = [];
   public competencias: any = [];
   public modo: any = false;
+  public editable = false;
+  resultLesson: any = [];
+  leccionCalificar: any = {};
+  environment: any = environment;
+  pruebaCalificar: any = {};
 
   constructor(
     private course: CourseService,
@@ -30,8 +36,30 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    this.loadPrivilegios();
     this.loadLecciones();
     this.cargarCompetencias();
+  }
+  loadResultLesson(): void {
+    this.factory.getAll('resultLessonStudent?estudiante=' + this.factory.user.id).subscribe(
+      (res: any) => {
+        this.resultLesson = res;
+        this.resultLesson.forEach((lesson: any) => {
+          // tslint:disable-next-line:no-shadowed-variable
+          const found = this.lecciones.find((element: any): any => {
+            if (element.id === lesson.leccion.id) {
+              element.solved = lesson;
+              return true;
+            }
+          });
+          console.log('Encontrado', found);
+        });
+      },
+      (err: any) => {
+        console.log(err);
+        this.toast.error(err.msg);
+      }
+    );
   }
   cargarCompetencias(): any {
     this.factory.getAll('competencia').subscribe(
@@ -59,6 +87,7 @@ export class HomeComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.lecciones = response;
+        this.loadResultLesson();
         this.toast.success('Lecciones cargadas');
         this.spinner.hide();
       },
@@ -69,7 +98,6 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
   iniciar(slug: any): any {
     this.router.navigate(['dashboard/lesson/lesson-detail', slug]);
   }
@@ -83,5 +111,15 @@ export class HomeComponent implements OnInit {
 
       value.accordianclass = 'expandAccordion';
     }
+  }
+  loadPrivilegios(): void {
+    this.factory.user.idRol.privilegios.forEach((privilegio: any) => {
+        if (privilegio.nombre === 'Editar lecciones') {
+          this.editable = true;
+        }
+    });
+  }
+  calificarSelected(item: any): void {
+    this.leccionCalificar = item;
   }
 }
