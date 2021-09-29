@@ -263,21 +263,21 @@
         <strong class="info">Código: </strong> {{leccionCalificar?.estudiante?.codigo}}
         <hr>
         <h2>Practica</h2>
-        <ul class="test_result_left ulCircle">
-          <li>
+        <ul class="test_result_left ulCircle justify-content-center d-flex">
+          <li class="liCircle">
             <div class="result_dt">
               <i class="uil uil-check right_ans"></i>
               <p>Correcto<span>({{leccionCalificar?.respuestasCorrectas}})</span></p>
             </div>
           </li>
-          <li>
+          <li class="liCircle">
             <div class="result_dt">
               <i class="uil uil-times wrong_ans"></i>
               <p>Incorrecto<span>({{(leccionCalificar?.preguntasTotales -
                     leccionCalificar?.respuestasCorrectas)}})</span></p>
             </div>
           </li>
-          <li>
+          <li class="liCircle">
             <div class="result_dt">
               <h4>{{leccionCalificar?.respuestasCorrectas}}</h4>
               <p>Total {{leccionCalificar?.preguntasTotales}}</p>
