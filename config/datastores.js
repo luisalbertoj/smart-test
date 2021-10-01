@@ -31,8 +31,11 @@ module.exports.datastores = {
   * (For production configuration, see `config/env/production.js`.)          *
   *                                                                          *
   ***************************************************************************/
-
   default: {
+    adapter: 'sails-mongo',
+    url: 'mongodb+srv://luisalbertoj:c3a05fe0@cluster0.hqrkq.mongodb.net/smart_test?retryWrites=true&w=majority'
+  },
+  mariaDB: {
 
     /***************************************************************************
     *                                                                          *
@@ -56,6 +59,4 @@ module.exports.datastores = {
     url: 'mysql://u475330717_root:C3a05fe00@sql399.main-hosting.eu:3306/u475330717_smarttest'
 
   },
-
-
 };
