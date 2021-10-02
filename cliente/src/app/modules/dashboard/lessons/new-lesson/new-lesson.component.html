@@ -408,7 +408,7 @@
                               <i class="fas fa-plus"></i>
                             </button>
                           
-                            <button type="button" (click)="searchPregunta.cargarModel()" class="
+                          <!--  <button type="button" (click)="searchPregunta.cargarModel()" class="
                                             btn btn-plantilla
                                             btnaddpreg
                                             btn-primary
@@ -416,7 +416,7 @@
                               <i class="fas fa-search"></i>
                             </button>
                             <app-search-element [title]="'Banco de preguntas'" [model]="'pregunta'"
-                              [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body" (selectElementos)="selectPreguntas($event) " #searchPregunta></app-search-element>
+                              [headerTable]="tablaPreguntas.header" [bodyTable]="tablaPreguntas.body" (selectElementos)="selectPreguntas($event) " #searchPregunta></app-search-element> -->
                           </div>
                         </div>
                       </div>
@@ -618,12 +618,16 @@
                 </div>
               </div>
               <hr class="hr">
+              <br>
+              <div class="row justify-content-end d-flex">
               <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="!id">
                 Guardar
               </button>
               <button (click)="editarLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="id">
                 Editar
               </button>
+            </div>
+              <br>
             </div>
 
 

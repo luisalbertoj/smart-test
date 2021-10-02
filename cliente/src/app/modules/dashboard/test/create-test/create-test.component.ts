@@ -18,6 +18,13 @@ export class CreateTestComponent implements OnInit {
     imgBanner: 'assets/images/bannercrearpruebas.png'
   };
 
+  
+  grupos: any = [];
+  consulta: any = {
+    grupo: '',
+  };
+
+  codeEncrypt: any = this.consulta.grupo;
 
   test: any = {
     nombre: '',
@@ -27,7 +34,7 @@ export class CreateTestComponent implements OnInit {
     inicio: '',
     cierre: '',
     duracion: '',
-    grupo: JSON.parse(localStorage.getItem('user')).grupo?.nombre || 1,
+    grupo: '',
     preguntas: []
   };
 
@@ -49,6 +56,7 @@ export class CreateTestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadGrupos();
     const slug = this.activateRouter.snapshot.paramMap.get('slug');
     this.id = slug;
     if (slug) this.loadTest();
@@ -77,6 +85,25 @@ export class CreateTestComponent implements OnInit {
       console.log(this.test, this.preguntas)
       this.respuestas.push([]);
     });
+  }
+
+  loadGrupos(): any {
+    this.factory.getAll('grupo').subscribe(
+      (response: any) => {
+        this.grupos = response;
+      },
+      (error: any) => {
+        this.toast.error(error.message);
+        console.log(error);
+      }
+    );
+  }
+
+  selectGrupo(): any {
+    if (this.consulta.grupo === '') {
+      return 0;
+    }
+    this.codeEncrypt = this.factory.encryptData(this.consulta.grupo);
   }
 
   cargarTipos() {

@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="{{model}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-dialog modal-dialog-scrollable modal-m">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">{{ title }}</h2>
@@ -9,24 +9,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
+              <!--   <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username" 
                         aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
                     </div>
-                </div>
+                </div> -->
 
                 <table class="table table-hover text-center">
                     <thead>
-                        <tr>
+                        <tr >
                             <th *ngFor="let header of headerTable" scope="col">
                                 {{ header?.name }}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of modelItems | paginate: {itemsPerPage: 7, currentPage: pageActual}
+                        <tr  *ngFor="let item of modelItems | paginate: {itemsPerPage: 7, currentPage: pageActual}
                             ">
                             <td *ngFor="let value of bodyTable">
                                 {{

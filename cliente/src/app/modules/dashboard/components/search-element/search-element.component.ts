@@ -92,4 +92,7 @@ export class SearchElementComponent implements OnInit, DoCheck {
       this.modelItems = data;
     });
   }
+
+
+
 }
