@@ -14,6 +14,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     nombre: {
       type: 'string',
+      unique: true,
       required: true
     },
 
@@ -23,6 +24,7 @@ module.exports = {
     slug: {
       type: 'slug',
       from: 'nombre',
+      unique: true,
       blacklist: ['search']
     },
 

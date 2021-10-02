@@ -15,6 +15,7 @@ module.exports = {
 
     titulo: {
       type: 'string',
+      unique: true,
       required: true
     },
     concepto: {
@@ -28,6 +29,7 @@ module.exports = {
     slug: {
       type: 'slug',
       from: 'titulo',
+      unique: true,
       blacklist: ['search']
     },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

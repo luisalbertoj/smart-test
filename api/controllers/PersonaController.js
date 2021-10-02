@@ -4,7 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-Passwords = require('machinepack-passwords');
+const bcrypt = require("bcrypt");
 const search = async (req, res) => {
   console.log('Search');
   let params = req.allParams();
@@ -73,71 +73,55 @@ const search = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  var params = req.allParams();
-  console.log('login');
-  console.log(params);
+  const params = req.allParams();
+  console.log('Login', params);
+
   if (!params.password) {
     res.badRequest({ status: 404, msg: 'el usuario no trae contaseña' });
   }
-  Passwords.encryptPassword({
-    password: params.password,
-  }).exec({
-    error: function (err) {
-      return res.serverError(err);
-    },
-    success: function () {
-      console.log(params);
-      Persona.findOne({ username: params.username }).populate('grupos')
-        .then((persona) => {
-          if (persona) {
-            if (persona.password === params.password) {
-              Rol.findOne({ id: persona.idRol }).populate('privilegios').then(
-                (rol) => {
-                  persona.idRol = rol;
-                  return res.ok({ status: 200, data: persona, msg: 'ok' });
-                },
-                () => {
-                  return res.badRequest({ status: 404, msg: 'Error al cargar los privilegios' });
-                }
-              );
-            } else {
-              return res.badRequest({ status: 404, msg: 'Contraseña Incorrecta' });
-            }
-          } else {
-            return res.badRequest({ status: 404, msg: 'Usuario no encontrado' });
-          }
-        }, (err) => {
-          return res.badRequest({ status: 500, data: err, msg: 'Error al Crete el User' });
-        });
 
-    }
-  });
+  const user = await Persona.findOne({ username: params.username }).populate('grupos');
+
+  if(!user) return res.json({code: 400, msg: 'Usuario o Contraseña invalid'});
+
+  const hash = await bcrypt.compare(params.password, user.password);
+  if (!hash) return res.json({code: 400, msg: 'Usuario o Contraseña invalid'});
+
+  const rol = await Rol.findOne({id: user.idRol}).populate('privilegios');
+
+  if(rol) {
+    user.idRol = rol;
+    return res.ok({ status: 200, data: user, msg: 'ok' });
+  }
+  return res.json({ code: 401, msg: 'Error al cargar la informacion del usuario'});
 };
+
 const registrar = async (req, res) => {
-  var params = req.allParams();
-  console.log(params);
+  const params = req.allParams();
+  console.log('Registro de usuario', params);
   if (!params.password) {
     res.badRequest({ status: 404, msg: 'el usuario no trae contaseña' });
   }
-  Passwords.encryptPassword({
-    password: params.password,
-  }).exec({
-    error: function (err) {
-      return res.serverError(err);
-    },
-    success: function () {
-      console.log(params);
-      Persona.create(params)
-        .fetch()
-        .then((persona) => {
-          return res.ok({ status: 200, data: persona, msg: 'Usuario creado' });
-        }, (err) => {
-          return res.badRequest({ status: 500, data: err, msg: 'Error al Crete el User' });
-        });
+  const hash = await bcrypt.hash(params.password, 10);
 
-    }
-  });
+  if(!hash) return res.json({code: 404, msg: 'La contraseña no es valida'});
+
+  const newUser = await Persona.create({ 
+    nombre: params.nombre,
+    apellido: params.apellido,
+    cedula: params.cedula,
+    email: params.email,
+    codigo: params.codigo,
+    username: params.username,
+    password: hash,
+    idRol: params.idRol
+  }).fetch();
+
+  if(!newUser) res.badRequest({ status: 500, data: err, msg: 'El usuario o correo ya existen' });
+
+  return res.ok({ status: 200, data: newUser, msg: 'Usuario creado' });
 };
+
 const actualizar = async (req, res) => {
   var params = req.allParams();
   console.log(params);
@@ -163,10 +147,12 @@ const actualizar = async (req, res) => {
     }
   });
 };
+
 const querys = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
   resultado = await Preconcepto.find({ where: params.where || {}, sort: params.sort || 'createdAt DESC' }).paginate(params.skip || 0, params.limit || 10).populate(params.populate || []);
   return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
 };
+
 module.exports = { search, login, registrar, actualizar, querys};

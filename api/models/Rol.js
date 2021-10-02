@@ -11,6 +11,7 @@ module.exports = {
 
     nombre: {
       type: 'string',
+      unique: true,
       required: true
     },
     personas: {
@@ -21,7 +22,14 @@ module.exports = {
     privilegios: {
       collection: 'privilegio',
       via: 'roles'
-    }
+    },
+
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      unique: true,
+      blacklist: ['search']
+    },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

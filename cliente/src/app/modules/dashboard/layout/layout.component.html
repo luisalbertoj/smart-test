@@ -11,73 +11,73 @@
           </label>
         </li>
 
-        <li *ngIf="lecciones.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="factory.lecciones.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Lecciones</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngFor="let item of lecciones">
+            <li class="sub_menu--item" *ngFor="let item of factory.lecciones">
               <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
                 class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li *ngIf="pruebas.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="factory.pruebas.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-tasks menu--icon iconos"></i>
             <span class="menu--label">Test de conocimiento</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngFor="let item of pruebas">
+            <li class="sub_menu--item" *ngFor="let item of factory.pruebas">
               <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
                 class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li *ngIf="recursos.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="factory.recursos.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="far fa-file-video menu--icon iconos"></i>
             <span class="menu--label">Recursos educativos </span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngFor="let item of recursos">
+            <li class="sub_menu--item" *ngFor="let item of factory.recursos">
               <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
                 class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li *ngIf="laboratorios.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="factory.laboratorios.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="far fa-file-video menu--icon iconos"></i>
             <span class="menu--label">Laboratorio </span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngFor="let item of laboratorios">
+            <li class="sub_menu--item" *ngFor="let item of factory.laboratorios">
               <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
                 class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li *ngIf="reportes.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="factory.reportes.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Reportes</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngFor="let item of reportes">
+            <li class="sub_menu--item" *ngFor="let item of factory.reportes">
               <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
                 class="sub_menu--link">{{item.nombre}}</a>
             </li>
           </ul>
         </li>
-        <li *ngIf="admin.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="factory.admin.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-user-friends menu--icon iconos"></i>
             <span class="menu--label">Administrador</span>
           </label>
           <ul class="sub_menu">
-            <li class="sub_menu--item" *ngFor="let item of admin">
+            <li class="sub_menu--item" *ngFor="let item of factory.admin">
               <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
                 class="sub_menu--link">{{item.nombre}}</a>
             </li>

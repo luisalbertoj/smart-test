@@ -29,7 +29,13 @@ module.exports = {
     },
     competencia: {
       model: 'competencia'
-    }
+    },
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      unique: true,
+      blacklist: ['search']
+    },
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

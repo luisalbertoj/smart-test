@@ -18,6 +18,12 @@ module.exports = {
     files:{
       type: 'string',
     },
+    slug: {
+      type: 'slug',
+      from: 'name',
+      unique: true,
+      blacklist: ['search']
+    },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

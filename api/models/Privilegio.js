@@ -10,13 +10,20 @@ module.exports = {
   attributes: {
     nombre: {
       type: 'string',
-      required: true
+      unique: true,
+      required: true,
     },
 
     roles: {
       collection: 'rol',
       via: 'privilegios'
-    }
+    },
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      unique: true,
+      blacklist: ['search']
+    },
 
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

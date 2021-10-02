@@ -80,20 +80,26 @@ const getleccion = async (req, res) => {
 
 };
 
-const processCompetencias = async (item) => {
-  let competencia1 = await Competencia.find().where({ slug: slug((item[2] ? item[2] : '').toLowerCase()) });
-  let competencia2 = await Competencia.find().where({ slug: slug((item[3] ? item[3] : '').toLowerCase()) });
+const processCompetencias = async (item, admin) => {
+  let competencia1 = await Competencia.find().where({ nombre: (item[2] ? item[2] : '') });
+  let competencia2 = await Competencia.find().where({ nombre: (item[3] ? item[3] : '') });
   if (competencia1.length > 0 || competencia2.length > 0) {
     competencia1 = competencia1[0];
     competencia2 = competencia2[0];
   } else {
     if (item[2]) {
-      competencia1 = await Competencia.create({ nombre: item[2], observaciones: ' ', creador: 1 }).fetch();
+      competencia1 = await Competencia.findOrCreate(
+        { nombre: item[2] },
+        { nombre: item[2], observaciones: ' ', creador: admin.id }
+      );
     } else {
       return;
     }
     if (item[3] !== '' && item[3]) {
-      competencia2 = await Competencia.create({ nombre: item[3], observaciones: ' ', creador: 1 }).fetch();
+      competencia2 = await Competencia.findOrCreate(
+        { nombre: item[3] },
+        { nombre: item[3], observaciones: ' ', creador: admin.id }
+      );
     }
   }
 
@@ -103,8 +109,11 @@ const processCompetencias = async (item) => {
 };
 const importLessons = async (req, res) => {
   const parametros = req.allParams();
-  let tipo = await TipoPregunta.findOrCreate({ slug: slug('multiple') },
+  let tipo = await TipoPregunta.findOrCreate({ nombre: 'multiple' },
     { nombre: 'multiple' });
+  const admin = await Persona.findOne({ username: 'administrador' });
+  console.log('Admin', admin);
+  if (!admin) return res.json({ code: 400, msg: 'EL administrador no existe' });
   if (tipo) {
     tipo = tipo.id;
     let lecciones = [];
@@ -112,65 +121,85 @@ const importLessons = async (req, res) => {
       if (item[0] !== 'titulo' && item[1] !== 'objetivo') {
         let leccion = {};
         leccion.titulo = item[0];
-        /* leccion.objetivo = await Objetivo.findOrCreate({ slug: slug(item[1].toLowerCase()) },
-          { titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).id; */
-        const objetivo = await Objetivo.create({ titulo: 'Objetivo ' + z, contenido: item[1], creador: 1 }).fetch().catch((err) => { console.log(err); });
 
-        if (objetivo) { leccion.objetivo = objetivo.id; }
-        leccion.competencias = await processCompetencias(item);
-        const preconceptos = item[4].split('/');
-        let ids = [];
-        for await (let preconcepto of preconceptos) {
-          let temp = await Preconcepto.find().where({ slug: slug(preconcepto.toLowerCase()) });
-          if (temp.length > 0) { ids.push(temp[0].id); }
-        }
-        leccion.preconceptos = ids;
-        leccion.introduccion = item[5];
-        leccion.observaciones = item[6];
-        leccion.conclusiones = item[7];
-        leccion.aprender = item[8];
-        let indice = 9;
-
-        let preguntas = [];
-        for (let m = 0; m < 4; m++) {
-          /* console.log('Pregunta', item[indice]); */
-          let preguntaTemp = await Pregunta.create({ contenido: item[indice], tipo: tipo }).fetch();
-          let pregunta = null;
-          if (preguntaTemp) {
-            pregunta = preguntaTemp.id;
-            const respuestaCorrectaPos = item[indice + 1];
-            for (let i = indice + 2; i < indice + 5; i++) {
-              if (item[i] !== null && item[i] !== undefined) {
-                await Respuesta.create({ contenido: item[i], preguntas: [pregunta] });
-                /* console.log('respuesta', item[i]); */
-              }
-            }
-            const respuestaCorrecta = await Respuesta.find().where({ slug: slug((respuestaCorrectaPos + '').toLowerCase()) });
-            const preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
-              .set({ respuestaCorrecta: respuestaCorrecta[0].id }).catch((err) => { console.log(err); });
-            if (!preguntaUpdate) { console.log('No pregunta update'); }
-            console.log('respuesta correcta', respuestaCorrecta);
-            console.log('pregunta', pregunta);
-            preguntas.push(pregunta);
+        const leccionExist = await Leccion.findOne({ titulo: leccion.titulo });
+        if (!leccionExist) {
+          const objetivo = await Objetivo.findOrCreate({ titulo: item[1] },
+            { titulo: 'Objetivo ' + z, contenido: item[1], creador: admin.id })
+            .catch((err) => { console.log(err); });
+          console.log('Objetivo', objetivo);
+          if (objetivo) { leccion.objetivo = objetivo.id; }
+          leccion.competencias = await processCompetencias(item, admin);
+          let preconceptos = "";
+          if (item[4]) {
+            preconceptos = item[4].split('/');
           }
-          indice += 5;
-          /* console.log('Siguiente pregunta'); */
+
+          let ids = [];
+          for await (let preconcepto of preconceptos) {
+            let temp = await Preconcepto.find().where({ titulo: preconcepto });
+            if (temp.length > 0) { ids.push(temp[0].id); }
+          }
+          leccion.preconceptos = ids;
+          leccion.introduccion = item[5];
+          leccion.observaciones = item[6];
+          leccion.conclusiones = item[7];
+          leccion.aprender = item[8];
+          let indice = 9;
+
+          let preguntas = [];
+          for (let m = 0; m < 4; m++) {
+            /* console.log('Pregunta', item[indice]); */
+            let preguntaTemp = await Pregunta.create({ contenido: item[indice], tipo: tipo }).fetch();
+            let pregunta = null;
+            let respuestaCorrecta = null;
+            if (preguntaTemp) {
+              pregunta = preguntaTemp.id;
+              const respuestaCorrectaPos = item[indice + 1];
+              for (let i = indice + 2; i < indice + 5; i++) {
+                if (item[i] !== null && item[i] !== undefined) {
+                  if (respuestaCorrectaPos === item[i]) {
+                    respuestaCorrecta = await Respuesta.create(
+                      { contenido: item[i], preguntas: [pregunta] }
+                    ).fetch();
+                  } else {
+                    await Respuesta.create(
+                      { contenido: item[i], preguntas: [pregunta] }
+                    )
+                  }
+                  /* console.log('respuesta', item[i]); */
+                }
+              }
+              if(respuestaCorrecta) {
+                let preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
+                .set({ respuestaCorrecta: respuestaCorrecta.id })
+                .catch((err) => { console.log(err); });
+              if (!preguntaUpdate) { console.log('No pregunta update'); }
+              console.log('respuesta correcta', respuestaCorrecta);
+              console.log('pregunta', pregunta);
+              preguntas.push(pregunta);
+              }
+              
+            }
+            indice += 5;
+            /* console.log('Siguiente pregunta'); */
+          }
+          leccion.aplicar = item[29];
+          leccion = await Leccion.create({
+            titulo: leccion.titulo,
+            introduccion: leccion.introduccion,
+            observaciones: leccion.observaciones,
+            conclusiones: leccion.conclusiones,
+            aprender: leccion.aprender,
+            practicar: preguntas,
+            aplicar: leccion.aplicar,
+            creador: admin.id,
+            competencias: leccion.competencias,
+            preconceptos: leccion.preconceptos,
+            objetivo: leccion.objetivo
+          });
+          lecciones.push(leccion);
         }
-        leccion.aplicar = item[29];
-        leccion = await Leccion.create({
-          titulo: leccion.titulo,
-          introduccion: leccion.introduccion,
-          observaciones: leccion.observaciones,
-          conclusiones: leccion.conclusiones,
-          aprender: leccion.aprender,
-          practicar: preguntas,
-          aplicar: leccion.aplicar,
-          creador: 1,
-          competencias: leccion.competencias,
-          preconceptos: leccion.preconceptos,
-          objetivo: leccion.objetivo
-        });
-        lecciones.push(leccion);
       }
     });
     return res.ok({ message: 'Lecciones creadas', data: lecciones });
@@ -246,7 +275,7 @@ const reportes = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
   console.log(params);
-  
+
   res.ok();
 };
 module.exports = { createlesson, getleccion, importLessons, updatelesson, querys, reportes };

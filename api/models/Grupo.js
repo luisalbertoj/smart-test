@@ -27,7 +27,13 @@ module.exports = {
     personas: {
       collection: 'persona',
       via: 'grupos'
-    }
+    },
+
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      blacklist: ['search']
+    },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

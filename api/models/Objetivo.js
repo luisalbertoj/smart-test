@@ -10,6 +10,7 @@ module.exports = {
   attributes: {
     titulo: {
       type: 'string',
+      unique: true,
       required: true
     },
     contenido: {
@@ -23,6 +24,7 @@ module.exports = {
     slug: {
       type: 'slug',
       from: 'titulo',
+      unique: true,
       blacklist: ['search']
     },
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

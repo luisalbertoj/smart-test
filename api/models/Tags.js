@@ -13,7 +13,8 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     nombre: {
-      type: 'string'
+      type: 'string',
+      unique: true,
     },
     preguntas: {
       collection: 'pregunta',
@@ -26,7 +27,13 @@ module.exports = {
     estado: {
       type: 'string',
       defaultsTo: '1'
-    }
+    },
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      unique: true,
+      blacklist: ['search']
+    },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

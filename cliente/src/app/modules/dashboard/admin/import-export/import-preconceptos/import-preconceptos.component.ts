@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { FactoryService } from 'src/app/services/factory.service';
 import * as XLSX from 'xlsx';
 
@@ -12,7 +13,8 @@ export class ImportPreconceptosComponent implements OnInit {
   data: any;
   constructor(
     private factory: FactoryService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toast: ToastrService,
   ) {}
 
   ngOnInit(): void {}
@@ -44,6 +46,7 @@ export class ImportPreconceptosComponent implements OnInit {
             setTimeout(() => {
               this.spinner.hide();
             }, 400);
+            this.toast.success(response.message || 'Preconceptos cargados');
           },
           (error: any) => console.log('Error al cargar preconceptos', error)
         );

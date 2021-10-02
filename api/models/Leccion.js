@@ -13,6 +13,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     titulo: {
       type: 'string',
+      unique: true,
       required: true
     },
 
@@ -48,6 +49,7 @@ module.exports = {
     slug: {
       type: 'slug',
       from: 'titulo',
+      unique: true,
       blacklist: ['search']
     },
 

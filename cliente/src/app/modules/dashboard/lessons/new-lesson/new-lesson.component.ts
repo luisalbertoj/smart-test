@@ -16,35 +16,25 @@ declare var $: any;
 })
 export class NewLessonComponent implements OnInit {
   tablaCompetencias: any = {
-    header: [
-      { name: '#' },
-      { name: 'Competencia' },
-      { name: 'Autor' },
-      { name: 'Acciones' },
-    ],
+    header: [{ name: 'Competencia' }, { name: 'Autor' }, { name: 'Acciones' }],
 
-    body: [
-      { name: 'id' },
-      { name: 'nombre' },
-      { name: 'creador', attribute: 'nombre' },
-    ],
+    body: [{ name: 'nombre' }, { name: 'creador', attribute: 'nombre' }],
   };
 
   tablaPreconceptos: any = {
     header: [
-      { name: '#' },
       { name: 'Preconcepto' },
       { name: 'Definición' },
       { name: 'Acciones' },
     ],
 
-    body: [{ name: 'id' }, { name: 'titulo' }, { name: 'concepto' }],
+    body: [{ name: 'titulo' }, { name: 'concepto' }],
   };
 
   tablaPreguntas: any = {
-    header: [{ name: '#' }, { name: 'Pregunta' }, { name: 'Acciones' }],
+    header: [{ name: 'Pregunta' }, { name: 'Acciones' }],
 
-    body: [{ name: 'id' }, { name: 'contenido' }],
+    body: [{ name: 'contenido' }],
   };
 
   newCompetencia: any = {
@@ -168,7 +158,9 @@ export class NewLessonComponent implements OnInit {
         });
         console.log(pregunta.respuestas);
         for (const key of pregunta.respuestas) {
-          if (key.contenido === 'true') { key.correcta = key.contenido; }
+          if (key.contenido === 'true') {
+            key.correcta = key.contenido;
+          }
         }
         this.respuestas.push(pregunta.respuestas);
       } else {

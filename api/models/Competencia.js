@@ -10,6 +10,7 @@ module.exports = {
   attributes: {
     nombre: {
       type: 'string',
+      unique: true,
       required: true
     },
     observaciones: {
@@ -32,6 +33,7 @@ module.exports = {
     slug: {
       type: 'slug',
       from: 'nombre',
+      unique: true,
       blacklist: ['search']
     },
 

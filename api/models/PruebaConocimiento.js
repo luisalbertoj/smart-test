@@ -39,7 +39,12 @@ module.exports = {
       type: 'string',
       required: true
     },
-  
+    slug: {
+      type: 'slug',
+      from: 'nombre',
+      unique: true,
+      blacklist: ['search']
+    },
     
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
