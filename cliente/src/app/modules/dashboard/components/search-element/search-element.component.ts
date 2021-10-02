@@ -59,4 +59,7 @@ export class SearchElementComponent implements OnInit, DoCheck {
       console.log(data[0][this.bodyTable[0]]);
     });
   }
+
+
+
 }

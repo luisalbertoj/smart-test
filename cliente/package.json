@@ -48,6 +48,8 @@
     "ngx-toastr": "^14.0.0",
     "ngx-tooltip": "0.0.9",
     "nodemailer": "^6.6.3",
+    "pipe": "^1.1.0",
+    "pipe-transform-cli": "^1.1.6",
     "popper.js": "^1.16.1",
     "postcss-scss": "^4.0.0",
     "rxjs": "~6.6.0",

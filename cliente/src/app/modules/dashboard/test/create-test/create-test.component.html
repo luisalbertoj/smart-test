@@ -154,7 +154,32 @@
                 />
               </div>
             </div>
-
+            <br>
+            <div  class="row">
+              <div class="col-sm-12 col-md-3">
+                <div class="row">
+                  <div class="col-sm-12 col-md-10">
+                    <label>Grupo *</label>
+                  </div>
+                  <div class="col-sm-12 col-md-2">
+                    <button class="btn-tooltip" data-toggle="tooltip"
+                      title="Indique el grupo">
+                      <i class="far fa-question-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-9">
+                
+                  <select (click)="selectGrupo()" [(ngModel)]="test.grupo" class="custom-select"
+                      id="inputGroupSelect01">
+                      <option value="">Todos los grupos...</option>
+                      <option *ngFor="let grupo of grupos" value="{{grupo.id}}">
+                          {{grupo.codigo}} - {{grupo.nombre}}
+                      </option>
+                  </select>
+              </div>
+            </div>
             <br>
           
             <div class="card">

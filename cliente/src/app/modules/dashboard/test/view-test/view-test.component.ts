@@ -100,7 +100,7 @@ export class ViewTestComponent implements OnInit {
             }
           );
       } else {
-        if (item.resEstudent === item.respuestaCorrecta.id) {
+        if (item.resEstudent === item.respuestaCorrecta?.id) {
           item.resEstudentValor = item.valor;
         } else {
           item.resEstudentValor = 0;
