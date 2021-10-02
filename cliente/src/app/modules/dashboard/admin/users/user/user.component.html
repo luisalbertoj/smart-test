@@ -72,16 +72,14 @@
                       </div>
                       
                       <div class="dropdown">
-                        <button href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
-                          aria-expanded="true">
-                          Seleccione un Rol
-                          <b class="caret"></b>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li *ngFor="let item of roles">
+                        <select href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
+                          aria-expanded="true" >
+                          <option >Seleccione</option>
+                          <option value="1"  *ngFor="let item of roles" >
                             <a (click)="cambiarRol(item)">{{item['nombre']}}</a>
-                          </li>
-                        </ul>
+                        </option>
+                      </select>
+
                       </div>
                     </div>
                   </div>
