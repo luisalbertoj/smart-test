@@ -13,7 +13,9 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.factory.loadUser();
-    this.menu();
+    setTimeout(() => {
+      this.menu();
+    }, 500);
     console.log(this.factory.user);
   }
 

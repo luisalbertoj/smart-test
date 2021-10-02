@@ -40,7 +40,8 @@ export class PerfilComponent implements OnInit {
   readonly = true;
   public env = environment.urlMedia;
 
-  content = 'Hello, i am tiny text and copied from somewhere else';
+  content = '';
+
   newGrupo: any = {};
   constructor(
     public factory: FactoryService,
@@ -103,6 +104,9 @@ export class PerfilComponent implements OnInit {
       );
   }
   selectGrupo(): any {
+    if (this.consulta.grupo === '') {
+      return 0;
+    }
     this.codeEncrypt = this.factory.encryptData(this.consulta.grupo);
   }
   crearGrupo(): any {

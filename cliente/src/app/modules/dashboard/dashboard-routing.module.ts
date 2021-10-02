@@ -60,6 +60,13 @@ const routes: Routes = [
             (m) => m.PerfilModule
           ),
       },
+      {
+        path: 'grupos',
+        loadChildren: () =>
+          import('./grupos/grupos.module').then(
+            (m) => m.GruposModule
+          ),
+      },
     ]
   }
 ];
