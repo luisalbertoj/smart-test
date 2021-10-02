@@ -85,7 +85,7 @@ export class NewLessonComponent implements OnInit {
     practicar: '',
     aplicar: '',
     slug: '',
-    creador: JSON.parse(localStorage.getItem('user')).id || 1,
+    creador: JSON.parse(localStorage.getItem('user')).id,
     competencias: [],
     preconceptos: [],
     objetivo: '',

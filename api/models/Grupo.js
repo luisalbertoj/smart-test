@@ -21,7 +21,8 @@ module.exports = {
     },
 
     docente: {
-      model: 'persona'
+      model: 'persona',
+      required: true
     },
 
     personas: {
@@ -48,7 +49,10 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    lecciones: {
+      collection: 'leccion',
+      via: 'grupos'
+    }
   },
 
 };

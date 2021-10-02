@@ -127,7 +127,7 @@ export class LessonViewComponent implements OnInit {
     this.factory.post('leccion/registrarleccion', formData).subscribe(
       (response: any) => {
       this.toast.success(response.msg);
-      /* this.router.navigate(['/dashboard/lesson/home']); */
+      this.router.navigate(['/dashboard/lesson/home']);
     },
     (error: any) => {
       this.toast.error('Prblema al registrar la leccion');

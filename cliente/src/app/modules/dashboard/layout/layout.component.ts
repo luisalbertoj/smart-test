@@ -9,14 +9,12 @@ import { FactoryService } from 'src/app/services/factory.service';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(private router: Router, public factory: FactoryService) {}
+  constructor(private router: Router, public factory: FactoryService) {
+    this.factory.cargarPrivilegios();
+  }
 
   ngOnInit(): void {
-    this.factory.loadUser();
-    setTimeout(() => {
-      this.menu();
-    }, 500);
-    console.log(this.factory.user);
+    this.menu();
   }
 
   menu(): any {

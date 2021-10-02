@@ -11,9 +11,27 @@ const registrarleccion = async (req, res) => {
     req.file('file0').upload({
         dirname: '../../assets/uploads/aplica'
     }, async (err, files) => {
-        if (err) { return res.serverError(err); }
+        if (err) { 
+            let resultLesson = await ResultLessonStudent.create({
+                respuestasEstudiante: JSON.stringify({ data: params.resUser }),
+                respuestasCorrectas: (params.correctas.length),
+                preguntasTotales: (params.totales),
+                aplicaEstudiante: (params.aplica),
+                estudiante: params.estudiante,
+                leccion: params.leccion,
+            }).fetch();
+            return res.ok({ resultLesson });
+        }
         if (files.length === 0) {
-            return res.badRequest('No file was uploaded');
+            let resultLesson = await ResultLessonStudent.create({
+                respuestasEstudiante: JSON.stringify({ data: params.resUser }),
+                respuestasCorrectas: (params.correctas.length),
+                preguntasTotales: (params.totales),
+                aplicaEstudiante: (params.aplica),
+                estudiante: params.estudiante,
+                leccion: params.leccion,
+            }).fetch();
+            return res.ok({ resultLesson });
         }
         var fileNameArray = files[0].fd.split('\\');
         console.log('filenamecompleto:', files);

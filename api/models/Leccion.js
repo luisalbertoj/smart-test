@@ -86,6 +86,10 @@ module.exports = {
     items: {
       collection: 'item',
       via: 'leccion'
+    },
+    grupos: {
+      collection: 'grupo',
+      via: 'lecciones'
     }
   },
 

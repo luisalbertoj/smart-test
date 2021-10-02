@@ -18,6 +18,7 @@ export class FactoryService {
   public laboratorios: any = [];
   public reportes: any = [];
   public admin: any = [];
+  public grupos: any = [];
 
   constructor(private http: HttpClient) {
     this.loadUser();
@@ -32,6 +33,7 @@ export class FactoryService {
         this.laboratorios = [];
         this.reportes = [];
         this.admin = [];
+        this.grupos = [];
         this.privilegios = res.privilegios;
         console.log('Privilegios actualizados');
         this.cargarPrivilegios();
@@ -114,7 +116,7 @@ export class FactoryService {
       console.log(e);
     }
   }
-  cargarPrivilegios(): void {
+  public cargarPrivilegios(): void {
     this.privilegios.forEach((priv: any) => {
       if (priv.nombre === 'lecciones') {
         this.lecciones.push({
@@ -206,6 +208,12 @@ export class FactoryService {
           path: '/dashboard/admin/import-export/preconceptos',
         });
       }
+      if (priv.nombre === 'Lista de grupos') {
+        this.grupos.push({
+          nombre: priv.nombre,
+          path: '/dashboard/grupos/list',
+        });
+      }
     });
     this.lecciones = this.lecciones;
     this.pruebas = this.pruebas;
@@ -213,6 +221,5 @@ export class FactoryService {
     this.laboratorios = this.laboratorios;
     this.reportes = this.reportes;
     this.admin = this.admin;
-    this.privilegios = null;
   }
 }

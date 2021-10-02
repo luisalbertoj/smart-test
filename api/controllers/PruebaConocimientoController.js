@@ -65,7 +65,7 @@ module.exports = {
         cierre: parametros.test.cierre,
         duracion: parametros.test.duracion,
         preguntas: preguntas,
-        creador: parametros.test.creador || 1,
+        creador: parametros.test.creador,
         grupo: parametros.test.grupo
       }).fetch();
 

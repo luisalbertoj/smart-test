@@ -58,6 +58,10 @@ module.exports = {
       collection: 'grupo',
       via: 'personas'
     },
+    gruposDocente: {
+      collection: 'grupo',
+      via: 'docente'
+    },
     idRol: {
       model: 'rol'
     },

@@ -71,6 +71,18 @@
             </li>
           </ul>
         </li>
+        <li *ngIf="factory.grupos.length > 0" class="menu--item menu--item__has_sub_menu">
+          <label class="menu--link" title="Tests">
+            <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
+            <span class="menu--label">Grupos</span>
+          </label>
+          <ul class="sub_menu">
+            <li class="sub_menu--item" *ngFor="let item of factory.grupos">
+              <a [routerLink]="[item.path]" routerLinkActive="router-link-active"
+                class="sub_menu--link">{{item.nombre}}</a>
+            </li>
+          </ul>
+        </li>
         <li *ngIf="factory.admin.length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-user-friends menu--icon iconos"></i>

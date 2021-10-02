@@ -25,8 +25,6 @@ import { DashboardModule } from '../dashboard.module';
     TagInputModule,
     MaterialModule,
     DashboardModule
-
-    
   ]
 })
 export class TestModule { }

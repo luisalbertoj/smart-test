@@ -14,9 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(public factory: FactoryService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.factory.loadUser();
-  }
+  ngOnInit(): void {}
 
   abrirPerfil(): void {
     this.classperfil =

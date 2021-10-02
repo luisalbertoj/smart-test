@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FactoryService } from 'src/app/services/factory.service';
 import { environment } from 'src/environments/environment';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 declare const $: any;
 
 declare interface DataTable {
@@ -13,12 +13,12 @@ declare interface DataTable {
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
   env: any = environment.urlMedia;
   plantilla: any = {
-    imgBanner: 'assets/images/banneruser.png'
+    imgBanner: 'assets/images/banneruser.png',
   };
 
   public pageActual: number = 1;
@@ -29,12 +29,12 @@ export class UserListComponent implements OnInit {
     apellido: '',
     email: '',
     password: '',
-    rol: {}
+    rol: {},
   };
   public paqueteSeleccionado: any;
   // modelos inputs
-  public contrasenaNueva: string = "";
-  public correoNuevo: string = "";
+  public contrasenaNueva: string = '';
+  public correoNuevo: string = '';
   public puntosNuevos = 0;
   public datoBusqueda = '';
   public cabezaNueva = '';
@@ -46,86 +46,90 @@ export class UserListComponent implements OnInit {
   public loadPuntos = false;
   public roles = [];
 
-  constructor(private _factory: FactoryService) { }
+  constructor(private _factory: FactoryService) {}
 
   ngOnInit(): void {
     this.cargarTodos();
   }
 
-  cargarTodos() {
-    this._factory.post('persona/search', {populate: 'idRol', limit: 50, skip: 50 }).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.dataTable = {
-          headerRow: ['Nombre', 'Email', 'Rol', 'Acciones'],
-          footerRow: ['Nombre', 'Email', 'Rol', 'Acciones'],
-          dataRows: []
-        };
-        this.dataTable.headerRow = ['Nombre', 'Email', 'Rol', 'Acciones'];
-        this.dataTable.footerRow = ['Nombre', 'Email', 'Rol', 'Acciones'];
-        this.dataTable.dataRows = response.data;
-        this.totalUsuarios = response.count;
-        this.loader = false;
-        setTimeout(() => {
-          this.config();
-          console.log("se cumplio el intervalo");
-        }, 500);
-      },
-      error => {
-        console.log('Error', error);
-      });
-      this.cargarRoles();
+  cargarTodos(): any {
+    this._factory
+      .post('persona/search', { populate: 'idRol', limit: 50, skip: 50 })
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.dataTable = {
+            headerRow: ['Nombre', 'Email', 'Rol', 'Acciones'],
+            footerRow: ['Nombre', 'Email', 'Rol', 'Acciones'],
+            dataRows: [],
+          };
+          this.dataTable.headerRow = ['Nombre', 'Email', 'Rol', 'Acciones'];
+          this.dataTable.footerRow = ['Nombre', 'Email', 'Rol', 'Acciones'];
+          this.dataTable.dataRows = response.data;
+          this.totalUsuarios = response.count;
+          this.loader = false;
+          setTimeout(() => {
+            this.config();
+            console.log('se cumplio el intervalo');
+          }, 500);
+        },
+        (error) => {
+          console.log('Error', error);
+        }
+      );
+    this.cargarRoles();
   }
-  cargarRoles() {
-    this._factory.getAll('rol').subscribe(
-      (response: any) => {
-        this.roles = response;
-        console.log("roles");
-        console.log(this.roles);
-      }
-    )
+  cargarRoles(): any {
+    this._factory.getAll('rol').subscribe((response: any) => {
+      this.roles = response;
+      console.log('roles');
+      console.log(this.roles);
+    });
   }
-  config() {
+  config(): any {
     try {
       $('#datatables').DataTable({
-        "pagingType": "full_numbers",
-        "lengthMenu": [
+        pagingType: 'full_numbers',
+        lengthMenu: [
           [10, 25, 50, -1],
-          [10, 25, 50, "All"]
+          [10, 25, 50, 'All'],
         ],
         responsive: true,
         language: {
-          search: "_INPUT_",
-          searchPlaceholder: "Buscar",
-        }
-  
+          search: '_INPUT_',
+          searchPlaceholder: 'Buscar',
+        },
       });
-  
+
       const table = $('#datatables').DataTable();
-  
-      table.on('click', '.like', function (e) {
+
+      table.on('click', '.like', (e) => {
         alert('You clicked on Like button');
         e.preventDefault();
       });
-  
+
       $('.card .material-datatables label').addClass('form-group');
     } catch (error) {}
   }
-  seleccion(row: any) {
+  seleccion(row: any): any {
     this.usuarioSeleccionado = row;
   }
-  
-  validarContrasena() {
+
+  validarContrasena(): any {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,15}[^'\s]/;
     if (!regex.exec(this.contrasenaNueva)) {
-      Swal.fire('Oops', ` La Contraseña debe cumplir los siguientes parametros: 
+      Swal.fire(
+        'Oops',
+        ` La Contraseña debe cumplir los siguientes parametros: 
       -Minimo 8 caracteres
       -Maximo 15
       -Al menos una letra mayúscula
       -Al menos una letra minucula
       -Al menos un dígito
       -No espacios en blanco
-      ` , 'error');
+      `,
+        'error'
+      );
       return false;
     } else {
       this.loaderBotones = true;
@@ -133,8 +137,8 @@ export class UserListComponent implements OnInit {
       return true;
     }
   }
-  
-  buscar() {
+
+  buscar(): any {
     this.loader = true;
     this.datoBusqueda = this.datoBusqueda.trim();
     if (this.datoBusqueda === '') {
@@ -144,30 +148,36 @@ export class UserListComponent implements OnInit {
         .post('user/search', {
           populate: ['cabeza', 'rol'],
           username: {
-            'startsWith': this.datoBusqueda
-          }
-        }).subscribe(
+            startsWith: this.datoBusqueda,
+          },
+        })
+        .subscribe(
           (response: any) => {
             this.dataTable.headerRow = ['Nombre', 'Email', 'Rol', 'Acciones'];
             this.dataTable.footerRow = ['Nombre', 'Email', 'Rol', 'Acciones'];
             this.dataTable.dataRows = response.data;
             this.loader = false;
           },
-          error => {
+          (error) => {
             console.log('Error', error);
-          });
+          }
+        );
     }
   }
 
-  validarCorreo() {
+  validarCorreo(): any {
     const regex = /^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
     if (!regex.exec(this.correoNuevo)) {
-      Swal.fire('Oops', ` El correo debe cumplir los siguientes parametros: 
+      Swal.fire(
+        'Oops',
+        ` El correo debe cumplir los siguientes parametros: 
       -Mayúsculas y minúsculas del alfabeto ingles.
       -Números de 0 al 9
       -puede contener punto pero no al inicio o repetirse.
       -puede usar los caracteres: !#$%&'*+-/=?^_{|}~
-      ` , 'error');
+      `,
+        'error'
+      );
       return false;
     } else {
       this.loaderBotones = true;
@@ -176,33 +186,32 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  actualizarDatos() {
-    if ( this.contrasenaNueva.trim() !== '' && this.contrasenaNueva != '' ) {
+  actualizarDatos(): any {
+    if (this.contrasenaNueva.trim() !== '' && this.contrasenaNueva != '') {
       this.usuarioSeleccionado.password = this.contrasenaNueva;
     }
-    if ( this.correoNuevo.trim() !== '' && this.correoNuevo != '' ) {
+    if (this.correoNuevo.trim() !== '' && this.correoNuevo != '') {
       this.usuarioSeleccionado.email = this.correoNuevo;
     }
     //console.log(this.correoNuevo);
     let persona = this.usuarioSeleccionado;
     persona.idRol = this.usuarioSeleccionado.idRol.id;
-    console.log("actualizar");
+    console.log('actualizar');
     console.log(persona);
-    this._factory.post('persona/actualizar', persona)
-    .subscribe(
+    this._factory.post('persona/actualizar', persona).subscribe(
       (response: any) => {
-        console.log("respuesta de actualizar");
+        console.log('respuesta de actualizar');
         console.log(response);
         Swal.fire('Ok', 'Usuario actualizado con exito', 'success');
         this.cargarTodos();
       },
-      error => {
+      (error) => {
         console.log('Error', error);
-      });
+      }
+    );
   }
-  cambiarRol(item) {
+  cambiarRol(item): any {
     this.usuarioSeleccionado.idRol = item;
     console.log(this.usuarioSeleccionado);
   }
-
 }

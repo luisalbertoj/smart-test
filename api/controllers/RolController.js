@@ -21,11 +21,12 @@ const privilegios = [
     { nombre: 'Admin privilegios' },
     { nombre: 'Admin IE lessons' },
     { nombre: 'Admin IE preconceptos' },
+    { nombre: 'Lista de grupos' },
 ];
 const grupos = [
-    {nombre: 'Grupo 1', codigo: 'A1'},
-    {nombre: 'Grupo 2', codigo: 'A2'},
-    {nombre: 'Grupo 3', codigo: 'A3'},
+    { nombre: 'Grupo 1', codigo: 'A1' },
+    { nombre: 'Grupo 2', codigo: 'A2' },
+    { nombre: 'Grupo 3', codigo: 'A3' },
 ];
 
 const initDb = async (req, res) => {
@@ -52,14 +53,6 @@ const initDb = async (req, res) => {
         ));
     });
 
-    const idGrupos = [];
-    grupos.forEach(async (grupo) => {
-        idGrupos.push(await Grupo.findOrCreate(
-            {codigo: grupo.codigo},
-            {nombre: grupo.nombre, codigo: grupo.codigo, docente: rolAdmin.id},
-        ));
-    });
-
     const hash = await bcrypt.hash('123456', 10);
 
     const admin = await Persona.findOrCreate(
@@ -75,6 +68,15 @@ const initDb = async (req, res) => {
             idRol: rolAdmin.id
         }
     );
+
+    const idGrupos = [];
+    grupos.forEach(async (grupo) => {
+        idGrupos.push(await Grupo.findOrCreate(
+            { codigo: grupo.codigo },
+            { nombre: grupo.nombre, codigo: grupo.codigo, docente: admin.id },
+        ));
+    });
+
     const docente1 = await Persona.findOrCreate(
         { username: 'fabiola' },
         {
