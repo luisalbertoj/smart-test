@@ -13,32 +13,19 @@ export class UserComponent implements OnInit {
     imgBanner: 'assets/images/banneruser.png',
   };
 
-  public persona: any = {
-    nombre: '',
-    apellido: '',
-    cedula: '',
-    email: '',
-    codigo: '',
-    username: '',
-    idRol: {},
-    password: '',
-  };
+  public persona: any = {};
   public txt = txt;
   test: Date = new Date();
   roles: any = [];
   constructor(private factory: FactoryService) {}
-  ngOnInit() {
+  ngOnInit(): any {
     const body = document.getElementsByTagName('body')[0];
     body.classList.add('register-page');
     body.classList.add('off-canvas-sidebar');
     this.cargarRoles();
   }
-  ngOnDestroy() {
-    const body = document.getElementsByTagName('body')[0];
-    body.classList.remove('register-page');
-    body.classList.remove('off-canvas-sidebar');
-  }
-  registro() {
+
+  registro(): any {
     if (
       this.persona.nombre &&
       this.persona.apellido &&
@@ -48,8 +35,8 @@ export class UserComponent implements OnInit {
       this.persona.password
     ) {
       if (true) {
-        var personaCrear = this.persona;
-        personaCrear.idRol = this.persona.idRol.id;
+        const personaCrear = this.persona;
+        personaCrear.idRol = this.persona.idRol.id || this.persona.idRol;
         console.log('Persona a registrar');
         console.log(personaCrear);
         this.factory.post('persona/registrar', personaCrear).subscribe(
@@ -77,14 +64,14 @@ export class UserComponent implements OnInit {
       Swal.fire('Error', 'El formulario no esta completo ', 'error');
     }
   }
-  cargarRoles() {
+  cargarRoles(): any {
     this.factory.getAll('rol').subscribe((response: any) => {
       this.roles = response;
       console.log('roles');
       console.log(this.roles);
     });
   }
-  cambiarRol(item) {
+  cambiarRol(item): void {
     this.persona.idRol = item;
     console.log(this.persona);
   }

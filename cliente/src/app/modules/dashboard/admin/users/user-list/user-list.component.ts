@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
     imgBanner: 'assets/images/banneruser.png',
   };
 
-  public pageActual: number = 1;
+  public pageActual = 1;
 
   public dataTable: DataTable;
   public usuarioSeleccionado: any = {
@@ -33,8 +33,8 @@ export class UserListComponent implements OnInit {
   };
   public paqueteSeleccionado: any;
   // modelos inputs
-  public contrasenaNueva: string = '';
-  public correoNuevo: string = '';
+  public contrasenaNueva = '';
+  public correoNuevo = '';
   public puntosNuevos = 0;
   public datoBusqueda = '';
   public cabezaNueva = '';
@@ -113,6 +113,8 @@ export class UserListComponent implements OnInit {
   }
   seleccion(row: any): any {
     this.usuarioSeleccionado = row;
+    this.usuarioSeleccionado.idRol = this.usuarioSeleccionado.idRol.id || '0';
+    console.log('Usuario', this.usuarioSeleccionado);
   }
 
   validarContrasena(): any {
@@ -120,7 +122,7 @@ export class UserListComponent implements OnInit {
     if (!regex.exec(this.contrasenaNueva)) {
       Swal.fire(
         'Oops',
-        ` La Contraseña debe cumplir los siguientes parametros: 
+        ` La Contraseña debe cumplir los siguientes parametros:
       -Minimo 8 caracteres
       -Maximo 15
       -Al menos una letra mayúscula
@@ -170,7 +172,7 @@ export class UserListComponent implements OnInit {
     if (!regex.exec(this.correoNuevo)) {
       Swal.fire(
         'Oops',
-        ` El correo debe cumplir los siguientes parametros: 
+        ` El correo debe cumplir los siguientes parametros:
       -Mayúsculas y minúsculas del alfabeto ingles.
       -Números de 0 al 9
       -puede contener punto pero no al inicio o repetirse.
@@ -187,15 +189,16 @@ export class UserListComponent implements OnInit {
   }
 
   actualizarDatos(): any {
-    if (this.contrasenaNueva.trim() !== '' && this.contrasenaNueva != '') {
+    if (this.contrasenaNueva.trim() !== '' && this.contrasenaNueva !== '') {
       this.usuarioSeleccionado.password = this.contrasenaNueva;
     }
-    if (this.correoNuevo.trim() !== '' && this.correoNuevo != '') {
+    if (this.correoNuevo.trim() !== '' && this.correoNuevo !== '') {
       this.usuarioSeleccionado.email = this.correoNuevo;
     }
-    //console.log(this.correoNuevo);
-    let persona = this.usuarioSeleccionado;
-    persona.idRol = this.usuarioSeleccionado.idRol.id;
+    console.log('Usuario seleccionado', this.usuarioSeleccionado);
+    const persona = this.usuarioSeleccionado;
+    persona.idRol = this.usuarioSeleccionado.idRol;
+    persona.newPassword = this.contrasenaNueva;
     console.log('actualizar');
     console.log(persona);
     this._factory.post('persona/actualizar', persona).subscribe(

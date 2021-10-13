@@ -34,10 +34,15 @@ export class SigInComponent implements OnInit {
     this.spinner.show();
     this.factory.post('persona/login', this.persona).subscribe(
       (response: any) => {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        this.factory.loadUser();
-        this.spinner.hide();
-        this.router.navigate(['dashboard']);
+        if (response.code === 400) {
+          this.toastr.warning('Usuario o contraseña  incorrectos!', 'Error!');
+          this.spinner.hide();
+        } else {
+          localStorage.setItem('user', JSON.stringify(response.data));
+          this.factory.loadUser();
+          this.spinner.hide();
+          this.router.navigate(['dashboard']);
+        }
       },
       (error: any) => {
         this.toastr.warning('Usuario o contraseña  incorrectos!', 'Error!');

@@ -4,17 +4,13 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-          
+
             <div>
-              <img
-                src="{{plantilla.imgBanner}}"
-                class="card-img-top"
-                alt="..."
-              />
+              <img src="{{plantilla.imgBanner}}" class="card-img-top" alt="..." />
             </div>
 
             <div class="card">
-              <h2 class="card-title text-center">
+              <h2 class="text-center card-title">
                 {{ txt.registry | uppercase }}
               </h2>
               <div class="card-body">
@@ -70,15 +66,22 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      
+
                       <div class="dropdown">
-                        <select href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
+                        <select [(ngModel)]="this.persona.idRol" href="#"
+                          class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown" aria-expanded="true">
+                          <option value="">Seleccione</option>
+                          <option *ngFor="let item of roles" value="{{item.id}}">
+                            <a (click)="cambiarRol(item)">{{item['nombre']}}</a>
+                          </option>
+                        </select>
+                        <!-- <select href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
                           aria-expanded="true" >
                           <option >Seleccione</option>
                           <option value="1"  *ngFor="let item of roles" >
                             <a (click)="cambiarRol(item)">{{item['nombre']}}</a>
                         </option>
-                      </select>
+                      </select> -->
 
                       </div>
                     </div>
@@ -117,7 +120,10 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <a (click)="registro()" class="btn btn-primary btn-round mt-4">{{ txt.registry }}</a>
+                    <button mat-raised-button (click)="registro()" class="btn btn-rose pull-right">
+                      {{ txt.registry | titlecase }}
+                    </button>
+                    <!-- <a (click)="registro()" class="mt-4 btn btn-primary btn-round">{{ txt.registry | titlecase }}</a> -->
                   </div>
                 </form>
               </div>

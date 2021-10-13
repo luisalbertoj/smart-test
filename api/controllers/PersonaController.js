@@ -47,7 +47,6 @@ const search = async (req, res) => {
           if (err) {
             return res.badRequest(err);
           }
-          console.log(result);
           return res.ok({ status: 200, data: result, count: conteo });
         });
     });
@@ -82,18 +81,18 @@ const login = async (req, res) => {
 
   const user = await Persona.findOne({ username: params.username }).populate('grupos');
 
-  if(!user) return res.json({code: 400, msg: 'Usuario o Contraseña invalid'});
+  if (!user) return res.json({ code: 400, msg: 'Usuario o Contraseña invalid user' });
 
   const hash = await bcrypt.compare(params.password, user.password);
-  if (!hash) return res.json({code: 400, msg: 'Usuario o Contraseña invalid'});
+  if (!hash) return res.json({ code: 400, msg: 'Usuario o Contraseña invalidd' });
 
-  const rol = await Rol.findOne({id: user.idRol}).populate('privilegios');
+  const rol = await Rol.findOne({ id: user.idRol }).populate('privilegios');
 
-  if(rol) {
+  if (rol) {
     user.idRol = rol;
     return res.ok({ status: 200, data: user, msg: 'ok' });
   }
-  return res.json({ code: 401, msg: 'Error al cargar la informacion del usuario'});
+  return res.json({ code: 401, msg: 'Error al cargar la informacion del usuario' });
 };
 
 const registrar = async (req, res) => {
@@ -104,9 +103,9 @@ const registrar = async (req, res) => {
   }
   const hash = await bcrypt.hash(params.password, 10);
 
-  if(!hash) return res.json({code: 404, msg: 'La contraseña no es valida'});
+  if (!hash) return res.json({ code: 404, msg: 'La contraseña no es valida' });
 
-  const newUser = await Persona.create({ 
+  const newUser = await Persona.create({
     nombre: params.nombre,
     apellido: params.apellido,
     cedula: params.cedula,
@@ -117,7 +116,7 @@ const registrar = async (req, res) => {
     idRol: params.idRol
   }).fetch();
 
-  if(!newUser) res.badRequest({ status: 500, data: err, msg: 'El usuario o correo ya existen' });
+  if (!newUser) res.badRequest({ status: 500, data: err, msg: 'El usuario o correo ya existen' });
 
   return res.ok({ status: 200, data: newUser, msg: 'Usuario creado' });
 };
@@ -128,24 +127,23 @@ const actualizar = async (req, res) => {
   if (!params.password) {
     res.badRequest({ status: 404, msg: 'el usuario no trae contaseña' });
   }
-  Passwords.encryptPassword({
-    password: params.password,
-  }).exec({
-    error: function (err) {
-      return res.serverError(err);
-    },
-    success: function () {
-      console.log(params);
-      Persona.update({ id: params.id }).set({ nombre: params.nombre, apellido: params.apellido, email: params.email, password: params.password, idRol: params.idRol })
-        .fetch()
-        .then((persona) => {
-          return res.ok({ status: 200, data: persona, msg: 'Usuario Actualizado' });
-        }, (err) => {
-          return res.badRequest({ status: 500, data: err, msg: 'Error al actualizar el User' });
-        });
+  if (params.newPassword) {
+    const hash = await bcrypt.hash(params.newPassword, 10);
+    if(hash) params.password = hash;
+    if (!hash) return res.json({ code: 404, msg: 'La contraseña no es valida' });
+  }
 
-    }
-  });
+  console.log('Contraseña nueva', params);
+
+  const personaUpdate = await Persona.update({ id: params.id })
+    .set({ nombre: params.nombre, apellido: params.apellido, email: params.email, password: params.password, idRol: params.idRol })
+    .fetch();
+
+  if (!personaUpdate) {
+    return res.badRequest({ status: 500, data: err, msg: 'Error al actualizar el User' });
+  }
+
+  return res.ok({ status: 200, data: personaUpdate, msg: 'Usuario Actualizado' });
 };
 
 const querys = async (req, res) => {
@@ -155,4 +153,4 @@ const querys = async (req, res) => {
   return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
 };
 
-module.exports = { search, login, registrar, actualizar, querys};
+module.exports = { search, login, registrar, actualizar, querys };
