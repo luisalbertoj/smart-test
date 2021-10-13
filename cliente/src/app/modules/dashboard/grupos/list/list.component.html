@@ -47,37 +47,40 @@
                         <td>{{ row["codigo"] }}</td>
                         <td>{{ row["docente"]?.username }}</td>
                         <td>
-                          <button type="button" (click)="seleccion(row)" class="btn btn-link  btn-just-icon edit"
+                          <button type="button" (click)="seleccion(row)" class="btn btn-link btn-just-icon edit"
                             data-toggle="modal" data-target=".bd-example-modal-lg">
                             <i class="material-icons">dvr</i>
                           </button>
                           <button type="button"
-                          (click)="limpiarTablas()" 
+                          (click)="limpiarTablas()"
                           (click)="seleccion(row, row['docente'])"
                           (click)="searchDocentes.cargarModel()"
-                          
-                          class="
-                              btn btn-plantilla
-                              btnaddpreg
-                              btn-primary
-                            " data-toggle="modal" data-target="#persona">
+
+                          class=" btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#persona">
                             <i class="fas fa-search"></i>
                             Seleccionar docente
                           </button>
                           <app-search-element [table]="tabla" [title]="tabla.title" [model]="tabla.model"
                             [headerTable]="tabla.header" [bodyTable]="tabla.body"
                             (selectElementos)="selectDocente($event) " #searchDocentes></app-search-element>
-                          <button type="button" 
+                          <button type="button"
                           (click)="limpiarTablas()"
                           (click)="seleccion(row, row['personas'])"
                           (click)="searchEstudiantes.cargarModel()"
-                          class="
-                              btn btn-plantilla
-                              btnaddpreg
-                              btn-primary
-                            " data-toggle="modal" data-target="#personaEstudiante">
+                          class=" btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#personaEstudiante">
                             <i class="fas fa-search"></i>
                             Seleccionar Estudiantes
+                          </button>
+                          <app-search-element [table]="tablaEs" [title]="tablaEs.title" [model]="tablaEs.model"
+                            [headerTable]="tablaEs.header" [bodyTable]="tablaEs.body"
+                            (selectElementos)="selectEstudiantes($event) " #searchEstudiantes></app-search-element>
+                            <button type="button"
+                          (click)="limpiarTablas()"
+                          (click)="seleccion(row, row['personas'])"
+                          (click)="searchEstudiantes.cargarModel()"
+                          class=" btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#personaEstudiante">
+                            <i class="fas fa-search"></i>
+                            Seleccionar Lecciones
                           </button>
                           <app-search-element [table]="tablaEs" [title]="tablaEs.title" [model]="tablaEs.model"
                             [headerTable]="tablaEs.header" [bodyTable]="tablaEs.body"

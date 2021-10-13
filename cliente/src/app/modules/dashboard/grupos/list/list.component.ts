@@ -54,6 +54,21 @@ export class ListComponent implements OnInit {
     ],
     body: [{ name: 'nombre' }, { name: 'apellido' }, { name: 'username' }],
   };
+  public lecciones: any = [];
+  public tablaLecc: any = {
+    title: 'Lecciones',
+    model: 'personaEstudiante',
+    multiple: true,
+    data: [1 , 2],
+    grupo: [],
+    header: [
+      { name: 'Nombre' },
+      { name: 'Apellido' },
+      { name: 'Username' },
+      { name: 'Acciones' },
+    ],
+    body: [{ name: 'nombre' }, { name: 'apellido' }, { name: 'username' }],
+  };
   constructor(
     private factory: FactoryService,
     private spinner: NgxSpinnerService,

@@ -63,7 +63,7 @@ export class MainComponent implements OnInit {
   }
   loadPrivilegios(): void {
     this.factory.user.idRol.privilegios.forEach((privilegio: any) => {
-        if (privilegio.nombre === 'Editar pruebas de conocimiento') {
+        if (privilegio.nombre === 'Editar pruebas') {
           this.editable = true;
         }
     });
