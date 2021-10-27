@@ -116,7 +116,7 @@ export class FactoryService {
       console.log(e);
     }
   }
-  public cargarPrivilegios(): void {
+  public cargarPrivilegios(): any {
     this.privilegios.forEach((priv: any) => {
       if (priv.nombre === 'lecciones') {
         this.lecciones.push({

@@ -11,7 +11,7 @@
           </label>
         </li>
 
-        <li *ngIf="factory.lecciones.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.lecciones).length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Lecciones</span>
@@ -23,7 +23,7 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="factory.pruebas.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.pruebas).length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-tasks menu--icon iconos"></i>
             <span class="menu--label">Test de conocimiento</span>
@@ -35,7 +35,7 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="factory.recursos.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.recursos).length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="far fa-file-video menu--icon iconos"></i>
             <span class="menu--label">Recursos educativos </span>
@@ -47,7 +47,7 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="factory.laboratorios.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.laboratorios).length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="far fa-file-video menu--icon iconos"></i>
             <span class="menu--label">Laboratorio </span>
@@ -59,7 +59,8 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="factory.reportes.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.reportes).length > 0"
+          class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Reportes</span>
@@ -71,7 +72,7 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="factory.grupos.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.grupos).length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-chalkboard-teacher menu--icon iconos"></i>
             <span class="menu--label">Grupos</span>
@@ -83,7 +84,7 @@
             </li>
           </ul>
         </li>
-        <li *ngIf="factory.admin.length > 0" class="menu--item menu--item__has_sub_menu">
+        <li *ngIf="(factory.admin).length > 0" class="menu--item menu--item__has_sub_menu">
           <label class="menu--link" title="Tests">
             <i class="fas fa-user-friends menu--icon iconos"></i>
             <span class="menu--label">Administrador</span>

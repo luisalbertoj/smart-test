@@ -17,7 +17,7 @@ export class LayoutComponent implements OnInit {
     this.menu();
   }
 
-  menu(): any {
+  public menu(): any {
     /*
 ==========================
 Vertical Responsive Menu
