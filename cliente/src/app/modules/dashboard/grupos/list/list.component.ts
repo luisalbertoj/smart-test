@@ -87,7 +87,7 @@ export class ListComponent implements OnInit {
   loadGrupos(isAdmin?): void {
     this.factory.getAll('grupo/').subscribe((response: any) => {
       this.toast.success('Grupos cargados');
-      console.log('Grupos', response);
+      // console.log('Grupos', response);
       this.dataTable = {
         headerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
         footerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
@@ -98,7 +98,7 @@ export class ListComponent implements OnInit {
       this.loader = false;
       setTimeout(() => {
         this.config();
-        console.log('se cumplio el intervalo');
+        // console.log('se cumplio el intervalo');
       }, 500);
     });
   }
@@ -128,7 +128,7 @@ export class ListComponent implements OnInit {
     } catch (error) {}
   }
   actualizarDatos(): void {
-    console.log(this.grupoSeleccionado);
+    // console.log(this.grupoSeleccionado);
     this.grupoSeleccionado.docente = this.grupoSeleccionado.docente.id ||
     this.grupoSeleccionado.docente;
     const ids = [];
@@ -139,7 +139,8 @@ export class ListComponent implements OnInit {
     this.factory.put('grupo', this.grupoSeleccionado.id, this.grupoSeleccionado).subscribe(
       (res: any) => {
         this.toast.success('Datos actualizados');
-        console.log('Grupo actualzado', res);
+        
+        // console.log('Grupo actualzado', res);
       }
     );
   }
@@ -172,21 +173,21 @@ export class ListComponent implements OnInit {
     };
   }
   seleccion(elemento, dato?): void {
-    console.log('Grupo seleccionado', elemento, dato);
+    // console.log('Grupo seleccionado', elemento, dato);
     this.tabla.dataExist = dato;
     this.tablaEs.dataExist = dato;
     this.grupoSeleccionado = elemento;
   }
   loadDocentes(): void {
     this.factory.getAll('rol?nombre=docente').subscribe((response: any) => {
-      console.log('RolDocente', response);
+      // console.log('RolDocente', response);
       if (!response.length) {
         return this.toast.error('No existe el rol de docentes en el sistema');
       }
       this.factory
         .getAll('persona?idRol=' + response[0].id)
         .subscribe((res: any) => {
-          console.log('Docentes', res);
+          // console.log('Docentes', res);
           this.docentes = res;
           this.tabla.data = this.docentes;
         });
@@ -194,14 +195,14 @@ export class ListComponent implements OnInit {
   }
   loadEstudiantes(): void {
     this.factory.getAll('rol?nombre=estudiante').subscribe((response: any) => {
-      console.log('RolEstudiante', response);
+      // console.log('RolEstudiante', response);
       if (!response.length) {
         return this.toast.error('No existe el rol de estudiante en el sistema');
       }
       this.factory
         .getAll('persona?idRol=' + response[0].id)
         .subscribe((res: any) => {
-          console.log('Estudiantes', res);
+          // console.log('Estudiantes', res);
           this.estudiantes = res;
           this.tablaEs.data = this.estudiantes;
         });
@@ -210,13 +211,13 @@ export class ListComponent implements OnInit {
   selectDocente(item): void {
     if (item.length > 0) {
       this.grupoSeleccionado.docente = item[0];
-      console.log('List item', item);
+      // console.log('List item', item);
       this.actualizarDatos();
     }
   }
   selectEstudiantes(items): void {
       this.grupoSeleccionado.personas = items;
-      console.log('List item', items);
+      console.log('List estudents', items);
       this.actualizarDatos();
   }
 }

@@ -7,206 +7,158 @@
           <img src="{{plantilla.imgBanner}}" class="card-img-top" alt="..." />
         </div>
         <br>
-        <!-- <div class="row">
-        <div class="col-xl-9 col-lg-8">
+        <ng-container *ngIf="lecciones.length === 0; else elseTemplate">
+          <br>
+          <br>
+          <h1 class="text-center">¡ No tienes lecciones asignadas !</h1>
+          <br>
+          <br>
+        </ng-container>
+        <ng-template #elseTemplate>
           <div class="row">
             <div class="col-sm-12">
-              <div class="section3125">
-                <a [routerLink]="[
-                    '/dashboard/lesson/lesson-detail',
-                    this.leccion.slug
-                  ]" routerLinkActive="router-link-active" class="fcrse_img">
-                  <img src="{{ this.leccion.portada }}" alt="" />
-                  <div class="course-overlay">
-                  <div class="badge_seller">
-                      {{ this.leccion.estado }}
-                    </div>
-                      <div class="crse_reviews">
-                        <i class="uil uil-star"></i>{{ this.leccion.titulo }}
-                      </div>
-                      <span class="play_btn1"><i class="uil uil-play"></i></span>
-                      <div class="crse_timer">
-                        {{ this.leccion.codigo }}
-                      </div>
-                  </div>
-
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-4">
-          <div class="right_side">
-            <div class="fcrse_2 mb-30">
-              <div class="tutor_img">
-                <a href="#"><img src="{{ this.leccion.docente.img }}" alt="" /></a>
-              </div>
-              <div class="tutor_content_dt">
-                <div class="tutor150">
-                  <a href="#" class="tutor_name">
-                    {{this.leccion.docente.nombre}}</a>
-                  <div class="mef78" title="Verify">
-                    <i class="uil uil-check-circle"></i>
-                  </div>
-                </div>
-                <div class="tutor_cate">
-
-                </div>
-                <div class="tut1250">
-                  <span class="vdt15">0 Estudiantes</span>
-                  <span class="vdt15">1 Lección</span>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr /> -->
-        <div class="row">
-          <div class="col-sm-12">
-
-            <button class="btn btn-plantilla btnvercomp" (click)="modo = !modo">
-              <h3 *ngIf="!modo">Ver por competencias</h3>
-              <h3 *ngIf="modo">Ver lecciones</h3>
-            </button>
-            <div *ngIf="!modo">
-              <br />
-              <div *ngFor="let leccion of lecciones; index as i" class="fcrse_1">
-                <a [routerLink]="[
-                  '/dashboard/lesson/lesson-detail',
-                  this.leccion.slug
-                ]" routerLinkActive="router-link-active" class="hf_img">
-                  <img src="{{
-                    leccion.portada || 'assets/images/courses/portada-base.png'
-                  }}" alt="Portada de la leccion{{ i }}" />
-                  <div class="course-overlay overlay-peque">
-                    <!-- <div class="badge_seller">Leccion pendiente</div> -->
-                    <div class="crse_reviews">
-                      <i class="uil uil-star"></i> {{ leccion.titulo }}
-                    </div>
-                    <span class="play_btn1"><i class="uil uil-play"></i></span>
-                    <div class="crse_timer">Leccion #{{ i + 1 }}</div>
-                  </div>
-                </a>
-                <div class="hs_content">
-
+  
+              <button class="btn btn-plantilla btnvercomp" (click)="modo = !modo">
+                <h3 *ngIf="!modo">Ver por competencias</h3>
+                <h3 *ngIf="modo">Ver lecciones</h3>
+              </button>
+              <div *ngIf="!modo">
+                <br />
+                <div *ngFor="let leccion of lecciones; index as i" class="fcrse_1">
                   <a [routerLink]="[
                     '/dashboard/lesson/lesson-detail',
                     this.leccion.slug
-                  ]" routerLinkActive="router-link-active" class="crse14s title900">
-                    <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de
-                      la lección:
-                    </strong>
-                    {{ leccion.objetivo?.contenido }}
+                  ]" routerLinkActive="router-link-active" class="hf_img">
+                    <img src="{{
+                      leccion.portada || 'assets/images/courses/portada-base.png'
+                    }}" alt="Portada de la leccion{{ i }}" />
+                    <div class="course-overlay overlay-peque">
+                      <!-- <div class="badge_seller">Leccion pendiente</div> -->
+                      <div class="crse_reviews">
+                        <i class="uil uil-star"></i> {{ leccion.titulo }}
+                      </div>
+                      <span class="play_btn1"><i class="uil uil-play"></i></span>
+                      <div class="crse_timer">Leccion #{{ i + 1 }}</div>
+                    </div>
                   </a>
-                  <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
-                  <div class="auth1lnkprce">
-                    <p class="cr1fot">
-                      Creada por: <a href="#">{{ factory.user.nombre }}</a>
-                    </p>
-                    <div class="prce142">
-
-                      <button *ngIf="editable" [routerLink]="['/dashboard/lesson/lesson-editar', this.leccion.slug]"
-                        routerLinkActive="router-link-active" class="btn btn-plantilla btnEditar" type="button">
-                        Editar
-                      </button>
-                      <button *ngIf="leccion.solved" (click)="calificarSelected(leccion.solved)"
-                      class="btn btn-plantilla "
-                        data-toggle="modal" data-target="#exampleModal">
-                        Resultados
-                      </button>
-                      <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
-                        type="button">
-                        Iniciar
-                      </button>
+                  <div class="hs_content">
+  
+                    <a [routerLink]="[
+                      '/dashboard/lesson/lesson-detail',
+                      this.leccion.slug
+                    ]" routerLinkActive="router-link-active" class="crse14s title900">
+                      <strong><i class="fas fa-bullseye color-secondary"></i> Objetivo de
+                        la lección:
+                      </strong>
+                      {{ leccion.objetivo?.contenido }}
+                    </a>
+                    <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
+                    <div class="auth1lnkprce">
+                      <p class="cr1fot">
+                        Creada por: <a href="#">{{ factory.user.nombre }}</a>
+                      </p>
+                      <div class="prce142">
+  
+                        <button *ngIf="editable" [routerLink]="['/dashboard/lesson/lesson-editar', this.leccion.slug]"
+                          routerLinkActive="router-link-active" class="btn btn-plantilla btnEditar" type="button">
+                          Editar
+                        </button>
+                        <button *ngIf="leccion.solved" (click)="calificarSelected(leccion.solved)"
+                        class="btn btn-plantilla "
+                          data-toggle="modal" data-target="#exampleModal">
+                          Resultados
+                        </button>
+                        <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
+                          type="button">
+                          Iniciar
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- modo 2 -->
-
-            <div *ngIf="modo">
-              <br />
-              <div class="card" *ngFor="let competencia of competencias; let i = index">
-                <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
-                  (click)="onClickAccordion(i, competencia)">
-                  <h2 class="mb-0">
-                    <button class="text-left btn btn-block" type="button">
-                      <div class="row">
-                        <div class="title-icon" class="col-lg-11">
-                          <ul>
-                            <li class="title">
-                              {{ competencia?.nombre }}
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-lg-1">
-                        <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
-                      </div>
-                    </button>
-                  </h2>
-                </div>
-
-                <div class="card-body" *ngIf="competencia.showbody">
-                  <div class="general_info10">
-                    <div *ngFor="let leccion of competencia.lecciones; index as i" class="fcrse_1">
-                      <a [routerLink]="[
-                        '/dashboard/lesson/lesson-detail',
-                        this.leccion.slug
-                      ]" routerLinkActive="router-link-active" class="hf_img">
-                        <img src="{{
-                          leccion.portada ||
-                            'assets/images/courses/portada-base.png'
-                        }}" alt="Portada de la leccion{{ i }}" />
-                        <div class="course-overlay overlay-peque">
-                          <!-- <div class="badge_seller">Leccion pendiente</div> -->
-                          <div class="crse_reviews">
-                            <i class="uil uil-star"></i> {{ leccion.titulo }}
+              <!-- modo 2 -->
+  
+              <div *ngIf="modo">
+                <br />
+                <div class="card" *ngFor="let competencia of competencias; let i = index">
+                  <div class="card-header" role="tab" [ngClass]="competencia?.accordianclass" role="tab"
+                    (click)="onClickAccordion(i, competencia)">
+                    <h2 class="mb-0">
+                      <button class="text-left btn btn-block" type="button">
+                        <div class="row">
+                          <div class="title-icon" class="col-lg-11">
+                            <ul>
+                              <li class="title">
+                                {{ competencia?.nombre }}
+                              </li>
+                            </ul>
                           </div>
-                          <span class="play_btn1"><i class="uil uil-play"></i></span>
-                          <div class="crse_timer">Leccion #{{ leccion.id }}</div>
                         </div>
-                      </a>
-                      <div class="hs_content">
-                        <!-- <div class="eps_dots eps_dots10 more_dropdown">
-                          <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                          <div class="dropdown-content">
-                            <span><i class='uil uil-times'></i>Remove</span>
-                          </div>
-                        </div> -->
-
+                        <div class="col-lg-1">
+                          <i id="iconodesplegable" class="fas fa-angle-double-down"></i>
+                        </div>
+                      </button>
+                    </h2>
+                  </div>
+  
+                  <div class="card-body" *ngIf="competencia.showbody">
+                    <div class="general_info10">
+                      <div *ngFor="let leccion of competencia.lecciones; index as i" class="fcrse_1">
                         <a [routerLink]="[
                           '/dashboard/lesson/lesson-detail',
                           this.leccion.slug
-                        ]" routerLinkActive="router-link-active" class="crse14s title900">
-                          <strong><i class="fas fa-bullseye color-secondary"></i>
-                            Titulo de la lección:
-                          </strong>
-                          {{ leccion.titulo }}
+                        ]" routerLinkActive="router-link-active" class="hf_img">
+                          <img src="{{
+                            leccion.portada ||
+                              'assets/images/courses/portada-base.png'
+                          }}" alt="Portada de la leccion{{ i }}" />
+                          <div class="course-overlay overlay-peque">
+                            <!-- <div class="badge_seller">Leccion pendiente</div> -->
+                            <div class="crse_reviews">
+                              <i class="uil uil-star"></i> {{ leccion.titulo }}
+                            </div>
+                            <span class="play_btn1"><i class="uil uil-play"></i></span>
+                            <div class="crse_timer">Leccion #{{ leccion.id }}</div>
+                          </div>
                         </a>
-                        <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
-                        <div class="auth1lnkprce">
-                          <p class="cr1fot">
-                            Creada por: <a href="#">{{ factory.user.nombre }}</a>
-                          </p>
-                          <div class="prce142">
-                            <button *ngIf="editable"
-                              [routerLink]="['/dashboard/lesson/lesson-editar', this.leccion.slug]"
-                              routerLinkActive="router-link-active" class="btn btn-plantilla btnEditar" type="button">
-                              Editar
-                            </button>
-                            <button *ngIf="leccion.solved" (click)="calificarSelected(leccion)" class="btn btn-success"
-                              data-toggle="modal" data-target="#exampleModal">
-                              Resultados
-                            </button>
-                            <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
-                              type="button">
-                              Iniciar
-                            </button>
+                        <div class="hs_content">
+                          <!-- <div class="eps_dots eps_dots10 more_dropdown">
+                            <a href="#"><i class="uil uil-ellipsis-v"></i></a>
+                            <div class="dropdown-content">
+                              <span><i class='uil uil-times'></i>Remove</span>
+                            </div>
+                          </div> -->
+  
+                          <a [routerLink]="[
+                            '/dashboard/lesson/lesson-detail',
+                            this.leccion.slug
+                          ]" routerLinkActive="router-link-active" class="crse14s title900">
+                            <strong><i class="fas fa-bullseye color-secondary"></i>
+                              Titulo de la lección:
+                            </strong>
+                            {{ leccion.titulo }}
+                          </a>
+                          <!-- <a href="#" class="crse-cate">Web Development | Python</a> -->
+                          <div class="auth1lnkprce">
+                            <p class="cr1fot">
+                              Creada por: <a href="#">{{ factory.user.nombre }}</a>
+                            </p>
+                            <div class="prce142">
+                              <button *ngIf="editable"
+                                [routerLink]="['/dashboard/lesson/lesson-editar', this.leccion.slug]"
+                                routerLinkActive="router-link-active" class="btn btn-plantilla btnEditar" type="button">
+                                Editar
+                              </button>
+                              <button *ngIf="leccion.solved" (click)="calificarSelected(leccion)" class="btn btn-success"
+                                data-toggle="modal" data-target="#exampleModal">
+                                Resultados
+                              </button>
+                              <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
+                                type="button">
+                                Iniciar
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -216,7 +168,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </ng-template>
       </div>
     </div>
   </div>

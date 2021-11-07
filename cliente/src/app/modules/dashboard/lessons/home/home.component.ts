@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   leccionCalificar: any = {};
   environment: any = environment;
   pruebaCalificar: any = {};
-
   constructor(
     private course: CourseService,
     public factory: FactoryService,
@@ -36,10 +35,24 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.loadPrivilegios();
-    this.loadLecciones();
-    this.cargarCompetencias();
+    console.log('Usuario', this.factory.user);
+    if(this.factory.user.idRol.nombre === 'estudiante') {
+      this.loadLessonsGroup();
+    }
+    if(this.factory.user.idRol.nombre === 'docente') {
+      this.loadGrupos();
+    }
+    //this.loadPrivilegios();
+    //this.loadLecciones();
+    //this.cargarCompetencias();
   }
+
+  loadGrupos() {
+    /* this.factory.
+      .subscribe(arg => this.property = arg);
+     */
+  }
+
   loadResultLesson(): void {
     this.factory.getAll('resultLessonStudent?estudiante=' + this.factory.user.id).subscribe(
       (res: any) => {
@@ -62,7 +75,7 @@ export class HomeComponent implements OnInit {
     );
   }
   cargarCompetencias(): any {
-    this.factory.getAll('competencia').subscribe(
+    this.factory.getAll('competencia?populate=lecciones').subscribe(
       (response: any) => {
         this.competencias = response;
         for (const competencia of this.competencias) {
@@ -83,7 +96,7 @@ export class HomeComponent implements OnInit {
     );
   }
   loadLecciones(): any {
-    this.factory.getAll('leccion').subscribe(
+    this.factory.getAll('leccion?populate=objetivo').subscribe(
       (response: any) => {
         console.log(response);
         this.lecciones = response;
@@ -98,6 +111,45 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  loadLesson(id: string): any {
+    this.factory.getAll(`leccion/${id}`).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.lecciones.push(response);
+        // this.loadResultLesson();
+        /* this.toast.success('Lecciones cargadas');
+        this.spinner.hide(); */
+      },
+      (error: any) => {
+        console.log(error);
+        this.toast.error('Problema en la red');
+        this.spinner.hide();
+      }
+    );
+  }
+
+  loadLessonsGroup() {
+    this.spinner.show();
+    const grupoUser = this.factory.user.grupos[0];
+    this.factory.getAll(`grupo?id=${grupoUser.id}&populate=lecciones`).subscribe(
+      (response: any) => {
+        console.log('lecciones por grupo', response);
+        response[0].lecciones.forEach(element => {
+          this.loadLesson(element.id);
+        });
+        this.loadResultLesson();
+        this.toast.success('Lecciones cargadas');
+        this.spinner.hide();
+      },
+      (error: any) => {
+        console.log(error);
+        this.toast.error('Problema en la red');
+        this.spinner.hide();
+      }
+    );
+  }
+
   iniciar(slug: any): any {
     this.router.navigate(['dashboard/lesson/lesson-detail', slug]);
   }
