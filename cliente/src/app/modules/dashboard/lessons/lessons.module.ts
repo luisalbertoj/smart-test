@@ -6,6 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LessonsRoutingModule } from './lessons-routing.module';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { TagInputModule } from 'ngx-chips';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { HomeComponent } from './home/home.component';
@@ -15,12 +19,18 @@ import { ProgressComponent } from './progress/progress.component';
 import { DashboardModule } from '../dashboard.module';
 import { ResultComponent } from './result/result.component';
 import { VercalificarComponent } from './vercalificar/vercalificar.component';
+import { AddLessonGroupComponent } from './add-lesson-group/add-lesson-group.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 
 
 
 @NgModule({
-  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent, ResultComponent, VercalificarComponent],
+  declarations: [NewLessonComponent, HomeComponent, LessonDetailComponent, LessonViewComponent, ProgressComponent, ResultComponent, VercalificarComponent, AddLessonGroupComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -29,7 +39,13 @@ import { VercalificarComponent } from './vercalificar/vercalificar.component';
     LessonsRoutingModule,
     AngularEditorModule,
     TagInputModule,
-    DashboardModule
+    DashboardModule,
+    SelectDropDownModule,
+    MatButtonModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class LessonsModule { }

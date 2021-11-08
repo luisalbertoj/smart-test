@@ -1,0 +1,171 @@
+<div class="wrapper">
+  <div class="sa4d25">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header text-center">
+              <h1>Laboratorio en linea</h1>
+              <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a
+                    class="nav-link active"
+                    id="pills-home-tab"
+                    data-toggle="pill"
+                    href="#pills-home"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    >Introducción</a
+                  >
+                </li>
+                <!-- <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                    aria-controls="pills-profile" aria-selected="false">Carga del Proyecto</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Resultado de las pruebas</a>
+                </li> -->
+                <li class="nav-item" role="presentation">
+                  <a
+                    class="nav-link"
+                    id="pills-contact-tab"
+                    data-toggle="pill"
+                    href="#pills-plan"
+                    role="tab"
+                    aria-controls="pills-contact"
+                    aria-selected="false"
+                    >Documentacion plan de pruebas</a
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a
+                    class="nav-link"
+                    id="pills-contact-tab"
+                    data-toggle="pill"
+                    href="#pills-unitarias"
+                    role="tab"
+                    aria-controls="pills-contact"
+                    aria-selected="false"
+                    >Documentacion pruebas unitarias e intergacion</a
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a
+                    class="nav-link"
+                    id="pills-contact-tab"
+                    data-toggle="pill"
+                    href="#pills-aceptacion"
+                    role="tab"
+                    aria-controls="pills-contact"
+                    aria-selected="false"
+                    >Plan de pruebas de aceptacion</a
+                  >
+                </li>
+                <!-- <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-fianl" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Generar documentacion</a>
+                </li> -->
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content" id="pills-tabContent">
+                <div
+                  class="tab-pane fade show active text-center"
+                  id="pills-home"
+                  role="tabpanel"
+                  aria-labelledby="pills-home-tab"
+                >
+                  <h2>Inicio rapido:</h2>
+                  <p>
+                    En este modulo podras llevar acabo el proceso de aplicacion
+                    del plan de pruebas de software resumido en sus items
+                    principales el proceso contiene los siguientes pasos.
+                  </p>
+                  <ol type="A">
+                    <li>- Definicion del plan de pruebas</li>
+                    <!-- <li>- Carga del proyecto a probar</li> -->
+                    <li>- Definicion de las pruebas unitarias</li>
+                    <li>- Definicion de las pruebas de integracion</li>
+                    <li>- Definicio de pruebas de aceptacion</li>
+                    <li>
+                      - Descarga de los formatos de pruebas de software y
+                      resultados de las pruebas.
+                    </li>
+                  </ol>
+                </div>
+                <!-- <div class="tab-pane fade text-center" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <h2>Plantilla del proyecto</h2>
+                <p>
+                  Para el buen funcionamiento del proceso descarga la plantilla del proyecto 
+                  <a href="https://drive.google.com/drive/folders/1x3Jatpg-JyqYwr8PdUTMrYBqZxzsF3h0?usp=sharing" target="_blank">AQUI.</a> <br>
+                  te recomendamos mantener la estructura de carpetas.
+                  cuando termines de crear tus clases y tus test files carga el proyecto.
+                  <app-upload-file (newItemEvent)="addItem($event)"></app-upload-file>
+                </p>
+              </div> -->
+                <!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="consola">
+                  <p class="impresion">
+                    Started by user anonymous <br>
+                    Building in workspace <br>
+                    LoadView is running... status: Submitting Test Request <br>
+                    <br>
+                    ok /not really/
+                    <br>
+
+                    # match line starting with 'error ', case-insensitive <br>
+                    error /(?i)^error /<br>
+                    <br>
+
+                    # list of warnings here...<br>
+                    warning /[Ww]arning/<br>
+                    warning /WARNING/<br>
+                    <br>
+                    # create a quick access link to lines in the report containing 'INFO'<br>
+                    info /INFO/<br>
+                    <br>
+                    # each line containing 'BUILD' represents the start of a section for grouping errors<br> and warnings found after the line.<br>
+                    # also creates a quick access link.<br>
+                    start /BUILD/<br>
+                    Job Configu<br>
+                    <br>
+                  </p>
+                </div>
+              </div> -->
+                <div
+                  class="tab-pane fade justify"
+                  id="pills-plan"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
+                  <app-plan-pruebas></app-plan-pruebas>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="pills-unitarias"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
+                  <app-plan-unitarias-integracion></app-plan-unitarias-integracion>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="pills-aceptacion"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
+                  <app-plan-aceptacion></app-plan-aceptacion>
+                </div>
+                <!-- <div class="tab-pane fade" id="pills-final" role="tabpanel" aria-labelledby="pills-contact-tab">
+                
+              </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

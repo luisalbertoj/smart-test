@@ -13,9 +13,9 @@ export class EmailService {
     return this.http.post('http://localhost:1337/email/', data);
   }
 
-  private _errorHandler(error: Response) {
+  /* private _errorHandler(error: Response) {
     console.error(error);
     return Observable.throw(error || 'Server Error')
-  }
+  } */
 
 }

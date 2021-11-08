@@ -64,17 +64,14 @@
                             [headerTable]="tabla.header" [bodyTable]="tabla.body"
                             (selectElementos)="selectDocente($event) " #searchDocentes></app-search-element>
                           <button type="button"
-                          (click)="limpiarTablas()"
                           (click)="seleccion(row, row['personas'])"
-                          (click)="searchEstudiantes.cargarModel()"
+                          (click)="searchEstudiantes.cargarModel(tablaEs)"
                           class=" btn btn-plantilla btnaddpreg btn-primary" data-toggle="modal" data-target="#personaEstudiante">
                             <i class="fas fa-search"></i>
                             Seleccionar Estudiantes
                           </button>
-                          <app-search-element [table]="tablaEs" [title]="tablaEs.title" [model]="tablaEs.model"
-                            [headerTable]="tablaEs.header" [bodyTable]="tablaEs.body"
-                            (selectElementos)="selectEstudiantes($event) " #searchEstudiantes></app-search-element>
-                            <button type="button"
+                          
+                            <!-- <button type="button"
                           (click)="limpiarTablas()"
                           (click)="seleccion(row, row['personas'])"
                           (click)="searchEstudiantes.cargarModel()"
@@ -84,7 +81,7 @@
                           </button>
                           <app-search-element [table]="tablaEs" [title]="tablaEs.title" [model]="tablaEs.model"
                             [headerTable]="tablaEs.header" [bodyTable]="tablaEs.body"
-                            (selectElementos)="selectEstudiantes($event) " #searchEstudiantes></app-search-element>
+                            (selectElementos)="selectEstudiantes($event) " #searchEstudiantes></app-search-element> -->
                         </td>
                       </tr>
                     </tbody>
@@ -173,3 +170,7 @@
     </div>
   </div>
 </div>
+
+<app-search-element [table]="tablaEs" [title]="tablaEs.title" [model]="tablaEs.model"
+                            [headerTable]="tablaEs.header" [bodyTable]="tablaEs.body"
+                            (selectElementos)="selectEstudiantes($event) " #searchEstudiantes></app-search-element>
