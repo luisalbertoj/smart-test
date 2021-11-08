@@ -275,11 +275,13 @@
 
                 <div class="row">
                   <div class="col-md-11 col-sm-11">
+                    <label>Pregunta*</label>
                     <div class="input-group mb-3 valorInput">
+                      
                       <div class="input-group-prepend ">
                         <span class="input-group-text">Valor pregunta: </span>
                       </div>
-                      <input type="number" class="form-control " [(ngModel)]="pregunta.valor" required>
+                      <input type="number" class="form-control " min="0" [(ngModel)]="pregunta.valor" required>
                     </div> 
                   </div>
                   <div class="col-md-1 col-sm-1">
@@ -335,6 +337,13 @@
                                   <label class="title"
                                     >Respuesta*: {{ b + 1 }}</label
                                   >
+                                  <br />
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Valor respuesta: </span>
+                                          </div>
+                                          <input type="number" class="form-control" [(ngModel)]="respuesta.valor" required>
+                                        </div> 
                                 </div>
                                 <div class="col-lg-1">
                                   <i
@@ -416,7 +425,16 @@
                   class="col-sm-12 col-md-12"
                 >
                   <div class="course_des_textarea mt-30 lbel25">
-                    <label>Pregunta*</label>
+                    <div class="col-md-11 col-sm-11">
+                      <label>Pregunta*</label>
+                      <div class="input-group mb-3 valorInput">
+                        
+                        <div class="input-group-prepend ">
+                          <span class="input-group-text">Valor pregunta: </span>
+                        </div>
+                        <input type="number" class="form-control " min="0" [(ngModel)]="pregunta.valor" required>
+                      </div> 
+                    </div>
                     <angular-editor
                       [(ngModel)]="pregunta.contenido"
                       [placeholder]="
@@ -429,7 +447,7 @@
                       type="button"
                       class="btn btn-primary"
                     >
-                      Agregar retroalimentacion
+                      Agregar retroalimentación
                     </button>
                     <button
                       (click)="eliminarPregunta(i)"

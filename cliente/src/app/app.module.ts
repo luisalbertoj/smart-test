@@ -14,6 +14,7 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { environment } from 'src/environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,9 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     MaterialModule,
