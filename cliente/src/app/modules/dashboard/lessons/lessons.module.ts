@@ -23,6 +23,7 @@ import { AddLessonGroupComponent } from './add-lesson-group/add-lesson-group.com
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { LaboratorModule } from '../laborator/laborator.module';
 
 
 
@@ -45,7 +46,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatCheckboxModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    LaboratorModule,
   ]
 })
 export class LessonsModule { }

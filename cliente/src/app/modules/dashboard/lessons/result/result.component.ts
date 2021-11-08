@@ -29,7 +29,7 @@ export class ResultComponent implements OnInit {
   loadResultLesson(): void {
     this.factory.getAll('resultLessonStudent').subscribe(
       (res: any) => {
-        console.log(res);
+        console.log('Calificar', res);
         this.resultLesson = res;
       },
       (err: any) => {
@@ -41,6 +41,7 @@ export class ResultComponent implements OnInit {
 
   calificarSelected(item: any): void {
     this.leccionCalificar = item;
+    console.log(item);
   }
   guardarCalificacion(): void {
     this.spinner.show();

@@ -25,6 +25,12 @@ import { PlanPruebasComponent } from './plan-pruebas/plan-pruebas.component';
     DashboardModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    ViewComponent,
+    PlanAceptacionComponent,
+    PlanUnitariasIntegracionComponent,
+    PlanPruebasComponent
   ]
 })
 export class LaboratorModule { }

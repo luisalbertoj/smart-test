@@ -613,15 +613,15 @@
                         <hr />
                         <h2>Practico</h2>
                         <section>
-                          <mat-checkbox>
+                          <mat-checkbox [(ngModel)]="leccion.aceptacion" value="pruebas-aceptacion">
                             Plan de pruebas de aceptacion
                           </mat-checkbox>
                           <br>
-                          <mat-checkbox>
+                          <mat-checkbox [(ngModel)]="leccion.pruebas" value="plan-pruebas">
                             Plan de pruebas
                           </mat-checkbox>
                           <br>
-                          <mat-checkbox>
+                          <mat-checkbox [(ngModel)]="leccion.unidad" value="pruebas-unidad-integracion">
                             Plan de pruebas de unidad e integracion
                           </mat-checkbox>
                         </section>
