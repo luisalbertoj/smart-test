@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
   plantilla: any = {
-    imgBanner: 'assets/images/imgLaboratorio.png',
+    imgBanner: 'assets/images/bannercrearlecc.png',
     tituloBanner: 'Lecciones ',
   };
   public leccion: any = this.course.get();

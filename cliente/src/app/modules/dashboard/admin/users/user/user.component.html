@@ -68,9 +68,9 @@
                       </div>
 
                       <div class="dropdown">
-                        <select [(ngModel)]="this.persona.idRol" href="#"
+                        <select [(ngModel)]="this.persona.idRol" 
                           class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown" aria-expanded="true">
-                          <option value="">Seleccione</option>
+                          <option >Seleccione</option>
                           <option *ngFor="let item of roles" value="{{item.id}}">
                             <a (click)="cambiarRol(item)">{{item['nombre']}}</a>
                           </option>
