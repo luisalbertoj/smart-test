@@ -25,6 +25,25 @@ export class HomeComponent implements OnInit {
   leccionCalificar: any = {};
   environment: any = environment;
   pruebaCalificar: any = {};
+  selectorGrupo: any = {
+    dataModel: null,
+    config: {
+      displayKey: 'codigo',
+      searchOnKey: 'codigo',
+      search: true,
+      height: 'auto',
+      placeholder: 'Seleccione el grupo',
+      customComparator: () => { },
+      limitTo: 0,
+      moreText: 'nombre',
+      noResultsFound: 'No results found!',
+      searchPlaceholder: 'Search',
+      clearOnSelection: false,
+      inputDirection: 'ltr',
+    },
+    dropdownOptions: []
+  };
+
   constructor(
     private course: CourseService,
     public factory: FactoryService,
@@ -35,22 +54,61 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    console.log('Usuario', this.factory.user);
+    // console.log('Usuario', this.factory.user);
     if(this.factory.user.idRol.nombre === 'estudiante') {
       this.loadLessonsGroup();
     }
     if(this.factory.user.idRol.nombre === 'docente') {
       this.loadGrupos();
     }
+    if(this.factory.user.idRol.nombre === 'administrador') {
+      this.loadAllGrupos();
+    }
     //this.loadPrivilegios();
     //this.loadLecciones();
-    //this.cargarCompetencias();
+    this.cargarCompetencias();
   }
 
   loadGrupos() {
-    /* this.factory.
-      .subscribe(arg => this.property = arg);
-     */
+    const idUser = this.factory.user.id;
+    this.factory.getAll(`persona?where={"id":"${idUser}"}&populate=gruposDocente`)
+    .subscribe(
+      (res: any) => {
+        // console.log('Grupos docente', res);
+        this.selectorGrupo.dropdownOptions = res[0].gruposDocente;
+      });
+  }
+
+  loadAllGrupos() {
+    this.factory.getAll(`grupo?select=id,codigo&populate=false`)
+    .subscribe(
+      (res: any) => {
+        // console.log('Grupos docente', res);
+        this.selectorGrupo.dropdownOptions = res;
+      });
+  }
+  addLessonGrup() {
+  }
+
+  selectionChanged(evt: any): void {
+    console.log(evt);
+    if (evt.value) {
+      this.selectorGrupo.select = true;
+      this.spinner.show();
+      this.lecciones = [];
+      this.factory.getAll(`grupo?where={"id":"${evt.value.id}"}&select=id&populate=lecciones`)
+        .subscribe(arg => {
+          arg[0].lecciones.forEach(element => {
+            this.loadLesson(element.id);
+          });
+          this.loadResultLesson();
+          this.toast.success('Lecciones cargadas');
+          this.spinner.hide();
+          
+        });
+    } else {
+      this.selectorGrupo.select = false;
+    }
   }
 
   loadResultLesson(): void {
@@ -65,7 +123,7 @@ export class HomeComponent implements OnInit {
               return true;
             }
           });
-          console.log('Encontrado', found);
+          // console.log('Encontrado', found);
         });
       },
       (err: any) => {
@@ -75,7 +133,7 @@ export class HomeComponent implements OnInit {
     );
   }
   cargarCompetencias(): any {
-    this.factory.getAll('competencia?populate=lecciones').subscribe(
+    this.factory.getAll('competencia?select=id,nombre&populate=lecciones').subscribe(
       (response: any) => {
         this.competencias = response;
         for (const competencia of this.competencias) {
@@ -83,7 +141,6 @@ export class HomeComponent implements OnInit {
           competencia.accordianclass = 'collapseAccordion';
         }
         console.log(this.competencias);
-        this.spinner.hide();
       },
       (error: any) => {
         this.toast.error(
@@ -91,12 +148,12 @@ export class HomeComponent implements OnInit {
           'Error de conexion'
         );
         console.log('Error cargar competencias', error);
-        this.spinner.hide();
       }
     );
   }
   loadLecciones(): any {
-    this.factory.getAll('leccion?populate=objetivo').subscribe(
+    this.lecciones = [];
+    this.factory.getAll(`leccion?select=id,slug,titulo&populate=objetivo`).subscribe(
       (response: any) => {
         console.log(response);
         this.lecciones = response;
@@ -113,13 +170,10 @@ export class HomeComponent implements OnInit {
   }
 
   loadLesson(id: string): any {
-    this.factory.getAll(`leccion/${id}`).subscribe(
+    this.factory.getAll(`leccion?where={"id":"${id}"}&populate=objetivo&select=id,titulo,slug`).subscribe(
       (response: any) => {
-        console.log(response);
-        this.lecciones.push(response);
+        this.lecciones.push(response[0]);
         // this.loadResultLesson();
-        /* this.toast.success('Lecciones cargadas');
-        this.spinner.hide(); */
       },
       (error: any) => {
         console.log(error);
@@ -129,12 +183,23 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  loadNewLessons(items) {
+    this.spinner.show();
+    this.lecciones = [];
+    // console.log('Items', items.length, items);
+    items.forEach(element => {
+        this.loadLesson(element);
+    });
+    this.toast.success('Lecciones cargadas');
+    this.spinner.hide();
+  }
+
   loadLessonsGroup() {
     this.spinner.show();
     const grupoUser = this.factory.user.grupos[0];
-    this.factory.getAll(`grupo?id=${grupoUser.id}&populate=lecciones`).subscribe(
+    this.factory.getAll(`grupo?id=${grupoUser.id}&populate=lecciones&select=id,codigo`).subscribe(
       (response: any) => {
-        console.log('lecciones por grupo', response);
+        // console.log('lecciones por grupo', response);
         response[0].lecciones.forEach(element => {
           this.loadLesson(element.id);
         });
@@ -143,7 +208,7 @@ export class HomeComponent implements OnInit {
         this.spinner.hide();
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
         this.toast.error('Problema en la red');
         this.spinner.hide();
       }

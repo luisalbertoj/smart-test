@@ -35,8 +35,8 @@ const routes: Routes = [
       {
         path: 'laboratory',
         loadChildren: () =>
-          import('./laboratory/laboratory.module').then(
-            (m) => m.LaboratoryModule
+          import('./laborator/laborator.module').then(
+            (m) => m.LaboratorModule
           ),
       },
       {

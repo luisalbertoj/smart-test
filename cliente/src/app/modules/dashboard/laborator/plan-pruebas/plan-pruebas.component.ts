@@ -14,29 +14,7 @@ export class PlanPruebasComponent implements OnInit {
   };
   client = environment.urlClient;
   fileName = 'ExcelSheet.xlsx';
-  plan: any = {
-    title: '',
-    objetivo: '',
-    descripcion: '',
-    modulos: '',
-    formularios: '',
-    metodologia: '',
-    nombre: '',
-    identificador: '',
-    version: '',
-    caso: '',
-    modulo: '',
-    submodulo: '',
-    formulario: '',
-    descripcionPrueba: '',
-    resultadosEsperados: '',
-    resultadosReales: '',
-    error: '',
-    responsables: '',
-    riesgo: '',
-    impacto: '',
-    responsabilidades: '',
-  }
+  plan: any = {};
   constructor(
     private spinner: NgxSpinnerService
   ) {}
@@ -45,7 +23,13 @@ export class PlanPruebasComponent implements OnInit {
   }
 
   public generarWord():void {
-    this.spinner.show();
+    const impresion = document.getElementById('htmlData');
+    let htmlDocument = `
+    <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
+    <body>${impresion.innerHTML}</body></html>
+    `;
+    // const converted = htmlDocx.asBlob(htmlDocument);
+    /* this.spinner.show();
     const impresion = document.getElementById('htmlData');
     let htmlDocument = `
     <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
@@ -55,7 +39,7 @@ export class PlanPruebasComponent implements OnInit {
     saveAs(converted, this.plantilla.title + this.plan.title + 'docx');
     setTimeout(() => {
       this.spinner.hide();
-    }, 400);
+    }, 400); */
   }
 
 }
