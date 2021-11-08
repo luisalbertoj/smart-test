@@ -316,6 +316,7 @@ export class NewLessonComponent implements OnInit {
   aplicarSelect(): any {}
 
   crearLeccion(): any {
+    console.log('Lesson of crate', this.leccion);
     if (this.leccion.titulo === '') {
       return this.toast.error('Debes llenar el titulo', 'error');
     }
@@ -344,6 +345,11 @@ export class NewLessonComponent implements OnInit {
     this.crear();
   }
   crear(): any {
+    this.leccion.aplicaPractico = JSON.stringify({
+      aceptacion: this.leccion.aceptacion,
+      pruebas: this.leccion.pruebas,
+      unidad: this.leccion.unidad
+    });   
     this.factory
       .post('leccion/createlesson', {
         leccion: this.leccion,
