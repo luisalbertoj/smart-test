@@ -1,65 +1,100 @@
 <!-- Modal -->
-<div class="modal fade" id="{{model}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-m">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">{{ title }}</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-              <!--   <div class="input-group mb-3">
+<div
+  class="modal fade"
+  id="{{ model }}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-m">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">{{ title }}</h2>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username" 
                         aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
                     </div>
                 </div> -->
-
-                <table class="table table-hover text-center">
-                    <thead>
-                        <tr >
-                            <th *ngFor="let header of headerTable" scope="col">
-                                {{ header?.name }}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr  *ngFor="let item of modelItems | paginate: {itemsPerPage: 7, currentPage: pageActual}
-                            ">
-                            <td *ngFor="let value of bodyTable">
-                                {{
-                                value?.attribute
-                                ? (item[value?.name][value?.attribute]?
-                                item[value?.name][value?.attribute]:'Sin autor')
-                                : item[value?.name]
-                                }}
-                            </td>
-                            <td *ngIf="table.multiple">
-                                <input (click)="addNewItem(item.slug || item.id)" class="form-check-input" type="checkbox"
-                                checked="{{item.checked}}"
-                                value="{{item.id}}"
-                                    id="flexCheckChecked" />
-                            </td>
-                            <td *ngIf="!table.multiple">
-                                <input (click)="addNewItem(item.slug || item.id)" class="form-check-input" type="radio" 
-                                checked="{{item.checked}}"
-                                name="item.id" value="{{item.id}}"
-                                    id="flexCheckChecked" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <pagination-controls  (pageChange)="pageActual = $event" previousLabel="Antes"
-                nextLabel="Siguiente"
-                ></pagination-controls>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Cerrar
-                </button>
-            </div>
-        </div>
+        <mat-form-field class="example-form-field formBuscar" appearance="fill">
+          <mat-label>Busqueda por titulo</mat-label>
+          <input
+            (change)="cargarModel()"
+            matInput
+            type="text"
+            [(ngModel)]="busqueda"
+          />
+        </mat-form-field>
+        <table class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th *ngFor="let header of headerTable" scope="col">
+                {{ header?.name }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let item of modelItems
+                  | paginate: { itemsPerPage: 7, currentPage: pageActual }
+              "
+            >
+              <td *ngFor="let value of bodyTable">
+                {{
+                  value?.attribute
+                    ? item[value?.name][value?.attribute]
+                      ? item[value?.name][value?.attribute]
+                      : 'Sin autor'
+                    : item[value?.name]
+                }}
+              </td>
+              <td *ngIf="table.multiple">
+                <input
+                  (click)="addNewItem(item.slug || item.id)"
+                  class="form-check-input"
+                  type="checkbox"
+                  checked="{{ item.checked }}"
+                  value="{{ item.id }}"
+                  id="flexCheckChecked"
+                />
+              </td>
+              <td *ngIf="!table.multiple">
+                <input
+                  (click)="addNewItem(item.slug || item.id)"
+                  class="form-check-input"
+                  type="radio"
+                  checked="{{ item.checked }}"
+                  name="item.id"
+                  value="{{ item.id }}"
+                  id="flexCheckChecked"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          (pageChange)="pageActual = $event"
+          previousLabel="Antes"
+          nextLabel="Siguiente"
+        ></pagination-controls>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
     </div>
+  </div>
 </div>
