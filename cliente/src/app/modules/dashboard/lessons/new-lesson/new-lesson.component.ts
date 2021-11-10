@@ -220,7 +220,7 @@ export class NewLessonComponent implements OnInit {
         this.preconceptos = response;
         for (const it of this.preconceptos) {
           /* if(it.slug.length > 20) it.slug = it.slug.substring(15, 30); */
-          this.items.push(it.id + '⌂' + it.slug);
+          this.items.push('⌂' + it.slug);
         }
       },
       (error: any) =>
@@ -236,7 +236,7 @@ export class NewLessonComponent implements OnInit {
         this.competencias = response;
         for (const it of this.competencias) {
           /* if(it.slug.length > 20) it.slug = it.slug.substring(15, 30); */
-          this.itemsCompetencia.push(it.id + '⌂' + it.slug);
+          this.itemsCompetencia.push( '⌂' + it.slug);
         }
       },
       (error: any) =>

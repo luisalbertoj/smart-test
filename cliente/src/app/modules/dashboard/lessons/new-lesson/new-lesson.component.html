@@ -435,14 +435,14 @@
 
                                     <label class="title">
                                       <i *ngIf="!this.iconStatus[2]" class="fas fa-angle-right"> </i>
-                                      <i *ngIf="this.iconStatus[2]" class="fas fa-angle-down"> </i> Pregunta {{ i + 1 }}
+                                      <i *ngIf="this.iconStatus[2]" class="fas fa-angle-down"> </i> Pregunta {{ i + 1 } }
                                       <br>
                                       <br>
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">Valor pregunta: </span>
                                         </div>
-                                        <input type="number" class="form-control" [(ngModel)]="pregunta.valor" required>
+                                        <input type="number" min="0" class="form-control" [(ngModel)]="pregunta.valor" required>
                                       </div>
 
                                     </label>
@@ -479,12 +479,12 @@
                                       <div class="col-sm-11 col-md-11">
                                         <label>Respuesta: {{ b + 1 }}</label>
                                         <br />
-                                        <!-- <div class="input-group mb-3">
+                                         <div class="input-group mb-3">
                                           <div class="input-group-prepend">
                                             <span class="input-group-text">Valor respuesta: </span>
                                           </div>
                                           <input type="number" class="form-control" [(ngModel)]="respuesta.valor" required>
-                                        </div> -->
+                                        </div> 
                                         <label class="form-check-label" for="exampleCheck1">Respuesta correcta
                                           <input class="inputCorrect" type="checkbox" [(ngModel)]="respuesta.correcta"
                                           name="respuesta.correcta" id="exampleCheck1" />
