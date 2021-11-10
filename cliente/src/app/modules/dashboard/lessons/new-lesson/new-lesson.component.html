@@ -467,7 +467,7 @@
                                 </div>
                                 <div>
                                   <br />
-                                  <button (click)="agregarRespuesta(i)" type="button" class="btn btn-respuesta">
+                                  <button (click)="agregarRespuesta(i)" type="button" class="btn btn-primary btn-respuesta">
                                     Agregar respuesta
                                   </button>
 
@@ -503,7 +503,7 @@
                                             "></angular-editor>
                                     <br>
                                     <br>
-                                    <button (click)="respuesta.addRetro = true" type="button" class="btn btn-respuesta">
+                                    <button (click)="respuesta.addRetro = true" type="button" class="btn btn-respuesta btn-primary">
                                       Agregar retroalimentación
                                     </button>
                                     <br>
@@ -525,7 +525,7 @@
                                           " name="leccion.practicar"></angular-editor>
 
                                   <br>
-                                  <button (click)="pregunta.addRetro = true" type="button" class="btn btn-respuesta">
+                                  <button (click)="pregunta.addRetro = true" type="button" class="btn btn-respuesta btn-primary">
                                     Agregar retroalimentacion
                                   </button>
                                   <br>
@@ -632,7 +632,7 @@
               <hr class="hr">
               <br>
               <div class="row justify-content-end d-flex">
-              <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="!id">
+              <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar btn-primary" type="button" *ngIf="!id">
                 Guardar
               </button>
               <button (click)="editarLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="id">

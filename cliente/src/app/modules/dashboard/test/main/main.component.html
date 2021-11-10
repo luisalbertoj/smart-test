@@ -51,17 +51,17 @@
                       <button 
                       *ngIf="editable"
                       [routerLink]="['/dashboard/test/create-test', item.id]" routerLinkActive="router-link-active"
-                        class="upload_btn btn-plantilla-v btn btnEditar">
+                        class="upload_btn btn-plantilla-v btn btnEditar btn-primary">
                         Editar </button>
                     </div>             
                     <div class="col-sm-3 colComenzar justify-content-end d-flex">                    
                       <button 
                       *ngIf="!item.solved"
                       [routerLink]="['/dashboard/test', item.id]"
-                        class="btn  btn-plantilla btnStyle">
+                        class="btn  btn-plantilla btn-primary btnStyle">
                         {{ plantilla.botonTarjeta }} Comenzar
                       </button>
-                      <button *ngIf="item.solved" (click)="pruebaSelect(item.solved)" class="btn btn-plantilla " data-toggle="modal"
+                      <button *ngIf="item.solved" (click)="pruebaSelect(item.solved)" class="btn btn-primary btn-plantilla " data-toggle="modal"
                       data-target="#exampleModal">
                         Resultados
                       </button>

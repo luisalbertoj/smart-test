@@ -89,7 +89,7 @@
                           data-toggle="modal" data-target="#exampleModal">
                           Resultados
                         </button>
-                        <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
+                        <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-primary btn-plantilla"
                           type="button">
                           Iniciar
                         </button>
@@ -171,7 +171,7 @@
                                 routerLinkActive="router-link-active" class="btn btn-plantilla btnEditar" type="button">
                                 Editar
                               </button>
-                              <button *ngIf="leccion.solved" (click)="calificarSelected(leccion)" class="btn btn-success"
+                              <button *ngIf="leccion.solved" (click)="calificarSelected(leccion)" class="btn  btn-primary"
                                 data-toggle="modal" data-target="#exampleModal">
                                 Resultados
                               </button>
