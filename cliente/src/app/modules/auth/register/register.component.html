@@ -13,7 +13,6 @@
         <div class="sign_form">
           <h2>Bienvenido a Smart Test</h2>
           <p>Crea una cuenta y empieza a aprender!</p>
-          <form>
             <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
                 <input [(ngModel)]="persona.nombre" class="prompt srch_explore" type="text" name="persona.nombre"
@@ -55,7 +54,6 @@
               </div>
             </div>
             <button (click)="registrar()" class="login-btn boton" type="submit">Crear cuenta</button>
-          </form>
           <br>
           <p class="mb-0 mt-30">¿Ya tienes una cuenta? <a [routerLink]="['/auth']"
               routerLinkActive="router-link-active">Ingresar</a></p>

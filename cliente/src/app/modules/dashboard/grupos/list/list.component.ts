@@ -85,22 +85,24 @@ export class ListComponent implements OnInit {
     this.loadEstudiantes()
   }
   loadGrupos(isAdmin?): void {
-    this.factory.getAll('grupo').subscribe((response: any) => {
-      this.toast.success('Grupos cargados')
-      // console.log('Grupos', response);
-      this.dataTable = {
-        headerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
-        footerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
-        dataRows: []
-      }
-      this.dataTable.dataRows = response
-      this.totalUsuarios = response.length
-      this.loader = false
-      setTimeout(() => {
-        this.config()
-        // console.log('se cumplio el intervalo');
-      }, 500)
-    })
+    this.factory
+      .getAll('grupo?populate=personas')
+      .subscribe((response: any) => {
+        this.toast.success('Grupos cargados')
+        // console.log('Grupos', response);
+        this.dataTable = {
+          headerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
+          footerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
+          dataRows: []
+        }
+        this.dataTable.dataRows = response
+        this.totalUsuarios = response.length
+        this.loader = false
+        setTimeout(() => {
+          this.config()
+          // console.log('se cumplio el intervalo');
+        }, 500)
+      })
   }
   config(): any {
     try {
