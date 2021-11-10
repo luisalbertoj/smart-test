@@ -1,7 +1,7 @@
 <!-- Body Start -->
 <div class="wrapper">
   <div class="sa4d25">
-    <div class="container-fluid ">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
           <h2 class="st_title">
@@ -39,8 +39,8 @@
                   </a>
                 </li>
               </ul>
-              <br>
-              <br>
+              <br />
+              <br />
               <div class="step-content">
                 <div class="step-tab-panel step-tab-info active" id="tab_step1">
                   <div class="tab-from-content">
@@ -49,13 +49,22 @@
                         <i class="fas fa-book"> Aprender</i>
                       </h3>
                     </div>
-                    <div class=" aprenderContent">
+                    <div class="aprenderContent">
                       <span [innerHTML]="this.leccion.aprender"></span>
                       <div class="step-footer step-tab-pager btnSiguiente">
-                        <a id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                          aria-controls="pills-contact" aria-selected="false">
-                          <button data-direction="next" class="btn btn-default steps_btn btn-plantilla"
-                            (click)="change('one','two')">
+                        <a
+                          id="pills-contact-tab"
+                          data-toggle="pill"
+                          href="#pills-contact"
+                          role="tab"
+                          aria-controls="pills-contact"
+                          aria-selected="false"
+                        >
+                          <button
+                            data-direction="next"
+                            class="btn btn-default steps_btn btn-plantilla"
+                            (click)="change('one', 'two')"
+                          >
                             Siguiente
                             <i class="fas fa-arrow-right"></i>
                           </button>
@@ -64,38 +73,54 @@
                     </div>
                   </div>
                 </div>
-                <div class="step-tab-panel step-tab-gallery" id="pills-contact" role="tabpanel"
-                  aria-labelledby="pills-contact-tab">
+                <div
+                  class="step-tab-panel step-tab-gallery"
+                  id="pills-contact"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
                   <div class="tab-from-content">
                     <div class="title-icon">
                       <h3 class="title">
-                        <i class="fas fa-laptop"> Practicar</i> 
+                        <i class="fas fa-laptop"> Practicar</i>
                       </h3>
                     </div>
                     <div class="practicaContent">
                       <!-- Body Start -->
                       <h2>Seleccionar la respuesta correcta</h2>
-                      <div *ngFor="
-                                  let pregunta of leccion.practicar;
-                                  index as i
-                                ">
-                        <div *ngIf="
-                                    pregunta.respuestas?.length > 0 &&
-                                    pregunta?.tipo?.nombre === 'multiple'
-                                  " class="ques_item">
+                      <div
+                        *ngFor="let pregunta of leccion.practicar; index as i"
+                      >
+                        <div
+                          *ngIf="
+                            pregunta.respuestas?.length > 0 &&
+                            pregunta?.tipo?.nombre === 'multiple'
+                          "
+                          class="ques_item"
+                        >
                           <div class="">
                             <span>Pregunta {{ i + 1 }} : </span>
                             <span [innerHTML]="pregunta?.contenido"></span>
                           </div>
                           <div class="ui form">
                             <div class="grouped fields">
-                              <div class="field fltr-radio" *ngFor="
-                                          let respuesta of pregunta.respuestas
-                                        ">
+                              <div
+                                class="field fltr-radio"
+                                *ngFor="let respuesta of pregunta.respuestas"
+                              >
                                 <div class="ui radio checkbox">
-                                  <input type="radio" name="{{i}}" tabindex="0"
-                                    (click)="respuestaSeleccionada(i,respuesta.id)" required>
-                                  <label [innerHTML]="respuesta?.contenido"></label>
+                                  <input
+                                    type="radio"
+                                    name="{{ i }}"
+                                    tabindex="0"
+                                    (click)="
+                                      respuestaSeleccionada(i, respuesta.id)
+                                    "
+                                    required
+                                  />
+                                  <label
+                                    [innerHTML]="respuesta?.contenido"
+                                  ></label>
                                 </div>
                               </div>
                             </div>
@@ -109,18 +134,33 @@
                           <div class="ui search focus mt-15">
                             <div class="ui form swdh30">
                               <div class="field">
-                                <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
-                                  required></textarea>
+                                <textarea
+                                  rows="5"
+                                  name="answer"
+                                  id="id_answer"
+                                  placeholder="Pls explain"
+                                  required
+                                ></textarea>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="step-footer step-tab-pager btnSiguiente">
-                        <a id="#tab_step3-tab" data-toggle="pill" href="#tab_step3" role="tab"
-                          aria-controls="#tab_step3" aria-selected="false">
-                          <button (click)="validarRespuestas()" data-direction="next" class="btn btn-default steps_btn "
-                            (click)="change('two','three')">
+                        <a
+                          id="#tab_step3-tab"
+                          data-toggle="pill"
+                          href="#tab_step3"
+                          role="tab"
+                          aria-controls="#tab_step3"
+                          aria-selected="false"
+                        >
+                          <button
+                            (click)="validarRespuestas()"
+                            data-direction="next"
+                            class="btn btn-default steps_btn"
+                            (click)="change('two', 'three')"
+                          >
                             Siguiente <i class="fas fa-arrow-right"></i>
                           </button>
                         </a>
@@ -128,16 +168,22 @@
                     </div>
                   </div>
                 </div>
-                <div class="step-tab-panel step-tab-location step" id="tab_step3" role="tabpanel"
-                  aria-labelledby="tab_step3-contact-tab">
+                <div
+                  class="step-tab-panel step-tab-location step"
+                  id="tab_step3"
+                  role="tabpanel"
+                  aria-labelledby="tab_step3-contact-tab"
+                >
                   <div class="tab-from-content">
                     <div class="wrapper _bg4586 _new89 wrapper">
                       <div class="_215b15">
                         <div class="container">
                           <div class="row">
                             <div class="col-lg-12">
-                              <div class=" title-icon titleResult">
-                                <h3 class="title"><i class="fas fa-poll"> Resultados</i></h3>
+                              <div class="title-icon titleResult">
+                                <h3 class="title">
+                                  <i class="fas fa-poll"> Resultados</i>
+                                </h3>
                               </div>
                             </div>
                           </div>
@@ -148,25 +194,39 @@
                           <div class="row justify-content-md-center">
                             <div class="col-md-6 resultGrafits">
                               <div class="certi_form rght1528">
-                                <div class="test_result_bg ">
+                                <div class="test_result_bg">
                                   <ul class="test_result_left">
                                     <li>
                                       <div class="result_dt">
                                         <i class="uil uil-check right_ans"></i>
-                                        <p>Correcto<span>({{response?.correctas?.length}})</span></p>
+                                        <p>
+                                          Correcto<span
+                                            >({{
+                                              response?.correctas?.length
+                                            }})</span
+                                          >
+                                        </p>
                                       </div>
                                     </li>
                                     <li>
                                       <div class="result_dt">
                                         <i class="uil uil-times wrong_ans"></i>
-                                        <p>Incorrecto<span>({{(response?.totales -
-                                            response?.correctas?.length)}})</span></p>
+                                        <p>
+                                          Incorrecto<span
+                                            >({{
+                                              response?.totales -
+                                                response?.correctas?.length
+                                            }})</span
+                                          >
+                                        </p>
                                       </div>
                                     </li>
                                     <li>
                                       <div class="result_dt">
-                                        <h4>{{response?.correctas?.length}}</h4>
-                                        <p>Total {{response?.totales}}</p>
+                                        <h4>
+                                          {{ response?.correctas?.length }}
+                                        </h4>
+                                        <p>Total {{ response?.totales }}</p>
                                       </div>
                                     </li>
                                   </ul>
@@ -182,69 +242,134 @@
                                 <div class="container">
                                   <div class="row resultContent">
                                     <div class="col-sm-12 col-md-12">
-                                      <hr>
-                                      <div *ngFor="
-                                        let pregunta of leccion.practicar;
-                                        index as i
-                                      ">
-                                        <div *ngIf="
-                                          pregunta.respuestas?.length > 0 &&
-                                          pregunta?.tipo?.nombre === 'multiple'" class="ques_item">
+                                      <hr />
+                                      <div
+                                        *ngFor="
+                                          let pregunta of leccion.practicar;
+                                          index as i
+                                        "
+                                      >
+                                        <div
+                                          *ngIf="
+                                            pregunta.respuestas?.length > 0 &&
+                                            pregunta?.tipo?.nombre ===
+                                              'multiple'
+                                          "
+                                          class="ques_item"
+                                        >
                                           <div class="">
                                             <span>Pregunta {{ i + 1 }} : </span>
-                                            <span [innerHTML]="pregunta?.contenido"></span>
+                                            <span
+                                              [innerHTML]="pregunta?.contenido"
+                                            ></span>
                                           </div>
                                           <div class="ui form">
                                             <div class="grouped fields">
-                                              <div class="field fltr-radio"
-                                                *ngFor=" let respuesta of pregunta.respuestas">
-                                                <div class="ui radio checkbox " *ngIf="
-                                                  respuesta.id === this.response.resUser [i] &&
-                                                    this.response.resUser[ i ] !== pregunta.respuestaCorrecta;
-                                                  else elseBlock ">
-                                                  <input type="radio" tabindex="0" checked />
-                                                  <p class="checkColorT"> <label [innerHTML]="
-                                                    respuesta?.contenido
-                                                  "></label> </p>
+                                              <div
+                                                class="field fltr-radio"
+                                                *ngFor="
+                                                  let respuesta of pregunta.respuestas
+                                                "
+                                              >
+                                                <div
+                                                  class="ui radio checkbox"
+                                                  *ngIf="
+                                                    respuesta.id ===
+                                                      this.response.resUser[
+                                                        i
+                                                      ] &&
+                                                      this.response.resUser[
+                                                        i
+                                                      ] !==
+                                                        pregunta.respuestaCorrecta;
+                                                    else elseBlock
+                                                  "
+                                                >
+                                                  <input
+                                                    type="radio"
+                                                    tabindex="0"
+                                                    checked
+                                                  />
+                                                  <p class="checkColorT">
+                                                    <label
+                                                      [innerHTML]="
+                                                        respuesta?.contenido
+                                                      "
+                                                    ></label>
+                                                  </p>
                                                 </div>
                                                 <ng-template #elseBlock>
-                                                  <div class="ui radio checkbox checkColor2" *ngIf="
-                                                    respuesta.id ===
-                                                      pregunta.respuestaCorrecta;
-                                                    else elseBlock2
-                                                  ">
-                                                    <input type="radio" tabindex="0" checked />
-                                                    <p class="checkColorT2"> <label [innerHTML]="
-                                                      respuesta?.contenido
-                                                    "></label></p>
-                                                  </div>
-                                                  <ng-template #elseBlock2>
-                                                    <div class="
+                                                  <div
+                                                    class="
                                                       ui
                                                       radio
                                                       checkbox
-                                                    ">
-                                                      <input type="radio" name="{{ i }}" tabindex="0" required
-                                                        disabled />
-                                                      <label [innerHTML]="
-                                                        respuesta?.contenido
-                                                      "></label>
+                                                      checkColor2
+                                                    "
+                                                    *ngIf="
+                                                      respuesta.id ===
+                                                        pregunta.respuestaCorrecta;
+                                                      else elseBlock2
+                                                    "
+                                                  >
+                                                    <input
+                                                      type="radio"
+                                                      tabindex="0"
+                                                      checked
+                                                    />
+                                                    <p class="checkColorT2">
+                                                      <label
+                                                        [innerHTML]="
+                                                          respuesta?.contenido
+                                                        "
+                                                      ></label>
+                                                    </p>
+                                                  </div>
+                                                  <ng-template #elseBlock2>
+                                                    <div
+                                                      class="ui radio checkbox"
+                                                    >
+                                                      <input
+                                                        type="radio"
+                                                        name="{{ i }}"
+                                                        tabindex="0"
+                                                        required
+                                                        disabled
+                                                      />
+                                                      <label
+                                                        [innerHTML]="
+                                                          respuesta?.contenido
+                                                        "
+                                                      ></label>
                                                     </div>
                                                   </ng-template>
                                                 </ng-template>
 
                                                 <!--retroalimentacion-->
-                                                <div *ngIf="respuesta.retroalimentacion" class="alert alert-warning"
-                                                  role="alert">
-                                                  <i class="fas fa-star"></i> - <span
-                                                    [innerHTML]="respuesta?.retroalimentacion"></span>
+                                                <div
+                                                  *ngIf="
+                                                    respuesta.retroalimentacion
+                                                  "
+                                                  class="alert alert-warning"
+                                                  role="alert"
+                                                >
+                                                  <i class="fas fa-star"></i> -
+                                                  <span
+                                                    [innerHTML]="
+                                                      respuesta?.retroalimentacion
+                                                    "
+                                                  ></span>
                                                 </div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
 
-                                        <div *ngIf="pregunta?.tipo?.nombre === 'abierta'">
+                                        <div
+                                          *ngIf="
+                                            pregunta?.tipo?.nombre === 'abierta'
+                                          "
+                                        >
                                           <div class="ques_title">
                                             <span>Pregunta {{ i + 1 }}:- </span>
                                             {{ pregunta?.contenido }}
@@ -252,23 +377,46 @@
                                           <div class="ui search focus mt-15">
                                             <div class="ui form swdh30">
                                               <div class="field">
-                                                <textarea rows="5" name="answer" id="id_answer" placeholder="Pls explain"
-                                                  required></textarea>
+                                                <textarea
+                                                  rows="5"
+                                                  name="answer"
+                                                  id="id_answer"
+                                                  placeholder="Pls explain"
+                                                  required
+                                                ></textarea>
                                               </div>
                                             </div>
                                           </div>
-                                          <div *ngIf="pregunta.retroalimentacion" class="alert alert-warning" role="alert">
-                                            {{ pregunta?.retroalimentacion}}
+                                          <div
+                                            *ngIf="pregunta.retroalimentacion"
+                                            class="alert alert-warning"
+                                            role="alert"
+                                          >
+                                            {{ pregunta?.retroalimentacion }}
                                           </div>
                                         </div>
-            
                                       </div>
-                                      <div class="step-footer step-tab-pager btnSiguiente">
-                                        <a id="#tab_step4-tab" data-toggle="pill" href="#tab_step4" role="tab"
-                                          aria-controls="#tab_step4" aria-selected="false">
-                                          <button data-direction="next" class="btn btn-default steps_btn "
-                                            (click)="change('three','fourt')">
-                                            Siguiente <i class="fas fa-arrow-right"></i>
+                                      <div
+                                        class="
+                                          step-footer step-tab-pager
+                                          btnSiguiente
+                                        "
+                                      >
+                                        <a
+                                          id="#tab_step4-tab"
+                                          data-toggle="pill"
+                                          href="#tab_step4"
+                                          role="tab"
+                                          aria-controls="#tab_step4"
+                                          aria-selected="false"
+                                        >
+                                          <button
+                                            data-direction="next"
+                                            class="btn btn-default steps_btn"
+                                            (click)="change('three', 'fourt')"
+                                          >
+                                            Siguiente
+                                            <i class="fas fa-arrow-right"></i>
                                           </button>
                                         </a>
                                       </div>
@@ -277,7 +425,6 @@
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </div>
@@ -286,19 +433,21 @@
                   </div>
                 </div>
 
-                <div class="step-tab-panel step-tab-amenities" id="tab_step4" role="tabpanel"
-                  aria-labelledby="tab_step4-contact-tab">
+                <div
+                  class="step-tab-panel step-tab-amenities"
+                  id="tab_step4"
+                  role="tabpanel"
+                  aria-labelledby="tab_step4-contact-tab"
+                >
                   <div class="tab-from-content">
                     <div class="title-icon">
                       <h3 class="title">
                         <i class="fas fa-laptop-code"></i>
-                        <span style="padding-left: 1em;"> - </span>
-                        <span style="padding-left: 1em;"> Aplicar </span>
-                        
+                        <span style="padding-left: 1em"> - </span>
+                        <span style="padding-left: 1em"> Aplicar </span>
                       </h3>
                     </div>
-                    <div class="
-                    ">
+                    <div class="">
                       <div class="row aplicarContent">
                         <div class="col-lg-12">
                           <div class="extra_info">
@@ -306,7 +455,8 @@
                           </div>
                           <div class="col-lg-12 col-md-12">
                             <div class="course_des_textarea mt-30 lbel25">
-                              <label><!-- Eres el líder de un proyecto estás
+                              <label>
+                                <!-- Eres el líder de un proyecto estás
                                 desarrollando una tienda virtual y quieres
                                 probar la funcionalidad de carrito de compras.
                                 Intenta formular el caso de uso, detallando los
@@ -317,29 +467,56 @@
                                 esperado. -->
                                 <span [innerHTML]="this.leccion.aplicar"></span>
                               </label>
-                              <angular-editor [placeholder]="" [(ngModel)]="response.aplica" name="response.aplica">
-
+                              <angular-editor
+                                [placeholder]=""
+                                [(ngModel)]="response.aplica"
+                                name="response.aplica"
+                              >
                               </angular-editor>
                             </div>
                           </div>
 
-                          <br>
+                          <br />
                           <div class="card-body">
                             <form class="form" method="" action="">
-                              <div class="container containercarga" appDnd (fileDropped)="onFileDropped($event)">
-                                <input type="file" #fileDropRef id="fileDropRef" multiple (change)="
+                              <div
+                                class="container containercarga"
+                                appDnd
+                                (fileDropped)="onFileDropped($event)"
+                              >
+                                <input
+                                  type="file"
+                                  #fileDropRef
+                                  id="fileDropRef"
+                                  multiple
+                                  (change)="
                                     fileBrowseHandler($event.target.files)
-                                  " />
-                                <img class="imgcarga" src="assets/images/dnd/ic-upload-file.svg"
-                                  alt="imagen de carga" />
-                                <h3 class="arrastra">Arrastra y suelta tus archivos aquí</h3>
+                                  "
+                                />
+                                <img
+                                  class="imgcarga"
+                                  src="assets/images/dnd/ic-upload-file.svg"
+                                  alt="imagen de carga"
+                                />
+                                <h3 class="arrastra">
+                                  Arrastra y suelta tus archivos aquí
+                                </h3>
 
-                                <label class="btnBuscar" for="fileDropRef">Buscar archivos</label>
+                                <label class="btnBuscar" for="fileDropRef"
+                                  >Buscar archivos</label
+                                >
                               </div>
 
                               <div class="files-list">
-                                <div class="single-file" *ngFor="let file of files; let i = index">
-                                  <img src="assets/images/dnd/ic-file.svg" width="45px" alt="file" />
+                                <div
+                                  class="single-file"
+                                  *ngFor="let file of files; let i = index"
+                                >
+                                  <img
+                                    src="assets/images/dnd/ic-file.svg"
+                                    width="45px"
+                                    alt="file"
+                                  />
                                   <div class="info">
                                     <h4 class="name">
                                       {{ file?.name }}
@@ -347,19 +524,35 @@
                                     <p class="size">
                                       {{ formatBytes(file?.size) }}
                                     </p>
-                                    <app-progress [progress]="file?.progress"></app-progress>
+                                    <app-progress
+                                      [progress]="file?.progress"
+                                    ></app-progress>
                                   </div>
-                                  <img src="assets/images/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file"
-                                    (click)="deleteFile(i)" />
+                                  <img
+                                    src="assets/images/dnd/ic-delete-file.svg"
+                                    class="delete"
+                                    width="20px"
+                                    alt="file"
+                                    (click)="deleteFile(i)"
+                                  />
                                 </div>
                               </div>
                             </form>
-                            
                           </div>
-                          <app-view></app-view>
-                          <div class="step-footer step-tab-pager btnSiguiente btnFinalizar" text-center>
-                            <button (click)="finalizarLeccion()" data-direction="next"
-                              class="btn btn-default steps_btn">
+                          <!-- <app-view></app-view> -->
+                          <div
+                            class="
+                              step-footer step-tab-pager
+                              btnSiguiente
+                              btnFinalizar
+                            "
+                            text-center
+                          >
+                            <button
+                              (click)="finalizarLeccion()"
+                              data-direction="next"
+                              class="btn btn-default steps_btn"
+                            >
                               Finalizar
                             </button>
                           </div>
@@ -379,8 +572,8 @@
   </div>
 </div>
 
-  <!-- Modal Aplica -->
-  <!-- <div class="modal fade" id="modalAplica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Aplica -->
+<!-- <div class="modal fade" id="modalAplica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
       <div class="modal-content">
         <div class="modal-header">

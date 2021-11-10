@@ -50,7 +50,8 @@ const createlesson = async (req, res) => {
       creador: parametros.leccion.creador || 1,
       competencias: parametros.leccion.competencias,
       preconceptos: parametros.leccion.preconceptos,
-      objetivo: parametros.leccion.objetivo
+      objetivo: parametros.leccion.objetivo,
+      aplicaPractico: parametros.leccion.aplicaPractico
     }).fetch();
 
   } catch (err) {
@@ -219,7 +220,8 @@ const updatelesson = async (req, res) => {
     aplicar: params.leccion.aplicar,
     slug: params.leccion.slug,
     creador: params.leccion.creador,
-    objetivo: params.leccion.objetivo
+    objetivo: params.leccion.objetivo,
+    aplicaPractico: params.leccion.aplicaPractico || ''
   };
   if (data.objetivo === '') delete data.objetivo;
   data = _.omitBy(data, _.isNull);

@@ -32,8 +32,13 @@ module.exports = {
     aplicaFile: {
       type: 'string',
     },
+    calificacionPreg: {
+      type: 'number',
+      defaultsTo: 0
+    },
     calificacionAplica: {
-      type: 'string',
+      type: 'number',
+      defaultsTo: 0
     },
     estado: {
       type: 'string',

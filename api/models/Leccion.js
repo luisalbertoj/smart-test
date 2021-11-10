@@ -43,6 +43,11 @@ module.exports = {
       columnType: 'longtext'
     },
 
+    aplicaPractico: {
+      type: 'string',
+      columnType: 'longtext'
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
