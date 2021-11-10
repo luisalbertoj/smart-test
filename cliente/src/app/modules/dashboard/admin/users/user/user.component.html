@@ -5,128 +5,167 @@
         <div class="row">
           <div class="col-md-12">
             <div>
-              <img src="{{plantilla.imgBanner}}" class="card-img-top" alt="..." />
+              <img
+                src="{{ plantilla.imgBanner }}"
+                class="card-img-top"
+                alt="..."
+              />
             </div>
             <div class="card">
               <h2 class="text-center card-title">
                 {{ txt.registry | uppercase }}
               </h2>
               <div class="card-body">
-                <form class="form" method="" action="">
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" [(ngModel)]="this.persona.nombre" name="nombre" class="form-control"
-                        placeholder="Nombres..." />
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
                     </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.persona.nombre"
+                      class="form-control"
+                      placeholder="Nombres..."
+                    />
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" [(ngModel)]="this.persona.apellido" name="apellido" class="form-control"
-                        placeholder="Apellidos..." />
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
                     </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.persona.apellido"
+                      class="form-control"
+                      placeholder="Apellidos..."
+                    />
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="number" [(ngModel)]="this.persona.cedula" name="cedula" class="form-control"
-                        placeholder="Cedula..." />
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
                     </div>
+                    <input
+                      type="number"
+                      [(ngModel)]="this.persona.cedula"
+                      class="form-control"
+                      placeholder="Cedula..."
+                    />
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" [(ngModel)]="this.persona.codigo" name="codigo" class="form-control"
-                        placeholder="Codigo..." />
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
                     </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.persona.codigo"
+                      class="form-control"
+                      placeholder="Codigo..."
+                    />
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
 
-                      <div class="dropdown">
-                        <select [(ngModel)]="this.persona.idRol" 
-                          class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown" aria-expanded="true">
-                          <option >Seleccione</option>
-                          <option *ngFor="let item of roles" value="{{item.id}}">
-                            <a (click)="cambiarRol(item)">{{item['nombre']}}</a>
-                          </option>
-                        </select>
-                        <!-- <select href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
+                    <div class="dropdown">
+                      <select
+                        [(ngModel)]="this.persona.idRol"
+                        class="btn dropdown-toggle btn-primary btn-round"
+                        data-toggle="dropdown"
+                        aria-expanded="true"
+                      >
+                        <option>Seleccione</option>
+                        <option
+                          *ngFor="let item of roles"
+                          value="{{ item.id }}"
+                        >
+                          <a (click)="cambiarRol(item)">{{ item['nombre'] }}</a>
+                        </option>
+                      </select>
+                      <!-- <select href="#" class="btn dropdown-toggle btn-primary btn-round" data-toggle="dropdown"
                           aria-expanded="true" >
                           <option >Seleccione</option>
                           <option value="1"  *ngFor="let item of roles" >
                             <a (click)="cambiarRol(item)">{{item['nombre']}}</a>
                         </option>
                       </select> -->
-
-                      </div>
                     </div>
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">mail</i>
-                        </span>
-                      </div>
-                      <input type="text" [(ngModel)]="this.persona.email" name="email" class="form-control"
-                        placeholder="Correo Electronico..." />
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">mail</i>
+                      </span>
                     </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.persona.email"
+                      class="form-control"
+                      placeholder="Correo Electronico..."
+                    />
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" [(ngModel)]="this.persona.username" name="username" class="form-control"
-                        placeholder="Nombre de usuario..." />
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
                     </div>
+                    <input
+                      type="text"
+                      [(ngModel)]="this.persona.username"
+                      class="form-control"
+                      placeholder="Nombre de usuario..."
+                    />
                   </div>
-                  <div class="form-group has-default">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
-                        </span>
-                      </div>
-                      <input type="password" [(ngModel)]="this.persona.password" name="password"
-                        placeholder="Contraseña..." class="form-control" />
+                </div>
+                <div class="form-group has-default">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
                     </div>
+                    <input
+                      type="password"
+                      [(ngModel)]="this.persona.password"
+                      placeholder="Contraseña..."
+                      class="form-control"
+                    />
                   </div>
-                  <div class="text-center">
-                    <button mat-raised-button (click)="registro()" class="btn btn-rose pull-right">
-                      {{ txt.registry | titlecase }}
-                    </button>
-                    <!-- <a (click)="registro()" class="mt-4 btn btn-primary btn-round">{{ txt.registry | titlecase }}</a> -->
-                  </div>
-                </form>
+                </div>
+                <div class="text-center">
+                  <button
+                    mat-raised-button
+                    (click)="registro()"
+                    class="btn btn-rose pull-right"
+                  >
+                    {{ txt.registry | titlecase }}
+                  </button>
+                  <!-- <a (click)="registro()" class="mt-4 btn btn-primary btn-round">{{ txt.registry | titlecase }}</a> -->
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
