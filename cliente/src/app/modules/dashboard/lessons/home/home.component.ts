@@ -56,7 +56,8 @@ export class HomeComponent implements OnInit {
     this.spinner.show()
     // console.log('Usuario', this.factory.user);
     if (this.factory.user.idRol.nombre === 'estudiante') {
-      this.loadLessonsGroup()
+      // this.loadLessonsGroup()
+      this.loadGruposEstudiante()
     }
     if (this.factory.user.idRol.nombre === 'docente') {
       this.loadGrupos()
@@ -68,7 +69,15 @@ export class HomeComponent implements OnInit {
     //this.loadLecciones();
     this.cargarCompetencias()
   }
-
+  loadGruposEstudiante() {
+    const idUser = this.factory.user.id
+    this.factory
+      .getAll(`persona?where={"id":"${idUser}"}&populate=grupos`)
+      .subscribe((res: any) => {
+        // console.log('Grupos docente', res);
+        this.selectorGrupo.dropdownOptions = res[0].grupos
+      })
+  }
   loadGrupos() {
     const idUser = this.factory.user.id
     this.factory

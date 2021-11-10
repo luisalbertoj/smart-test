@@ -72,12 +72,12 @@ export class SearchElementComponent implements OnInit, DoCheck {
       this.table = table
       console.log('Tabla', this.table)
       this.elementosSeleccionadas = []
+      this.table.data.forEach((item2: any) => {
+        item2.checked = null
+      })
     }
     this.modelItems = []
     this.elementosSeleccionadas = []
-    this.table.data.forEach((item2: any) => {
-      item2.checked = null
-    })
     if (this.model === '' || !this.model) {
       return this.toast.error('No se envío un modelo')
     }

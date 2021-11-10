@@ -14,7 +14,7 @@
           [options]="selectorGrupo.dropdownOptions">
           </ngx-select-dropdown>
           <br>
-          <ng-container *ngIf="selectorGrupo.select">
+          <ng-container *ngIf="selectorGrupo.select && factory.user.idRol.nombre != 'estudiante'">
             <button class="btn btn-plantilla"
             (click)="addLessonGrup()"
             (click)="addLessonGroup.loadGrupo()"
@@ -89,7 +89,7 @@
                           data-toggle="modal" data-target="#exampleModal">
                           Resultados
                         </button>
-                        <button *ngIf="!leccion.solved" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
+                        <button *ngIf="!leccion.solved && this.factory.user.idRol.nombre != 'docente'" (click)="iniciar(leccion.slug)" class="btn btn-plantilla"
                           type="button">
                           Iniciar
                         </button>
