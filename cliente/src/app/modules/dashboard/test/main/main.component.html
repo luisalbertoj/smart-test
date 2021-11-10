@@ -100,29 +100,44 @@
                 <hr>
               
               
-                <h2>Resumen</h2>
-                <ul class="test_result_left">
-                  <li>
-                    <div class="result_dt">
-                      <i class="uil uil-check right_ans"></i>
-                      <p>Correcto<span>
-
-                      </span></p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="result_dt">
-                      <i class="uil uil-times wrong_ans"></i>
-                      <p>Incorrecto<span></span></p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="result_dt">
-                      <h4></h4>
-                      <p>Total </p>
-                    </div>
-                  </li>
-                </ul>
+                <ng-container *ngIf="pruebaCalificar?.preguntasTotales > 0">
+                  <h2>Resumen</h2>
+                  <ul class="test_result_left">
+                    <li>
+                      <div class="result_dt">
+                        <i class="uil uil-check right_ans"></i>
+                        <p>
+                          Correcto<span
+                            >({{
+                              pruebaCalificar?.respuestasCorrectas
+                            }})</span
+                          >
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="result_dt">
+                        <i class="uil uil-times wrong_ans"></i>
+                        <p>
+                          Incorrecto<span
+                            >({{
+                              pruebaCalificar?.preguntasTotales -
+                                pruebaCalificar?.respuestasCorrectas
+                            }})</span
+                          >
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="result_dt">
+                        <h4>
+                          {{ pruebaCalificar?.respuestasCorrectas }}
+                        </h4>
+                        <p>Total {{ pruebaCalificar?.preguntasTotales }}</p>
+                      </div>
+                    </li>
+                  </ul>
+                </ng-container>
 
                 <h2>Prueba de conocimiento</h2>
                 <div class="row">

@@ -16,8 +16,22 @@ module.exports = {
       type: 'string',
     },
 
+    calificacionPreg: {
+      type: 'number',
+      defaultsTo: 0
+    },
+
     calificacion: {
+      type: 'number',
+      defaultsTo: 0
+    },
+
+    preguntasTotales: {
       type: 'string',
+    },
+
+    respuestasCorrectas: {
+      type: 'string'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

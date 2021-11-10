@@ -252,8 +252,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-flag"></i></span>
             </div>
-            <input class="form-control" type="number" max="10" min="1" step="0.01"
-              [(ngModel)]="leccionCalificar.calificacionAplica" name="leccionCalificar.calificacionAplica" required>
+            <!-- <h2>{{leccionCalificar.calificacionAplica + leccionCalificar.calificacionPreg}}</h2> -->
+            <input disabled class="form-control" type="number" max="10" min="1" step="0.01"
+              [(ngModel)]="leccionCalificar.calificacionAplica" name="leccionCalificar.calificacionAplica" 
+              value="{{leccionCalificar.calificacionAplica + leccionCalificar.calificacionPreg}}">
           </div>
         </div>
         <div class="modal-footer">
