@@ -65,7 +65,7 @@ export class UserComponent implements OnInit {
     }
   }
   cargarRoles(): any {
-    this.factory.getAll('rol').subscribe((response: any) => {
+    this.factory.getAll('rol?populate=false').subscribe((response: any) => {
       this.roles = response
       console.log('roles')
       console.log(this.roles)

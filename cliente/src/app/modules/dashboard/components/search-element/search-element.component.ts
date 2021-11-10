@@ -73,10 +73,13 @@ export class SearchElementComponent implements OnInit, DoCheck {
       console.log('Tabla', this.table)
       this.elementosSeleccionadas = []
     }
+    this.modelItems = []
+    this.table.data.forEach((item2: any) => {
+      item2.checked = false
+    })
     if (this.model === '' || !this.model) {
       return this.toast.error('No se envío un modelo')
     }
-    this.modelItems = []
     // console.log('Datos enviados', this.table);
     if (this.table?.data && this.table?.data.length) {
       if (this.table.multiple) {
@@ -87,8 +90,6 @@ export class SearchElementComponent implements OnInit, DoCheck {
               // console.log('multiple', item.username);
               item2.checked = true
               this.elementosSeleccionadas.push(item.id)
-            } else {
-              item2.checked = false
             }
           })
         })
