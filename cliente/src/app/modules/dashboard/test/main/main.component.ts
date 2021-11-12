@@ -124,7 +124,12 @@ export class MainComponent implements OnInit {
   loadResultTest() {}
 
   loadTests(): any {
-    if (this.factory.user.grupos > 0) {
+    /* let queryText = 'pruebaconocimiento?where={"grupo": {in: ['
+    for (const grupo of this.factory.user.grupos) {
+      queryText += '"' + grupo.id + '",'
+    }
+    queryText += ']}}' */
+    if (this.factory.user.grupos.length > 0) {
       this.factory
         .getAll(
           `pruebaconocimiento?where={"grupo": "${this.factory.user.grupos[0].id}"}`
