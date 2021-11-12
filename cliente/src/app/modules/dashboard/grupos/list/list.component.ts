@@ -86,9 +86,9 @@ export class ListComponent implements OnInit {
   }
   loadGrupos(isAdmin?): void {
     this.factory
-      .getAll('grupo?populate=personas')
+      .getAll('grupo?populate=personas,docente')
       .subscribe((response: any) => {
-        this.toast.success('Grupos cargados')
+        /* this.toast.success('Grupos cargados') */
         // console.log('Grupos', response);
         this.dataTable = {
           headerRow: ['Nombre', 'Codigo', 'Docente', 'Acciones'],
@@ -142,7 +142,13 @@ export class ListComponent implements OnInit {
       .put('grupo', this.grupoSeleccionado.id, this.grupoSeleccionado)
       .subscribe((res: any) => {
         this.toast.success('Datos actualizados')
-
+        if (this.factory.user.idRol.nombre === 'administrador') {
+          this.loadGrupos(true)
+        } else {
+          this.loadGrupos()
+        }
+        this.loadDocentes()
+        this.loadEstudiantes()
         // console.log('Grupo actualzado', res);
       })
   }
