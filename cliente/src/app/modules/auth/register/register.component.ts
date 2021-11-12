@@ -66,12 +66,13 @@ export class RegisterComponent implements OnInit {
   registrar(): any {
     this.persona.grupos = ''
     const grupoRegistro = this.factory.decryptData(this.codigoRegistro)
+    this.persona.grupos = []
     this.grupos.forEach((element) => {
       if (grupoRegistro === element.codigo) {
-        this.persona.grupos = element.id
+        this.persona.grupos.push(element.id)
       }
     })
-    if (this.persona.grupos === '') {
+    if (this.persona.grupos.length === 0) {
       return this.toast.info('Codigo de registro invalido')
     }
     if (this.persona.nombre === '') {
