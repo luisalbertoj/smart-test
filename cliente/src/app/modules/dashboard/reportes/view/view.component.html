@@ -4,65 +4,107 @@
       <div class="row">
         <div class="col-md-12">
           <div>
-            <img src="{{plantilla.imgBanner}}" class="card-img-top" alt="..." />
+            <img
+              src="{{ plantilla.imgBanner }}"
+              class="card-img-top"
+              alt="..."
+            />
           </div>
 
           <div class="card">
-            
             <div class="card-body">
               <div class="container-fluid">
                 <div class="container">
                   <div class="row">
                     <div class="col-sm-12">
-                      <select [(ngModel)]="consulta.tipoReporte" class="custom-select" id="inputGroupSelect01">
-                        <option value="">Selecciona el tipo de reporte...</option>
+                      <!-- <select
+                        [(ngModel)]="consulta.tipoReporte"
+                        class="custom-select"
+                        id="inputGroupSelect01"
+                      >
+                        <option value="">
+                          Selecciona el tipo de reporte...
+                        </option>
                         <option value="lessons">Lecciones</option>
                         <option value="tests">Pruebas de conocimiento</option>
-                      </select>
+                      </select> -->
                     </div>
                   </div>
-                  <hr>
-                  <ng-container *ngIf="consulta.tipoReporte === 'lessons'">
+                  <hr />
+                  <!-- *ngIf="consulta.tipoReporte === 'lessons'" -->
+                  <ng-container>
                     <div class="row lessons">
                       <div class="col-sm-6 col-md-3">
                         <label for="consulta.fechaInicio">
                           Fecha de inicio
-                          <input [(ngModel)]="consulta.fechaInicio" name="consulta.fechaInicio" type="date"
-                            max="{{consulta.fechaFin}}" class="form-control" />
+                          <input
+                            [(ngModel)]="consulta.fechaInicio"
+                            name="consulta.fechaInicio"
+                            type="date"
+                            max="{{ consulta.fechaFin }}"
+                            class="form-control"
+                          />
                         </label>
                       </div>
                       <div class="col-sm-6 col-md-3">
                         <label for="consulta.fechaFin">
                           Fecha de fin
-                          <input [(ngModel)]="consulta.fechaFin" name="consulta.fechaFin" type="date"
-                            min="{{consulta.fechaInicio}}" max="{{consulta.fechaFin}}" class="form-control" />
+                          <input
+                            [(ngModel)]="consulta.fechaFin"
+                            name="consulta.fechaFin"
+                            type="date"
+                            min="{{ consulta.fechaInicio }}"
+                            max="{{ consulta.fechaFin }}"
+                            class="form-control"
+                          />
                         </label>
                       </div>
                       <div class="col-sm-12 col-md-6">
                         <label for="consulta.grupo">
                           Grupos
-                          <select [(ngModel)]="consulta.grupo" class="custom-select" id="inputGroupSelect01">
+                          <!-- <select [(ngModel)]="consulta.grupo" class="custom-select" id="inputGroupSelect01">
                             <option value="">Todos los grupos...</option>
                             <option *ngFor="let grupo of grupos" value="{{grupo.id}}">
                               {{grupo.codigo}} - {{grupo.nombre}}
                             </option>
-                          </select>
+                          </select> -->
                         </label>
+                        <ngx-select-dropdown
+                          (change)="selectionGrupo($event)"
+                          [multiple]="false"
+                          [(ngModel)]="selectorGrupo.dataModel"
+                          [config]="selectorGrupo.config"
+                          [options]="selectorGrupo.dropdownOptions"
+                        >
+                        </ngx-select-dropdown>
                       </div>
-                      <div class="col-sm-12 col-md-6">
+                      <div class="col-sm-12 col-md-12">
                         <label for="consulta.grupo">
                           Competencias
-                          <select [(ngModel)]="consulta.competencia" class="custom-select" id="inputGroupSelect01">
+
+                          <!-- <select [(ngModel)]="consulta.competencia" class="custom-select" id="inputGroupSelect01">
                             <option value="">Todas las competencias...</option>
                             <option *ngFor="let competencia of competencias" value="{{competencia.id}}">
                               {{competencia.nombre}}
                             </option>
-                          </select>
+                          </select> -->
                         </label>
+                        <ngx-select-dropdown
+                          (change)="selectionCompetencia($event)"
+                          [multiple]="true"
+                          [(ngModel)]="selectorCompetencia.dataModel"
+                          [config]="selectorCompetencia.config"
+                          [options]="selectorCompetencia.dropdownOptions"
+                        >
+                        </ngx-select-dropdown>
                       </div>
                       <div class="col-sm-12 justify-content-end d-flex">
-                        <button (click)="generarReporte()" class="btn btn-primary btn-plantilla">
-                          <i class="fa fa-star" aria-hidden="true"></i> <!-- Compliant icon fonts usage -->
+                        <button
+                          (click)="generarReporte()"
+                          class="btn btn-primary btn-plantilla"
+                        >
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <!-- Compliant icon fonts usage -->
                           Generar reporte
                         </button>
                       </div>
@@ -70,30 +112,35 @@
                     </div>
                   </ng-container>
                   <ng-container *ngIf="consulta.tipoReporte === 'tests'">
-
-
                   </ng-container>
-                  <canvas id="myChart"></canvas>
+                  <div id="gra">
+
+                  </div>
                   
+
                   <div *ngIf="reporte.activo">
-                    <hr>
+                    <hr />
                     <table id="htmlData" class="table table-hover text-center">
-                      <caption>Tabla reporte</caption>
+                      <caption>
+                        Tabla reporte
+                      </caption>
                       <thead class="table-header thead-dark">
                         <tr>
-                          <ng-container *ngFor="let header of reporte.data.headers">
-                            <th scope="col">{{header}}</th>
+                          <ng-container
+                            *ngFor="let header of reporte.data.headers"
+                          >
+                            <th scope="col">{{ header }}</th>
                           </ng-container>
                         </tr>
                       </thead>
                       <tbody>
                         <ng-container *ngFor="let body of reporte.data.body">
                           <tr>
-                            <th scope="row">{{body?.codigo}}</th>
-                            <td>{{body?.nombre}}</td>
-                            <td>{{body?.grupo}}</td>
-                            <td>{{body?.completas}}</td>
-                            <td>{{body?.aciertos}}</td>
+                            <th scope="row">{{ body?.codigo }}</th>
+                            <td>{{ body?.nombre }}</td>
+                            <td>{{ body?.grupo }}</td>
+                            <td>{{ body?.completas }}</td>
+                            <td>{{ body?.media }}</td>
                           </tr>
                         </ng-container>
                       </tbody>
@@ -103,12 +150,11 @@
                         Generar Excel
                       </button>
                       <span class="text-white"> - </span>
-                      <button (click)="generarPdf()" class="btn btn-info">
+                      <!-- <button (click)="generarPdf()" class="btn btn-info">
                         Generar PDF
-                      </button>
+                      </button> -->
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>

@@ -76,8 +76,15 @@
                             </div>
                           </div>
                           <div class="col-sm-12 col-md-9">
+                            <ngx-select-dropdown
+                                [multiple]="false"
+                                [(ngModel)]="selectorObjetivo.dataModel"
+                                [config]="selectorObjetivo.config"
+                                [options]="selectorObjetivo.dropdownOptions"
+                              >
+                              </ngx-select-dropdown>
                             <div class="ui left icon input swdh19 divobj">
-                              <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo"
+                              <!-- <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo"
                                 class="custom-select inputobject">
                                 <option value="">
                                   Selecciona el objetivo
@@ -85,7 +92,8 @@
                                 <option *ngFor="let objetivo of objetivos" value="{{ objetivo?.id }}">
                                   {{ objetivo?.contenido }}
                                 </option>
-                              </select>
+                              </select> -->
+                              
                               <app-add-element [model]="newObjetivo.model" [title]="newObjetivo.title"
                                 [labels]="newObjetivo.labels" (addElementos)="cargarObjetivos($event)" #addobjetivos>
                               </app-add-element>
@@ -122,21 +130,28 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="row">
-                              <div class="col-sm-10 col-md-10">
+                              <div class="col-sm-11 col-md-11">
+                                <ngx-select-dropdown
+                                [multiple]="true"
+                                [(ngModel)]="selectorCompetencias.dataModel"
+                                [config]="selectorCompetencias.config"
+                                [options]="selectorCompetencias.dropdownOptions"
+                              >
+                              </ngx-select-dropdown>
                                 <div class="ui left icon input swdh19 taginput">
-                                  <tag-input class="dropdown" [(ngModel)]="leccion.competencias"
+                                  <!-- <tag-input class="dropdown" [(ngModel)]="leccion.competencias"
                                     name="leccion.competencias" placeholder="Selecciona las competencias"
                                     secondaryPlaceholder=" " canDeleteTags="false">
                                     <tag-input-dropdown class="ng2-dropdown-container ng2-menu-item"
                                       [showDropdownIfEmpty]="true" [autocompleteItems]="itemsCompetencia">
                                     </tag-input-dropdown>
-                                  </tag-input>
+                                  </tag-input> -->
 
                                   <!-- Button trigger modal -->
-                                  <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
+                                  <!-- <app-search-element [title]="'Banco de competencias'" [model]="'competencia'"
                                     [headerTable]="tablaCompetencias.header" [bodyTable]="tablaCompetencias.body"
                                     (selectElementos)="selectCompetencias($event)" #searchCompetencia>
-                                  </app-search-element>
+                                  </app-search-element> -->
 
                                   <!-- Button trigger modal -->
                                   <app-add-element [model]="newCompetencia.model" [title]="newCompetencia.title"
@@ -144,14 +159,14 @@
                                   </app-add-element>
                                 </div>
                               </div>
-                              <div class="col-sm-2 col-md-2 btnesBanco ">
-                                <button type="button" (click)="searchCompetencia.cargarModel()" class="
+                              <div class="col-sm-1 col-md-1 btnesBanco ">
+                                <!-- <button type="button" (click)="searchCompetencia.cargarModel()" class="
                                           btn btn-plantilla
                                           btnsearpreg
                                           btn-primary
                                         " data-toggle="modal" data-target="#competencia">
                                   <i class="fas fa-search"></i>
-                                </button>
+                                </button> -->
                                 <button type="button" (click)="
                                       addcompetencias.addArray(newCompetencia.arrayForm)
                                       " class="
@@ -185,21 +200,28 @@
                           </div>
                           <div class="col-sm-12 col-md-9">
                             <div class="row">
-                              <div class="col-sm-10 col-md-10">
+                              <div class="col-sm-11 col-md-11">
+                                <ngx-select-dropdown
+                                [multiple]="true"
+                                [(ngModel)]="selectorPreconceptos.dataModel"
+                                [config]="selectorPreconceptos.config"
+                                [options]="selectorPreconceptos.dropdownOptions"
+                              >
+                              </ngx-select-dropdown>
                                 <div class="ui left icon input swdh19">
-                                  <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos"
+                                  <!-- <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos"
                                     name="leccion.Preconceptos" placeholder="Selecciona los preconcepto"
                                     secondaryPlaceholder="">
                                     <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="items">
                                     </tag-input-dropdown>
-                                  </tag-input>
+                                  </tag-input> -->
                                   <!-- Button trigger modal -->
-                                  <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'"
+                                  <!-- <app-search-element [title]="'Banco de preconceptos'" [model]="'preconcepto'"
                                     [headerTable]="tablaPreconceptos.header" [bodyTable]="tablaPreconceptos.body"
                                     (selectElementos)="
                                         selectPreconceptos($event)
                                       " #searchPreconceptos></app-search-element>
-
+                                  -->
 
                                   <!-- Button trigger modal -->
                                   <app-add-element [model]="newPreconcepto.model" [title]="newPreconcepto.title"
@@ -207,14 +229,14 @@
                                   </app-add-element>
                                 </div>
                               </div>
-                              <div class="col-sm-2 col-md-2 btnesBanco">
-                                <button type="button" (click)="searchPreconceptos.cargarModel()" class="
+                              <div class="col-sm-1 col-md-1 btnesBanco">
+                                <!-- <button type="button" (click)="searchPreconceptos.cargarModel()" class="
                                     btn btn-plantilla
                                     btnsearpreg
                                     btn-primary
                                   " data-toggle="modal" data-target="#preconcepto">
                                   <i class="fas fa-search"></i>
-                                </button>
+                                </button> -->
                                 <button type="button" (click)="
                                 addPreconcepto.addArray(newPreconcepto.arrayForm)
                                   " class="

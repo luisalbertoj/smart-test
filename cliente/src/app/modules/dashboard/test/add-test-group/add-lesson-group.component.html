@@ -1,0 +1,30 @@
+<ng-container >
+    <mat-form-field class="example-form-field formBuscar" appearance="fill">
+        <mat-label>Busqueda por titulo</mat-label>
+        <input (change)="loadLessons()" matInput type="text" [(ngModel)]="busqueda">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>      
+    <table mat-table [dataSource]="dataTable" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Titulo">
+          <th mat-header-cell *matHeaderCellDef>Titulo</th>
+          <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+        </ng-container>
+      
+        <!-- Accions Column -->
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+              <mat-checkbox (change)="changeCheked(element.id)" [(ngModel)]="element.cheked" class="example-margin" ></mat-checkbox>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+</ng-container>

@@ -113,6 +113,7 @@ const registrar = async (req, res) => {
     codigo: params.codigo,
     username: params.username,
     password: hash,
+    grupos: params.grupos,
     idRol: params.idRol
   }).fetch();
 

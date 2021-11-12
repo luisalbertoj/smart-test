@@ -7,7 +7,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms'
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util'
 import Swal from 'sweetalert2'
 
-declare var $: any
+declare let $: any
 
 @Component({
   selector: 'app-new-lesson',
@@ -22,6 +22,11 @@ export class NewLessonComponent implements OnInit {
   }
 
   tablaPreconceptos: any = {
+    title: 'Preconceptos',
+    model: 'preconcepto',
+    multiple: true,
+    data: [],
+    dataExist: [],
     header: [
       { name: 'Preconcepto' },
       { name: 'Definición' },
@@ -90,6 +95,61 @@ export class NewLessonComponent implements OnInit {
     preconceptos: [],
     objetivo: ''
   }
+
+  selectorObjetivo: any = {
+    dataModel: null,
+    config: {
+      displayKey: 'contenido',
+      searchOnKey: 'contenido',
+      search: true,
+      height: 'auto',
+      placeholder: 'Seleccione el objetivo',
+      customComparator: () => {},
+      limitTo: 0,
+      moreText: '..',
+      noResultsFound: 'No results found!',
+      searchPlaceholder: 'Buscar',
+      clearOnSelection: false,
+      inputDirection: 'ltr'
+    },
+    dropdownOptions: []
+  }
+  selectorCompetencias: any = {
+    dataModel: null,
+    config: {
+      displayKey: 'nombre',
+      searchOnKey: 'nombre',
+      search: true,
+      height: 'auto',
+      placeholder: 'Seleccione las competencias',
+      customComparator: () => {},
+      limitTo: 0,
+      moreText: '..',
+      noResultsFound: 'No results found!',
+      searchPlaceholder: 'Buscar',
+      clearOnSelection: false,
+      inputDirection: 'ltr'
+    },
+    dropdownOptions: []
+  }
+  selectorPreconceptos: any = {
+    dataModel: null,
+    config: {
+      displayKey: 'titulo',
+      searchOnKey: 'titulo',
+      search: true,
+      height: 'auto',
+      placeholder: 'Seleccione los preconceptos',
+      customComparator: () => {},
+      limitTo: 0,
+      moreText: '..',
+      noResultsFound: 'No results found!',
+      searchPlaceholder: 'Buscar',
+      clearOnSelection: false,
+      inputDirection: 'ltr'
+    },
+    dropdownOptions: []
+  }
   public competencias: any = []
   public preconceptos: any = []
   public objetivos: any = []
@@ -139,12 +199,15 @@ export class NewLessonComponent implements OnInit {
   }
   renderData(response: any): void {
     this.leccion = response.data
-    this.leccion.preconceptos.forEach((element, i) => {
+    this.selectorPreconceptos.dataModel = this.leccion.preconceptos
+    /* this.leccion.preconceptos.forEach((element, i) => {
       this.leccion.preconceptos[i] = element.slug
-    })
-    this.leccion.competencias.forEach((element, i) => {
+    }) */
+    this.selectorCompetencias.dataModel = this.leccion.competencias
+    /* this.leccion.competencias.forEach((element, i) => {
       this.leccion.competencias[i] = element.slug
-    })
+    }) */
+    this.selectorObjetivo.dataModel = this.leccion.objetivo
     this.leccion.practicar.forEach((pregunta, i) => {
       pregunta.showbody = true
       pregunta.accordianclass = 'collapseAccordion'
@@ -191,60 +254,71 @@ export class NewLessonComponent implements OnInit {
   }
 
   cargarObjetivos(evt?): void {
-    this.factory.getAll('objetivo').subscribe(
-      (response: any) => {
-        this.objetivos = response
-      },
-      (error: any) =>
-        this.toast.error(
-          'Problema al cargar los Objetivos revisa la conexion',
-          'Error de conexion'
-        )
-    )
+    this.factory
+      .getAll('objetivo?populate=false&select=id,titulo,contenido')
+      .subscribe(
+        (response: any) => {
+          console.log('Objetivos', response)
+          this.objetivos = response[0]
+          this.selectorObjetivo.dropdownOptions = response
+        },
+        (error: any) =>
+          this.toast.error(
+            'Problema al cargar los Objetivos revisa la conexion',
+            'Error de conexion'
+          )
+      )
   }
   cargarTipos(): void {
     this.factory.getAll('tipopregunta').subscribe(
       (response: any) => {
         this.tipoPregunta = response
       },
-      (error: any) =>
+      (error: any) => {
         this.toast.error(
           'Problema al cargar los tipos revisa la conexion',
           'Error de conexion'
         )
+      }
     )
   }
   cargarPreconceptos(): void {
-    this.factory.getAll('preconcepto').subscribe(
-      (response: any) => {
-        this.preconceptos = response
-        for (const it of this.preconceptos) {
-          /* if(it.slug.length > 20) it.slug = it.slug.substring(15, 30); */
-          this.items.push('⌂' + it.slug)
-        }
-      },
-      (error: any) =>
-        this.toast.error(
-          'Problema al cargar los Preconceptos revisa la conexion',
-          'Error de conexion'
-        )
-    )
+    this.factory
+      .getAll('preconcepto?populate=false&select=id,titulo')
+      .subscribe(
+        (response: any) => {
+          this.selectorPreconceptos.dropdownOptions = response
+          // this.preconceptos = response
+          /* for (const it of this.preconceptos) {
+            // if(it.slug.length > 20) it.slug = it.slug.substring(15, 30);
+            this.items.push('⌂' + it.slug)
+          } */
+        },
+        (error: any) =>
+          this.toast.error(
+            'Problema al cargar los Preconceptos revisa la conexion',
+            'Error de conexion'
+          )
+      )
   }
   cargarCompetencias(evento?): void {
-    this.factory.getAll('competencia').subscribe(
-      (response: any) => {
-        this.competencias = response
-        for (const it of this.competencias) {
-          /* if(it.slug.length > 20) it.slug = it.slug.substring(15, 30); */
-          this.itemsCompetencia.push('⌂' + it.slug)
-        }
-      },
-      (error: any) =>
-        this.toast.error(
-          'Problema al cargar las Competencias revisa la conexion',
-          'Error de conexion'
-        )
-    )
+    this.factory
+      .getAll('competencia?populate=false&select=id,nombre')
+      .subscribe(
+        (response: any) => {
+          // this.competencias = response
+          this.selectorCompetencias.dropdownOptions = response
+          /* for (const it of this.competencias) {
+            // if(it.slug.length > 20) it.slug = it.slug.substring(15, 30);
+            this.itemsCompetencia.push('⌂' + it.slug)
+          } */
+        },
+        (error: any) =>
+          this.toast.error(
+            'Problema al cargar las Competencias revisa la conexion',
+            'Error de conexion'
+          )
+      )
   }
   onClickAccordion(key, value): void {
     if (!value.showbody) {
@@ -345,6 +419,9 @@ export class NewLessonComponent implements OnInit {
     this.crear()
   }
   crear(): any {
+    this.leccion.objetivo = this.selectorObjetivo.dataModel.id
+    this.leccion.competencias = this.selectorCompetencias.dataModel
+    this.leccion.preconceptos = this.selectorPreconceptos.dataModel
     this.leccion.aplicaPractico = JSON.stringify({
       aceptacion: this.leccion.aceptacion,
       pruebas: this.leccion.pruebas,

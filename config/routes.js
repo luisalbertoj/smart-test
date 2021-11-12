@@ -39,6 +39,7 @@ module.exports.routes = {
   'POST /leccion/querys': {action: 'leccion/querys'},
   'POST /leccion/reportes': {action: 'leccion/reportes'},
   'GET /getleccion/:slug' : {action: 'leccion/getleccion'},
+  'POST /leccion/reporte': {action: 'resultLessonStudent/reporte'},
   /* Rutas prueba conocimiento */
   'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
   'POST /pruebaconocimiento/getprueba' : {action: 'pruebaConocimiento/getprueba'},

@@ -52,7 +52,8 @@ module.exports = {
     lecciones: {
       collection: 'leccion',
       via: 'grupos'
-    }
+    },
+
   },
 
 };

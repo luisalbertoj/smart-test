@@ -96,7 +96,9 @@ export class RegisterComponent implements OnInit {
       },
       (error: any) => {
         console.log(error)
-        this.toast.error('Error al registrar el usuario: ' + error.message)
+        this.toast.error(
+          'Error al registrar el usuario: el nombre de usuario o el correo ya estan registrados'
+        )
       }
     )
   }

@@ -1,20 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
-import { ReportesRoutingModule } from './reportes-routing.module';
-import { ViewComponent } from './view/view.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ReportesRoutingModule } from './reportes-routing.module'
+import { ViewComponent } from './view/view.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 @NgModule({
-  declarations: [
-    ViewComponent
-  ],
+  declarations: [ViewComponent],
   imports: [
     CommonModule,
     ReportesRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SelectDropDownModule
   ]
 })
-export class ReportesModule { }
+export class ReportesModule {}

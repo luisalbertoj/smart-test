@@ -6,6 +6,7 @@
  */
 const slug = require('slug');
 const _ = require('lodash');
+
 const createlesson = async (req, res) => {
   const parametros = req.allParams();
   var leccion = { preguntas: [] };
@@ -31,12 +32,20 @@ const createlesson = async (req, res) => {
         }
       }
     }
-    for (let [key, preconcepto] of parametros.leccion.preconceptos.entries()) {
+    /* for (let [key, preconcepto] of parametros.leccion.preconceptos.entries()) {
       parametros.leccion.preconceptos[key] = preconcepto.value.split('⌂')[0];
     }
 
     for (let [key, competencia] of parametros.leccion.competencias.entries()) {
       parametros.leccion.competencias[key] = competencia.value.split('⌂')[0];
+    } */
+    const preconceptos = [];
+    for (const preconcepto of parametros.leccion.preconceptos) {
+      preconceptos.push(preconcepto.id);
+    }
+    const competencias = [];
+    for (const competencia of parametros.leccion.competencias) {
+      competencias.push(competencia.id);
     }
 
     leccion = await Leccion.create({
@@ -48,8 +57,8 @@ const createlesson = async (req, res) => {
       practicar: preguntas,
       aplicar: parametros.leccion.aplicar,
       creador: parametros.leccion.creador || 1,
-      competencias: parametros.leccion.competencias,
-      preconceptos: parametros.leccion.preconceptos,
+      competencias: competencias,
+      preconceptos: preconceptos,
       objetivo: parametros.leccion.objetivo,
       aplicaPractico: parametros.leccion.aplicaPractico
     }).fetch();
@@ -64,7 +73,7 @@ const getleccion = async (req, res) => {
   console.log(parametros);
   var leccion;
   try {
-    leccion = await Leccion.findOne(parametros).populate('practicar').populate('preconceptos').populate('competencias');
+    leccion = await Leccion.findOne(parametros).populate('practicar').populate('preconceptos').populate('competencias').populate('objetivo');
     if (!leccion) { return res.badRequest('La leccion no se encontro'); }
     if (leccion.practicar.length === 0) {
       return res.ok({ status: 500, data: 'no hay preguntas registradas', msg: 'Error' });
