@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import * as htmlDocx from 'html-docx-js/dist/html-docx'; 
+import { asBlob } from 'html-docx-js-typescript'
 import { saveAs } from 'file-saver';
 import { environment } from 'src/environments/environment';
 @Component({
@@ -22,24 +22,24 @@ export class PlanPruebasComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public generarWord():void {
+  public async generarWord(): Promise<void> {
     const impresion = document.getElementById('htmlData');
-    let htmlDocument = `
+    this.spinner.show();
+    const htmlDocument = `
     <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
     <body>${impresion.innerHTML}</body></html>
     `;
-    // const converted = htmlDocx.asBlob(htmlDocument);
-    /* this.spinner.show();
-    const impresion = document.getElementById('htmlData');
-    let htmlDocument = `
-    <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
-    <body>${impresion.innerHTML}</body></html>
-    `;
-    const converted = htmlDocx.asBlob(htmlDocument);
+    const opt: any = {
+      margin: {
+        top: 100
+      },
+      orientation: 'landscape'
+    };
+    const converted: any = await asBlob(htmlDocument, opt);
     saveAs(converted, this.plantilla.title + this.plan.title + 'docx');
     setTimeout(() => {
       this.spinner.hide();
-    }, 400); */
+    }, 400);
   }
 
 }

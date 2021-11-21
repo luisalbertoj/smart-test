@@ -9,6 +9,8 @@ import { TagInputModule } from 'ngx-chips'
 import { SelectDropDownModule } from 'ngx-select-dropdown'
 import { MatButtonModule } from '@angular/material/button'
 import { MatTableModule } from '@angular/material/table'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import {MatSelectModule} from '@angular/material/select';
 
 import { NewLessonComponent } from './new-lesson/new-lesson.component'
 import { HomeComponent } from './home/home.component'
@@ -50,7 +52,9 @@ import { LaboratorModule } from '../laborator/laborator.module'
     MatCheckboxModule,
     MatInputModule,
     MatIconModule,
-    LaboratorModule
+    LaboratorModule,
+    MatPaginatorModule,
+    MatSelectModule
   ]
 })
 export class LessonsModule {}

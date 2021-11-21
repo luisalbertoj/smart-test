@@ -131,4 +131,18 @@ const reporte = async (req, res) => {
   }
   return res.ok({ data: queryFecha }); */
 };
-module.exports = { registrarleccion, reporte };
+
+const query = async (req, res) => {
+  const params = req.allParams();
+  const count = await ResultLessonStudent.count(params.where || {});
+  const data = await ResultLessonStudent.find({
+    where: params.where || {},
+    sort: params.sort || 'createdAt DESC',
+    skip: params.skip || 0,
+    limit: params.limit || 10
+  }).populate(params.populate || []);
+  if (!data) return res.json({ code: 402, msg: 'No se encontraron datos' });
+  return res.json({ code: 200, msg: 'Datos cargados', data, count });
+};
+
+module.exports = { registrarleccion, reporte, query };

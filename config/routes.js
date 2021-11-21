@@ -21,36 +21,38 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   /*  Rutas Persona */
-  'POST /persona/search' : {action: 'persona/search'},
-  'POST /persona/registrar' : {action: 'persona/registrar'},
-  'POST /persona/actualizar' : {action: 'persona/actualizar'},
-  'POST /persona/querys' : {action: 'persona/querys'},
-  'POST /persona/login' : {action: 'persona/login'},
-  
-  'POST /privilegio/cambiarprivilegios' : {action: 'privilegio/cambiarPrivilegios'},
-  'GET /getprueba/:id' : {action: 'pruebaConocimiento/getprueba'},
-  
-  /* Rutas Leccion */
-  'POST /leccion/query': {action: 'leccion/query'},
-  'POST /leccion/createlesson': {action: 'leccion/createlesson'},
-  'POST /leccion/registrarleccion': {action: 'resultLessonStudent/registrarleccion'},
-  'POST /lesson/importLessons': {action: 'leccion/importLessons'},
-  'POST /leccion/updatelesson': {action: 'leccion/updatelesson'},
-  'POST /leccion/querys': {action: 'leccion/querys'},
-  'POST /leccion/reportes': {action: 'leccion/reportes'},
-  'GET /getleccion/:slug' : {action: 'leccion/getleccion'},
-  'POST /leccion/reporte': {action: 'resultLessonStudent/reporte'},
-  /* Rutas prueba conocimiento */
-  'POST /pruebaconocimiento/createtest': {action: 'pruebaconocimiento/createtest'},
-  'POST /pruebaconocimiento/getprueba' : {action: 'pruebaConocimiento/getprueba'},
-  'POST /pruebaconocimiento/updatetest': {action: 'pruebaconocimiento/updatetest'},
-  'POST /recursoEducativo/upload' : {action: 'recursoEducativo/upload'},
+  'POST /persona/search': { action: 'persona/search' },
+  'POST /persona/registrar': { action: 'persona/registrar' },
+  'POST /persona/actualizar': { action: 'persona/actualizar' },
+  'POST /persona/querys': { action: 'persona/querys' },
+  'POST /persona/login': { action: 'persona/login' },
 
-  'POST /preconcepto/uploadFiles': {action: 'preconcepto/uploadFiles'},
-  
-  'POST /proyect/upload': {action: 'proyect/upload'},
-  'GET  /rol/initDb': {action: 'rol/initDb'},
-  
+  'POST /privilegio/cambiarprivilegios': { action: 'privilegio/cambiarPrivilegios' },
+  'GET /getprueba/:id': { action: 'pruebaConocimiento/getprueba' },
+
+  /* Rutas Leccion */
+  'POST /leccion/query': { action: 'leccion/query' },
+  'POST /leccion/createlesson': { action: 'leccion/createlesson' },
+  'POST /leccion/registrarleccion': { action: 'resultLessonStudent/registrarleccion' },
+  'POST /lesson/importLessons': { action: 'leccion/importLessons' },
+  'POST /leccion/updatelesson': { action: 'leccion/updatelesson' },
+  'POST /leccion/querys': { action: 'leccion/querys' },
+  'POST /leccion/reportes': { action: 'leccion/reportes' },
+  'GET /getleccion/:slug': { action: 'leccion/getleccion' },
+  'POST /leccion/reporte': { action: 'resultLessonStudent/reporte' },
+  'POST /resultLessonStudent/query': { action: 'resultLessonStudent/query' },
+
+  /* Rutas prueba conocimiento */
+  'POST /pruebaconocimiento/createtest': { action: 'pruebaconocimiento/createtest' },
+  'POST /pruebaconocimiento/getprueba': { action: 'pruebaConocimiento/getprueba' },
+  'POST /pruebaconocimiento/updatetest': { action: 'pruebaconocimiento/updatetest' },
+  'POST /recursoEducativo/upload': { action: 'recursoEducativo/upload' },
+
+  'POST /preconcepto/uploadFiles': { action: 'preconcepto/uploadFiles' },
+
+  'POST /proyect/upload': { action: 'proyect/upload' },
+  'GET  /rol/initDb': { action: 'rol/initDb' },
+
 
 
 

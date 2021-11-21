@@ -55,10 +55,12 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
     estudiante: {
-      model: 'persona'
+      model: 'persona',
+      required: true
     },
     leccion: {
-      model: 'leccion'
+      model: 'leccion',
+      required: true
     }
   },
 

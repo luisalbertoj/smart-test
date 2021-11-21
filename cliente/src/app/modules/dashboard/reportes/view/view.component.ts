@@ -50,7 +50,7 @@ export class ViewComponent implements OnInit {
       search: true,
       height: 'auto',
       placeholder: 'Todas las competencias',
-      customComparator: () => {},
+      customComparator: () => { },
       limitTo: 0,
       moreText: '...',
       noResultsFound: 'No results found!',
@@ -68,7 +68,7 @@ export class ViewComponent implements OnInit {
       search: true,
       height: 'auto',
       placeholder: 'Seleccione los grupos',
-      customComparator: () => {},
+      customComparator: () => { },
       limitTo: 0,
       moreText: '..',
       noResultsFound: 'No results found!',
@@ -94,7 +94,7 @@ export class ViewComponent implements OnInit {
     private factory: FactoryService,
     private spinner: NgxSpinnerService,
     private toast: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadGrupos()
@@ -188,17 +188,17 @@ export class ViewComponent implements OnInit {
           element.resultados.forEach((item) => {
             suma += item.calificacionAplica + item.calificacionPreg
           })
-          if (element.resultados.leccion) {
-            this.reporte.data.body.push({
-              codigo: element.codigo,
-              nombre: element.nombre,
-              grupo: res.data[0].nombre,
-              completas: element.resultados.length,
-              media: suma / element.resultados.length || 0
-            })
-            grafica.datasets[0].data.push(element.resultados.length)
-            grafica.labels.push(element.nombre)
-          }
+          /* if (element.resultados.leccion) { */
+          this.reporte.data.body.push({
+            codigo: element.codigo,
+            nombre: element.nombre,
+            grupo: res.data[0].nombre,
+            completas: element.resultados.length,
+            media: suma / element.resultados.length || 0
+          })
+          grafica.datasets[0].data.push(element.resultados.length)
+          grafica.labels.push(element.nombre)
+          /* } */
         })
         this.spinner.hide()
         this.graficar(grafica)

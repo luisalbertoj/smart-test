@@ -17,6 +17,15 @@ export class ResultComponent implements OnInit {
   };
   leccionCalificar: any = {};
   environment: any = environment;
+  pagination: any = {
+    length: 0,
+    pageSize: 10,
+    pageSizeOptions: [10, 25, 100],
+    pageEvent: {},
+    skip: 0,
+    limit: 10
+  };
+  filtroEstado: any;
   constructor(
     public factory: FactoryService,
     private spinner: NgxSpinnerService,
@@ -26,17 +35,27 @@ export class ResultComponent implements OnInit {
   ngOnInit(): void {
     this.loadResultLesson();
   }
+  paginar(evt): void {
+    this.pagination.pageEvent = evt;
+    this.pagination.skip = this.pagination.pageEvent.pageIndex * 10;
+    this.pagination.limit = this.pagination.pageEvent.pageSize;
+    this.loadResultLesson();
+  }
+
   loadResultLesson(): void {
-    this.factory.getAll('resultLessonStudent').subscribe(
-      (res: any) => {
-        console.log('Calificar', res);
-        this.resultLesson = res;
-      },
-      (err: any) => {
-        console.log(err);
-        this.toast.error(err.msg);
-      }
-    );
+    this.factory.post('resultLessonStudent/query', {
+      where: this.filtroEstado !== null? {estado: this.filtroEstado}: null,
+      skip: this.pagination.skip,
+      limit: this.pagination.limit,
+      select: ['estado', 'calificacionAplica', 'calificacionPreg', 'respuestasEstudiante', 'respuestasCorrectas', 'preguntasTotales', 'aplicaEstudiante', 'aplicaFile'],
+      populate: ['estudiante', 'leccion'],
+      sort: 'createdAt DESC'
+    })
+      .subscribe((res: any) => {
+        console.log('Datos query', res)
+        this.pagination.length = res.count || 0
+        this.resultLesson = res.data
+      })
   }
 
   calificarSelected(item: any): void {
