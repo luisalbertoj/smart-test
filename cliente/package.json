@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && firebase deploy",
+    "build": "ng build --base-href/SmartTest/",
+    "build-firebase": "ng build && firebase deploy",
     "test": "ng test",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "e2e": "ng e2e"
