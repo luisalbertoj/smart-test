@@ -33,11 +33,10 @@ export class PlanAceptacionComponent implements OnInit {
     nombreCP: '',
     modulo: '',
     submodulo: '',
-    formulario: '',
     descripcion: '',
     resultesperados: '',
     resultreales: '',
-    error: '',
+    pasos:''
   };
 
   constructor(
@@ -48,7 +47,7 @@ export class PlanAceptacionComponent implements OnInit {
   }
 
   public async generarWord(): Promise<void> {
-    const impresion = document.getElementById('htmlData');
+    const impresion = document.getElementById('htmlData3');
     this.spinner.show();
     const htmlDocument = `
     <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
