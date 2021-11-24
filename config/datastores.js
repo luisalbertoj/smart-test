@@ -31,18 +31,19 @@ module.exports.datastores = {
   * (For production configuration, see `config/env/production.js`.)          *
   *                                                                          *
   ***************************************************************************/
- /* default: {
+ default: {
    adapter: 'sails-mongo',
    url: 'mongodb://localhost:27017/smart_test'
- }, */
-  default: {
+ },
+
+  /* default: {
     adapter: 'sails-mongo',
     host: 'localhost',
     port: 27017,
     user: 'myUserAdmin',
     password: '16132243C3a05fe00',
     database: 'smart_test'
-  },
+  }, */
   mariaDB: {
 
     /***************************************************************************

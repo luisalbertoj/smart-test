@@ -8,14 +8,15 @@
 const uploadFiles = async (req, res) => {
     const params = req.allParams();
     const preconceptos = [];
-    params.data.forEach(async element => {
-        if (element[0] === 'titulo' && element[1] === 'contenido') return 0;
-        const preconcepto = await Preconcepto.findOrCreate(
-            { titulo: element[0] },
-            { titulo: element[0], concepto: element[1] }
-        ).catch((err) => { console.log(err); });
-        preconceptos.push(preconcepto);
-    });
+    for (const element of params.data) {
+        if (element[0] !== 'titulo' && element[1] !== 'contenido') {
+            const preconcepto = await Preconcepto.findOrCreate(
+                { titulo: element[0] },
+                { titulo: element[0], concepto: element[1] }
+            ).catch((err) => { console.log(err); });
+            preconceptos.push(preconcepto);
+        }
+    }
     return res.ok({ status: 200, data: preconceptos });
 }
 
