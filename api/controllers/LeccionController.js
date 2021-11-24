@@ -113,6 +113,11 @@ const processCompetencias = async (item, admin) => {
     }
   }
 
+  if (!competencia1) {
+    competencia1 = await Competencia.findOrCreate({ nombre: (item[2] ? item[2] : '') },
+      { nombre: item[2], observaciones: ' ', creador: admin.id });
+  }
+
   if (competencia2) { competencia2 = competencia2.length > 0 ? competencia2[0] : null; }
   return (competencia1 && competencia2 && competencia1 !== undefined && competencia2 !== undefined) ?
     [competencia1.id, competencia2.id] : [competencia1.id];
@@ -127,17 +132,18 @@ const importLessons = async (req, res) => {
   if (tipo) {
     tipo = tipo.id;
     let lecciones = [];
-    parametros.data.forEach(async (item, z) => {
+    for (const [z, item] of parametros.data.entries()) {
       if (item[0] !== 'titulo' && item[1] !== 'objetivo') {
         let leccion = {};
         leccion.titulo = item[0];
 
-        const leccionExist = await Leccion.findOne({ titulo: leccion.titulo });
-        if (!leccionExist) {
+        const leccionExist = await Leccion.find({ titulo: leccion.titulo }).limit(1);
+        if (leccionExist.length === 0) {
           const objetivo = await Objetivo.findOrCreate({ titulo: item[1] },
-            { titulo: 'Objetivo ' + z, contenido: item[1], creador: admin.id })
+            { titulo: 'Objetivo ' + z + '-' + (Math.random() * (100 - 1) + 1), contenido: item[1], creador: admin.id })
             .catch((err) => { console.log(err); });
           console.log('Objetivo', objetivo);
+          if (!objetivo) { return 0 }
           if (objetivo) { leccion.objetivo = objetivo.id; }
           leccion.competencias = await processCompetencias(item, admin);
           let preconceptos = "";
@@ -159,40 +165,42 @@ const importLessons = async (req, res) => {
 
           let preguntas = [];
           for (let m = 0; m < 4; m++) {
-            /* console.log('Pregunta', item[indice]); */
-            let preguntaTemp = await Pregunta.create({ contenido: item[indice], tipo: tipo }).fetch();
-            let pregunta = null;
-            let respuestaCorrecta = null;
-            if (preguntaTemp) {
-              pregunta = preguntaTemp.id;
-              const respuestaCorrectaPos = item[indice + 1];
-              for (let i = indice + 2; i < indice + 5; i++) {
-                if (item[i] !== null && item[i] !== undefined) {
-                  if (respuestaCorrectaPos === item[i]) {
-                    respuestaCorrecta = await Respuesta.create(
-                      { contenido: item[i], preguntas: [pregunta] }
-                    ).fetch();
-                  } else {
-                    await Respuesta.create(
-                      { contenido: item[i], preguntas: [pregunta] }
-                    )
+            if (item[indice]) {
+              /* console.log('Pregunta', item[indice]); */
+              let preguntaTemp = await Pregunta.create({ contenido: item[indice], tipo: tipo }).fetch();
+              let pregunta = null;
+              let respuestaCorrecta = null;
+              if (preguntaTemp) {
+                pregunta = preguntaTemp.id;
+                const respuestaCorrectaPos = item[indice + 1];
+                for (let i = indice + 2; i < indice + 5; i++) {
+                  if (item[i] !== null && item[i] !== undefined) {
+                    if (respuestaCorrectaPos === item[i]) {
+                      respuestaCorrecta = await Respuesta.create(
+                        { contenido: item[i], preguntas: [pregunta] }
+                      ).fetch();
+                    } else {
+                      await Respuesta.create(
+                        { contenido: item[i], preguntas: [pregunta] }
+                      )
+                    }
+                    /* console.log('respuesta', item[i]); */
                   }
-                  /* console.log('respuesta', item[i]); */
                 }
+                if (respuestaCorrecta) {
+                  let preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
+                    .set({ respuestaCorrecta: respuestaCorrecta.id })
+                    .catch((err) => { console.log(err); });
+                  if (!preguntaUpdate) { console.log('No pregunta update'); }
+                  console.log('respuesta correcta', respuestaCorrecta);
+                  console.log('pregunta', pregunta);
+                  preguntas.push(pregunta);
+                }
+
               }
-              if(respuestaCorrecta) {
-                let preguntaUpdate = await Pregunta.updateOne({ id: pregunta })
-                .set({ respuestaCorrecta: respuestaCorrecta.id })
-                .catch((err) => { console.log(err); });
-              if (!preguntaUpdate) { console.log('No pregunta update'); }
-              console.log('respuesta correcta', respuestaCorrecta);
-              console.log('pregunta', pregunta);
-              preguntas.push(pregunta);
-              }
-              
+              indice += 5;
+              /* console.log('Siguiente pregunta'); */
             }
-            indice += 5;
-            /* console.log('Siguiente pregunta'); */
           }
           leccion.aplicar = item[29];
           leccion = await Leccion.create({
@@ -211,7 +219,11 @@ const importLessons = async (req, res) => {
           lecciones.push(leccion);
         }
       }
-    });
+    }
+
+    /* parametros.data.forEach(async (item, z) => {
+      
+    }); */
     return res.ok({ message: 'Lecciones creadas', data: lecciones });
   }
   res.badRequest({ message: 'Datos incompletos' });
@@ -280,8 +292,8 @@ const querys = async (req, res) => {
   let params = req.allParams();
   let resultado = Object();
   resultado = await Leccion.find
-  ({ where: params.where || {}, sort: params.sort || 'createdAt DESC' })
-  .paginate(params.skip || 0, params.limit || 10);
+    ({ where: params.where || {}, sort: params.sort || 'createdAt DESC' })
+    .paginate(params.skip || 0, params.limit || 10);
   return res.json({ status: 200, data: resultado, msg: 'Consulta completada' });
 };
 const reportes = async (req, res) => {

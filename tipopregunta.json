@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6157d1ced6b2a1169019c0e1"
+  },
+  "createdAt": 1633145294470,
+  "updatedAt": 1633145294470,
+  "nombre": "multiple",
+  "slug": "multiple"
+},{
+  "_id": {
+    "$oid": "6157e6858bf62b3c9c0a9e75"
+  },
+  "createdAt": 1633150597865,
+  "updatedAt": 1633150597865,
+  "nombre": "abierta",
+  "slug": "abierta"
+}]

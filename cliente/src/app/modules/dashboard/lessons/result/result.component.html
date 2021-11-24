@@ -46,7 +46,7 @@
                   </span>
                 </th>
                 <th>
-                  {{item?.calificacionAplica}}
+                  {{item.calificacionPreg + 0 + item.calificacionAplica}}
                 </th>
                 <th>
                   <button type="button" (click)="calificarSelected(item)" class="btn btn-primary btn-ver"
@@ -118,7 +118,7 @@
         <hr>
         <ng-container *ngIf="leccionCalificar.aplicaFile">
           <h2>Archivos cargados</h2>
-          <a href="{{environment.urlApi + leccionCalificar.aplicaFile }}" target="_blank">
+          <a href="{{environment.urlMedia + leccionCalificar.aplicaFile }}" target="_blank">
             <i class="fas fa-eye"></i>
           </a>
 
