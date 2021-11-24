@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
+  public pageActual = 1;
+
   public resultLesson: any = [];
   plantilla: any = {
     menuTest: 'Resultados',

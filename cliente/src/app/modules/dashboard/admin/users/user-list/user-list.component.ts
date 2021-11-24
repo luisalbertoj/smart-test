@@ -31,6 +31,15 @@ export class UserListComponent implements OnInit {
     password: '',
     rol: {}
   }
+
+  pagination: any = {
+    length: 0,
+    pageSize: 10,
+    pageSizeOptions: [10, 25, 100],
+    pageEvent: {},
+    skip: 0,
+    limit: 10
+  };
   public paqueteSeleccionado: any
   // modelos inputs
   public contrasenaNueva = ''
@@ -137,6 +146,13 @@ export class UserListComponent implements OnInit {
       this.usuarioSeleccionado.password = this.contrasenaNueva
       return true
     }
+  }
+
+  paginar(evt): void {
+    this.pagination.pageEvent = evt;
+    this.pagination.skip = this.pagination.pageEvent.pageIndex * 10;
+    this.pagination.limit = this.pagination.pageEvent.pageSize;
+    this.cargarTodos();
   }
 
   buscar(): any {

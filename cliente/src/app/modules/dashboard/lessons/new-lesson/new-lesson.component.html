@@ -40,7 +40,7 @@
                           <div class="col-sm-12 col-md-3">
                             <div class="row">
                               <div class="col-sm-12 col-md-10">
-                                <label>Titulo de la lección *</label>
+                                <label>Título de la lección *</label>
                               </div>
                               <div class="col-sm-12 col-md-2">
                                 <button class="btn-tooltip" data-toggle="tooltip"
@@ -76,37 +76,40 @@
                             </div>
                           </div>
                           <div class="col-sm-12 col-md-9">
-                            <ngx-select-dropdown
-                                [multiple]="false"
-                                [(ngModel)]="selectorObjetivo.dataModel"
-                                [config]="selectorObjetivo.config"
-                                [options]="selectorObjetivo.dropdownOptions"
-                              >
-                              </ngx-select-dropdown>
-                            <div class="ui left icon input swdh19 divobj">
-                              <!-- <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo"
-                                class="custom-select inputobject">
-                                <option value="">
-                                  Selecciona el objetivo
-                                </option>
-                                <option *ngFor="let objetivo of objetivos" value="{{ objetivo?.id }}">
-                                  {{ objetivo?.contenido }}
-                                </option>
-                              </select> -->
-                              
-                              <app-add-element [model]="newObjetivo.model" [title]="newObjetivo.title"
-                                [labels]="newObjetivo.labels" (addElementos)="cargarObjetivos($event)" #addobjetivos>
-                              </app-add-element>
-                              <button type="button" (click)="
-                                addobjetivos.addArray(newObjetivo.arrayForm)" class="
-                                      btn btn-plantilla
-                                      btnaddpreg
-                                      btn-primary
-                                    " data-toggle="modal" data-target="#addobjetivo">
-                                <i class="fas fa-plus"></i>
-                              </button>
+                            <div class="row">
+                              <div class="col-sm-11 col-md-11">
+                                <ngx-select-dropdown [multiple]="false" [(ngModel)]="selectorObjetivo.dataModel"
+                                  [config]="selectorObjetivo.config" [options]="selectorObjetivo.dropdownOptions">
+                                </ngx-select-dropdown>
+                                <div class="ui left icon input swdh19 divobj">
+                                  <!-- <select [(ngModel)]="leccion.objetivo" name="leccion.objetivo"
+                                      class="custom-select inputobject">
+                                      <option value="">
+                                        Selecciona el objetivo
+                                      </option>
+                                      <option *ngFor="let objetivo of objetivos" value="{{ objetivo?.id }}">
+                                        {{ objetivo?.contenido }}
+                                      </option>
+                                    </select> -->
 
-                            </div>
+                                  <app-add-element [model]="newObjetivo.model" [title]="newObjetivo.title"
+                                    [labels]="newObjetivo.labels" (addElementos)="cargarObjetivos($event)"
+                                    #addobjetivos>
+                                  </app-add-element>
+                                </div>
+                              </div>
+                                <div class="col-sm-1 col-md-1">
+                                  <button type="button" (click)="
+                                    addobjetivos.addArray(newObjetivo.arrayForm)" class="
+                                          btn btn-plantilla
+                                          btnaddpreg
+                                          btn-primary
+                                        " data-toggle="modal" data-target="#addobjetivo">
+                                    <i class="fas fa-plus"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -131,13 +134,10 @@
                           <div class="col-sm-12 col-md-9">
                             <div class="row">
                               <div class="col-sm-11 col-md-11">
-                                <ngx-select-dropdown
-                                [multiple]="true"
-                                [(ngModel)]="selectorCompetencias.dataModel"
-                                [config]="selectorCompetencias.config"
-                                [options]="selectorCompetencias.dropdownOptions"
-                              >
-                              </ngx-select-dropdown>
+                                <ngx-select-dropdown [multiple]="true" [(ngModel)]="selectorCompetencias.dataModel"
+                                  [config]="selectorCompetencias.config"
+                                  [options]="selectorCompetencias.dropdownOptions">
+                                </ngx-select-dropdown>
                                 <div class="ui left icon input swdh19 taginput">
                                   <!-- <tag-input class="dropdown" [(ngModel)]="leccion.competencias"
                                     name="leccion.competencias" placeholder="Selecciona las competencias"
@@ -201,13 +201,10 @@
                           <div class="col-sm-12 col-md-9">
                             <div class="row">
                               <div class="col-sm-11 col-md-11">
-                                <ngx-select-dropdown
-                                [multiple]="true"
-                                [(ngModel)]="selectorPreconceptos.dataModel"
-                                [config]="selectorPreconceptos.config"
-                                [options]="selectorPreconceptos.dropdownOptions"
-                              >
-                              </ngx-select-dropdown>
+                                <ngx-select-dropdown [multiple]="true" [(ngModel)]="selectorPreconceptos.dataModel"
+                                  [config]="selectorPreconceptos.config"
+                                  [options]="selectorPreconceptos.dropdownOptions">
+                                </ngx-select-dropdown>
                                 <div class="ui left icon input swdh19">
                                   <!-- <tag-input class="input-tag" [(ngModel)]="leccion.preconceptos"
                                     name="leccion.Preconceptos" placeholder="Selecciona los preconcepto"
@@ -418,7 +415,7 @@
                                     ">
                               <option value="">Tipo de pregunta</option>
                               <option *ngFor="let tipo of tipoPregunta" value="{{ tipo?.nombre }}">
-                                {{ tipo?.nombre  }}
+                                {{ tipo?.nombre }}
                               </option>
                             </select>
 
@@ -429,8 +426,8 @@
                                     ">
                               <i class="fas fa-plus"></i>
                             </button>
-                          
-                          <!--  <button type="button" (click)="searchPregunta.cargarModel()" class="
+
+                            <!--  <button type="button" (click)="searchPregunta.cargarModel()" class="
                                             btn btn-plantilla
                                             btnaddpreg
                                             btn-primary
@@ -464,7 +461,8 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">Valor pregunta: </span>
                                         </div>
-                                        <input type="number" min="0" class="form-control" [(ngModel)]="pregunta.valor" required>
+                                        <input type="number" min="0" class="form-control" [(ngModel)]="pregunta.valor"
+                                          required>
                                       </div>
 
                                     </label>
@@ -489,7 +487,8 @@
                                 </div>
                                 <div>
                                   <br />
-                                  <button (click)="agregarRespuesta(i)" type="button" class="btn btn-primary btn-respuesta">
+                                  <button (click)="agregarRespuesta(i)" type="button"
+                                    class="btn btn-primary btn-respuesta">
                                     Agregar respuesta
                                   </button>
 
@@ -505,11 +504,12 @@
                                           <div class="input-group-prepend">
                                             <span class="input-group-text">Valor respuesta: </span>
                                           </div>
-                                          <input type="number" class="form-control" [(ngModel)]="respuesta.valor" required>
-                                        </div> 
+                                          <input type="number" class="form-control" [(ngModel)]="respuesta.valor"
+                                            required>
+                                        </div>
                                         <label class="form-check-label" for="exampleCheck1">Respuesta correcta
                                           <input class="inputCorrect" type="checkbox" [(ngModel)]="respuesta.correcta"
-                                          name="respuesta.correcta" id="exampleCheck1" />
+                                            name="respuesta.correcta" id="exampleCheck1" />
                                         </label>
                                         <br>
                                         <br>
@@ -525,7 +525,8 @@
                                             "></angular-editor>
                                     <br>
                                     <br>
-                                    <button (click)="respuesta.addRetro = true" type="button" class="btn btn-respuesta btn-primary">
+                                    <button (click)="respuesta.addRetro = true" type="button"
+                                      class="btn btn-respuesta btn-primary">
                                       Agregar retroalimentación
                                     </button>
                                     <br>
@@ -547,7 +548,8 @@
                                           " name="leccion.practicar"></angular-editor>
 
                                   <br>
-                                  <button (click)="pregunta.addRetro = true" type="button" class="btn btn-respuesta btn-primary">
+                                  <button (click)="pregunta.addRetro = true" type="button"
+                                    class="btn btn-respuesta btn-primary">
                                     Agregar retroalimentacion
                                   </button>
                                   <br>
@@ -654,13 +656,14 @@
               <hr class="hr">
               <br>
               <div class="row justify-content-end d-flex">
-              <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar btn-primary" type="button" *ngIf="!id">
-                Guardar
-              </button>
-              <button (click)="editarLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="id">
-                Editar
-              </button>
-            </div>
+                <button (click)="crearLeccion()" class="btn btn-plantilla btn-guardar btn-primary" type="button"
+                  *ngIf="!id">
+                  Guardar
+                </button>
+                <button (click)="editarLeccion()" class="btn btn-plantilla btn-guardar" type="button" *ngIf="id">
+                  Editar
+                </button>
+              </div>
               <br>
             </div>
           </div>
