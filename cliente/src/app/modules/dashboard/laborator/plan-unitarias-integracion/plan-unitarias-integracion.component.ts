@@ -50,6 +50,7 @@ export class PlanUnitariasIntegracionComponent implements OnInit {
     componente: '',
     CP:'',
     resultado:'',
+    resultao:'',
     seguimiento:'',
     conclusion:'',
 
@@ -66,7 +67,7 @@ export class PlanUnitariasIntegracionComponent implements OnInit {
   }
 
   public async generarWord(): Promise<void> {
-    const impresion = document.getElementById('htmlData');
+    const impresion = document.getElementById('htmlData2');
     this.spinner.show();
     const htmlDocument = `
     <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>

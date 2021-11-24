@@ -31,7 +31,8 @@
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
-    "deploy": "pm2 stop &&  pm2 start app.js"
+    "deploy": "pm2 stop &&  pm2 start app.js",
+    "deploy-google": "gcloud app deploy app.yaml --promote --project smart-326818"
   },
   "main": "app.js",
   "repository": {

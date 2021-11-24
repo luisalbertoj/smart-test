@@ -433,21 +433,20 @@
                   </div>
                 </td>
               </tr>
-              <tr style='height:20.65pt'>
+              
+              <tr style='height:20.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.65pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Formulario</span></b>
-                  </p>
+              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
+                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Descripción </span></b></p>
                 </td>
               </tr>
-              <tr style='height:21.0pt'>
+              <tr style='height:21.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.0pt'>
+              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>&lt;Escriba aquí el formulario en el cual se
-                      realiza la prueba&gt;</span></p>
+                      style='color:#0070C0'>&lt;Describa la funcionalidad&gt;</span></p>
                   <div class="input-group">
-                    <textarea [(ngModel)]="plan.formulario" name="plan.formulario" class="form-control"
+                    <textarea [(ngModel)]="plan.descripcion" name="plan.descripcion" class="form-control"
                       aria-label="With textarea"></textarea>
                   </div>
                 </td>
@@ -455,19 +454,16 @@
               <tr style='height:20.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
               border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Descripción de la
-                        prueba</span></b></p>
-
+                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Pasos </span></b></p>
                 </td>
               </tr>
               <tr style='height:21.6pt'>
                 <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
               border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
                   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>&lt;Escriba el procedimiento (pasos) en detalle
-                      de la prueba que va a realizar&gt;</span></p>
+                      style='color:#0070C0'>&lt;Escriba el paso a paso para realizar la prueba&gt;</span></p>
                   <div class="input-group">
-                    <textarea [(ngModel)]="plan.descripcion" name="plan.descripcion" class="form-control"
+                    <textarea [(ngModel)]="plan.pasos" name="plan.pasos" class="form-control"
                       aria-label="With textarea"></textarea>
                   </div>
                 </td>
@@ -509,38 +505,8 @@
                   </div>
                 </td>
               </tr>
-              <tr style='height:20.95pt'>
-                <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.95pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Error</span></b></p>
-                </td>
-              </tr>
-              <tr style='height:20.6pt'>
-                <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>&lt;Describa el error que se encontró luego de
-                      realizar la prueba&gt;</span></p>
-                  <div class="input-group">
-                    <textarea [(ngModel)]="plan.error" name="plan.error" class="form-control"
-                      aria-label="With textarea"></textarea>
-                  </div>
-                </td>
-              </tr>
-              <tr style='height:20.6pt'>
-                <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Imagen</span></b></p>
-                </td>
-              </tr>
-              <tr style='height:20.6pt'>
-                <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
-              border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
-                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
-                      style='color:#0070C0'>&lt;Pegue aquí la(s) imagen(es) del error
-                      encontrado&gt;</span></p>
-                </td>
-              </tr>
+              
+              
               <tr height=0>
                 <td width=118 style='border:none'></td>
                 <td width=71 style='border:none'></td>
@@ -566,9 +532,468 @@
     </div>
     <div class="col-sm-12 justify-content-end d-flex">
       <br>
-      <button class="btn btn-info" (click)="generarWord()">Generar Word</button>
+      <button class="btn btn-info" data-toggle="modal" data-target="#modalPlanAceptacion">Vista previa</button>
       <span class="text-white"> - </span>
       <button class="btn btn-success">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalPlanAceptacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h2 class="modal-title " id="exampleModalLabel">Vista previa del plan de pruebas unitarias e integración</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="htmlData3">
+        <div class="container">
+          <div lang=ES-CO style='word-wrap:break-word'>
+            <p class=MsoNormal><b><span lang=ES style='font-size:36.0pt;line-height:107%;
+              font-family:"Calibri Light",sans-serif'>PLAN DE PRUEBAS DE ACEPTACIÓN</span></b></p>
+            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+              >
+              {{plan.title}}</span></p>
+  
+            <p class=MsoNormal><b><span lang=ES style='font-size:14.0pt;line-height:107%;
+              font-family:"Calibri Light",sans-serif;color:#0070C0'>&nbsp;</span></b></p>
+  
+            <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>1.<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>HOJA
+                  DE CONTROL</span></b></p>
+                  <div align=center>
+
+            <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=605
+                      style='width:453.55pt;border-collapse:collapse'>
+              <tr>
+                <td width=147 style='width:110.4pt;border:solid gray 1.0pt;border-right:none;
+                      background:#E6E6E6;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
+                      "Calibri Light",sans-serif'>Organismo</span></b></p>
+                </td>
+                <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
+                    padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                    >
+                    {{plan.organismo}}</span></p>
+                        </td>
+                </tr>
+                <tr style='height:34.0pt'>
+                  <td width=147 style='width:110.4pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt;height:34.0pt'>
+                          <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
+                      "Calibri Light",sans-serif;color:black'>Proyecto</span></b></p>
+                  </td>
+                  <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
+                      border-top:none;padding:2.75pt 2.75pt 2.75pt 2.75pt;height:34.0pt'>
+                    <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                      >
+                      {{plan.proyecto}}</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width=147 style='width:110.4pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
+                      "Calibri Light",sans-serif;color:black'>Entregable</span></b></p>
+                  </td>
+                  <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
+                      border-top:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.entregable}}</span></p>
+                        </td>
+                </tr>
+                <tr>
+                  <td width=147 style='width:110.4pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
+                      "Calibri Light",sans-serif;color:black'>Autor</span></b></p>
+                  </td>
+                  <td width=458 colspan=3 style='width:343.15pt;border:solid gray 1.0pt;
+                      border-top:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                      <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                        >
+                        {{plan.autor}}</span></p>
+                        </td>
+                </tr>
+                <tr>
+                <td width=147 style='width:110.4pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
+                      "Calibri Light",sans-serif;color:black'>Versión/Edición</span></b></p>
+                        </td>
+                        <td width=200 style='width:150.1pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.version}}</span></p>
+                        </td>
+                        <td width=147 style='width:109.95pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=TableContents><b><span lang=ES style='color:black'>Fecha Versión</span></b></p>
+                        </td>
+                        <td width=111 style='width:83.1pt;border:solid gray 1.0pt;border-top:none;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.fechaV}}</span></p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width=147 style='width:110.4pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=TableContents><b><span lang=ES style='font-size:11.0pt;font-family:
+                      "Calibri Light",sans-serif;color:black'>Aprobado por</span></b></p>
+                        </td>
+                        <td width=200 style='width:150.1pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.aprobado}}</span></p>
+                        </td>
+                        <td width=147 style='width:109.95pt;border-top:none;border-left:solid gray 1.0pt;
+                      border-bottom:solid gray 1.0pt;border-right:none;background:#E6E6E6;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=TableContents><b><span lang=ES style='color:black'>Fecha Aprobación</span></b></p>
+                        </td>
+                        <td width=111 style='width:83.1pt;border:solid gray 1.0pt;border-top:none;
+                      padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.fechaA}}</span></p>
+                        </td>
+                      </tr>
+              </table>
+            </div>
+            <p class=MsoNormal><b><span lang=ES style='font-size:12.0pt;line-height:107%;
+              font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
+  
+            <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>2.<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>REGISTRO
+                  DE CAMBIOS</span></b></p>
+  
+            <div align=center>
+  
+              <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=605
+                style='width:453.55pt;border-collapse:collapse'>
+                <tr>
+                  <td width=82 style='width:61.15pt;border:solid gray 1.0pt;border-right:none;
+                background:#E6E6E6;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=TableContents align=center style='text-align:center'><b><span lang=ES
+                          style='font-size:11.0pt;font-family:"Calibri Light",sans-serif'>Versión
+                          doc</span></b></p>
+                  </td>
+                  <td width=169 style='width:126.65pt;border:solid gray 1.0pt;border-right:
+                none;background:#E6E6E6;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=TableContents align=center style='text-align:center'><b><span lang=ES style='font-size:11.0pt;font-family:"Calibri Light",sans-serif;
+                color:black'>Causa del Cambio</span></b></p>
+                  </td>
+                  <td width=222 style='width:166.35pt;border:solid gray 1.0pt;border-right:
+                none;background:#E6E6E6;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=TableContents align=center style='text-align:center'><b><span lang=ES style='font-size:11.0pt;font-family:"Calibri Light",sans-serif;
+                color:black'>Responsable del Cambio</span></b></p>
+                  </td>
+                  <td width=133 style='width:99.4pt;border:solid gray 1.0pt;background:#E6E6E6;
+                padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=TableContents align=center style='text-align:center'><b><span lang=ES style='font-size:11.0pt;font-family:"Calibri Light",sans-serif;
+                color:black'>Fecha del Cambio</span></b></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width=82 style='width:61.15pt;border-top:none;border-left:solid gray 1.0pt;
+                border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                      >
+                      {{plan.versionDoc}}</span></p>
+                  </td>
+                  <td width=169 style='width:126.65pt;border-top:none;border-left:solid gray 1.0pt;
+                border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                      >
+                      {{plan.causa}}</span></p>
+                  </td>
+                  <td width=222 style='width:166.35pt;border-top:none;border-left:solid gray 1.0pt;
+                border-bottom:solid gray 1.0pt;border-right:none;padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                      >
+                      {{plan.responsableCambio}}</span></p>
+                  </td>
+                  <td width=133 style='width:99.4pt;border:solid gray 1.0pt;border-top:none;
+                padding:2.75pt 2.75pt 2.75pt 2.75pt'>
+                    <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                      >
+                      {{plan.fechaC}}</span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <p class=MsoListParagraphCxSpFirst><b><span lang=ES style='font-size:12.0pt;
+              line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
+            <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
+              line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
+            <p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>INTRODUCCIÓN</span></b>
+            </p>
+  
+            <p class=MsoListParagraphCxSpMiddle><b><span lang=ES style='font-size:12.0pt;
+              line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
+  
+            <p class=MsoListParagraphCxSpLast style='margin-left:55.5pt;text-indent:-19.5pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.1<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></b><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>OBJETO</span></b></p>
+                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                    >
+                    {{plan.objeto}}</span></p>
+            
+  
+            <p class=MsoListParagraph style='margin-left:55.5pt;text-indent:-19.5pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>3.2<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></b><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>ALCANCE</span></b></p>
+  
+                  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                    >
+                    {{plan.alcance}}</span></p>
+  
+            <p class=MsoNormal><span lang=ES style='font-size:12.0pt;line-height:107%;
+              color:#0070C0'>&nbsp;</span></p>
+  
+            <p class=MsoListParagraph style='text-indent:-18.0pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>4.<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></b><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>PLANES
+                  DE PRUEBA</span></b></p>
+  
+            <p class=MsoNormal style='margin-left:18.0pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>4.1
+                  <span style='color:#4472C4'>&lt;NOMBRE DEL MÓDULO&gt;</span></span></b></p>
+  
+            <p class=MsoNormal style='margin-left:18.0pt'><b><span lang=ES
+                  style='font-size:12.0pt;line-height:107%;font-family:"Calibri Light",sans-serif'>&nbsp;</span></b></p>
+            <div align=center>
+              <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>
+                <tr style='height:18.0pt'>
+                  <td width=118 rowspan=3 valign=top style='width:88.5pt;border:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                          <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+                      line-height:normal'><img width=62 height=81 id="Imagen 3" src="/assets/images/logo-udes.png"
+                              alt="Imagen relacionada"></p>
+                        </td>
+                  <td width=384 colspan=4 style='width:288.0pt;border:solid windowtext 1.0pt;
+                      border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                          <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+                      line-height:normal'><b><span lang=ES style='font-size:12.0pt;font-family:
+                      "Calibri Light",sans-serif'>Caso de Prueba</span></b></p>
+                        </td>
+                  <td width=141 style='width:105.5pt;border:solid windowtext 1.0pt;border-left:
+                      none;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                              style='font-family:"Calibri Light",sans-serif'>Fecha: 22/11/2021</span></p>
+                        </td>
+                </tr>
+                <tr style='height:20.4pt'>
+                  <td width=384 colspan=4 style='width:288.0pt;border-top:none;border-left:
+                      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.nombreProyect}}</span></p>
+                  </td>
+                  <td width=141 style='width:105.5pt;border-top:none;border-left:none;
+                      border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                              style='font-family:"Calibri Light",sans-serif'>Versión: 01</span></p>
+                        </td>
+                </tr>
+                <tr style='height:22.5pt'>
+                        <td width=384 colspan=4 style='width:288.0pt;border-top:none;border-left:
+                      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:22.5pt'>
+                          <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+                      line-height:normal'><span style='font-family:"Calibri Light",sans-serif'>Universidad
+                              de Santander</span></p>
+                        </td>
+                        <td width=141 style='width:105.5pt;border-top:none;border-left:none;
+                      border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:22.5pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                              style='font-family:"Calibri Light",sans-serif'>Hola: 1 de 1</span></p>
+                        </td>
+                </tr>
+                <tr style='height:26.0pt'>
+                  <td width=189 colspan=2 valign=top style='width:141.5pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+                                lang=ES>Identificador</span></b></p>
+                        </td>
+                  <td width=142 valign=top style='width:106.35pt;border-top:none;border-left:
+                      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.identificacion}}</span></p>
+                        </td>
+                  <td width=80 valign=top style='width:59.65pt;border-top:none;border-left:
+                      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Versión</span></b>
+                          </p>
+                        </td>
+                  <td width=233 colspan=2 valign=top style='width:174.5pt;border-top:none;
+                      border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt'>
+                      <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                        >
+                        {{plan.versionCP}}</span></p>
+                        </td>
+                </tr>
+                <tr style='height:21.4pt'>
+                  <td width=189 colspan=2 valign=top style='width:141.5pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.4pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+                                lang=ES>Responsable</span></b></p>
+                        </td>
+                        <td width=454 colspan=4 valign=top style='width:340.5pt;border-top:none;
+                      border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:21.4pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.responsableCP}}</span></p>
+                        </td>
+                      </tr>
+                <tr style='height:20.25pt'>
+                  <td width=189 colspan=2 valign=top style='width:141.5pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.25pt'>
+                    <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Nombre del caso de prueba</span></b></p>
+                        </td>
+                        <td width=454 colspan=4 valign=top style='width:340.5pt;border-top:none;
+                      border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:20.25pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.nombreCP}}</span></p>
+                        </td>
+                      </tr>
+                <tr style='height:21.5pt'>
+                  <td width=330 colspan=3 valign=top style='width:247.85pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Módulo</span></b></p>
+                        </td>
+                        <td width=312 colspan=3 valign=top style='width:234.15pt;border-top:none;
+                      border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Submódulo</span></b>
+                          </p>
+                        </td>
+                      </tr>
+                <tr style='height:35.55pt'>
+                  <td width=330 colspan=3 valign=top style='width:247.85pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.modulo}}</span></p>
+                        </td>
+                  <td width=312 colspan=3 valign=top style='width:234.15pt;border-top:none;
+                      border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                      padding:0cm 5.4pt 0cm 5.4pt;height:35.55pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.submodulo}}</span></p>
+                        </td>
+                </tr>
+                <tr style='height:20.6pt'>
+                  <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Descripción </span></b></p>
+                        </td>
+                </tr>
+                <tr style='height:21.6pt'>
+                  <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.descripcion}}</span></p>
+                        </td>
+                </tr>
+                <tr style='height:20.6pt'>
+                        <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.6pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Pasos </span></b></p>
+                        </td>
+                </tr>
+                <tr style='height:21.6pt'>
+                  <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.pasos}}</span></p>
+                        </td>
+                      </tr>
+                <tr style='height:19.8pt'>
+                  <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.8pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Resultados
+                                esperados</span></b></p>
+                        </td>
+                      </tr>
+                <tr style='height:21.5pt'>
+                  <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:21.5pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.resultesperados}}</span></p>
+                        </td>
+                      </tr>
+                <tr style='height:20.4pt'>
+                        <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.4pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span lang=ES>Resultados
+                                reales</span></b></p>
+                        </td>
+                      </tr>
+                <tr style='height:20.7pt'>
+                        <td width=643 colspan=6 valign=top style='width:482.0pt;border:solid windowtext 1.0pt;
+                      border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.7pt'>
+                          <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span lang=ES
+                            >
+                            {{plan.resultreales}}</span></p>
+                        </td>
+                      </tr>
+                      
+                      
+                      <tr height=0>
+                        <td width=118 style='border:none'></td>
+                        <td width=71 style='border:none'></td>
+                        <td width=142 style='border:none'></td>
+                        <td width=80 style='border:none'></td>
+                        <td width=92 style='border:none'></td>
+                        <td width=141 style='border:none'></td>
+                      </tr>
+                    </table>
+                  </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="generarWord()">Generar WORD</button>
+      </div>
     </div>
   </div>
 </div>
