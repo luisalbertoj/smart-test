@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c07a"
+  },
+  "createdAt": 1633145248171,
+  "updatedAt": 1633145248171,
+  "nombre": "Crear lecciones",
+  "slug": "crear-lecciones"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c07b"
+  },
+  "createdAt": 1633145248175,
+  "updatedAt": 1633145248175,
+  "nombre": "Resultados lecciones",
+  "slug": "resultados-lecciones"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c07c"
+  },
+  "createdAt": 1633145248166,
+  "updatedAt": 1633145248166,
+  "nombre": "lecciones",
+  "slug": "lecciones"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c07d"
+  },
+  "createdAt": 1633145248179,
+  "updatedAt": 1633145248179,
+  "nombre": "Mis pruebas",
+  "slug": "mis-pruebas"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c07e"
+  },
+  "createdAt": 1633145248186,
+  "updatedAt": 1633145248186,
+  "nombre": "Resultados conocimiento",
+  "slug": "resultados-conocimiento"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c07f"
+  },
+  "createdAt": 1633145248183,
+  "updatedAt": 1633145248183,
+  "nombre": "Crear pruebas",
+  "slug": "crear-pruebas"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c080"
+  },
+  "createdAt": 1633145248190,
+  "updatedAt": 1633145248190,
+  "nombre": "Ver recurso",
+  "slug": "ver-recurso"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c081"
+  },
+  "createdAt": 1633145248194,
+  "updatedAt": 1633145248194,
+  "nombre": "Nuevo recurso",
+  "slug": "nuevo-recurso"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c082"
+  },
+  "createdAt": 1633145248202,
+  "updatedAt": 1633145248202,
+  "nombre": "Ver reporte",
+  "slug": "ver-reporte"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c083"
+  },
+  "createdAt": 1633145248197,
+  "updatedAt": 1633145248197,
+  "nombre": "Mis laboratorios",
+  "slug": "mis-laboratorios"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c084"
+  },
+  "createdAt": 1633145248205,
+  "updatedAt": 1633145248205,
+  "nombre": "Admin usuario",
+  "slug": "admin-usuario"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c085"
+  },
+  "createdAt": 1633145248208,
+  "updatedAt": 1633145248208,
+  "nombre": "Admin nuevo usuario",
+  "slug": "admin-nuevo-usuario"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c086"
+  },
+  "createdAt": 1633145248211,
+  "updatedAt": 1633145248211,
+  "nombre": "Admin privilegios",
+  "slug": "admin-privilegios"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c087"
+  },
+  "createdAt": 1633145248217,
+  "updatedAt": 1633145248217,
+  "nombre": "Admin IE preconceptos",
+  "slug": "admin-ie-preconceptos"
+},{
+  "_id": {
+    "$oid": "6157d1a0d6b2a1169019c088"
+  },
+  "createdAt": 1633145248214,
+  "updatedAt": 1633145248214,
+  "nombre": "Admin IE lessons",
+  "slug": "admin-ie-lessons"
+},{
+  "_id": {
+    "$oid": "6157ec71d9426c2b04a91fad"
+  },
+  "createdAt": 1633152113111,
+  "updatedAt": 1633152113111,
+  "nombre": "Lista de grupos",
+  "slug": "lista-de-grupos"
+},{
+  "_id": {
+    "$oid": "61673c1e5a723731d4a3c979"
+  },
+  "createdAt": 1634155550072,
+  "updatedAt": 1634155550072,
+  "nombre": "Editar lecciones",
+  "slug": "editar-lecciones"
+},{
+  "_id": {
+    "$oid": "61673c1e5a723731d4a3c97a"
+  },
+  "createdAt": 1634155550090,
+  "updatedAt": 1634155550090,
+  "nombre": "Editar pruebas",
+  "slug": "editar-pruebas"
+}]
