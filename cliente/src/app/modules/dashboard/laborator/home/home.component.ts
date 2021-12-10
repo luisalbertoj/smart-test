@@ -7,13 +7,12 @@ import { FactoryService } from 'src/app/services/factory.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   plantilla: any = {
     imgBanner: 'assets/images/imgLaboratorio.png',
-    tituloBanner: 'Laboratorio de pruebas de software'
+    tituloBanner: 'Laboratorio de pruebas de software',
   };
 
   constructor(
@@ -21,10 +20,10 @@ export class HomeComponent implements OnInit {
     private route: Router,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.factory.returnAsObservable().subscribe((subs) => {
+    this.factory.returnAsObservable().subscribe((subs: any) => {
       subs === true ? this.spinner.hide() : this.spinner.show();
     });
   }
@@ -32,5 +31,4 @@ export class HomeComponent implements OnInit {
   newLaboratory(): any {
     this.route.navigate(['/dashboard/laboratory/view']);
   }
-
 }

@@ -6,7 +6,7 @@ import { FactoryService } from 'src/app/services/factory.service';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
-  styleUrls: ['./upload-file.component.css']
+  styleUrls: ['./upload-file.component.css'],
 })
 export class UploadFileComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
@@ -15,23 +15,19 @@ export class UploadFileComponent implements OnInit {
     private toast: ToastrService,
     private factory: FactoryService,
     private spinner: NgxSpinnerService
-  ) {
-
-  }
-  ngOnInit(): any {
-
-  }
+  ) {}
+  ngOnInit(): any {}
   /**
    * on file drop handler
    */
-  onFileDropped($event): void {
+  onFileDropped($event: any): void {
     this.prepareFilesList($event);
   }
 
   /**
    * handle file from browsing
    */
-  fileBrowseHandler(files): void {
+  fileBrowseHandler(files: any): void {
     this.prepareFilesList(files);
   }
 
@@ -80,7 +76,7 @@ export class UploadFileComponent implements OnInit {
    * @param bytes (File size in bytes)
    * @param decimals (Decimals point)
    */
-  formatBytes(bytes, decimals): any {
+  formatBytes(bytes: any, decimals: any): any {
     if (bytes === 0) {
       return '0 Bytes';
     }

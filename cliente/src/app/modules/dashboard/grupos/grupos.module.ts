@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DashboardModule } from '../dashboard.module';
+import { NewGrupoComponent } from './new-grupo/new-grupo.component';
 
 
 @NgModule({
   declarations: [
     ListComponent,
-    DetalleComponent
+    DetalleComponent,
+    NewGrupoComponent
   ],
   imports: [
     CommonModule,

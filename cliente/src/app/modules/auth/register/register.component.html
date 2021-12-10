@@ -4,8 +4,12 @@
     <div class="row justify-content-lg-center justify-content-md-center">
       <div class="col-lg-12">
         <div class="main_logo25" id="logo">
-          <a href="#"><img src="assets/images/logop.png" alt="" width="100%" /></a>
-          <a href="#"><img class="logo-inverse" src="assets/images/logop.png" alt="" /></a>
+          <a href="#"
+            ><img src="assets/images/logop.png" alt="" width="100%"
+          /></a>
+          <a href="#"
+            ><img class="logo-inverse" src="assets/images/logop.png" alt=""
+          /></a>
         </div>
       </div>
 
@@ -13,54 +17,121 @@
         <div class="sign_form">
           <h2>Bienvenido a Smart Test</h2>
           <p>Crea una cuenta y empieza a aprender!</p>
+          <form [formGroup]="registerForm">
             <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
-                <input [(ngModel)]="persona.nombre" class="prompt srch_explore" type="text" name="persona.nombre"
-                  value="" id="id_fullname" required="" maxlength="64" placeholder="Nombres Completo" required>
+                <input
+                  formControlName="nombre"
+                  class="prompt srch_explore"
+                  type="text"
+                  name="persona.nombre"
+                  value=""
+                  id="id_fullname"
+                  required=""
+                  maxlength="64"
+                  placeholder="Nombres Completo"
+                  required
+                />
               </div>
             </div>
-            <br>
+            <br />
             <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
-                <input [(ngModel)]="persona.apellido" class="prompt srch_explore" type="text" name="persona.apellido"
-                  value="" id="id_apellido" required="" maxlength="64" placeholder="Apeliidos Completo" required>
+                <input
+                  formControlName="apellido"
+                  class="prompt srch_explore"
+                  type="text"
+                  name="persona.apellido"
+                  value=""
+                  id="id_apellido"
+                  required=""
+                  maxlength="64"
+                  placeholder="Apeliidos Completo"
+                  required
+                />
               </div>
             </div>
             <div class="ui search focus mt-15">
               <div class="ui left icon input swdh11 swdh19">
-                <input [(ngModel)]="persona.email" class="prompt srch_explore" type="email" name="persona.email"
-                  value="" id="id_email" required="" maxlength="64" placeholder="Correo electonico" required>
+                <input
+                  formControlName="email"
+                  class="prompt srch_explore"
+                  type="email"
+                  name="persona.email"
+                  value=""
+                  id="id_email"
+                  required=""
+                  maxlength="64"
+                  placeholder="Correo electonico"
+                  required
+                />
               </div>
             </div>
-            <br>
+            <br />
             <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
-                <input [(ngModel)]="persona.username" class="prompt srch_explore" type="text" name="persona.username"
-                  value="" id="id_username" required="" maxlength="64" placeholder="Username" required>
+                <input
+                  formControlName="username"
+                  class="prompt srch_explore"
+                  type="text"
+                  name="persona.username"
+                  value=""
+                  id="id_username"
+                  required=""
+                  maxlength="64"
+                  placeholder="Username"
+                  required
+                />
               </div>
             </div>
 
             <div class="ui search focus mt-15">
               <div class="ui left icon input swdh11 swdh19">
-                <input [(ngModel)]="persona.password" class="prompt srch_explore" type="password"
-                  name="persona.password" value="" id="id_password" required="" maxlength="64" placeholder="Contraseña" required>
+                <input
+                  formControlName="password"
+                  class="prompt srch_explore"
+                  type="password"
+                  name="persona.password"
+                  value=""
+                  id="id_password"
+                  required=""
+                  maxlength="64"
+                  placeholder="Contraseña"
+                  required
+                />
               </div>
             </div>
-            <br>
-              <div class="ui search focus">
+            <br />
+            <div class="ui search focus">
               <div class="ui left icon input swdh11 swdh19">
-                <input [(ngModel)]="codigoRegistro" class="prompt srch_explore" type="text" name="codigoRegistro"
-                  id="codigoRegistro" required="true"  placeholder="Código de registro" required>
+                <input
+                  formControlName="codigoRegistro"
+                  class="prompt srch_explore"
+                  type="text"
+                  name="codigoRegistro"
+                  id="codigoRegistro"
+                  required="true"
+                  placeholder="Código de registro"
+                  required
+                />
               </div>
             </div>
-            <button (click)="registrar()" class="login-btn boton" type="submit">Crear cuenta</button>
-          <br>
-          <p class="mb-0 mt-30">¿Ya tienes una cuenta? <a [routerLink]="['/auth']"
-              routerLinkActive="router-link-active">Ingresar</a></p>
+            <button (click)="registrar()" class="login-btn boton" type="submit">
+              Crear cuenta
+            </button>
+            <br />
+            <p class="mb-0 mt-30">
+              ¿Ya tienes una cuenta?
+              <a [routerLink]="['/auth']" routerLinkActive="router-link-active"
+                >Ingresar</a
+              >
+            </p>
+          </form>
         </div>
+
         <div class="sign_footer">
-          <img src="assets/images/logoico.png" alt="logopequeño" width="10%" />© 2021
-          <strong>Smart Test</strong>. Todos los derechos reservados.
+          <img src="assets/images/logoico.png" alt="logopequeño" width="10%" />©
+          2021 <strong>Smart Test</strong>. Todos los derechos reservados.
         </div>
       </div>
     </div>

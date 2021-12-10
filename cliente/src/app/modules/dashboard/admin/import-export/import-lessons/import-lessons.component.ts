@@ -21,14 +21,14 @@ export class ImportLessonsComponent implements OnInit {
   /**
    * on file drop handler
    */
-  onFileDropped($event): void {
+  onFileDropped($event: any): void {
     this.prepareFilesList($event);
   }
 
   /**
    * handle file from browsing
    */
-  fileBrowseHandler(files): void {
+  fileBrowseHandler(files: any): void {
     this.prepareFilesList(files);
   }
 
@@ -77,7 +77,7 @@ export class ImportLessonsComponent implements OnInit {
    * @param bytes (File size in bytes)
    * @param decimals (Decimals point)
    */
-  formatBytes(bytes, decimals): any {
+  formatBytes(bytes: any, decimals: any): any {
     if (bytes === 0) {
       return '0 Bytes';
     }

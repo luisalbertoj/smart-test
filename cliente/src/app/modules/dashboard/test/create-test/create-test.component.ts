@@ -10,15 +10,14 @@ declare var $: any;
 @Component({
   selector: 'app-create-test',
   templateUrl: './create-test.component.html',
-  styleUrls: ['./create-test.component.css']
+  styleUrls: ['./create-test.component.css'],
 })
 export class CreateTestComponent implements OnInit {
   plantilla: any = {
     menuTest: 'Prueba de conocimiento',
-    imgBanner: 'assets/images/bannercrearpruebas.png'
+    imgBanner: 'assets/images/bannercrearpruebas.png',
   };
 
-  
   grupos: any = [];
   consulta: any = {
     grupo: '',
@@ -30,12 +29,12 @@ export class CreateTestComponent implements OnInit {
     nombre: '',
     observaciones: '',
     contenido: '',
-    creador: JSON.parse(localStorage.getItem('user')).id || 1,
+    creador: JSON.parse(localStorage.getItem('user') || '').id || 1,
     inicio: '',
     cierre: '',
     duracion: '',
     grupo: '',
-    preguntas: []
+    preguntas: [],
   };
 
   public tipoPregunta: any = [];
@@ -48,12 +47,13 @@ export class CreateTestComponent implements OnInit {
   public iconStatus = [false, false, false, false];
   id: any;
 
-  constructor(public factory: FactoryService,
+  constructor(
+    public factory: FactoryService,
     private toast: ToastrService,
     private router: Router,
     private spinner: NgxSpinnerService,
     private activateRouter: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loadGrupos();
@@ -61,30 +61,32 @@ export class CreateTestComponent implements OnInit {
     this.id = slug;
     if (slug) this.loadTest();
     $('[data-toggle="tooltip"]').tooltip();
-    this.factory.returnAsObservable().subscribe((subs) => {
+    this.factory.returnAsObservable().subscribe((subs: any) => {
       subs === true ? this.spinner.hide() : this.spinner.show();
     });
     this.cargarTipos();
   }
 
   loadTest() {
-    this.factory.query('pruebaconocimiento/getprueba', { where: { id: this.id } }).subscribe((res: any) => {
-      console.log(res);
-      this.test = res.data;
-      this.preguntas = _.map(this.test.preguntas, (item: any) => {
-        return {
-          ...item,
-          tipo: item.tipo.slug,
-          tipos: item.tipo,
-          respuestaCorrecta: item.respuestaCorrecta.contenido,
-          respuestas: [{ contenido: '' }],
-          respuestaCorrectas: item.respuestaCorrecta,
-        }
+    this.factory
+      .query('pruebaconocimiento/getprueba', { where: { id: this.id } })
+      .subscribe((res: any) => {
+        console.log(res);
+        this.test = res.data;
+        this.preguntas = _.map(this.test.preguntas, (item: any) => {
+          return {
+            ...item,
+            tipo: item.tipo.slug,
+            tipos: item.tipo,
+            respuestaCorrecta: item.respuestaCorrecta.contenido,
+            respuestas: [{ contenido: '' }],
+            respuestaCorrectas: item.respuestaCorrecta,
+          };
+        });
+        this.iconStatus[0] = !this.iconStatus[0];
+        console.log(this.test, this.preguntas);
+        this.respuestas.push([]);
       });
-      this.iconStatus[0] = !this.iconStatus[0];
-      console.log(this.test, this.preguntas)
-      this.respuestas.push([]);
-    });
   }
 
   loadGrupos(): any {
@@ -118,7 +120,7 @@ export class CreateTestComponent implements OnInit {
         )
     );
   }
-  onClickAccordion(key, value, truco?) {
+  onClickAccordion(key: number, value: any, truco?: any) {
     if (!value.showbody) {
       value.showbody = true;
 
@@ -130,7 +132,7 @@ export class CreateTestComponent implements OnInit {
     }
   }
 
-  agregarPregunta() {
+  agregarPregunta(): any {
     if (
       this.tipoSelect === '' ||
       this.tipoSelect === null ||
@@ -145,19 +147,17 @@ export class CreateTestComponent implements OnInit {
         respuestas: [{ contenido: '' }],
         respuestaCorrecta: '',
         showbody: false,
-        accordianclass: 'expandAccordion'
+        accordianclass: 'expandAccordion',
       });
     }
     if (this.tipoSelect === 'abierta') {
       this.preguntas.push({ tipo: 'abierta', contenido: '' });
-
     }
     this.respuestas.push([]);
   }
 
   eliminarPregunta(indice: any) {
     this.preguntas.splice(indice);
-
   }
   agregarRespuesta(indice: any, pregunta?: any) {
     this.respuestas[indice].push({
@@ -165,17 +165,17 @@ export class CreateTestComponent implements OnInit {
       contenido: '',
       correcta: false,
       addRetro: false,
-      retroalimentacion: ''
+      retroalimentacion: '',
     });
     pregunta.showbody = true;
-    console.log(indice, pregunta, this.respuestas)
+    console.log(indice, pregunta, this.respuestas);
   }
 
   aplicarSelect() {
     console.log(this.tipoSelect);
   }
 
-  crearTest() {
+  crearTest(): any {
     if (this.test.nombre === '')
       return this.toast.error('Debes llenar el nombre', 'error');
     if (this.test.observaciones === '')
@@ -210,21 +210,24 @@ export class CreateTestComponent implements OnInit {
           console.log(error);
           this.spinner.hide();
           return this.toast.error(error.message, 'Problema en el servidor');
-
         }
       );
   }
 
   eliminarRespuesta(ev: any, idx: number) {
-    this.preguntas = this.preguntas.filter(((item: any) => item.pregunta == ev.pregunta));
+    this.preguntas = this.preguntas.filter(
+      (item: any) => item.pregunta == ev.pregunta
+    );
     for (let index = 0; index < this.respuestas.length; index++) {
       const element = this.respuestas[index];
-      this.respuestas[element] = this.respuestas[element].filter(((item: any) => item.pregunta == idx));
+      this.respuestas[element] = this.respuestas[element].filter(
+        (item: any) => item.pregunta == idx
+      );
     }
-    console.log(ev, this.respuestas, this.preguntas)
+    console.log(ev, this.respuestas, this.preguntas);
   }
 
-  editarTest() {
+  editarTest(): any {
     if (this.test.nombre === '')
       return this.toast.error('Debes llenar el nombre', 'error');
     if (this.test.observaciones === '')
@@ -257,7 +260,6 @@ export class CreateTestComponent implements OnInit {
           console.log(error);
           this.spinner.hide();
           return this.toast.error(error.message, 'Problema en el servidor');
-
         }
       );
   }

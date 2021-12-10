@@ -78,7 +78,7 @@ export class ListComponent implements OnInit {
         console.log(response);
         this.loadResources();
       },
-      (error) => {
+      (error: any) => {
         console.log(error);
         Swal.fire('Oops', 'Error eliminandoo', 'error');
       }

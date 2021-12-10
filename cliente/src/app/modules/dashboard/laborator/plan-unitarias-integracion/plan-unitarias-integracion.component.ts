@@ -6,10 +6,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-plan-unitarias-integracion',
   templateUrl: './plan-unitarias-integracion.component.html',
-  styleUrls: ['./plan-unitarias-integracion.component.css']
+  styleUrls: ['./plan-unitarias-integracion.component.css'],
 })
 export class PlanUnitariasIntegracionComponent implements OnInit {
-
   plan: any = {
     title: '',
     organismo: '',
@@ -39,7 +38,7 @@ export class PlanUnitariasIntegracionComponent implements OnInit {
     identificador: '',
     nversion: '',
     responsableCP: '',
-    nameCP:'',
+    nameCP: '',
     modulo: '',
     submodulo: '',
     formulario: '',
@@ -48,26 +47,19 @@ export class PlanUnitariasIntegracionComponent implements OnInit {
     resultreales: '',
     error: '',
     componente: '',
-    CP:'',
-    resultado:'',
-    resultao:'',
-    seguimiento:'',
-    conclusion:'',
+    CP: '',
+    resultado: '',
+    resultao: '',
+    seguimiento: '',
+    conclusion: '',
+  };
 
+  constructor(private spinner: NgxSpinnerService) {}
 
-
-  }
-
-
-  constructor(
-    private spinner: NgxSpinnerService
-  ) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public async generarWord(): Promise<void> {
-    const impresion = document.getElementById('htmlData2');
+    const impresion: any = document.getElementById('htmlData2');
     this.spinner.show();
     const htmlDocument = `
     <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
@@ -75,9 +67,9 @@ export class PlanUnitariasIntegracionComponent implements OnInit {
     `;
     const opt: any = {
       margin: {
-        top: 100
+        top: 100,
       },
-      orientation: 'landscape'
+      orientation: 'landscape',
     };
     const converted: any = await asBlob(htmlDocument, opt);
     saveAs(converted, this.plan.title + this.plan.title + 'docx');
@@ -85,5 +77,4 @@ export class PlanUnitariasIntegracionComponent implements OnInit {
       this.spinner.hide();
     }, 400);
   }
-
 }

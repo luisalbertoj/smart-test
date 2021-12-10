@@ -25,7 +25,7 @@ export class FactoryService {
   }
   loadUser(): any {
     try {
-      this.user = JSON.parse(localStorage.getItem('user'));
+      this.user = JSON.parse(localStorage.getItem('user') || '');
       this.getAll('rol/' + this.user.idRol.id).subscribe((res: any) => {
         this.lecciones = [];
         this.pruebas = [];
@@ -52,6 +52,10 @@ export class FactoryService {
 
   delete(model: string, id: number): any {
     return this.http.delete(environment.urlApi + model + '/' + id);
+  }
+
+  patch(model: string, data: any): any {
+    return this.http.patch(environment.urlApi + model, data);
   }
 
   getAll(model: string): any {
@@ -91,7 +95,7 @@ export class FactoryService {
     this.sub.next(false);
   }
 
-  encryptData(data, inicio?, final?): any {
+  encryptData(data: any, inicio?: any, final?: any): any {
     try {
       const codigo =
         inicio && final
@@ -105,7 +109,7 @@ export class FactoryService {
       return '';
     }
   }
-  decryptData(data): any {
+  decryptData(data: any): any {
     try {
       const bytes = CryptoJS.AES.decrypt(data, environment.secretKey);
       if (bytes.toString()) {

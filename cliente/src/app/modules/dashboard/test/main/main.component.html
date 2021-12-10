@@ -7,34 +7,21 @@
             <img src="{{ plantilla.bannerImg }}" class="card-img-top" alt="..." />
           </div>
           <ng-container *ngIf="selectorGrupo.dropdownOptions.length > 0">
-            <ngx-select-dropdown
-              (change)="selectionChanged($event)"
-              [multiple]="false"
-              [(ngModel)]="selectorGrupo.dataModel"
-              [config]="selectorGrupo.config"
-              [options]="selectorGrupo.dropdownOptions"
-            >
+            <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false"
+              [(ngModel)]="selectorGrupo.dataModel" [config]="selectorGrupo.config"
+              [options]="selectorGrupo.dropdownOptions">
             </ngx-select-dropdown>
             <br />
-            <ng-container
-              *ngIf="
+            <ng-container *ngIf="
                 selectorGrupo.select && factory.user.idRol.nombre != 'estudiante'
-              "
-            >
-              <button
-                class="btn btn-plantilla"
-                (click)="addTestGroup()"
-                (click)="addTestGroup.loadGrupo()"
-                data-toggle="modal"
-                data-target="#modalAddTests"
-                mat-raised-button
-                color="primary"
-              >
+              ">
+              <button class="btn btn-plantilla" (click)="addTestGroup()" (click)="addTestGroup.loadGrupo()"
+                data-toggle="modal" data-target="#modalAddTests" mat-raised-button color="primary">
                 Añadir pruebas al grupo
               </button>
             </ng-container>
           </ng-container>
-  
+
           <ng-container *ngIf="tests.length === 0; else elseTemplate">
             <br />
             <br />
@@ -56,7 +43,7 @@
                         </h4>
                         <p class="card-text" [innerHTML]="item.observaciones"></p>
                       </div>
-                      <div class="col-sm-3 col-sm-3">
+                      <div class="col-sm-3">
                         <div class="imgDocente justify-content-center d-flex">
                           <div *ngIf="factory.user?.photo != null; else elseBlock">
                             <img src="{{
@@ -64,12 +51,12 @@
                                   env + 'user/imgDefaults.jpg'
                               }}" alt="Imagen de usuario" />
                           </div>
-                        <ng-template #elseBlock>
-                          <img src="{{ env + 'user/imgDefaults.jpg' }}" alt="Imagen del usuario" />
-                        </ng-template>
+                          <ng-template #elseBlock>
+                            <img src="{{ env + 'user/imgDefaults.jpg' }}" alt="Imagen del usuario" />
+                          </ng-template>
                         </div>
                         <p class="card-text textDocente">
-                        <span>  {{ factory.user.nombre}} {{factory.user.apellido }} </span>
+                          <span> {{ item.creador.nombre}} {{item.creador.apellido }} </span>
                         </p>
                       </div>
                     </div>
@@ -83,23 +70,20 @@
                           <i class="far fa-clock relojCierre"></i> Fecha cierre:
                           {{ item.cierre | date }}
                         </p>
-                      </div>     
-                      <div class="col-sm-4 colComenzar justify-content-end d-flex">                    
-                        <button 
-                        *ngIf="editable"
-                        [routerLink]="['/dashboard/test/create-test', item.id]" routerLinkActive="router-link-active"
+                      </div>
+                      <div class="col-sm-4 colComenzar justify-content-end d-flex">
+                        <button *ngIf="editable" [routerLink]="['/dashboard/test/create-test', item.id]"
+                          routerLinkActive="router-link-active"
                           class="upload_btn btn-plantilla-v btn btnEditar btn-primary">
                           Editar </button>
-                      </div>             
-                      <div class="col-sm-3 colComenzar justify-content-end d-flex">                    
-                        <button 
-                        *ngIf="!item.solved"
-                        [routerLink]="['/dashboard/test', item.id]"
-                          class="btn  btn-plantilla btn-primary btnStyle">
+                      </div>
+                      <div class="col-sm-3 colComenzar justify-content-end d-flex">
+                        <button *ngIf="!item.solved" [routerLink]="['/dashboard/test', item.id]"
+                          class="btn btn-plantilla btn-primary btnStyle">
                           {{ plantilla.botonTarjeta }} Comenzar
                         </button>
-                        <button *ngIf="item.solved" (click)="pruebaSelect(item.solved)" class="btn btn-primary btn-plantilla " data-toggle="modal"
-                        data-target="#exampleModal">
+                        <button *ngIf="item.solved" (click)="pruebaSelect(item.solved)"
+                          class="btn btn-primary btn-plantilla " data-toggle="modal" data-target="#exampleModal">
                           Resultados
                         </button>
                       </div>
@@ -116,7 +100,7 @@
   </div>
 </div>
 <!-- Modal Resultados Estudiante -->
-<div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content">
       <div class="modal-header">
@@ -126,138 +110,134 @@
         </button>
       </div>
       <div class="modal-body">
-        
-            <div class="row">
-              <div class="col-sm-12">
-                <h2>Información del estudiante</h2>
-                <strong>Nombres: </strong> {{pruebaCalificar?.estudiante?.nombre}}
-                
-                <strong class="info">Apellido: </strong> {{pruebaCalificar?.estudiante?.apellido}}
-                
-                <strong class="info">Codigo: </strong> {{pruebaCalificar?.estudiante?.codigo}}
-                <hr>
-              
-              
-                <ng-container *ngIf="pruebaCalificar?.preguntasTotales > 0">
-                  <h2>Resumen</h2>
-                  <ul class="test_result_left">
-                    <li>
-                      <div class="result_dt">
-                        <i class="uil uil-check right_ans"></i>
-                        <p>
-                          Correcto<span
-                            >({{
+
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Información del estudiante</h2>
+            <strong>Nombres: </strong> {{pruebaCalificar?.estudiante?.nombre}}
+
+            <strong class="info">Apellido: </strong> {{pruebaCalificar?.estudiante?.apellido}}
+
+            <strong class="info">Codigo: </strong> {{pruebaCalificar?.estudiante?.codigo}}
+            <hr>
+
+
+            <ng-container *ngIf="pruebaCalificar?.preguntasTotales > 0">
+              <h2>Resumen</h2>
+              <ul class="test_result_left">
+                <li>
+                  <div class="result_dt">
+                    <i class="uil uil-check right_ans"></i>
+                    <p>
+                      Correcto<span>({{
                               pruebaCalificar?.respuestasCorrectas
-                            }})</span
-                          >
-                        </p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="result_dt">
-                        <i class="uil uil-times wrong_ans"></i>
-                        <p>
-                          Incorrecto<span
-                            >({{
+                            }})</span>
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="result_dt">
+                    <i class="uil uil-times wrong_ans"></i>
+                    <p>
+                      Incorrecto<span>({{
                               pruebaCalificar?.preguntasTotales -
                                 pruebaCalificar?.respuestasCorrectas
-                            }})</span
-                          >
-                        </p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="result_dt">
-                        <h4>
-                          {{ pruebaCalificar?.respuestasCorrectas }}
-                        </h4>
-                        <p>Total {{ pruebaCalificar?.preguntasTotales }}</p>
-                      </div>
-                    </li>
-                  </ul>
-                </ng-container>
+                            }})</span>
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="result_dt">
+                    <h4>
+                      {{ pruebaCalificar?.respuestasCorrectas }}
+                    </h4>
+                    <p>Total {{ pruebaCalificar?.preguntasTotales }}</p>
+                  </div>
+                </li>
+              </ul>
+            </ng-container>
 
-                <h2>Prueba de conocimiento</h2>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="alert alert-info" role="alert">
-                      Selecciona la pregunta a consultar.
-                    </div>
-                    <h2>Preguntas</h2>
-                    <nav class="nav">
-                      <a *ngFor="let respuestaEstu of pruebaCalificar?.respuestasEstudiante; index as i"
-                        class="nav-link active">
-                        <button *ngIf="respuestaEstu.calificacion !== ''"
-                          (click)="seleccionarPregunta(respuestaEstu.pregunta, i, respuestaEstu)" type="button"
-                          class="btn btn-info" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
-                          aria-controls="collapse">
-                          {{i + 1}}
-                          <i class="far fa-flag"></i>
-                        </button>
-                        <button *ngIf="respuestaEstu.calificacion === ''"
-                          (click)="seleccionarPregunta(respuestaEstu.pregunta, i, respuestaEstu)" type="button"
-                          class="btn btn-light" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
-                          aria-controls="collapse">
-                          {{i + 1}}
-                          <i class="far fa-flag"></i>
-                        </button>
-                      </a>
-                    </nav>
-                    <div class="container">
-                      <div class="row">
+            <h2>Prueba de conocimiento</h2>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="alert alert-info" role="alert">
+                  Selecciona la pregunta a consultar.
+                </div>
+                <h2>Preguntas</h2>
+                <nav class="nav">
+                  <a *ngFor="let respuestaEstu of pruebaCalificar?.respuestasEstudiante; index as i"
+                    class="nav-link active">
+                    <button *ngIf="respuestaEstu.calificacion !== ''"
+                      (click)="seleccionarPregunta(respuestaEstu.pregunta, i, respuestaEstu)" type="button"
+                      class="btn btn-info" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+                      aria-controls="collapse">
+                      {{i + 1}}
+                      <i class="far fa-flag"></i>
+                    </button>
+                    <button *ngIf="respuestaEstu.calificacion === ''"
+                      (click)="seleccionarPregunta(respuestaEstu.pregunta, i, respuestaEstu)" type="button"
+                      class="btn btn-light" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+                      aria-controls="collapse">
+                      {{i + 1}}
+                      <i class="far fa-flag"></i>
+                    </button>
+                  </a>
+                </nav>
+                <div class="container">
+                  <div class="row">
 
-                        <div class="col-sm-12" class="collapse multi-collapse" id="collapse">
-                          <div class="card card-body">
-                            <h3>Pregunta: {{preguntaSeleccionada?.indice + 1}}</h3>
-                            <strong>Pregunta: </strong>
-                            <span [innerHTML]="preguntaSeleccionada?.contenido"></span>
+                    <div class="col-sm-12" class="collapse multi-collapse" id="collapse">
+                      <div class="card card-body">
+                        <h3>Pregunta: {{preguntaSeleccionada?.indice + 1}}</h3>
+                        <strong>Pregunta: </strong>
+                        <span [innerHTML]="preguntaSeleccionada?.contenido"></span>
 
-                            <div *ngIf="preguntaSeleccionada?.tipo?.nombre === 'abierta'">
-                              <div class="form-group">
-                                <label for="exampleFormControlTextarea1">
-                                  <strong>Respuesta Estudiante: </strong>
-                                </label>
-                                <textarea disabled [(ngModel)]="respuestaSeleccionada.respuesta"
-                                  name="respuestaSeleccionada.respuesta" class="form-control"
-                                  id="exampleFormControlTextarea1" rows="3">
+                        <div *ngIf="preguntaSeleccionada?.tipo?.nombre === 'abierta'">
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">
+                              <strong>Respuesta Estudiante: </strong>
+                            </label>
+                            <textarea disabled [(ngModel)]="respuestaSeleccionada.respuesta"
+                              name="respuestaSeleccionada.respuesta" class="form-control"
+                              id="exampleFormControlTextarea1" rows="3">
                                 </textarea>
-                                <strong>Valor: </strong> {{respuestaSeleccionada?.pregunta?.valor}}
-                                <br>
-                                <label for="exampleFormControlTextarea1">
-                                  <strong>Calificacion: </strong>
-                                </label>
-                                <input class="form-control" type="number"
-                                  max="{{respuestaSeleccionada?.pregunta?.valor}}" min="1" step="0.01"
-                                  [(ngModel)]="respuestaSeleccionada.calificacion"
-                                  name="respuestaSeleccionada.calificacion" required>
-                                <label for="exampleFormControlTextarea1">
-                                  <strong>Retroalimentacion: </strong>
-                                </label>
-                                <angular-editor [placeholder]="" [(ngModel)]="respuestaSeleccionada.retroalimentacion"
-                                  name="respuestaSeleccionada.retroalimentacion">
-                                </angular-editor>
-                              </div>
-                            </div>
-                            <div *ngIf="preguntaSeleccionada?.tipo?.nombre === 'multiple'">
-                              <label for="exampleFormControlTextarea1">
-                                <strong>Respuesta Estudiante: </strong>
-                              </label>
-                              <textarea *ngIf="respuestaSeleccionada.respuestas" disabled [(ngModel)]="respuestaSeleccionada.respuestas.contenido"
-                                name="respuestaSeleccionada.respuesta" class="form-control"
-                                id="exampleFormControlTextarea1" rows="3">
-                              </textarea>
-                              <strong>Calificacion: </strong> {{respuestaSeleccionada?.calificacion}}
-                            </div>
+                            <strong>Valor: </strong> {{respuestaSeleccionada?.pregunta?.valor}}
                             <br>
-                            <br>
+                            <label for="exampleFormControlTextarea1">
+                              <strong>Calificacion: </strong>
+                            </label>
+                            <input class="form-control" type="number" max="{{respuestaSeleccionada?.pregunta?.valor}}"
+                              min="1" step="0.01" [(ngModel)]="respuestaSeleccionada.calificacion"
+                              name="respuestaSeleccionada.calificacion" required>
+                            <label for="exampleFormControlTextarea1">
+                              <strong>Retroalimentacion: </strong>
+                            </label>
+                            <angular-editor [placeholder]="" [(ngModel)]="respuestaSeleccionada.retroalimentacion"
+                              name="respuestaSeleccionada.retroalimentacion">
+                            </angular-editor>
                           </div>
                         </div>
+                        <div *ngIf="preguntaSeleccionada?.tipo?.nombre === 'multiple'">
+                          <label for="exampleFormControlTextarea1">
+                            <strong>Respuesta Estudiante: </strong>
+                          </label>
+                          <textarea *ngIf="respuestaSeleccionada.respuestas" disabled
+                            [(ngModel)]="respuestaSeleccionada.respuestas.contenido"
+                            name="respuestaSeleccionada.respuesta" class="form-control" id="exampleFormControlTextarea1"
+                            rows="3">
+                              </textarea>
+                          <strong>Calificacion: </strong> {{respuestaSeleccionada?.calificacion}}
+                        </div>
+                        <br>
+                        <br>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>

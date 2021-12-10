@@ -1,29 +1,26 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { asBlob } from 'html-docx-js-typescript'
+import { asBlob } from 'html-docx-js-typescript';
 import { saveAs } from 'file-saver';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-plan-pruebas',
   templateUrl: './plan-pruebas.component.html',
-  styleUrls: ['./plan-pruebas.component.css']
+  styleUrls: ['./plan-pruebas.component.css'],
 })
 export class PlanPruebasComponent implements OnInit {
   plantilla: any = {
-    title: 'Plan de pruebas de software'
+    title: 'Plan de pruebas de software',
   };
   client = environment.urlClient;
   fileName = 'ExcelSheet.xlsx';
   plan: any = {};
-  constructor(
-    private spinner: NgxSpinnerService
-  ) {}
+  constructor(private spinner: NgxSpinnerService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public async generarWord(): Promise<void> {
-    const impresion = document.getElementById('htmlData');
+    const impresion: any = document.getElementById('htmlData');
     this.spinner.show();
     const htmlDocument = `
     <!DOCTYPE html><html><head><meta charset="utf-8"><title></title></head>
@@ -31,9 +28,9 @@ export class PlanPruebasComponent implements OnInit {
     `;
     const opt: any = {
       margin: {
-        top: 100
+        top: 100,
       },
-      orientation: 'landscape'
+      orientation: 'landscape',
     };
     const converted: any = await asBlob(htmlDocument, opt);
     saveAs(converted, this.plantilla.title + this.plan.title + 'docx');
@@ -41,5 +38,4 @@ export class PlanPruebasComponent implements OnInit {
       this.spinner.hide();
     }, 400);
   }
-
 }

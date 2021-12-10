@@ -1,17 +1,17 @@
 <!-- Body Start -->
-<div class="wrapper" >
+<div class="wrapper">
   <div class="sa4d25">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-sm-12 colProgress">
-          <div class="card mb-3 tarjeta">
+          <div class="mb-3 card tarjeta">
             <div class="card-body body">
               <div class="row">
                 <div class="col-sm-12">
 
-                  <h1 class="card-title title">Progreso global <i class="fas fa-medal"></i></h1>
-                  <hr>
-                  <div class="row">
+                  <!-- <h1 class="card-title title" *ngIf="false">Progreso global <i class="fas fa-medal"></i></h1>
+                  <hr> -->
+                  <div class="row" *ngIf="false">
                     <div class="col-xl-4 col-lg-4" class="col-sm-4">
                       <h3 id="tituloporcentaje1">Progreso de lecciones</h3>
                       <circle-progress id="circle1" [percent]="70" [radius]="100" [outerStrokeWidth]="16"
@@ -46,12 +46,12 @@
 
       <br>
       <br>
-      <div  class="row">
+      <div class="row">
         <div class="col-sm-12 col-lg-2">
           <img src="assets/images/gato.png" class="gato">
         </div>
         <div class="col-sm-12 col-lg-9 bocadillo-cuadrado">
-          <h1 >Hola, Bienvenidos a <strong>SmartTest!</strong></h1>
+          <h1>Hola, Bienvenidos a <strong>SmartTest!</strong></h1>
           <h3> Mi nombre es CAT y te daré un recorrido por toda nuestra plataforma virtual
             <br>
             Empecemos...
@@ -61,14 +61,16 @@
       <br>
       <br>
 
-      <div  class="row">
+      <div class="row">
         <div class="col-sm-12 col-lg-1">
         </div>
         <div class="col-sm-12 col-lg-9 bocadillo-cuadrado2">
           <h1>Lecciones de aprendizaje</h1>
           <h4>
-            El módulo de lecciones tiene todos los elementos necesarios para que conozcas las pruebas de software. Usamos la metodología <strong>APRENDE-PRACTICA-APLICA</strong> para que aprendas de manera dinámica.
-            Visita el módulo de lecciones <a [routerLink]="['/dashboard/lesson']" routerLinkActive="router-link-active" >Aquí.</a>
+            El módulo de lecciones tiene todos los elementos necesarios para que conozcas las pruebas de software.
+            Usamos la metodología <strong>APRENDE-PRACTICA-APLICA</strong> para que aprendas de manera dinámica.
+            Visita el módulo de lecciones <a [routerLink]="['/dashboard/lesson']"
+              routerLinkActive="router-link-active">Aquí.</a>
           </h4>
         </div>
         <div class="col-sm-12 col-lg-2">
@@ -77,26 +79,30 @@
       </div>
       <br>
       <br>
-      <div  class="row">
+      <div class="row">
         <div class="col-sm-12 col-lg-2">
           <img src="assets/images/gato.png" class="gato">
         </div>
         <div class="col-sm-12 col-lg-9 bocadillo-cuadrado3">
-          <h1 >Pruebas de  conocimiento</h1>
-          <h4> Las pruebas de conocimiento evaluarán tu progreso en el curso, cuentas con un tiempo para desarrollarla y al final tendrás <strong>retroalimentación</strong> de tus respuestas. Visita el módulo de pruebas de conocimiento <a [routerLink]="['/dashboard/test']" routerLinkActive="router-link-active">Aquí.</a>
+          <h1>Pruebas de conocimiento</h1>
+          <h4> Las pruebas de conocimiento evaluarán tu progreso en el curso, cuentas con un tiempo para desarrollarla y
+            al final tendrás <strong>retroalimentación</strong> de tus respuestas. Visita el módulo de pruebas de
+            conocimiento <a [routerLink]="['/dashboard/test']" routerLinkActive="router-link-active">Aquí.</a>
           </h4>
         </div>
-      </div>  
+      </div>
       <br>
       <br>
-      <div  class="row">
+      <div class="row">
         <div class="col-sm-12 col-lg-1">
         </div>
         <div class="col-sm-12 col-lg-9 bocadillo-cuadrado4">
-          <h1 >Recursos educativos</h1>
+          <h1>Recursos educativos</h1>
           <h4>
-            Los recursos educativos <strong>fortalecen</strong>  tus conocimientos cuando estes desarrollando las lecciones. Puedes ver los recursos en línea o descargarlos. <strong></strong> 
-            Visita el módulo de recursos educativos <a [routerLink]="['/dashboard/resources']" routerLinkActive="router-link-active" >Aquí.</a>
+            Los recursos educativos <strong>fortalecen</strong> tus conocimientos cuando estes desarrollando las
+            lecciones. Puedes ver los recursos en línea o descargarlos. <strong></strong>
+            Visita el módulo de recursos educativos <a [routerLink]="['/dashboard/resources']"
+              routerLinkActive="router-link-active">Aquí.</a>
           </h4>
         </div>
         <div class="col-sm-12 col-lg-2">
@@ -107,16 +113,18 @@
       <br>
       <br>
 
-      <div  class="row">
+      <div class="row">
         <div class="col-sm-12 col-lg-2">
           <img src="assets/images/gato.png" class="gato">
         </div>
         <div class="col-sm-12 col-lg-9 bocadillo-cuadrado5">
-          <h1 >Laboratorio</h1>
-          <h4> En el laboratorio podras aplicar todo lo aprendido, además tienes la opción de documentar las <strong>pruebas de software</strong> y poder descargar tus resultados. Visita el módulo de laboratorio <a [routerLink]="['/dashboard/laboratory']" routerLinkActive="router-link-active">Aquí.</a>
+          <h1>Laboratorio</h1>
+          <h4> En el laboratorio podras aplicar todo lo aprendido, además tienes la opción de documentar las
+            <strong>pruebas de software</strong> y poder descargar tus resultados. Visita el módulo de laboratorio <a
+              [routerLink]="['/dashboard/laboratory']" routerLinkActive="router-link-active">Aquí.</a>
           </h4>
         </div>
-      </div> 
+      </div>
 
     </div>
   </div>

@@ -4,7 +4,9 @@
     <div class="row justify-content-lg-center justify-content-md-center">
       <div class="col-lg-12">
         <div class="main_logo25" id="logo">
-          <a href="index.html"><img src="assets/images/logop.png" alt="" width="100%" /></a>
+          <a href="index.html"
+            ><img src="assets/images/logop.png" alt="" width="100%"
+          /></a>
           <a href="index.html"
             ><img class="logo-inverse" src="assets/images/logop.png" alt=""
           /></a>
@@ -14,19 +16,11 @@
         <div class="sign_form">
           <h2>Bienvenido</h2>
           <p>Ingresa con tu cuenta de Smart Test!</p>
-          <!-- <button class="social_lnk_btn color_btn_fb">
-            <i class="uil uil-facebook-f"></i>Continue with Facebook
-          </button>
-          <button class="social_lnk_btn mt-15 color_btn_tw">
-            <i class="uil uil-twitter"></i>Continue with Twitter
-          </button>
-          <button class="social_lnk_btn mt-15 color_btn_go">
-            <i class="uil uil-google"></i>Continue with Google
-          </button> -->
-          <form>
+
+          <form [formGroup]="loginFormGroup">
             <div class="ui search focus mt-15">
               <div class="ui left icon input swdh95">
-                <i class="uil uil-envelope icon icon2"></i>
+                <em class="uil uil-envelope icon icon2"></em>
                 <input
                   class="prompt srch_explore"
                   type="text"
@@ -34,10 +28,9 @@
                   id="id_email"
                   maxlength="64"
                   placeholder="       Nombre de usuario"
-                  [(ngModel)]="persona.username"
+                  formControlName="username"
                   required
-                >
-               
+                />
               </div>
             </div>
             <div class="ui search focus mt-15">
@@ -49,32 +42,21 @@
                   id="id_password"
                   maxlength="64"
                   placeholder="       Contraseña"
-                  [(ngModel)]="persona.password"
+                  formControlName="password"
                   required
-                >
-                <i class="uil uil-key-skeleton-alt icon icon2"></i>
+                />
+                <em class="uil uil-key-skeleton-alt icon icon2"></em>
               </div>
             </div>
-            <!-- <div class="ui form mt-30 checkbox_sign">
-              <div class="inline field">
-                <div class="ui checkbox mncheck">
-                  <input type="checkbox" tabindex="0" class="hidden" />
-                  <label>Recordarme</label>
-                </div>
-              </div>
-            </div> -->
-            <button  class="login-btn" type="submit" (click)="login()">Iniciar Sesion</button>
+
+            <button class="login-btn" type="submit" (click)="login()">
+              Iniciar Sesion
+            </button>
           </form>
-         <!--  <p class="sgntrm145">
-            Or <a href="forgot_password.html">Recuperar Contraseña</a>.
-          </p>
-          <p class="mb-0 mt-30">
-            No tienes una cuenta? <a href="sign_up.html">Registrate</a>
-          </p> -->
         </div>
         <div class="sign_footer">
-          <img src="assets/images/logoico.png" alt="logopequeño" width="10%" />© 2021
-          <strong>Smart Test</strong>. Todos los derechos reservados.
+          <img src="assets/images/logoico.png" alt="logopequeño" width="10%" />©
+          2021 <strong>Smart Test</strong>. Todos los derechos reservados.
         </div>
       </div>
     </div>

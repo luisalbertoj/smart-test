@@ -13,7 +13,7 @@ export class CreateResourceComponent implements OnInit {
     imgBanner: 'assets/images/bannerre.png',
   };
 
-  @ViewChild('fileDropRef', { static: false }) fileDropEl: ElementRef;
+  @ViewChild('fileDropRef', { static: false }) fileDropEl: ElementRef | any;
   files: any[] = [];
   competencias: any = [];
   lecciones: any = [];
@@ -64,14 +64,14 @@ export class CreateResourceComponent implements OnInit {
   /**
    * on file drop handler
    */
-  onFileDropped($event) {
+  onFileDropped($event: any) {
     this.prepareFilesList($event);
   }
 
   /**
    * handle file from browsing
    */
-  fileBrowseHandler(files) {
+  fileBrowseHandler(files: any) {
     this.prepareFilesList(files);
   }
 
@@ -141,7 +141,7 @@ export class CreateResourceComponent implements OnInit {
    * @param bytes (File size in bytes)
    * @param decimals (Decimals point)
    */
-  formatBytes(bytes, decimals = 2) {
+  formatBytes(bytes: any, decimals = 2) {
     if (bytes === 0) {
       return '0 Bytes';
     }

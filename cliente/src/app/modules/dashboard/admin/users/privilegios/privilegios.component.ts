@@ -45,7 +45,7 @@ export class PrivilegiosComponent implements OnInit {
       this.privilegios = response;
     });
   }
-  cambiarRol(item): any {
+  cambiarRol(item: any): any {
     this.rolSeleccionado = item.nombre;
     this.item = item;
     this.factory.getAll('privilegio').subscribe((response: any) => {
@@ -61,7 +61,7 @@ export class PrivilegiosComponent implements OnInit {
   }
   guardarPrivilegios(): any {
     this.spinner.show();
-    const query = [];
+    const query: any = [];
     this.privilegios.forEach((privilegio: any) => {
       if (privilegio.checked === true) {
         query.push(privilegio.id);

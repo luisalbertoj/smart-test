@@ -6,7 +6,7 @@ import { FactoryService } from 'src/app/services/factory.service';
 @Component({
   selector: 'app-vercalificar',
   templateUrl: './vercalificar.component.html',
-  styleUrls: ['./vercalificar.component.css']
+  styleUrls: ['./vercalificar.component.css'],
 })
 export class VercalificarComponent implements OnInit {
   public lecciones: any = [];
@@ -15,22 +15,22 @@ export class VercalificarComponent implements OnInit {
     public factory: FactoryService,
     private spinner: NgxSpinnerService,
     private toast: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.factory.returnAsObservable().subscribe((subs) => {
+    this.factory.returnAsObservable().subscribe((subs: any) => {
       subs === true ? this.spinner.hide() : this.spinner.show();
     });
     this.loadLecciones();
   }
 
   loadLecciones(): void {
-    this.factory.query('leccion/querys', { where: { } } ).subscribe(
+    this.factory.query('leccion/querys', { where: {} }).subscribe(
       (response: any) => {
         console.log(response);
         this.lecciones = response.data;
         this.toast.success('Lecciones cargadas');
-        console.log( this.lecciones );
+        console.log(this.lecciones);
       },
       (error: any) => {
         console.log(error);
@@ -38,5 +38,4 @@ export class VercalificarComponent implements OnInit {
       }
     );
   }
-
 }
