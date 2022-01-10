@@ -31,10 +31,12 @@ module.exports.datastores = {
   * (For production configuration, see `config/env/production.js`.)          *
   *                                                                          *
   ***************************************************************************/
- default: {
-   adapter: 'sails-mongo',
-   url: 'mongodb://localhost:27017/smart_test'
- },
+  default: {
+    host: '127.0.0.1',
+    port: 3306,
+    adapter: 'sails-mysql',
+    url: 'mysql://127.0.0.1:3306/smart_test',
+  },
 
   /* default: {
     adapter: 'sails-mongo',
@@ -61,7 +63,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
 
- 
+
     host: 'sql399.main-hosting.eu',
     port: 3306,
     adapter: 'sails-mysql',

@@ -20,7 +20,7 @@
     "sails-hook-slugs": "^4.0.1-beta.1",
     "sails-hook-sockets": "^2.0.0",
     "sails-mongo": "^2.0.0",
-    "sails-mysql": "^1.0.1",
+    "sails-mysql": "1.0.3",
     "slug": "^5.1.0"
   },
   "devDependencies": {
