@@ -43,16 +43,39 @@ de software.
 ---
 :trophy: El proyecto se desarrollo usando metodologia XP y Java Script como lenguaje general y sus frameworks. Angular v10 y sails JS v1.0
 
+## Angular
+>![logos](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/200px-Angular_full_color_logo.svg.png)
 
-| Angular | Sails JS | Maria DB |
-| -------- | -------- | -------- |
-| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png)     | ![](https://sailsjs.com/images/logos/sails-logo_ltBg_dkBlue.png)     | ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/MariaDB_colour_logo.svg/1200px-MariaDB_colour_logo.svg.png)     |
+## Sails Js
+>![logos](https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/SailsJS_logo.png/200px-SailsJS_logo.png)
 
-:star: Para el uso de mejores practicas en el desarrollo se usaron como herramientas externas
+## Maria DB
+>![logos](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/MariaDB_colour_logo.svg/200px-MariaDB_colour_logo.svg.png)
 
+Testing
+===
+---
+Angular Testing
 
-| Docker | Sonarqube | Jenkins |
-| -------- | -------- | -------- |
-| ![](https://1000marcas.net/wp-content/uploads/2020/02/Docker-Logo-1.png)     | ![](https://www.sonarqube.org/logos/index/sonarqube-logo.png)     |   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jenkins_logo_with_title.svg/2560px-Jenkins_logo_with_title.svg.png)   |
+Para ejecutar las pruebas instale las dependencias de proyecto
 
+> npm i
 
+Luego ejecute los test
+
+> npm run test
+---
+Sails JS Testing
+
+Para ejecutar las pruebas instale las dependecias del proyecto
+
+> npm i
+
+Luego ejecute los test
+
+> npm run test
+
+img[alt="logos"] { 
+  max-width:  10px; 
+  display: block;
+}
